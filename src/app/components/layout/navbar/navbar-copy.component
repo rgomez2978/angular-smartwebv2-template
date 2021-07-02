@@ -1,0 +1,169 @@
+<section class="contNav">
+    <!-- MENU WEB -->
+    <div class="contNav__web" [ngClass]="isShowBgMenu ? 'bg-white shadow-md':'bg-transparent'">
+        <nav *ngFor="let item of data">
+            <!-- Logo Empresa -->
+            <div (click)="closeAllSubMenu()" class="logoNav">
+                <a href="/" aria-label="Company" title="Company">
+                    <div *ngIf="isShowBgMenu">
+                        <app-media [data]="item.logo" [type]="'img'" [format]="'png'"></app-media>
+                    </div>
+                    <div *ngIf="!isShowBgMenu">
+                        <app-media [data]="item.logo2" [type]="'img'" [format]="'png'"></app-media>
+                    </div>
+                </a>
+            </div>
+            <!-- Opciones del Menu -->
+            <div class="itemNav">
+                <div class="itemNav__cont">
+                    <!-- Opciones del Menu -->
+                    <div class="itemNav__cont__menu" (click)="closeAllSubMenu()">
+                        <ul>
+                            <li *ngFor="let itemOpt of item.options; let i = index"
+                                class="border-transparent menuHorizontal"
+                                [ngClass]="{'hover:border-black': isShowBgMenu,'hover:border-white': !isShowBgMenu,'border-white': itemOpt.active && !isShowBgMenu ,'border-black': itemOpt.active && isShowBgMenu }">
+                                <!-- Opciones normales -->
+                                <span *ngIf="itemOpt.level === 1" [ngClass]="isShowBgMenu? 'text-black':' text-white'"
+                                    [routerLink]="itemOpt.url"
+                                    (click)="changeStatusWeb(item.options, i, itemOpt.id, 1, item.fragment, itemOpt.url)">
+                                    {{itemOpt.title}}
+                                </span>
+                                <!-- Opciones con submenu -->
+                                <span *ngIf="itemOpt.level === 2" [ngClass]="isShowBgMenu? 'text-black':' text-white'"
+                                    (mouseover)="closeAllSubMenu()">
+                                    {{itemOpt.title}}
+                                </span>
+                                <div *ngIf="itemOpt.level === 2" class="subItemNav menuHorizontal-hover:block">
+                                    <ul>
+                                        <li *ngFor="let itemOptSub of itemOpt.nodes; let j = index">
+                                            <a (click)="changeStatusWeb(item.options, i, itemOptSub.id, 2, itemOpt.fragment, itemOptSub.url)"
+                                                [routerLink]="itemOptSub.url" routerLinkActive="active"
+                                                [routerLinkActiveOptions]="{exact: true}"
+                                                [ngClass]="{'active': itemOptSub.active}">
+                                                <p>
+                                                    {{itemOptSub.title}}
+                                                </p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Opciones del Menu App y Menu Sesiones -->
+                    <div class="itemNav__cont__access">
+                        <!-- APPS -->
+                        <div class="access_apps_cont">
+                            <div *ngFor="let itemApps of item.apps; let j = index" class="border-transparent"
+                                [ngClass]="isShowBgMenu ? ' text-black hover:border-black':'  text-white hover:border-white '">
+                                <app-menu [data]="itemApps" [type]="'apps'"></app-menu>
+                            </div>
+                        </div>
+                        <!-- LOGIN -->
+                        <div class="access_session_cont">
+                            <div *ngFor="let itemSession of item.session; let j = index" class="border-transparent"
+                                [ngClass]="isShowBgMenu ? ' text-black hover:border-black':'  text-white hover:border-white '">
+                                <app-menu *ngIf="!isLogin" [data]="itemSession" [type]="'login1'"></app-menu>
+                                <app-menu *ngIf="isLogin" [data]="itemSession" [type]="'logged1'"></app-menu>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ICON Mobile menu -->
+            <div class="btnMobile ">
+                <button class="focus:outline-none focus:shadow-outline" (click)="toggleMenuMobile()"
+                    aria-label="Open Menu" title="Open Menu"
+                    [ngClass]="isShowBgMenu? 'border-black  hover:border-black ':' hover:border-white '">
+                    <i [ngClass]="isShowBgMenu? 'text-black ':' text-white '" class="icofont-navigation-menu"></i>
+                </button>
+            </div>
+        </nav>
+    </div>
+    <!-- MENU MOBILE -->
+    <div class="contNav__mobile" [ngClass]="openMenuMobile  ?'fixed inset-0' : 'block'">
+        <div class="contMobile" [ngClass]="openMenuMobile ? 'inset-0 absolute': 'block'">
+            <!-- OVerlay -->
+            <div class="contMobile__overlay" (click)="toggleMenuMobile()"
+                [ngClass]="openMenuMobile ?'absolute': 'flex'">
+            </div>
+            <!-- Menu -->
+            <section *ngFor="let item of data" class="contMobile__menu " [ngClass]="openMenuMobile  ? 'open': 'close'">
+
+                <!-- Seccion Nivel 1 -->
+                <div class="contMenu">
+                    <header>
+                        <!-- Cabecera -->
+                        <div class="contHeader">
+                            <a href="/" aria-label="Company" title="Company">
+                                <app-media [data]="item.logo" [type]="'img'" [format]="'png'"></app-media>
+                            </a>
+                            <button (click)="toggleMenuMobile()">
+                                <i class="icofont-close"></i>
+                            </button>
+                        </div>
+                        <div class="contBreadcrumb">
+                        </div>
+                        <!-- Opciones del menu -->
+                        <nav class="contContent" [ngClass]="openMenuMobileBack ? 'open':'close'">
+                            <ul>
+                                <li *ngFor="let itemOpt of item.options; let i = index"
+                                    [ngClass]="itemOpt.active?'bg-gray-200':''">
+                                    <!-- Opciones normales -->
+                                    <span *ngIf="itemOpt.level === 1"
+                                        (click)="changeStatusMobile(item.options, i, itemOpt.id, itemOpt.level, itemOpt.title);"
+                                        [routerLink]="itemOpt.url">
+                                        {{itemOpt.title}}
+                                    </span>
+                                    <!-- Opciones con submenu -->
+                                    <span *ngIf="itemOpt.level === 2"
+                                        (click)="changeStatusMobile(item.options, i, itemOpt.id, itemOpt.level, itemOpt.title);">
+                                        {{itemOpt.title}}
+                                    </span>
+                                </li>
+                            </ul>
+                        </nav>
+                    </header>
+                    <!-- LOgin - Logged -->
+                    <footer class="z-10 ">
+                        <hr>
+                        <div *ngFor="let itemSession of item.session; let j = index">
+                            <app-menu *ngIf="!isLogin" [data]="itemSession" [type]="'session_login'"></app-menu>
+                            <app-menu *ngIf="isLogin" [data]="itemSession" [type]="'session_logged'"></app-menu>
+                        </div>
+                    </footer>
+                </div>
+                <!-- Seccion nivel 2 -->
+                <div class="contSubMenu contMenu"
+                    [ngClass]="openMenuSubmobile == 2 && openMenuMobileBack ? 'open': 'close'">
+
+                    <header class="bg-transparent">
+                        <!-- Cabecera -->
+                        <div class="contHeader ">
+                        </div>
+                        <!-- IR atras -->
+                        <div class="contBreadcrumb">
+                            <button (click)="toggleSubMenuMobileBack()">
+                                <span [innerHtml]="item.icon_back | safedom: 'html'"></span>
+                                <h4>{{item.title_back}}</h4>
+                            </button>
+                        </div>
+                        <!-- OPciones del Sub menu -->
+                        <nav class="contContent">
+                            <ul>
+                                <li *ngFor="let itemOptSub of submenuMobileArray; let j = index"
+                                    [ngClass]="{'bg-gray-200': itemOptSub.active}">
+                                    <span
+                                        (click)="changeStatusMobile(submenuMobileArray, j, itemOptSub.id, itemOptSub.level, itemOptSub.title)"
+                                        [routerLink]="itemOptSub.url">{{itemOptSub.title}}</span>
+                                </li>
+                            </ul>
+                        </nav>
+                    </header>
+                    <footer class="bg-transparent ">
+                    </footer>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>

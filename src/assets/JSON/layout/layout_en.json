@@ -1,0 +1,483 @@
+{
+    "navbar": [{
+      "id": 1,
+      "order": 1,
+      "logo": "assets/img/logo2",
+      "logo2": "assets/img/logo",
+      "btn": "Ingresar",
+      "btn_link": "http://smart.alphagrupo.com/login",
+      "icon_back": "<i class=\"icofont-arrow-left\"></i>",
+      "title_back": "Atras",
+      "options": [{
+          "id": 1,
+          "order": 1,
+          "level": 1,
+          "icon": "",
+          "active": false,
+          "title": "Home",
+          "fragment": "",
+          "url": "/home",
+          "nodes": []
+        },
+        {
+          "id": 2,
+          "order": 2,
+          "level": 2,
+          "icon": "",
+          "active": false,
+          "title": "Products",
+          "fragment": "",
+          "url": "/products",
+          "nodes": [{
+              "id": 1,
+              "order": 1,
+              "level": 2,
+              "icon": "",
+              "active": false,
+              "title": "SmartConnect",
+              "fragment": "",
+              "url": "/products/1"
+            },
+            {
+              "id": 2,
+              "order": 2,
+              "level": 2,
+              "icon": "",
+              "active": false,
+              "title": "SmartChart",
+              "fragment": "",
+              "url": "/products/2"
+            },
+            {
+              "id": 3,
+              "order": 3,
+              "level": 2,
+              "icon": "",
+              "active": false,
+              "title": "SmartWork",
+              "fragment": "",
+              "url": "/products/3"
+            },
+            {
+              "id": 4,
+              "order": 4,
+              "level": 2,
+              "icon": "",
+              "active": false,
+              "title": "SmartProcess",
+              "fragment": "",
+              "url": "/products/4"
+            },
+            {
+              "id": 5,
+              "order": 5,
+              "level": 2,
+              "icon": "",
+              "active": false,
+              "title": "SmartCRM",
+              "fragment": "",
+              "url": "/products/5"
+            },
+            {
+              "id": 6,
+              "order": 6,
+              "level": 2,
+              "icon": "",
+              "active": false,
+              "title": "SmartHR",
+              "fragment": "",
+              "url": "/products/6"
+            },
+            {
+              "id": 7,
+              "order": 7,
+              "level": 2,
+              "icon": "",
+              "active": false,
+              "title": "SmartERP",
+              "fragment": "",
+              "url": "/products/7"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "order": 3,
+          "level": 1,
+          "icon": "",
+          "active": false,
+          "title": "Prices",
+          "fragment": "",
+          "url": "/planes",
+          "nodes": []
+        },
+        {
+          "id": 4,
+          "order": 4,
+          "level": 2,
+          "icon": "",
+          "active": false,
+          "title": "Resources",
+          "fragment": "",
+          "url": "/resources",
+          "nodes": [{
+              "id": 1,
+              "order": 1,
+              "level": 2,
+              "icon": "",
+              "active": false,
+              "title": "FAQ",
+              "fragment": "",
+              "url": "/resources/faqs"
+            }, {
+              "id": 2,
+              "order": 2,
+              "level": 2,
+              "icon": "",
+              "active": false,
+              "title": "Manuales de uso",
+              "fragment": "",
+              "url": "/resources/help"
+            },
+            {
+              "id": 3,
+              "order": 3,
+              "level": 2,
+              "icon": "",
+              "active": false,
+              "title": "Blog",
+              "fragment": "",
+              "url": "/resources/news"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "order": 5,
+          "level": 1,
+          "icon": "",
+          "active": false,
+          "title": "Contacts",
+          "fragment": "",
+          "url": "/contacts",
+          "nodes": []
+        }
+      ],
+      "apps": [{
+        "id": 1,
+        "order": 1,
+        "icon": "<i class=\"icofont-brand-microsoft\"></i>",
+        "items": [{
+            "id": 1,
+            "order": 1,
+            "level": 1,
+            "icon": "<i class=\"icofont-users-social\"></i>",
+            "active": false,
+            "title": "SmartAccount",
+            "fragment": "",
+            "url": "/"
+          },
+          {
+            "id": 2,
+            "order": 2,
+            "level": 1,
+            "icon": "<i class=\"icofont-contacts\"></i>",
+            "active": false,
+            "title": "SmartConnect",
+            "fragment": "",
+            "url": "/"
+          },
+          {
+            "id": 3,
+            "order": 3,
+            "level": 1,
+            "icon": "<i class=\"icofont-chart-flow\"></i>",
+            "active": false,
+            "title": "SmartChart",
+            "fragment": "",
+            "url": "/"
+          },
+          {
+            "id": 4,
+            "order": 4,
+            "level": 1,
+            "icon": "<i class=\"icofont-layout\"></i>",
+            "active": false,
+            "title": "SmartWork",
+            "fragment": "",
+            "url": "/"
+          }
+        ]
+      }],
+      "session": [{
+        "id": 1,
+        "order": 1,
+        "icon": "<i class=\"icofont-ui-user\"></i>",
+        "title": "Iniciar sesión",
+        "active": false,
+        "buttons": [{
+          "title": "Iniciar sesión",
+          "title2": "Registrarse"
+        }],
+        "login": [{
+          "icon": "<i class=\"icofont-sign-in\"></i>",
+          "title": "Iniciar sesión"
+        }],
+        "logged": [{
+          "avatar": "assets/img/avatar/avatar7",
+          "title": "Ronald Gomez",
+          "email": "rgomez@hidrocaven.com",
+          "active": true
+        }],
+        "logout": [{
+          "icon": "<i class=\"icofont-sign-out\"></i>",
+          "title": "Cerrar sesión"
+        }]
+      }]
+    }],
+    "footer": [{
+      "id": 1,
+      "order": 1,
+      "logo": "assets/img/logo2",
+      "description": "<p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. </p> <p> Eaque ipsa quae ab illo inventore veritatis et <strong>uasi</strong> architecto beatae vitae dicta sunt explicabo. </p>",
+      "url": "/",
+      "float": "Subir",
+      "socials": [{
+          "id": 1,
+          "order": 1,
+          "level": 1,
+          "icon": "<i class=\"icofont-facebook\"></i>",
+          "title": "facebook",
+          "url": "https://www.facebook.com/smartsuitetools/"
+        },
+        {
+          "id": 2,
+          "order": 2,
+          "level": 1,
+          "icon": "<i class=\"icofont-twitter\"></i>",
+          "title": "twitter",
+          "url": "https://twitter.com/SuiteTools"
+        },
+        {
+          "id": 3,
+          "order": 3,
+          "level": 1,
+          "icon": "<i class=\"icofont-instagram\"></i>",
+          "title": "instagram",
+          "url": "https://www.instagram.com/smartsuitetools/"
+        },
+        {
+          "id": 4,
+          "order": 4,
+          "level": 1,
+          "icon": "<i class=\"icofont-linkedin\"></i>",
+          "title": "linkedin",
+          "url": "https://www.linkedin.com/in/smartsuitetools/"
+        }
+      ],
+      "options": [{
+          "id": 1,
+          "order": 1,
+          "level": 2,
+          "icon": "",
+          "active": false,
+          "title": "Productos",
+          "fragment": "",
+          "url": "/products",
+          "nodes": [{
+              "id": 1,
+              "order": 1,
+              "level": 2,
+              "icon": "",
+              "active": false,
+              "title": "SmartConnect",
+              "fragment": "",
+              "url": "/products/1"
+            },
+            {
+              "id": 2,
+              "order": 2,
+              "level": 2,
+              "icon": "",
+              "active": false,
+              "title": "SmartChart",
+              "fragment": "",
+              "url": "/products/2"
+            },
+            {
+              "id": 3,
+              "order": 3,
+              "level": 2,
+              "icon": "",
+              "active": false,
+              "title": "SmartWork",
+              "fragment": "",
+              "url": "/products/3"
+            },
+            {
+              "id": 4,
+              "order": 4,
+              "level": 2,
+              "icon": "",
+              "active": false,
+              "title": "SmartProcess",
+              "fragment": "",
+              "url": "/products/4"
+            },
+            {
+              "id": 5,
+              "order": 5,
+              "level": 2,
+              "icon": "",
+              "active": false,
+              "title": "SmartCRM",
+              "fragment": "",
+              "url": "/products/5"
+            },
+            {
+              "id": 6,
+              "order": 6,
+              "level": 2,
+              "icon": "",
+              "active": false,
+              "title": "SmartHR",
+              "fragment": "",
+              "url": "/products/6"
+            },
+            {
+              "id": 7,
+              "order": 7,
+              "level": 2,
+              "icon": "",
+              "active": false,
+              "title": "SmartERP",
+              "fragment": "",
+              "url": "/products/7"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "order": 2,
+          "level": 2,
+          "icon": "",
+          "active": false,
+          "title": "Acerca de Smart",
+          "fragment": "",
+          "url": "",
+          "nodes": [{
+              "id": 1,
+              "order": 1,
+              "level": 2,
+              "icon": "",
+              "active": false,
+              "title": "Nosotros",
+              "fragment": "aboutus",
+              "url": "/aboutus"
+            },
+            {
+              "id": 2,
+              "order": 2,
+              "level": 2,
+              "icon": "",
+              "active": false,
+              "title": "¿Por qué Smart?",
+              "fragment": "whysmart",
+              "url": "/whysmart"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "order": 3,
+          "level": 2,
+          "icon": "",
+          "active": false,
+          "title": "Recursos",
+          "fragment": "",
+          "url": "",
+          "nodes": [{
+              "id": 1,
+              "order": 1,
+              "level": 2,
+              "icon": "",
+              "active": false,
+              "title": "FAQ",
+              "fragment": "faq",
+              "url": "/resources"
+            }, {
+              "id": 2,
+              "order": 2,
+              "level": 2,
+              "icon": "",
+              "active": false,
+              "title": "Manuales de uso",
+              "fragment": "help",
+              "url": "/help"
+            },
+            {
+              "id": 3,
+              "order": 3,
+              "level": 2,
+              "icon": "",
+              "active": false,
+              "title": "Blog",
+              "fragment": "news",
+              "url": "/news"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "order": 3,
+          "level": 2,
+          "icon": "",
+          "active": false,
+          "title": "Contáctanos",
+          "fragment": "",
+          "url": "",
+          "nodes": []
+        }
+      ],
+      "copyright": [{
+        "id": 1,
+        "order": 1,
+        "icon": "",
+        "description": "© 2021 SmartSuiteTools. Todos los derechos reservados.",
+        "lang": [{
+            "id": 1,
+            "order": 1,
+            "title": "Ingles",
+            "lang": "en"
+          },
+          {
+            "id": 2,
+            "order": 2,
+            "title": "Español",
+            "lang": "es"
+          }
+        ],
+        "options": [{
+            "id": 1,
+            "order": 1,
+            "title": "Políticas de privacidad",
+            "fragment": "",
+            "url": "/privacy-policies"
+          },
+          {
+            "id": 2,
+            "order": 2,
+            "title": "Términos Legales",
+            "fragment": "",
+            "url": "/legal-terms"
+          }, {
+            "id": 1,
+            "order": 1,
+            "title": "Mapa del Sitio",
+            "fragment": "",
+            "url": "/site-map"
+          }
+        ]
+      }]
+    }]
+  }

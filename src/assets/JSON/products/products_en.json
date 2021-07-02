@@ -1,0 +1,283 @@
+[{
+  "id": 1,
+  "order": 1,
+  "position": "left",
+  "icon": "far fa-address-book",
+  "title": "Contacto",
+  "description": "Aplicación móvil y web con sincronización automática para crear, gestionar y compartir tus contactos de una forma sencilla y eficiente.",
+  "header": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "img": "",
+    "title": "Productos",
+    "description": ""
+  }],
+  "browser": [{
+    "id": 1,
+    "order": 1,
+    "title": "Productos",
+    "description": ""
+  }],
+  "media": [{
+    "id": 1,
+    "order": 1,
+    "type": "img",
+    "url": "assets/img/productos/contacto.png",
+    "file": "assets/img/productos/contacto.png"
+  }],
+  "bullets": [{
+      "id": 1,
+      "order": 1,
+      "title": "Actualización automática.",
+      "description": ""
+    },
+    {
+      "id": 2,
+      "order": 2,
+      "title": "Fácil acceso.",
+      "description": ""
+    },
+    {
+      "id": 3,
+      "order": 3,
+      "title": "Búsquedas.",
+      "description": ""
+    },
+    {
+      "id": 4,
+      "order": 4,
+      "title": "Sugerencias.",
+      "description": ""
+    },
+    {
+      "id": 5,
+      "order": 5,
+      "title": "Seguridad y privacidad.",
+      "description": ""
+    },
+    {
+      "id": 6,
+      "order": 6,
+      "title": "Acceso gratuito.",
+      "description": ""
+    }
+  ],
+  "links": [{
+    "id": 1,
+    "order": 1,
+    "type": "btn",
+    "url": "/products/smart-contacts",
+    "title": "Leer más",
+    "description": ""
+  }],
+  "specifications": [{
+      "id": 1,
+      "order": 1,
+      "position": "left",
+      "icon": "fas fa-sync",
+      "title": "Actualización automática",
+      "description": "Mantén actualizada la información de tus contactos en tiempo real. Cualquier dato modificado en un usuario que tengas agregado, se sincroniza en tu libreta y en todas las libretas compartidas.",
+      "media": [{
+        "id": 1,
+        "order": 1,
+        "type": "img",
+        "url": "assets/img/productos/contacto/actualizacion-automatica.png",
+        "file": "assets/img/productos/contacto/actualizacion-automatica.png"
+      }],
+      "bullets": [],
+      "links": []
+    },
+    {
+      "id": 2,
+      "order": 2,
+      "position": "right",
+      "icon": "fas fa-people-arrows",
+      "title": "Fácil acceso",
+      "description": "Accede a tus contactos desde cualquier dispositivo móvil, tablet o web. También puedes consultar tus contactos desde tu celular sin conexión a Internet.",
+      "media": [{
+        "id": 1,
+        "order": 1,
+        "type": "img",
+        "url": "assets/img/productos/contacto/facil-acceso.png",
+        "file": "assets/img/productos/contacto/facil-acceso.png"
+      }],
+      "bullets": [],
+      "links": []
+    },
+    {
+      "id": 3,
+      "order": 3,
+      "position": "left",
+      "icon": "fas fa-search",
+      "title": "Búsquedas",
+      "description": "Obtén rápidamente coincidencias de cualquier palabra buscando en todos los campos de tus contactos o filtra por categorías.",
+      "media": [{
+        "id": 1,
+        "order": 1,
+        "type": "img",
+        "url": "assets/img/productos/contacto/busquedas-filtros.png",
+        "file": "assets/img/productos/contacto/busquedas-filtros.png"
+      }],
+      "bullets": [],
+      "links": []
+    },
+    {
+      "id": 4,
+      "order": 4,
+      "position": "right",
+      "icon": "fas fa-people-arrows",
+      "title": "Sugerencias",
+      "description": "Recibe recomendaciones para añadir personas a tu libreta y amplía tu red de contactos.",
+      "media": [{
+        "id": 1,
+        "order": 1,
+        "type": "img",
+        "url": "assets/img/productos/contacto/sugerencias.png",
+        "file": "assets/img/productos/contacto/sugerencias.png"
+      }],
+      "bullets": [],
+      "links": []
+    },
+    {
+      "id": 5,
+      "order": 5,
+      "position": "left",
+      "icon": "fas fa-shield-alt",
+      "title": "Seguridad y privacidad",
+      "description": "A través de nuestro sistema de roles y sesiones, asigna permisos según tu preferencia y garantiza el uso seguro de la información al compartir lo que desees.",
+      "media": [{
+        "id": 1,
+        "order": 1,
+        "type": "img",
+        "url": "assets/img/productos/contacto/seguridad-privacidad.png",
+        "file": "assets/img/productos/contacto/seguridad-privacidad.png"
+      }],
+      "bullets": [],
+      "links": []
+    },
+    {
+      "id": 6,
+      "order": 6,
+      "position": "right",
+      "icon": "fas fa-gift",
+      "title": "Acceso gratuito",
+      "description": "Obtén sin ningún costo los beneficios de un sistema eficiente e innovador de directorios.",
+      "media": [{
+        "id": 1,
+        "order": 1,
+        "type": "img",
+        "url": "assets/img/productos/contacto/acceso-gratuito.png",
+        "file": "assets/img/productos/contacto/acceso-gratuito.png"
+      }],
+      "bullets": [],
+      "links": []
+    }
+  ],
+  "screenshots": [{
+    "id": 1,
+    "order": 1,
+    "title": "¡Mira qué simple es!",
+    "description": "¿Tus contactos en un solo lugar con actualización automática cada vez que alguien hace un cambio? ¡Prueba Contacto! ¿Qué estás esperando para descargarla? ",
+    "img": "assets/img/mobile.png",
+    "media": [{
+        "id": 1,
+        "order": 1,
+        "type": "img",
+        "url": "assets/img/productos/contacto/phone/Contacto01.jpg",
+        "file": "assets/img/productos/contacto/phone/Contacto01.jpg"
+      },
+      {
+        "id": 2,
+        "order": 2,
+        "type": "img",
+        "url": "assets/img/productos/contacto/phone/Contacto02.jpg",
+        "file": "assets/img/productos/contacto/phone/Contacto02.jpg"
+      },
+      {
+        "id": 3,
+        "order": 3,
+        "type": "img",
+        "url": "assets/img/productos/contacto/phone/Contacto03.jpg",
+        "file": "assets/img/productos/contacto/phone/Contacto03.jpg"
+      },
+      {
+        "id": 4,
+        "order": 4,
+        "type": "img",
+        "url": "assets/img/productos/contacto/phone/Contacto04.jpg",
+        "file": "assets/img/productos/contacto/phone/Contacto04.jpg"
+      },
+      {
+        "id": 5,
+        "order": 5,
+        "type": "img",
+        "url": "assets/img/productos/contacto/phone/Contacto05.jpg",
+        "file": "assets/img/productos/contacto/phone/Contacto05.jpg"
+      },
+      {
+        "id": 6,
+        "order": 6,
+        "type": "img",
+        "url": "assets/img/productos/contacto/phone/Contacto06.jpg",
+        "file": "assets/img/productos/contacto/phone/Contacto06.jpg"
+      }
+    ]
+  }],
+  "cta": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "img": "",
+    "title": "¡Regístrate ya y disfruta de los beneficios de Smart! ",
+    "description": "",
+    "links": [{
+      "id": 1,
+      "order": 1,
+      "type": "btn",
+      "url": "http://smart.alphagrupo.com/register",
+      "title": "EMPEZAR AHORA",
+      "description": ""
+    }]
+  }],
+  "download": [{
+    "id": 1,
+    "order": 1,
+    "title": "¡Descarga Contacto hoy!",
+    "description": "",
+    "media": [{
+        "id": 1,
+        "order": 1,
+        "type": "",
+        "url": "",
+        "file": "assets/img/productos/contacto/download/app-img1.png"
+      },
+      {
+        "id": 2,
+        "order": 2,
+        "type": "",
+        "url": "",
+        "file": "assets/img/productos/contacto/download/app-img2.png"
+      }
+    ],
+    "links": [{
+        "id": 1,
+        "order": 1,
+        "type": "btn",
+        "url": "/",
+        "icon": "icofont-brand-android-robot",
+        "title": "Disponible en ",
+        "description": "Google Store"
+      },
+      {
+        "id": 2,
+        "order": 2,
+        "type": "btn",
+        "url": "/",
+        "icon": "icofont-brand-apple",
+        "title": "Disponible en",
+        "description": "Apple Store"
+      }
+    ]
+  }]
+}]

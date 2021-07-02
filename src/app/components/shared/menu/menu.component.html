@@ -1,0 +1,112 @@
+<!-- MENU APPS -->
+<div *ngIf="type === 'apps' ">
+    <div class="menu_apps_container" (click)="toggleMenuApps()">
+        <div *ngIf="showMenuApps" class="menu_apps_container__items">
+            <div *ngFor="let item of data.items" class="items_apps" [routerLink]="item.url">
+                <span [innerHtml]="item.icon | safedom: 'html'"></span>
+                <h4>{{item.title}}</h4>
+            </div>
+        </div>
+        <div class="menu_apps_container__iconNav" [innerHtml]="data.icon | safedom: 'html'">
+        </div>
+    </div>
+</div>
+
+<!-- MENU SESSION LOGIN - 1 -->
+<div *ngIf="type === 'login1' ">
+    <div class="menu_session_container" (click)="toggleMenuSession()">
+        <ul *ngIf="showMenuSession && !data.active" class="menu_session_container__items">
+            <li class="hover:bg-gray-200" *ngFor="let item of data.login" (click)="toggleMenuSession(); setLogin(true)">
+                <div class="items_cont">
+                    <span [innerHtml]="item.icon | safedom: 'html'"></span>
+                    <h4>{{item.title}}</h4>
+                </div>
+            </li>
+        </ul>
+        <div class="menu_session_container__iconNav" [innerHtml]="data.icon | safedom: 'html'">
+        </div>
+    </div>
+</div>
+
+<!-- MENU SESSION LOGGED - 1 -->
+<div *ngIf="type === 'logged1' ">
+    <div class="menu_session_container" (click)="toggleMenuSession()">
+        <ul *ngIf="showMenuSession" class="menu_session_container__items">
+            <li *ngFor="let itemLogged of data.logged" class="hover:bg-gray-200">
+                <div class="items_cont_avatar">
+                    <picture>
+                        <source type="image/webp" [attr.defaultImage]="itemLogged.avatar+'.webp'"
+                            [attr.lazyLoad]="itemLogged.avatar+'.webp'" />
+                        <img [defaultImage]="itemLogged.avatar+'.jpg'" [lazyLoad]="itemLogged.avatar+'.jpg'" />
+                    </picture>
+                    <div class="items_cont_avatar__user">
+                        <h3>{{itemLogged.title}}</h3>
+                        <h4>{{itemLogged.email}}</h4>
+                    </div>
+                </div>
+            </li>
+            <li class="hover:bg-transparent">
+                <hr>
+            </li>
+            <li *ngFor="let itemLogout of data.logout" class="hover:bg-gray-200"
+                (click)="toggleMenuSession(); setLogin(false)">
+                <div class="items_cont">
+                    <span [innerHtml]="itemLogout.icon | safedom: 'html'"></span>
+                    <h4>{{itemLogout.title}}</h4>
+                </div>
+            </li>
+        </ul>
+        <div *ngFor="let itemUser of data.logged" class="menu_session_container__iconNav">
+            <div *ngIf="itemUser.active">
+                <picture>
+                    <source type="image/webp" [attr.defaultImage]="itemUser.avatar+'.webp'"
+                        [attr.lazyLoad]="itemUser.avatar+'.webp'" />
+                    <img [defaultImage]="itemUser.avatar+'.jpg'" [lazyLoad]="itemUser.avatar+'.jpg'" />
+                </picture>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MENU MOBILE - SESSION LOGIN - 1 -->
+<div *ngIf="type === 'session_login'">
+    <div class="mobile_session_container" *ngFor="let itemBtn of data.buttons">
+        <button class="btn btn_light" (click)="setLogin(true); toggleMenuMobile()">{{itemBtn.title}}</button>
+        <button class="btn btn_dark">{{itemBtn.title2}}</button>
+    </div>
+</div>
+
+<!-- MENU MOBILE - SESSION LOGIN - 1 -->
+<div *ngIf="type === 'session_logged'">
+    <div class="mobile_session_container">
+        <div *ngFor="let itemLogged of data.logged" class="mobile_session_container__user">
+            <picture class="mobile_session_container__user__avatar">
+                <source type="image/webp" [attr.defaultImage]="itemLogged.avatar+'.webp'"
+                    [attr.lazyLoad]="itemLogged.avatar+'.webp'" />
+                <img [defaultImage]="itemLogged.avatar+'.jpg'" [lazyLoad]="itemLogged.avatar+'.jpg'" />
+            </picture>
+            <div class="mobile_session_container__user__email">
+                <h3>{{itemLogged.title}}</h3>
+                <h4>{{itemLogged.email}}</h4>
+            </div>
+        </div>
+        <button *ngFor="let itemLogout of data.logout" (click)="setLogin(false); toggleMenuMobile()"
+            class="mobile_session_container__close">
+            <span [innerHtml]="itemLogout.icon | safedom: 'html'"></span>
+        </button>
+    </div>
+</div>
+
+
+
+<!-- MENU SESSION LOGIN - 2 -->
+<!-- <div *ngIf="type === 'login2' ">
+    <button (click)="setLogin(true)" aria-label="Open Menu Session" title="Open Menu Session"
+        class="flex flex-row items-center p-2 space-x-1 transition duration-200 focus:outline-none focus:shadow-outline ">
+        <span class="">Iniciar sesion</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+    </button>
+</div> -->

@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.swiper-pagination-bullet {
+    // padding: 5px 10px;
+    // border-radius: 0;
+    // width: auto;
+    // height: 30px;
+    // text-align: center;
+    // line-height: 30px;
+    // font-size: 12px;
+    // color:#000;
+    // opacity: 1;
+    // background: rgba(0,0,0,0.2) !important;
+  }
+  .swiper-pagination-bullet-active {
+    @apply bg-gray-700 !important;
+  }
+  // ESTILOS APLICADOS A contenidos de JSON con inner html
+  .contLogo__description p {
+    @apply text-sm w-full text-justify text-gray-800 pb-3;
+  }
+
+  .videoBtn i{
+    // @apply text-2xl md:text-2xl lg:text-5xl;
+  }
+
+  #detach-button-host{
+    @apply hidden;
+  }

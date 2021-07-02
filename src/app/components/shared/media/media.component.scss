@@ -1,0 +1,11 @@
+picture {
+    img,
+    source {
+      @apply w-full h-auto;
+    }
+  }
+
+
+  video{
+      @apply flex flex-row w-full;
+  }

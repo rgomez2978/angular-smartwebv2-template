@@ -1,0 +1,329 @@
+import { Component, Inject, OnInit, OnDestroy, Input, HostListener } from "@angular/core";
+import { DOCUMENT } from '@angular/common';
+import { Router, NavigationStart, NavigationCancel, NavigationEnd, } from "@angular/router";
+import { Location, LocationStrategy, PathLocationStrategy, } from "@angular/common";
+import { Title } from '@angular/platform-browser';
+import { Store } from "@ngrx/store";
+import { AppState } from "src/app/store/app.reducers";
+import * as ownActions from '@redux/actions';
+import { Subscription } from "rxjs";
+import { ApiJsonService, CommonsService } from '@services/index';
+
+@Component({
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss'],
+  providers: [
+    Location,
+    {
+      provide: LocationStrategy,
+      useClass: PathLocationStrategy,
+    },
+  ],
+})
+export class NavbarComponent implements OnInit {
+  private _subscription: Subscription = new Subscription();
+  // uiSubscription: Subscription;
+
+  @Input() data: any;
+  location: any;
+  translate!: boolean;
+  isLogin: boolean = false;
+  isShowBgMenu!: boolean;
+  openMenuMobile!: boolean;
+  showMenuSession!: boolean;
+  showMenuApps!: boolean;
+  openMenuMobileBack!: boolean;
+  openMenuSubmobile!: number;
+  minTopScrollShow = 120;
+  urlActiveLevel1!: string;
+  urlActiveLevel2!: string;
+  frag: any = '';
+  pos: number = 0;
+  submenuMobileArray: [] = [];
+  dataArray: [] = [];
+
+
+
+
+  @HostListener('window:scroll')
+
+  /**
+   * -------------------------------------------------------
+   * @summary checkScroll
+   * @description  funcion que se auto ejecuta sin ngOninit
+   * para calcular scrooll
+   * Tanto window.pageYOffset como document.documentElement.scrollTop devuelven el
+   * mismo resultado en todos los casos.window.pageYOffset no se admite por debajo de IE 9
+   * -------------------------------------------------------
+   */
+  checkScroll() {
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (scrollPosition >= this.minTopScrollShow) {
+      this._commonsService.toggleShowBgMenu(true);
+    } else {
+      if (this.urlActiveLevel1 === '/home') {
+        this._commonsService.toggleShowBgMenu(false);
+      } else {
+        this._commonsService.toggleShowBgMenu(true);
+      }
+    }
+  }
+
+  constructor(
+    @Inject(DOCUMENT) private document: any,
+    private _router: Router,
+    private _titleService: Title,
+    private _apiJSONService: ApiJsonService,
+    private _commonsService: CommonsService,
+    private _store: Store<AppState>
+  ) { }
+
+
+  /**
+   * -------------------------------------------------------
+   * @summary ngOnInit
+   * @description  Inicializa funciones al cargar el
+   * -------------------------------------------------------
+   */
+  ngOnInit(): void {
+    this.setSubscriptions();
+
+  }
+
+
+  /**
+   * -------------------------------------------------------
+   * @summary setSubscriptions
+   * @description Traer el valor del state del estado del translated de redux
+   * -------------------------------------------------------
+   */
+  setSubscriptions() {
+
+
+    //   this.userSubs = this.store.select('user')
+    //     .pipe(
+    //       filter(({ user }) => user != null)
+    //     )
+    //     .subscribe(({ user }) => this.nombre = user.nombre);
+    // }
+
+
+    // let valor = this._store.select('ui').subscribe(state => this.isShowBgMenu = state.showBgMenu);
+
+    // console.log('valor :>> ', this.isShowBgMenu);
+    // this.isShowBgMenu
+
+    // this._subscription.add(
+    // this._store.select('ui').subscribe((state) => {
+    //   this.openMenuMobile = state.open_menu_mobile;
+    //   this.openMenuMobileBack = state.open_menu_mobile_back;
+    //   this.urlActiveLevel1 = state.urlActive1;
+    //   this.urlActiveLevel2 = state.urlActive2;
+    //   this.isShowBgMenu = state.showBgMenu;
+    //   this.isLogin = state.login;
+    //   console.log('state.showBgMenu :>> ', state.showBgMenu);
+    // })
+    // );
+    // if (this.data[0] || this.data[0] != undefined) {
+    //   this.activeMenuOnLoad(this.data[0].options, this.urlActiveLevel1)
+    // }
+  }
+
+
+
+
+  /**
+   * -------------------------------------------------------|
+   * @summary activeMenuOnLoad
+   * @description Recorrar el array y cambia el status activa del
+   * elemento en base a la url a true del level 1  y los demas a false
+   * @param {any} data Array de opciones
+   * @param {string} url valor de la url
+   * -------------------------------------------------------
+   */
+  activeMenuOnLoad(data: any, url: string) {
+    // if (url === '/home') {
+    //   this._commonsService.toggleShowBgMenu(false);
+    // } else {
+    //   this._commonsService.toggleShowBgMenu(true);
+    // }
+
+    data.filter((item: any) => {
+      if (item.url === url) { item.active = true; }
+      else {
+        item.active = false
+        if (item.nodes.length > 0) {
+          item.nodes.map((subitem: any) => { subitem.active = false; });
+        }
+      }
+    });
+
+    console.log('activeMenuOnLoad - url :>>', url, ' data :>> ', data);
+  }
+
+
+
+  /**
+  * -------------------------------------------------------|
+  * @summary changeStatus
+  * @description Recorrar el array y cambia el status activa del
+  * elemento seleccionado a true y los demas a false
+  * @param {any} data Array de opciones
+  * @param {number} index Posicion del arreglo
+  * @param {number} id Element id
+  * @param {number} level Nivel del menu
+  * @param {any} fragment Nombre del fragmento
+  * @param {string} name Nombre del title
+  * -------------------------------------------------------
+  */
+  changeStatusWeb(data: any, index: number, id: number, level: number, fragment: any, name: string) {
+    // Activacion de fondo del menu por seccion de la pagina
+    if (level === 1 && name === '/home') {
+      this._store.dispatch(ownActions.setShowBgMenu({ showBgMenu: false }));
+    }
+    else if ((level === 2)) {
+      this._store.dispatch(ownActions.setShowBgMenu({ showBgMenu: true }));
+
+    } else {
+      this._store.dispatch(ownActions.setShowBgMenu({ showBgMenu: true }));
+    }
+
+    if (data[index].nodes.length > 0) {
+      //   data.forEach((item: any) => {
+      //     if (item.nodes.length > 0) {
+      //       item.nodes.forEach((subitem: any) => {
+      //         subitem.active = false;
+      //       });
+      //     } else {
+      //       item.active = false;
+      //     }
+      //   });
+      //   this.urlActiveLevel1 = this.urlActiveLevel1 + '#';
+      //   if (level === 2) {
+      //     data[index].nodes.forEach((subitem: any) => {
+      //       if (subitem.id === id) {
+      //         subitem.active = true;
+      //       } else {
+      //         subitem.active = false;
+      //       }
+      //     });
+      //   }
+      // } else {
+      //   data.forEach((item: any) => {
+      //     if (item.nodes.length > 0) {
+      //       item.nodes.forEach((subitem: any) => {
+      //         subitem.active = false;
+      //       });
+      //     } else {
+      //       if (item.id === id) {
+      //         item.active = true;
+      //       } else {
+      //         item.active = false;
+      //       }
+      //     }
+      //   });
+    }
+  }
+
+  /**
+   * -------------------------------------------------------
+   * @summary changeStatusMobile
+   * @description Recorrar el array y cambia el status activa del
+   * elemento seleccionado a true y los demas a false
+   * @param {any} data Array de opciones
+   * @param {number} index Posicion del arreglo
+   * @param {number} id Element id
+   * @param {number} level NIvel del menu
+   * @param {string} title Titulo del item seleccionado
+   * -------------------------------------------------------
+   */
+  changeStatusMobile(data: any, index: number, id: number, level: number, title: string) {
+    data.forEach((item: any) => {
+      if (item.id === id) {
+        item.active = true;
+      } else {
+        item.active = false;
+      }
+    });
+
+    if (level === 1) {
+      this.toggleMenuMobile();
+    } else {
+      if (this.openMenuMobileBack) {
+        this.toggleSubMenuMobile(level, data[index], false);
+      } else {
+        this.toggleSubMenuMobile(level, data[index], true);
+      }
+    }
+  }
+
+  /**
+   * -------------------------------------------------------
+   * @summary toggleMenuMobile
+   * @description Cambia el valor del menu mobile obteniendo valor desde localstorage
+   * -------------------------------------------------------
+   */
+  toggleMenuMobile() {
+    this._store.dispatch(ownActions.toggleMenuMobile());
+  }
+
+  /**
+   * -------------------------------------------------------
+   * @summary toggleSubMenuMobile
+   * @description Cambia el valor del submenu menu mobile obteniendo valor desde localstorage
+   * @param {any} array Arreglo
+   * @param {number} level Nivel del menu
+   * @param {boolean} back Ir atras o no
+   * -------------------------------------------------------
+   */
+  toggleSubMenuMobile(level: number, array: any, back: boolean) {
+    this.submenuMobileArray = array.nodes;
+    this.openMenuSubmobile = level;
+    this._store.dispatch(ownActions.setMenuMobileBack({ open_menu_mobile_back: back }));
+  }
+
+  /**
+   * -------------------------------------------------------
+   * @summary setLogin
+   * @description  Cambia el estado del usaurio logueado
+   * @param {bollean} value valor del estado para el login
+   * -------------------------------------------------------
+   */
+  setLogin(value: boolean) {
+    this._store.dispatch(ownActions.setLogin({ login: value }));
+  }
+
+  /**
+   * -------------------------------------------------------
+   * @summary toggleSubMenuMobile
+   * @description Cambia el valor del menu mobile obteniendo valor desde localstorage
+   * -------------------------------------------------------
+   */
+  toggleSubMenuMobileBack() {
+    this._store.dispatch(ownActions.setMenuMobileBack({ open_menu_mobile_back: false }));
+  }
+
+  /**
+   * -------------------------------------------------------
+   * @summary closeAllSubMenu
+   * @description Asigna el valor del menu de sesiones  y apps obteniendo valor desde localstorage
+   * -------------------------------------------------------
+   */
+  closeAllSubMenu() {
+    this._store.dispatch(ownActions.setMenuSession({ show_menu_session: false }));
+    this._store.dispatch(ownActions.setMenuApps({ show_menu_app: false }));
+  }
+
+
+  /**
+   * -------------------------------------------------------
+   * @summary ngOnDestroy
+   * @description  Destruye conexiones abiertas
+   * -------------------------------------------------------
+   */
+  ngOnDestroy() {
+    this._subscription.unsubscribe();
+  }
+
+}

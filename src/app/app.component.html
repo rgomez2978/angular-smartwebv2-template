@@ -1,0 +1,15 @@
+<!-- VALOR {{loading}} -->
+<app-loading *ngIf="loading" class="animate__animated animate__fadeIn"></app-loading>
+<div *ngIf="!loading" class="containerPage animate__animated animate__fadeIn">
+    <div>
+        <div class="section1">
+            <app-navbar [data]="dataNavbar"></app-navbar>
+            <div (click)="closeAllSubMenu()" id="initial">
+                <!-- <router-outlet></router-outlet> -->
+            </div>
+        </div>
+        <div (click)="closeAllSubMenu()" class="section2">
+            <!-- <app-footer [data]="dataFooter"></app-footer> -->
+        </div>
+    </div>
+</div>

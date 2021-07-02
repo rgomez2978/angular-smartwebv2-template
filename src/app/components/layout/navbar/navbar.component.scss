@@ -1,0 +1,221 @@
+// CONTENEDOR DEL MENU WEB
+.contNav {
+    @apply fixed inset-0 z-50 w-full h-20 bg-transparent xl:bg-contain;
+    // CONTENEDOR MENU WEB
+    &__web {
+      @apply z-50 flex flex-row items-center h-20 transition duration-150 transform;
+      nav {
+        @apply flex w-full h-full;
+        // MENU WEB - Logo
+        .logoNav {
+          @apply flex flex-row items-center justify-start w-auto h-auto px-5;
+          a {
+            @apply flex flex-row items-center;
+          }
+        }
+        // MENU WEB - Items del menu
+        .itemNav {
+          @apply flex flex-row items-center justify-end w-full;
+          .itemNav__cont {
+            @apply items-center justify-end hidden w-full h-full md:flex;
+            &__menu {
+              @apply flex items-center justify-end w-max h-full;
+              > ul {
+                @apply items-center justify-end hidden h-12 px-5 mx-4 space-x-4 md:flex;
+                > li {
+                  @apply relative items-center h-full px-0 border-2 w-full rounded cursor-pointer;
+                  span {
+                    @apply font-medium tracking-wide transition-colors duration-150 h-full flex items-center w-full px-3;
+                  }
+                  > .subItemNav {
+                    @apply absolute inset-0 z-10 flex-col hidden pt-3 mt-10;
+                    > ul {
+                      @apply px-4 pt-4 pb-5 bg-white rounded;
+                      > li {
+                        @apply w-full cursor-pointer;
+                        a {
+                          @apply flex items-start p-3 hover:bg-gray-200 menuSub;
+                          &.active {
+                            @apply bg-gray-200;
+                          }
+                          p {
+                            @apply text-base font-medium text-black;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            &__access {
+              @apply flex items-center justify-center h-full pr-5;
+              .access_apps_cont {
+                @apply items-center hidden h-12 w-max md:flex cursor-pointer;
+              }
+              .access_session_cont {
+                @apply items-center hidden h-12 w-max md:flex cursor-pointer;
+              }
+            }
+          }
+        }
+
+        .btnMobile {
+          @apply flex flex-row items-center h-full mr-6 md:hidden;
+          button {
+            @apply h-12 px-2 transition duration-200 bg-transparent border-2 rounded;
+            i {
+              @apply w-6 px-0 text-xl;
+            }
+          }
+        }
+      }
+    }
+
+
+
+    // CONTENEDOR MENU MOBILE
+    &__mobile {
+      @apply z-20 flex flex-col justify-between md:hidden;
+
+      .contMobile {
+        @apply inset-0 overflow-hidden;
+
+        &__overlay {
+          @apply inset-0 bg-gray-900 bg-opacity-75;
+        }
+
+        &__menu {
+          @apply transition duration-300 transform;
+
+          &.open {
+            @apply absolute flex inset-y-0 left-0 translate-x-0 ease-out;
+          }
+          &.close {
+            @apply fixed flex inset-y-0 left-0 -translate-x-full ease-in;
+          }
+
+          .contMenu {
+            @apply flex flex-col h-full p-3 bg-white w-96;
+
+            header {
+              @apply flex flex-col h-full space-y-3 bg-white;
+
+              .contHeader {
+                @apply z-10 flex items-center justify-between h-20;
+
+                a {
+                  @apply flex flex-row items-center;
+                  span {
+                    @apply ml-2 text-2xl font-bold tracking-wide uppercase text-black;
+                  }
+                }
+                button {
+                  @apply p-0 border-2 border-black rounded focus:outline-none w-auto h-auto;
+                  i {
+                    @apply px-1 text-2xl;
+                  }
+                }
+              }
+
+              .contBreadcrumb {
+                @apply flex w-full h-5 pt-5;
+
+                button {
+                  @apply flex flex-row items-center focus:outline-none pl-2 space-x-1;
+
+                  span {
+                    @apply text-2xl;
+                  }
+                  h4 {
+                    @apply text-xl;
+                  }
+                }
+              }
+
+              .contContent {
+                @apply flex flex-col h-full pt-3 overscroll-auto transition duration-200 transform;
+
+                &.open {
+                  @apply -translate-x-full ease-in -ml-20;
+                }
+                &.close {
+                  @apply translate-x-0 ease-out;
+                }
+                > ul {
+                  @apply pt-2 pb-4 space-y-1 text-sm bg-transparent;
+                  > li {
+                    @apply text-lg font-medium rounded-md hover:bg-gray-300 cursor-pointer;
+                    span {
+                      @apply rounded-md flex items-center px-3 p-2 space-x-3;
+                    }
+                  }
+                }
+              }
+            }
+            footer {
+              @apply flex flex-col items-start justify-center w-full h-20;
+
+              > hr {
+                @apply w-full pb-4;
+              }
+
+              > div {
+                @apply flex-row items-center w-full p-2 text-xl;
+              }
+            }
+          }
+          .contSubMenu {
+            @apply bg-transparent transform  transition duration-150;
+
+            &.open {
+              @apply absolute flex inset-y-0 left-0 translate-x-0 ease-out;
+            }
+            &.close {
+              @apply fixed flex inset-y-0 left-0 -translate-x-full ease-in;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .header_mobile {
+    height: 70px;
+    padding-bottom: 10px;
+  }
+
+  .menuLevel.active {
+    @apply bg-blue-300;
+  }
+
+  .menuSub.active {
+    @apply bg-blue-300;
+  }
+
+  .menuSubMenu.active {
+    @apply bg-gray-300;
+  }
+
+  .menuHorizontal:hover .menuHorizontal-hover\:block {
+    display: flex !important;
+    width: max-content !important;
+  }
+
+  .menuPanel.active {
+    max-height: 400px;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in;
+  }
+
+  .menuPanel.inactive {
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .menuPanel {
+    max-height: 0;
+    overflow: hidden;
+    // transition: max-height 0.5s ease;
+  }
