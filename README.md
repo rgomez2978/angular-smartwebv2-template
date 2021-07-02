@@ -148,6 +148,8 @@ A continuación se indican las librerias necesarias para la ejecución del proye
 
         ng g s services/api-json --flat --skip-tests
         ng g s services/commons --flat --skip-tests
+        ng g s services/redux-data --flat --skip-tests
+        ng g s services/local-session-storage-data --flat --skip-tests
 
 8.  Creación de pipes
 

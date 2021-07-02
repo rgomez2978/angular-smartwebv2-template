@@ -1,8 +1,6 @@
 import { Component, Inject, OnInit, OnDestroy, Input, HostListener } from "@angular/core";
 import { DOCUMENT } from '@angular/common';
-import { Router, NavigationStart, NavigationCancel, NavigationEnd, } from "@angular/router";
 import { Location, LocationStrategy, PathLocationStrategy, } from "@angular/common";
-import { Title } from '@angular/platform-browser';
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/store/app.reducers";
 import * as ownActions from '@redux/actions';
@@ -23,11 +21,7 @@ import { ApiJsonService, CommonsService } from '@services/index';
 })
 export class NavbarComponent implements OnInit {
   private _subscription: Subscription = new Subscription();
-  // uiSubscription: Subscription;
-
   @Input() data: any;
-  location: any;
-  translate!: boolean;
   isLogin: boolean = false;
   isShowBgMenu: boolean = false;
   openMenuMobile!: boolean;
@@ -62,20 +56,18 @@ export class NavbarComponent implements OnInit {
   checkScroll() {
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     if (scrollPosition >= this.minTopScrollShow) {
-      this.isShowBgMenu = true;
+      this._commonsService.toggleShowBgMenu(true);
     } else {
       if (this.urlActiveLevel1 === '/home') {
-        this.isShowBgMenu = false;
+        this._commonsService.toggleShowBgMenu(false);
       } else {
-        this.isShowBgMenu = true;
+        this._commonsService.toggleShowBgMenu(true);
       }
     }
   }
 
   constructor(
     @Inject(DOCUMENT) private document: any,
-    private _router: Router,
-    private _titleService: Title,
     private _apiJSONService: ApiJsonService,
     private _commonsService: CommonsService,
     private _store: Store<AppState>
@@ -92,7 +84,6 @@ export class NavbarComponent implements OnInit {
     this.setSubscriptions();
   }
 
-
   /**
    * -------------------------------------------------------
    * @summary setSubscriptions
@@ -102,15 +93,16 @@ export class NavbarComponent implements OnInit {
   setSubscriptions() {
     // this._subscription.add(
     this._subscription = this._store.select('ui').subscribe((state) => {
-      // this.openMenuMobile = state.open_menu_mobile;
-      // this.openMenuMobileBack = state.open_menu_mobile_back;
+      this.openMenuMobile = state.open_menu_mobile;
+      this.openMenuMobileBack = state.open_menu_mobile_back;
       this.urlActiveLevel1 = state.urlActive1;
       this.urlActiveLevel2 = state.urlActive2;
       this.language = state.language;
       this.apiConnect = state.apiConnect;
       this.apiConsumedES = state.apiConsumedES;
       this.apiConsumedEN = state.apiConsumedEN;
-      // this.isLogin = state.login;
+      this.isLogin = state.login;
+      this.isShowBgMenu = state.showBgMenu;
 
       setTimeout(() => {
         if (this.data[0] || this.data[0] != undefined) {
@@ -190,7 +182,7 @@ export class NavbarComponent implements OnInit {
     // console.log('id :>> ', id);
     // console.log('level :>> ', level);
     // console.log('name :>> ', name);
-    console.log('this.urlActiveLevel1 :>> ', this.urlActiveLevel1);
+    // console.log('this.urlActiveLevel1 :>> ', this.urlActiveLevel1);
 
 
     if (level === 1 && name === '/home') { this.isShowBgMenu = false; }

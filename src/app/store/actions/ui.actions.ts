@@ -10,23 +10,20 @@ export const setShowBtnVideo = createAction(
     props<{ show_btnvideo: boolean }>()
 );
 
-// export const setShowBgMenu = createAction(
-//     "[UI] Set BAckground Menu horizontal",
-//     props<{ showBgMenu: boolean }>()
-// );
-
+export const setShowBgMenu = createAction(
+    "[UI] Set BAckground Menu horizontal",
+    props<{ showBgMenu: boolean }>()
+);
 
 export const setAPIConnect = createAction(
     "[UI] Set API CONNECT",
     props<{ apiConnect: boolean, apiConsumedES: boolean, apiConsumedEN: boolean}>()
 );
 
-
 export const setArrayES = createAction(
     "[UI] Set Array ES",
     props<{ arrayES: any}>()
 );
-
 
 export const setUrl = createAction(
     "[UI] Set Url",

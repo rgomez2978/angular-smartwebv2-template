@@ -8,7 +8,7 @@ export interface UiState {
     show_menu_app: boolean;
     show_menu_session: boolean;
     show_btnvideo: boolean;
-    // showBgMenu: boolean;
+    showBgMenu: boolean;
     login: boolean;
     loading: boolean;
     urlActive1: string;
@@ -28,7 +28,7 @@ export const uiState: UiState = {
     show_menu_app: false,
     show_menu_session: false,
     show_btnvideo: false,
-    // showBgMenu: false,
+    showBgMenu: false,
     login: false,
     loading: false,
     urlActive1: "",
@@ -44,22 +44,18 @@ export const uiState: UiState = {
 const _uiReducer = createReducer(
     uiState,
 
-    //  Asigna los valores de las URL
+    //  Asigna los valores de conexion de api
     on(ownActions.setAPIConnect, (state, { apiConnect, apiConsumedES, apiConsumedEN }) => ({
         ...state,
         apiConnect,
         apiConsumedES,
         apiConsumedEN
     })),
-
-
-    //  Asigna los valores de las URL
-    on(ownActions.setArrayES, (state, { arrayES }) => ({
-        ...state,
-        arrayES,
-    })),
-
-
+    //  Asigna los valores del ARREGLO
+    // on(ownActions.setArrayES, (state, { arrayES }) => ({
+    //     ...state,
+    //     arrayES,
+    // })),
     //  Cambia el estado del Menu de apps
     on(ownActions.toggleMenuApps, (state) => ({
         ...state,
@@ -76,10 +72,10 @@ const _uiReducer = createReducer(
         show_btnvideo,
     })),
     //  Asigna el estado del background del menu horizontal
-    // on(ownActions.setShowBgMenu, (state, { showBgMenu }) => ({
-    //     ...state,
-    //     showBgMenu,
-    // })),
+    on(ownActions.setShowBgMenu, (state, { showBgMenu }) => ({
+        ...state,
+        showBgMenu,
+    })),
     //  Asigna los valores de las URL
     on(ownActions.setUrl, (state, { urlActive1, urlActive2 }) => ({
         ...state,

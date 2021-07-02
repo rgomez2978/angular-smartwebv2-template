@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 // import { LayoutInterface, } from '@interfaces/index';
-import { Store } from '@ngrx/store';
-import { AppState } from '@redux/app.reducers';
-import * as ownActions from '@redux/actions';
+import { ReduxService } from '@services/index';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +10,10 @@ import * as ownActions from '@redux/actions';
 export class ApiJsonService {
   url!: string;
 
-  constructor(private _http: HttpClient,
-    private _store: Store<AppState>) { }
+  constructor(
+    private _http: HttpClient,
+    private _reduxService: ReduxService
+  ) { }
 
   /**
    * -------------------------------------------------------
@@ -28,6 +28,32 @@ export class ApiJsonService {
     }),
   };
 
+
+  /**
+   * -------------------------------------------------------
+   * @summary getJSON
+   * @description  Consumir API - GET
+   * @param {string} lang lenguage
+   * @param {string} pag lenguage
+   * @param {boolean} apiConES status de conexion de api en español
+   * @param {boolean} apiConEN status de conexion de api en ingles
+   * -------------------------------------------------------
+   */
+   getJSON(lang: string, page: string, apiConES:boolean, apiConEN:boolean) {
+    if (lang === "en") {
+      this.url = `assets/JSON/${page}/${page}_en.json`;
+      this._reduxService.setAPIConnect(true,false,true)
+    }
+    else {
+      this.url = `assets/JSON/${page}/${page}_es.json`;
+      this._reduxService.setAPIConnect(true,true,false)
+    }
+    // return this._http.get<LayoutInterface>(this.url, this.httpOptions);
+    return this._http.get<any>(this.url, this.httpOptions);
+  }
+
+
+
   /**
    * -------------------------------------------------------
    * @summary getJSONLayout
@@ -40,11 +66,11 @@ export class ApiJsonService {
   getJSONLayout(lang: string, apiConES:boolean, apiConEN:boolean) {
     if (lang === "en") {
       this.url = `assets/JSON/layout/layout_en.json`;
-      this._store.dispatch(ownActions.setAPIConnect({ apiConnect: true, apiConsumedES:false, apiConsumedEN:true }));
+      this._reduxService.setAPIConnect(true,false,true)
     }
     else {
       this.url = `assets/JSON/layout/layout_es.json`;
-      this._store.dispatch(ownActions.setAPIConnect({ apiConnect: true, apiConsumedES:true, apiConsumedEN:false }));
+      this._reduxService.setAPIConnect(true,true,false)
     }
     // return this._http.get<LayoutInterface>(this.url, this.httpOptions);
     return this._http.get<any>(this.url, this.httpOptions);
