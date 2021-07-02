@@ -1,5 +1,5 @@
 <section class="contNav">
-    <div class="contNav__web" [ngClass]="isShowBgMenu ? 'bg-black shadow-md':'bg-transparent bg-red-600'">
+    <div class="contNav__web" [ngClass]="isShowBgMenu ? 'bg-black bg-gray-500 shadow-md':'bg-transparent bg-red-600'">
         <nav *ngFor="let item of data">
             <div (click)="closeAllSubMenu()" class="logoNav">
                 <a href="/" aria-label="Company" title="Company">
@@ -15,6 +15,13 @@
                 <div class="itemNav__cont">
                     <div class="itemNav__cont__menu" (click)="closeAllSubMenu()">
                         <ul>
+                            <li (click)="setTranslate('es')" class="border-transparent menuHorizontal">
+                                <span [ngClass]="isShowBgMenu? 'text-black':' text-white'">Es</span>
+                            </li>
+                            <li (click)="setTranslate('en')" class="border-transparent menuHorizontal">
+                                <span [ngClass]="isShowBgMenu? 'text-black':' text-white'">En</span>
+                            </li>
+
                             <li *ngFor="let itemOpt of item.options; let i = index"
                                 class="border-transparent menuHorizontal"
                                 [ngClass]="{'hover:border-black': isShowBgMenu,'hover:border-white': !isShowBgMenu,'border-white': itemOpt.active && !isShowBgMenu ,'border-black': itemOpt.active && isShowBgMenu }">
@@ -69,6 +76,11 @@
                 </button>
             </div>
         </nav>
+    </div>
+    <div>
+        <span>
+            {{data[0]?.options[0].title | json }} {{data[0]?.options[0].active | json }}
+        </span>
     </div>
     <!-- MENU MOBILE -->
     <!-- <div class="contNav__mobile" [ngClass]="openMenuMobile  ?'fixed inset-0' : 'block'">

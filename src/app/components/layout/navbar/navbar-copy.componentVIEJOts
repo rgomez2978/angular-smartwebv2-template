@@ -42,10 +42,8 @@ export class NavbarComponent implements OnInit {
   pos: number = 0;
   submenuMobileArray: [] = [];
   dataArray: [] = [];
-  language!: string;
-  apiConnect!: boolean;
-  apiConsumedES!: boolean;
-  apiConsumedEN!: boolean;
+
+
 
 
   @HostListener('window:scroll')
@@ -106,24 +104,17 @@ export class NavbarComponent implements OnInit {
       // this.openMenuMobileBack = state.open_menu_mobile_back;
       this.urlActiveLevel1 = state.urlActive1;
       this.urlActiveLevel2 = state.urlActive2;
-      this.language = state.language;
-      this.apiConnect = state.apiConnect;
-      this.apiConsumedES = state.apiConsumedES;
-      this.apiConsumedEN = state.apiConsumedEN;
       // this.isLogin = state.login;
-
-      setTimeout(() => {
-        if (this.data[0] || this.data[0] != undefined) {
-          // console.log(`NAVBAR => ${this.language}`, this.data[0].options);
-          this.activeMenuOnLoad(this.data[0].options, this.urlActiveLevel1, this.language)
-        }
-      }, 100);
-
-
+      // console.log('this.isShowBgMenu :>> ', this.isShowBgMenu);
+      // console.log('this.urlActiveLevel1 :>> ', this.urlActiveLevel1);
     })
     // );
 
+    if (this.data[0] || this.data[0] != undefined) {
+      console.log('Se carga menu');
 
+      this.activeMenuOnLoad(this.data[0].options, this.urlActiveLevel1)
+    }
 
 
     //   this.userSubs = this.store.select('user')
@@ -136,6 +127,20 @@ export class NavbarComponent implements OnInit {
 
     // let valor = this._store.select('ui').subscribe(state => this.isShowBgMenu = state.showBgMenu);
 
+    // console.log('valor :>> ', this.isShowBgMenu);
+    // this.isShowBgMenu
+
+    // this._subscription.add(
+    // this._store.select('ui').subscribe((state) => {
+    //   this.openMenuMobile = state.open_menu_mobile;
+    //   this.openMenuMobileBack = state.open_menu_mobile_back;
+    //   this.urlActiveLevel1 = state.urlActive1;
+    //   this.urlActiveLevel2 = state.urlActive2;
+    //   this.isShowBgMenu = state.showBgMenu;
+    //   this.isLogin = state.login;
+    //   console.log('state.showBgMenu :>> ', state.showBgMenu);
+    // })
+    // );
 
   }
 
@@ -151,9 +156,10 @@ export class NavbarComponent implements OnInit {
    * @param {string} url valor de la url
    * -------------------------------------------------------
    */
-  activeMenuOnLoad(data: any, url: string, lang: string) {
-    if (url === '/home') { this.isShowBgMenu = false; }
-    else { this.isShowBgMenu = true; }
+  activeMenuOnLoad(data: any, url: string) {
+    console.log('data :>> ', data, 'url :>> ', url);
+    // if (url === '/home') { this.isShowBgMenu = false; }
+    // else { this.isShowBgMenu = true; }
 
     data.filter((item: any) => {
       if (item.url === url) { item.active = true; }
@@ -165,7 +171,7 @@ export class NavbarComponent implements OnInit {
       }
     });
 
-    // console.log('activeMenuOnLoad - url :>>', url, ' lang :>> ', lang, ' data :>> ', data);
+    console.log('activeMenuOnLoad - url :>>', url, ' data :>> ', data);
   }
 
 
@@ -185,11 +191,11 @@ export class NavbarComponent implements OnInit {
   */
   changeStatusWeb(data: any, index: number, id: number, level: number, fragment: any, name: string) {
     // Activacion de fondo del menu por seccion de la pagina
-    // console.log('data :>> ', data);
-    // console.log('index :>> ', index);
-    // console.log('id :>> ', id);
-    // console.log('level :>> ', level);
-    // console.log('name :>> ', name);
+    console.log('data :>> ', data);
+    console.log('index :>> ', index);
+    console.log('id :>> ', id);
+    console.log('level :>> ', level);
+    console.log('name :>> ', name);
     console.log('this.urlActiveLevel1 :>> ', this.urlActiveLevel1);
 
 
@@ -325,58 +331,14 @@ export class NavbarComponent implements OnInit {
 
   /**
    * -------------------------------------------------------
-   * @summary setTranslate
+   * @summary closeAllSubMenu
    * @description Asignacion de cambio del state para translate con redux
    * @param {string} value Valor del idioma a mostran (en-es)
    * -------------------------------------------------------
    */
   setTranslate(value: string) {
     // this._commonsService.setItemLocalStorage('initLang', 'true');
-    // console.log('this.data :>> ', this.data);
-    // console.log('setTranslate this.apiConnect :>> ', this.apiConnect);
-    // console.log('setTranslate this.apiConsumedES :>> ', this.apiConsumedES);
-    // console.log('setTranslate this.apiConsumedEN :>> ', this.apiConsumedEN);
-
     this._store.dispatch(ownActions.setTranslate({ language: value }));
-
-    if (value === 'es' && this.apiConnect && this.apiConsumedES && !this.apiConsumedEN) {
-      console.log('CARGO PRIMERA VEZ API en ESPAÑOL');
-      this._store.dispatch(ownActions.setAPIConnect({ apiConnect: true, apiConsumedES: true, apiConsumedEN: false }));
-    }
-    else if (value === 'en' && this.apiConnect && !this.apiConsumedES && this.apiConsumedEN) {
-      console.log('CARGO PRIMERA VEZ API en INGLES');
-      this._store.dispatch(ownActions.setAPIConnect({ apiConnect: true, apiConsumedES: false, apiConsumedEN: true }));
-    }
-
-    // else if (value === 'es' && !this.apiConsumedES) {
-    //   console.log('NO cargo solo API en español');
-    //   this._store.dispatch(ownActions.setAPIConnect({ apiConnect: false, apiConsumedES: false, apiConsumedEN: false }));
-    // }
-    // else if (value === 'en' && this.apiConsumedEN) {
-    //   console.log('YA cargo solo API  en ingles');
-    //   this._store.dispatch(ownActions.setAPIConnect({ apiConnect: true, apiConsumedES: false, apiConsumedEN: true }));
-    // }
-    // else if (value === 'en' && !this.apiConsumedEN) {
-    //   console.log('NO cargo solo API  en ingles');
-    //   this._store.dispatch(ownActions.setAPIConnect({ apiConnect: false, apiConsumedES: false, apiConsumedEN: true }));
-    // }
-    // else if (value === 'es' && this.apiConsumedEN || value === 'en' && this.apiConsumedES) {
-    //   console.log('YA cargo varias API');
-    //   this._store.dispatch(ownActions.setAPIConnect({ apiConnect: true, apiConsumedES: true, apiConsumedEN: true }));
-    // }
-    else {
-      // if (value === 'es' && this.apiConnect && !this.apiConsumedES && this.apiConsumedEN) {
-      //   console.log('CARGO API en ESPAÑOL');
-      //   this._store.dispatch(ownActions.setAPIConnect({ apiConnect: false, apiConsumedES: false, apiConsumedEN: true }));
-      // }
-      // else if (value === 'en' && this.apiConnect && this.apiConsumedES && !this.apiConsumedEN) {
-      //   console.log('CARGO API en INGLES');
-      //   this._store.dispatch(ownActions.setAPIConnect({ apiConnect: false, apiConsumedES: true, apiConsumedEN: false }));
-      // }
-      // else {
-        this._store.dispatch(ownActions.setAPIConnect({ apiConnect: false, apiConsumedES: this.apiConsumedES, apiConsumedEN: this.apiConsumedEN }));
-      // }
-    }
   }
 
 

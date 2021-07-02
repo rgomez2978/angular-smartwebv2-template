@@ -28,16 +28,19 @@ export class AppComponent implements OnInit, OnDestroy {
   translate!: boolean;
 
   data: any = [];
+  dataESP: any = [];
+  dataING: any = [];
   dataNavbar: any = [];
   dataFooter: any = [];
   dataClients: any = [];
-
   loading!: boolean;
   showMenuApps!: boolean;
   showMenuSession!: boolean;
-
   language!: string;
   initLang!: boolean;
+  apiConnect!: boolean;
+  apiConsumedES!: boolean;
+  apiConsumedEN!: boolean;
 
   constructor(
     location: Location,
@@ -57,6 +60,7 @@ export class AppComponent implements OnInit, OnDestroy {
    */
   ngOnInit() {
     this._titleService.setTitle('Smart Suite Tools');
+    this.setLoading()
     this.setSubscriptions();
   }
 
@@ -67,25 +71,71 @@ export class AppComponent implements OnInit, OnDestroy {
    * -------------------------------------------------------
    */
   setSubscriptions() {
-    this._subscription.add(
-      this._store.select('ui').subscribe((state) => {
-        this.loading = state.loading;
-        this.language = state.language;
-        this.initLang = state.initLang;
-        this._apiJSONService.getJSONLayout(state.language).subscribe(
-          (resp: any) => {
-            this.data = resp;
-            this.dataNavbar = resp.navbar;
-            this.dataFooter = resp.footer;
-            console.log(`LAYOUT => ${state.language}`, this.data);
-          },
-          (error: any) => console.log(`error`, error),
-          () => { }
-        );
+    // this._subscription.add(
+    this._subscription = this._store.select('ui').subscribe((state) => {
+      this.loading = state.loading;
+      this.language = state.language;
+      this.initLang = state.initLang;
+      this.apiConnect = state.apiConnect;
+      this.apiConsumedES = state.apiConsumedES;
+      this.apiConsumedEN = state.apiConsumedEN;
 
-      })
-    );
+      console.log('setSubscriptions this.apiConnect :>> ', this.apiConnect);
+      console.log('setSubscriptions this.apiConsumedES :>> ', this.apiConsumedES);
+      console.log('setSubscriptions this.apiConsumedEN :>> ', this.apiConsumedEN);
+      // console.log('state.arrayES :>> ', state.arrayES.length);
+      if ((!this.apiConnect && !this.apiConsumedES) || (!this.apiConnect && !this.apiConsumedEN))  {
+        console.log('CONSUMIR API');
+        this.getData(this.language);
+      }
+      else {
+        console.log('CONSUMIR ARREGLO');
+        // console.log('this.data :>> ', this.data);
+        // console.log('this.dataNavbar :>> ', this.dataNavbar);
+        // console.log('this.dataFooter :>> ', this.dataFooter);
+      }
+    })
+    // );
+
+    // if (this.data.length == 0 || this.data !== undefined) {
+    //   // console.log('ANTES DE CONSUMIR API this.data  :>> ', this.data);
+    //   this.getData(this.language)
+    // } else {
+    //   // console.log('CONSUMIR ARREGLO');
+    // }
+
   }
+
+
+  /**
+   * -------------------------------------------------------
+   * @summary getData
+   * @description Retorna la data layout - menu y footer
+   * @param {string} lang lenguage
+   * @param {string} page pagina de json a cargar
+   * -------------------------------------------------------
+   */
+  getData(lang: string) {
+    this._apiJSONService.getJSONLayout(this.language, this.apiConsumedES, this.apiConsumedEN).subscribe(
+      (resp: any) => {
+        // this.data = [];
+        this.data = resp;
+        this.dataNavbar = this.data.navbar;
+        this.dataFooter = this.data.footer;
+        console.log('API consumida ');
+        // console.log(`LAYOUT => ${this.language}`, this.data);
+      },
+      (error: any) => console.log(`error`, error),
+      () => { }
+    );
+
+
+
+    // this._store.dispatch(ownActions.setArrayES({ arrayES: this.data }));
+
+  }
+
+
 
 
   /**
@@ -113,7 +163,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this._commonsService.getURlView(event, this._router.url);
         setTimeout(() => {
           this._store.dispatch(ownActions.setLoading({ loading: false }));
-        }, 300);
+        }, 800);
       });
   }
 
@@ -125,8 +175,8 @@ export class AppComponent implements OnInit, OnDestroy {
    * -------------------------------------------------------
    */
   closeAllSubMenu() {
-    this._store.dispatch(ownActions.setMenuSession({ show_menu_session: false }));
-    this._store.dispatch(ownActions.setMenuApps({ show_menu_app: false }));
+    // this._store.dispatch(ownActions.setMenuSession({ show_menu_session: false }));
+    // this._store.dispatch(ownActions.setMenuApps({ show_menu_app: false }));
   }
 
   /**

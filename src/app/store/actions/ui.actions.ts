@@ -4,15 +4,29 @@ export const toggleMenuMobile = createAction("[LAYOUT] Toggle Menu Mobile");
 export const toggleMenuApps = createAction("[LAYOUT] Toggle Menu APPS");
 export const toggleMenuSession = createAction("[LAYOUT] Toggle Menu Session");
 
+
 export const setShowBtnVideo = createAction(
     "[UI] Set Boton Video",
     props<{ show_btnvideo: boolean }>()
 );
 
-export const setShowBgMenu = createAction(
-    "[UI] Set BAckground Menu horizontal",
-    props<{ showBgMenu: boolean }>()
+// export const setShowBgMenu = createAction(
+//     "[UI] Set BAckground Menu horizontal",
+//     props<{ showBgMenu: boolean }>()
+// );
+
+
+export const setAPIConnect = createAction(
+    "[UI] Set API CONNECT",
+    props<{ apiConnect: boolean, apiConsumedES: boolean, apiConsumedEN: boolean}>()
 );
+
+
+export const setArrayES = createAction(
+    "[UI] Set Array ES",
+    props<{ arrayES: any}>()
+);
+
 
 export const setUrl = createAction(
     "[UI] Set Url",

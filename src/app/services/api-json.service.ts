@@ -2,13 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 // import { LayoutInterface, } from '@interfaces/index';
+import { Store } from '@ngrx/store';
+import { AppState } from '@redux/app.reducers';
+import * as ownActions from '@redux/actions';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ApiJsonService {
   url!: string;
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient,
+    private _store: Store<AppState>) { }
 
   /**
    * -------------------------------------------------------
@@ -28,12 +33,19 @@ export class ApiJsonService {
    * @summary getJSONLayout
    * @description  Consumir API - GET - LAYOUT
    * @param {string} lang lenguage
-   * @param {string} page pagina de json a cargar
+   * @param {boolean} apiConES status de conexion de api en español
+   * @param {boolean} apiConEN status de conexion de api en ingles
    * -------------------------------------------------------
    */
-  getJSONLayout(lang: string) {
-    if (lang === "en") { this.url = `assets/JSON/layout/layout_en.json`; }
-    else { this.url = `assets/JSON/layout/layout_es.json`; }
+  getJSONLayout(lang: string, apiConES:boolean, apiConEN:boolean) {
+    if (lang === "en") {
+      this.url = `assets/JSON/layout/layout_en.json`;
+      this._store.dispatch(ownActions.setAPIConnect({ apiConnect: true, apiConsumedES:false, apiConsumedEN:true }));
+    }
+    else {
+      this.url = `assets/JSON/layout/layout_es.json`;
+      this._store.dispatch(ownActions.setAPIConnect({ apiConnect: true, apiConsumedES:true, apiConsumedEN:false }));
+    }
     // return this._http.get<LayoutInterface>(this.url, this.httpOptions);
     return this._http.get<any>(this.url, this.httpOptions);
   }

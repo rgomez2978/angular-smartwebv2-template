@@ -62,6 +62,10 @@ export class CommonsService implements OnDestroy {
     //  console.log(`urlRoute`, urlRoute)
     let arrayUrl1 = urlRoute.split('/');
     let arrayUrl2 = arrayUrl1[1].split('#');
+
+    // console.log('arrayUrl1 :>> ', arrayUrl1);
+    // console.log('arrayUrl2 :>> ', arrayUrl2);
+
     let urlActiveLevel1 = '';
     let urlActiveLevel2 = '';
     if (arrayUrl2.length === 1) {
@@ -70,12 +74,14 @@ export class CommonsService implements OnDestroy {
       } else {
         urlActiveLevel1 = '/' + arrayUrl2[0];
       }
+      // console.log('DISPATCH getURlView arrayUrl2.length === 1:>> ');
       this._store.dispatch(ownActions.setUrl({ urlActive1: urlActiveLevel1, urlActive2: '' }));
     }
     else {
       urlActiveLevel1 = arrayUrl2[0];
       urlActiveLevel2 = arrayUrl2[1];
-      this._store.dispatch(ownActions.setUrl({ urlActive1: urlActiveLevel1, urlActive2: urlActiveLevel2, }));
+      console.log('dispatch arrayUrl2.length >  1:>> ');
+      // this._store.dispatch(ownActions.setUrl({ urlActive1: urlActiveLevel1, urlActive2: urlActiveLevel2, }));
     }
   }
 
@@ -89,7 +95,7 @@ export class CommonsService implements OnDestroy {
    * -------------------------------------------------------
    */
   toggleShowBgMenu(value: boolean) {
-    this._store.dispatch(ownActions.setShowBgMenu({ showBgMenu: value }));
+    // this._store.dispatch(ownActions.setShowBgMenu({ showBgMenu: value }));
   }
 
 
@@ -101,8 +107,8 @@ export class CommonsService implements OnDestroy {
    * -------------------------------------------------------
    */
   toggleMenuApps() {
-    this._store.dispatch(ownActions.setMenuSession({ show_menu_session: false }));
-    this._store.dispatch(ownActions.toggleMenuApps());
+    // this._store.dispatch(ownActions.setMenuSession({ show_menu_session: false }));
+    // this._store.dispatch(ownActions.toggleMenuApps());
   }
 
   /**
@@ -112,8 +118,8 @@ export class CommonsService implements OnDestroy {
    * -------------------------------------------------------
    */
   toggleMenuSession() {
-    this._store.dispatch(ownActions.setMenuApps({ show_menu_app: false }));
-    this._store.dispatch(ownActions.toggleMenuSession());
+    // this._store.dispatch(ownActions.setMenuApps({ show_menu_app: false }));
+    // this._store.dispatch(ownActions.toggleMenuSession());
   }
 
   /**
@@ -123,7 +129,7 @@ export class CommonsService implements OnDestroy {
   * -------------------------------------------------------
   */
   toggleMenuMobile() {
-    this._store.dispatch(ownActions.toggleMenuMobile());
+    // this._store.dispatch(ownActions.toggleMenuMobile());
   }
 
   /**
@@ -134,7 +140,7 @@ export class CommonsService implements OnDestroy {
    * -------------------------------------------------------
    */
   toggleSubMenuMobileBack(back: boolean) {
-    this._store.dispatch(ownActions.setMenuMobileBack({ open_menu_mobile_back: back }));
+    // this._store.dispatch(ownActions.setMenuMobileBack({ open_menu_mobile_back: back }));
   }
 
 
@@ -145,8 +151,8 @@ export class CommonsService implements OnDestroy {
    * -------------------------------------------------------
    */
   closeAllSubMenu() {
-    this._store.dispatch(ownActions.setMenuSession({ show_menu_session: false }));
-    this._store.dispatch(ownActions.setMenuApps({ show_menu_app: false }));
+    // this._store.dispatch(ownActions.setMenuSession({ show_menu_session: false }));
+    // this._store.dispatch(ownActions.setMenuApps({ show_menu_app: false }));
   }
 
 
@@ -158,7 +164,7 @@ export class CommonsService implements OnDestroy {
    * -------------------------------------------------------
    */
   setLogin(value: boolean) {
-    this._store.dispatch(ownActions.setLogin({ login: value }));
+    // this._store.dispatch(ownActions.setLogin({ login: value }));
   }
 
   /**
@@ -169,7 +175,7 @@ export class CommonsService implements OnDestroy {
    * -------------------------------------------------------
    */
   setTranslate(value: string) {
-    this._store.dispatch(ownActions.setTranslate({ language: value }));
+    // this._store.dispatch(ownActions.setTranslate({ language: value }));
   }
 
   /**
@@ -180,7 +186,7 @@ export class CommonsService implements OnDestroy {
    * -------------------------------------------------------
    */
   setTranslateInit(value: boolean) {
-    this._store.dispatch(ownActions.setTranslateInit({ initLang: value }));
+    // this._store.dispatch(ownActions.setTranslateInit({ initLang: value }));
   }
 
 
