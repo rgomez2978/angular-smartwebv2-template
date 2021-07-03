@@ -30,9 +30,9 @@ export class NavbarComponent implements OnInit {
   urlActiveLevel1!: string;
   urlActiveLevel2!: string;
   language!: string;
-  apiConnect!: boolean;
-  apiConsumedES!: boolean;
-  apiConsumedEN!: boolean;
+  apiConLayout!: boolean;
+  apiConLayoutES!: boolean;
+  apiConLayoutEN!: boolean;
   submenuMobileArray: any = [];
 
 
@@ -93,9 +93,9 @@ export class NavbarComponent implements OnInit {
       this.urlActiveLevel1 = state.urlActive1;
       this.urlActiveLevel2 = state.urlActive2;
       this.language = state.language;
-      this.apiConnect = state.apiConnect;
-      this.apiConsumedES = state.apiConsumedES;
-      this.apiConsumedEN = state.apiConsumedEN;
+      this.apiConLayout = state.apiConLayout;
+      this.apiConLayoutES = state.apiConLayoutES;
+      this.apiConLayoutEN = state.apiConLayoutEN;
       this.isLogin = state.login;
 
       setTimeout(() => {
@@ -268,41 +268,6 @@ export class NavbarComponent implements OnInit {
   closeAllSubMenu() {
     this._reduxService.closeAllSubMenu();
   }
-
-  // /**
-  //  * -------------------------------------------------------
-  //  * @summary setTranslate
-  //  * @description Asignacion de cambio del state para translate con redux
-  //  * @param {string} value Valor del idioma a mostran (en-es)
-  //  * -------------------------------------------------------
-  //  */
-  // setTranslate(value: string) {
-  //   // Activa el tipo de idioma
-  //   this._reduxService.setTranslate(value);
-
-  //   if (value === 'es' && this.apiConnect && this.apiConsumedES && !this.apiConsumedEN) {
-  //     this._reduxService.setAPIConnect(true, true, false);
-  //     // console.log('YA CARGO JSON EN ESPANOL');
-  //   }
-  //   else if (value === 'en' && this.apiConnect && !this.apiConsumedES && this.apiConsumedEN) {
-  //     this._reduxService.setAPIConnect(true, false, true);
-  //     // console.log('YA CARGO JSON EN INGLES');
-  //   }
-  //   else {
-  //     // if (value === 'es' && this.apiConnect && !this.apiConsumedES && this.apiConsumedEN) {
-  //     //   console.log('CARGO API en ESPAÑOL');
-  //     //   this._reduxService.setAPIConnect(false, false, true);
-  //     // }
-  //     // else if (value === 'en' && this.apiConnect && this.apiConsumedES && !this.apiConsumedEN) {
-  //     //   console.log('CARGO API en INGLES');
-  //     //   this._reduxService.setAPIConnect(false, true, false);
-  //     // }
-  //     // else {
-  //     this._reduxService.setAPIConnect(false, this.apiConsumedES, this.apiConsumedEN);
-  //     // }
-  //   }
-  // }
-
 
 
   /**

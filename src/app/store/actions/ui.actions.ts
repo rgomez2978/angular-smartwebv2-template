@@ -15,10 +15,79 @@ export const setShowBgMenu = createAction(
     props<{ showBgMenu: boolean }>()
 );
 
-export const setAPIConnect = createAction(
-    "[UI] Set API CONNECT",
-    props<{ apiConnect: boolean, apiConsumedES: boolean, apiConsumedEN: boolean }>()
+export const setAPIConnectLayout = createAction(
+    "[UI] Set API CONNECT LAYOUT",
+    props<{
+        apiConLayout: boolean,
+        apiConLayoutES: boolean,
+        apiConLayoutEN: boolean
+    }>()
 );
+
+
+export const setAPIConnectHome = createAction(
+    "[UI] Set API CONNECT HOME",
+    props<{
+        apiConHome: boolean,
+        apiConHomeES: boolean,
+        apiConHomeEN: boolean
+    }>()
+);
+
+export const setAPIConnectProducts = createAction(
+    "[UI] Set API CONNECT PRODUCTS",
+    props<{
+        apiConProducts: boolean,
+        apiConProductsES: boolean,
+        apiConProductsEN: boolean
+    }>()
+);
+
+export const setAPIConnectPlanes = createAction(
+    "[UI] Set API CONNECT PLANES",
+    props<{
+        apiConPlanes: boolean,
+        apiConPlanesES: boolean,
+        apiConPlanesEN: boolean
+    }>()
+);
+
+export const setAPIConnectResources = createAction(
+    "[UI] Set API CONNECT RESOURCES",
+    props<{
+        apiConResources: boolean,
+        apiConResourcesES: boolean,
+        apiConResourcesEN: boolean
+    }>()
+);
+
+export const setAPIConnectInfo = createAction(
+    "[UI] Set API CONNECT INFO",
+    props<{
+        apiConInfo: boolean,
+        apiConInfoES: boolean,
+        apiConInfoEN: boolean
+    }>()
+);
+
+export const setAPIConnectPolicies = createAction(
+    "[UI] Set API CONNECT POLICIES",
+    props<{
+        apiConPolicies: boolean,
+        apiConPoliciesES: boolean,
+        apiConPoliciesEN: boolean
+    }>()
+);
+
+export const setAPIConnectSites = createAction(
+    "[UI] Set API CONNECT SITES",
+    props<{
+        apiConSites: boolean,
+        apiConSitesES: boolean,
+        apiConSitesEN: boolean
+    }>()
+);
+
 
 export const setArrayES = createAction(
     "[UI] Set Array ES",

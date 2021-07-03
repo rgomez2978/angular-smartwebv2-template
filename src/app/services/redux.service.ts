@@ -36,17 +36,29 @@ export class ReduxService {
 
   /**
    * -------------------------------------------------------
-   * @summary setAPIConnect
-   * @description Cambia el status de conectiviada a API
+   * @summary setAPIConnectLayout
+   * @description Cambia el status de conectiviada a API de LAYPUT
    * @param {boolean} conn valor de conexiona a API en general
    * @param {boolean} conn_es valor de conexiona a API ESPAÑOL
    * @param {boolean} conn_en valor de conexiona a API INGLES
    * -------------------------------------------------------
    */
-  setAPIConnect(conn: boolean, conn_es: boolean, conn_en: boolean,) {
-    this._store.dispatch(ownActions.setAPIConnect({ apiConnect: conn, apiConsumedES: conn_es, apiConsumedEN: conn_en }));
+  setAPIConnectLayout(conn: boolean, conn_es: boolean, conn_en: boolean,) {
+    this._store.dispatch(ownActions.setAPIConnectLayout({ apiConLayout: conn, apiConLayoutES: conn_es, apiConLayoutEN: conn_en }));
   }
 
+  /**
+   * -------------------------------------------------------
+   * @summary setAPIConnectHome
+   * @description Cambia el status de conectiviada a API de LAYPUT
+   * @param {boolean} conn valor de conexiona a API en general
+   * @param {boolean} conn_es valor de conexiona a API ESPAÑOL
+   * @param {boolean} conn_en valor de conexiona a API INGLES
+   * -------------------------------------------------------
+   */
+  setAPIConnectHome(conn: boolean, conn_es: boolean, conn_en: boolean,) {
+    this._store.dispatch(ownActions.setAPIConnectHome({ apiConHome: conn, apiConHomeES: conn_es, apiConHomeEN: conn_en }));
+  }
 
 
 

@@ -30,9 +30,9 @@ export class AppComponent implements OnInit, OnDestroy {
   showMenuSession!: boolean;
 
   language!: string;
-  apiConnect!: boolean;
-  apiConsumedES!: boolean;
-  apiConsumedEN!: boolean;
+  apiConLayout!: boolean;
+  apiConLayoutES!: boolean;
+  apiConLayoutEN!: boolean;
 
   constructor(
     location: Location,
@@ -67,9 +67,9 @@ export class AppComponent implements OnInit, OnDestroy {
       this._subscription = this._store.select('ui').subscribe((state) => {
         this.loading = state.loading;
         this.language = state.language;
-        this.apiConnect = state.apiConnect;
-        this.apiConsumedES = state.apiConsumedES;
-        this.apiConsumedEN = state.apiConsumedEN;
+        this.apiConLayout = state.apiConLayout;
+        this.apiConLayoutES = state.apiConLayoutES;
+        this.apiConLayoutEN = state.apiConLayoutEN;
         // console.clear();
         this.getData(this.language)
       })
@@ -86,8 +86,8 @@ export class AppComponent implements OnInit, OnDestroy {
    * -------------------------------------------------------
    */
   getData(lang: string) {
-    if ((!this.apiConnect && !this.apiConsumedES) || (!this.apiConnect && !this.apiConsumedEN)) {
-      this._apiJSONService.getJSONLayout(lang, this.apiConsumedES, this.apiConsumedEN).subscribe(
+    if ((!this.apiConLayout && !this.apiConLayoutES) || (!this.apiConLayout && !this.apiConLayoutEN)) {
+      this._apiJSONService.getJSONLayout(lang, this.apiConLayoutES, this.apiConLayoutEN).subscribe(
         (resp: any) => {
           this.data = resp;
           this.dataNavbar = this.data.navbar;

@@ -281,7 +281,7 @@
           "level": 2,
           "icon": "",
           "active": false,
-          "title": "Productos",
+          "title": "Products",
           "fragment": "",
           "url": "/products",
           "nodes": [{
@@ -362,7 +362,7 @@
           "level": 2,
           "icon": "",
           "active": false,
-          "title": "Acerca de Smart",
+          "title": "About Smart",
           "fragment": "",
           "url": "",
           "nodes": [{
@@ -371,7 +371,7 @@
               "level": 2,
               "icon": "",
               "active": false,
-              "title": "Nosotros",
+              "title": "About Us",
               "fragment": "aboutus",
               "url": "/aboutus"
             },
@@ -381,7 +381,7 @@
               "level": 2,
               "icon": "",
               "active": false,
-              "title": "¿Por qué Smart?",
+              "title": "Why Smart?",
               "fragment": "whysmart",
               "url": "/whysmart"
             }
@@ -393,7 +393,7 @@
           "level": 2,
           "icon": "",
           "active": false,
-          "title": "Recursos",
+          "title": "Resources",
           "fragment": "",
           "url": "",
           "nodes": [{

@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/store/app.reducers";
 import { Subscription } from "rxjs";
-import { ReduxService } from '@services/index';
+import { ReduxService, ApiJsonService, CommonsService } from '@services/index';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -11,13 +11,14 @@ import { ReduxService } from '@services/index';
 export class FooterComponent implements OnInit {
   private _subscription: Subscription = new Subscription();
   @Input() data: any;
-  apiConnect!: boolean;
-  apiConsumedES!: boolean;
-  apiConsumedEN!: boolean;
+  urlActiveLevel1!: string;
+  urlActiveLevel2!: string;
   language!: string;
 
   constructor(
     private _reduxService: ReduxService,
+    private _apiJsonService: ApiJsonService,
+    private _commonsService: CommonsService,
     private _store: Store<AppState>
   ) { }
 
@@ -32,20 +33,23 @@ export class FooterComponent implements OnInit {
   }
 
 
+
   /**
-   * -------------------------------------------------------
-   * @summary setSubscriptions
-   * @description Traer el valor del state del estado del translated de redux
-   * -------------------------------------------------------
-   */
+  * -------------------------------------------------------
+  * @summary setSubscriptions
+  * @description Traer el valor del state del estado del translated de redux
+  * -------------------------------------------------------
+  */
   setSubscriptions() {
-    this._subscription = this._store.select('ui').subscribe((state) => {
-      this.language = state.language;
-      this.apiConnect = state.apiConnect;
-      this.apiConsumedES = state.apiConsumedES;
-      this.apiConsumedEN = state.apiConsumedEN;
-    })
+    this._subscription.add(
+      this._store.select('ui').subscribe((state) => {
+        this.urlActiveLevel1 = state.urlActive1;
+        this.urlActiveLevel2 = state.urlActive2;
+        this.language = state.language;
+      })
+    );
   }
+
 
   /**
    * -------------------------------------------------------
@@ -66,30 +70,9 @@ export class FooterComponent implements OnInit {
    * -------------------------------------------------------
    */
   setTranslate(value: string) {
-    // Activa el tipo de idioma
-    this._reduxService.setTranslate(value);
-
-    if (value === 'es' && this.apiConnect && this.apiConsumedES && !this.apiConsumedEN) {
-      this._reduxService.setAPIConnect(true, true, false);
-      // console.log('YA CARGO JSON EN ESPANOL');
-    }
-    else if (value === 'en' && this.apiConnect && !this.apiConsumedES && this.apiConsumedEN) {
-      this._reduxService.setAPIConnect(true, false, true);
-      // console.log('YA CARGO JSON EN INGLES');
-    }
-    else {
-      // if (value === 'es' && this.apiConnect && !this.apiConsumedES && this.apiConsumedEN) {
-      //   console.log('CARGO API en ESPAÑOL');
-      //   this._reduxService.setAPIConnect(false, false, true);
-      // }
-      // else if (value === 'en' && this.apiConnect && this.apiConsumedES && !this.apiConsumedEN) {
-      //   console.log('CARGO API en INGLES');
-      //   this._reduxService.setAPIConnect(false, true, false);
-      // }
-      // else {
-      this._reduxService.setAPIConnect(false, this.apiConsumedES, this.apiConsumedEN);
-      // }
-    }
+    // Activa el tipo de idioma y bloque nuevo consumo de api
+    let page = this.urlActiveLevel1.split('/')[1];
+    this._apiJsonService.setTranslate(value, page);
   }
 
 
@@ -100,7 +83,6 @@ export class FooterComponent implements OnInit {
    * -------------------------------------------------------
    */
   ngOnDestroy() {
-    this._subscription.unsubscribe();
   }
 
 }

@@ -8,6 +8,7 @@ import { ReduxService } from '@services/index';
 })
 export class CommonsService implements OnDestroy {
   routerSubscription: any;
+  routerSubscriptionURL: any;
   urlActiveLevel1!: string;
   urlActiveLevel2!: string;
 
@@ -35,7 +36,7 @@ export class CommonsService implements OnDestroy {
         filter((event) => event instanceof NavigationEnd || event instanceof NavigationCancel)
       )
       .subscribe((event) => {
-        this.getURlView(event, this._router.url);
+        this.setURlView(event, this._router.url);
         setTimeout(() => {
           this._reduxService.SetLoading(false);
         }, 700);
@@ -44,13 +45,13 @@ export class CommonsService implements OnDestroy {
 
   /**
    * -------------------------------------------------------
-   * @summary getURlView
+   * @summary setURlView
    * @description  Toma el nombre de la vista cargada en la url
    * @param {any} event evento capturado
    * @param {any} urlRoute route capturado de la URL
    * -------------------------------------------------------
    */
-  public getURlView(event: any, urlRoute: any) {
+  public setURlView(event: any, urlRoute: any) {
     let arrayUrl1 = urlRoute.split('/');
     let arrayUrl2 = arrayUrl1[1].split('#');
     let urlActiveLevel1 = '';
@@ -78,6 +79,7 @@ export class CommonsService implements OnDestroy {
    */
   ngOnDestroy(): void {
     this.routerSubscription.unsubscribe();
+    this.routerSubscriptionURL.unsubscribe();
   }
 
 }

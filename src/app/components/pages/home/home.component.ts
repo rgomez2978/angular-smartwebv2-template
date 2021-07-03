@@ -21,9 +21,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   loading!: boolean;
 
   language!: string;
-  apiConnect!: boolean;
-  apiConsumedES!: boolean;
-  apiConsumedEN!: boolean;
+  apiConHome!: boolean;
+  apiConHomeES!: boolean;
+  apiConHomeEN!: boolean;
 
   constructor(
     location: Location,
@@ -57,9 +57,9 @@ export class HomeComponent implements OnInit, OnDestroy {
       this._subscription = this._store.select('ui').subscribe((state) => {
         this.loading = state.loading;
         this.language = state.language;
-        this.apiConnect = state.apiConnect;
-        this.apiConsumedES = state.apiConsumedES;
-        this.apiConsumedEN = state.apiConsumedEN;
+        this.apiConHome = state.apiConHome;
+        this.apiConHomeES = state.apiConHomeES;
+        this.apiConHomeEN = state.apiConHomeEN;
         this.getData(this.language)
       })
     );
@@ -75,8 +75,8 @@ export class HomeComponent implements OnInit, OnDestroy {
    * -------------------------------------------------------
    */
   getData(lang: string) {
-    if ((!this.apiConnect && !this.apiConsumedES) || (!this.apiConnect && !this.apiConsumedEN)) {
-      this._apiJSONService.getJSONHome(lang, this.apiConsumedES, this.apiConsumedEN).subscribe(
+    if ((!this.apiConHome && !this.apiConHomeES) || (!this.apiConHome && !this.apiConHomeEN)) {
+      this._apiJSONService.getJSONHome(lang, this.apiConHomeES, this.apiConHomeEN).subscribe(
         (resp: any) => {
           this.data = resp;
           this.dataHeader = resp.header;
