@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { CommonsService } from '@services/index';
+import { CommonsService, ReduxService } from '@services/index';
 import { Store } from '@ngrx/store';
 import { AppState } from '@redux/app.reducers';
 import { Subscription } from 'rxjs';
@@ -16,6 +16,7 @@ export class MenuComponent implements OnInit, OnDestroy {
   showMenuApps!: boolean;
   openMenuMobile!: boolean;
   constructor(
+    private _reduxService: ReduxService,
     private _commonsService: CommonsService,
     private _store: Store<AppState>
   ) { }
@@ -55,7 +56,7 @@ export class MenuComponent implements OnInit, OnDestroy {
    * -------------------------------------------------------
    */
   toggleMenuApps() {
-    this._commonsService.toggleMenuApps();
+    this._reduxService.toggleMenuApps();
   }
 
   /**
@@ -65,7 +66,7 @@ export class MenuComponent implements OnInit, OnDestroy {
    * -------------------------------------------------------
    */
   toggleMenuSession() {
-    this._commonsService.toggleMenuSession();
+    this._reduxService.toggleMenuSession();
   }
 
   /**
@@ -75,7 +76,7 @@ export class MenuComponent implements OnInit, OnDestroy {
    * -------------------------------------------------------
    */
   toggleMenuMobile() {
-    this._commonsService.toggleMenuMobile();
+    this._reduxService.toggleMenuMobile();
   }
 
   /**
@@ -86,7 +87,7 @@ export class MenuComponent implements OnInit, OnDestroy {
    * -------------------------------------------------------
    */
   setLogin(value: boolean) {
-    this._commonsService.setLogin(value);
+    this._reduxService.setLogin(value);
   }
 
 

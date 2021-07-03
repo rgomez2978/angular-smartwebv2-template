@@ -32,10 +32,7 @@ export class CommonsService implements OnDestroy {
     // Quita el loading cuando cargo la pagina y mada el route a un servicio para luego marcar como active la opcion del menu en base a su url
     this.routerSubscription = this._router.events
       .pipe(
-        filter(
-          (event) =>
-            event instanceof NavigationEnd || event instanceof NavigationCancel
-        )
+        filter((event) => event instanceof NavigationEnd || event instanceof NavigationCancel)
       )
       .subscribe((event) => {
         this.getURlView(event, this._router.url);

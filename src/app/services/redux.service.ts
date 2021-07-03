@@ -19,7 +19,7 @@ export class ReduxService {
    * -------------------------------------------------------
    */
   SetLoading(value: boolean) {
-    this._store.dispatch(ownActions.setLoading({ loading: true }));
+    this._store.dispatch(ownActions.setLoading({ loading: value }));
   }
 
   /**
@@ -43,8 +43,8 @@ export class ReduxService {
    * @param {boolean} conn_en valor de conexiona a API INGLES
    * -------------------------------------------------------
    */
-   setAPIConnect(conn: boolean, conn_es: boolean, conn_en: boolean,) {
-     this._store.dispatch(ownActions.setAPIConnect({ apiConnect: conn, apiConsumedES:conn_es, apiConsumedEN:conn_en }));
+  setAPIConnect(conn: boolean, conn_es: boolean, conn_en: boolean,) {
+    this._store.dispatch(ownActions.setAPIConnect({ apiConnect: conn, apiConsumedES: conn_es, apiConsumedEN: conn_en }));
   }
 
 
@@ -53,12 +53,24 @@ export class ReduxService {
 
   /**
    * -------------------------------------------------------
-   * @summary toggleMenuApps
+   * @summary setShowBtnVideo
+   * @description Cambia el valor del doton en banner principal desde redux
+   * @param {boolean} value valor del boton
+   * -------------------------------------------------------
+   */
+  setShowBtnVideo(value: boolean) {
+    this._store.dispatch(ownActions.setShowBtnVideo({ show_btnvideo: value }));
+  }
+
+
+  /**
+   * -------------------------------------------------------
+   * @summary setShowBgMenu
    * @description Cambia el valor del bg del menu desde redux
    * @param {boolean} value Ir atras o no
    * -------------------------------------------------------
    */
-  toggleShowBgMenu(value: boolean) {
+  setShowBgMenu(value: boolean) {
     this._store.dispatch(ownActions.setShowBgMenu({ showBgMenu: value }));
   }
 
@@ -70,8 +82,7 @@ export class ReduxService {
    * -------------------------------------------------------
    */
   toggleMenuApps() {
-    // this._store.dispatch(ownActions.setMenuSession({ show_menu_session: false }));
-    // this._store.dispatch(ownActions.toggleMenuApps());
+    this._store.dispatch(ownActions.toggleMenuApps({ show_menu_session: false }));
   }
 
   /**
@@ -81,8 +92,7 @@ export class ReduxService {
    * -------------------------------------------------------
    */
   toggleMenuSession() {
-    // this._store.dispatch(ownActions.setMenuApps({ show_menu_app: false }));
-    // this._store.dispatch(ownActions.toggleMenuSession());
+    this._store.dispatch(ownActions.toggleMenuSession({ show_menu_app: false }));
   }
 
   /**
@@ -92,7 +102,7 @@ export class ReduxService {
   * -------------------------------------------------------
   */
   toggleMenuMobile() {
-    // this._store.dispatch(ownActions.toggleMenuMobile());
+    this._store.dispatch(ownActions.toggleMenuMobile());
   }
 
   /**
@@ -103,7 +113,7 @@ export class ReduxService {
    * -------------------------------------------------------
    */
   toggleSubMenuMobileBack(back: boolean) {
-    // this._store.dispatch(ownActions.setMenuMobileBack({ open_menu_mobile_back: back }));
+    this._store.dispatch(ownActions.setMenuMobileBack({ open_menu_mobile_back: back }));
   }
 
 
@@ -114,8 +124,7 @@ export class ReduxService {
    * -------------------------------------------------------
    */
   closeAllSubMenu() {
-    // this._store.dispatch(ownActions.setMenuSession({ show_menu_session: false }));
-    // this._store.dispatch(ownActions.setMenuApps({ show_menu_app: false }));
+    this._store.dispatch(ownActions.setCloseAllMenu({ show_menu_app: false, show_menu_session: false }));
   }
 
 
@@ -127,7 +136,7 @@ export class ReduxService {
    * -------------------------------------------------------
    */
   setLogin(value: boolean) {
-    // this._store.dispatch(ownActions.setLogin({ login: value }));
+    this._store.dispatch(ownActions.setLogin({ login: value }));
   }
 
   /**
@@ -138,7 +147,7 @@ export class ReduxService {
    * -------------------------------------------------------
    */
   setTranslate(value: string) {
-    // this._store.dispatch(ownActions.setTranslate({ language: value }));
+    this._store.dispatch(ownActions.setTranslate({ language: value }));
   }
 
   /**
@@ -149,7 +158,7 @@ export class ReduxService {
    * -------------------------------------------------------
    */
   setTranslateInit(value: boolean) {
-    // this._store.dispatch(ownActions.setTranslateInit({ initLang: value }));
+    this._store.dispatch(ownActions.setTranslateInit({ initLang: value }));
   }
 
 

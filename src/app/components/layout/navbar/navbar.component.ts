@@ -3,9 +3,8 @@ import { DOCUMENT } from '@angular/common';
 import { Location, LocationStrategy, PathLocationStrategy, } from "@angular/common";
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/store/app.reducers";
-import * as ownActions from '@redux/actions';
 import { Subscription } from "rxjs";
-import { ApiJsonService, CommonsService } from '@services/index';
+import { ApiJsonService, CommonsService, ReduxService } from '@services/index';
 
 @Component({
   selector: 'app-navbar',
@@ -25,21 +24,16 @@ export class NavbarComponent implements OnInit {
   isLogin: boolean = false;
   isShowBgMenu: boolean = false;
   openMenuMobile!: boolean;
-  showMenuSession!: boolean;
-  showMenuApps!: boolean;
   openMenuMobileBack!: boolean;
   openMenuSubmobile!: number;
   minTopScrollShow = 120;
   urlActiveLevel1!: string;
   urlActiveLevel2!: string;
-  frag: any = '';
-  pos: number = 0;
-  submenuMobileArray: [] = [];
-  dataArray: [] = [];
   language!: string;
   apiConnect!: boolean;
   apiConsumedES!: boolean;
   apiConsumedEN!: boolean;
+  submenuMobileArray: any = [];
 
 
   @HostListener('window:scroll')
@@ -56,12 +50,12 @@ export class NavbarComponent implements OnInit {
   checkScroll() {
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     if (scrollPosition >= this.minTopScrollShow) {
-      this._commonsService.toggleShowBgMenu(true);
+      this.isShowBgMenu = true;
     } else {
       if (this.urlActiveLevel1 === '/home') {
-        this._commonsService.toggleShowBgMenu(false);
+        this.isShowBgMenu = false;
       } else {
-        this._commonsService.toggleShowBgMenu(true);
+        this.isShowBgMenu = true;
       }
     }
   }
@@ -69,6 +63,7 @@ export class NavbarComponent implements OnInit {
   constructor(
     @Inject(DOCUMENT) private document: any,
     private _apiJSONService: ApiJsonService,
+    private _reduxService: ReduxService,
     private _commonsService: CommonsService,
     private _store: Store<AppState>
   ) { }
@@ -102,37 +97,15 @@ export class NavbarComponent implements OnInit {
       this.apiConsumedES = state.apiConsumedES;
       this.apiConsumedEN = state.apiConsumedEN;
       this.isLogin = state.login;
-      this.isShowBgMenu = state.showBgMenu;
 
       setTimeout(() => {
         if (this.data[0] || this.data[0] != undefined) {
-          // console.log(`NAVBAR => ${this.language}`, this.data[0].options);
-          this.activeMenuOnLoad(this.data[0].options, this.urlActiveLevel1, this.language)
+          this.activeMenuOnLoad(this.data[0].options, this.urlActiveLevel1)
         }
       }, 100);
-
-
     })
     // );
-
-
-
-
-    //   this.userSubs = this.store.select('user')
-    //     .pipe(
-    //       filter(({ user }) => user != null)
-    //     )
-    //     .subscribe(({ user }) => this.nombre = user.nombre);
-    // }
-
-
-    // let valor = this._store.select('ui').subscribe(state => this.isShowBgMenu = state.showBgMenu);
-
-
   }
-
-
-
 
   /**
    * -------------------------------------------------------|
@@ -143,9 +116,8 @@ export class NavbarComponent implements OnInit {
    * @param {string} url valor de la url
    * -------------------------------------------------------
    */
-  activeMenuOnLoad(data: any, url: string, lang: string) {
-    if (url === '/home') { this.isShowBgMenu = false; }
-    else { this.isShowBgMenu = true; }
+  activeMenuOnLoad(data: any, url: string) {
+    if (url === '/home') { this.isShowBgMenu = false; } else { this.isShowBgMenu = true; }
 
     data.filter((item: any) => {
       if (item.url === url) { item.active = true; }
@@ -156,11 +128,7 @@ export class NavbarComponent implements OnInit {
         }
       }
     });
-
-    // console.log('activeMenuOnLoad - url :>>', url, ' lang :>> ', lang, ' data :>> ', data);
   }
-
-
 
   /**
   * -------------------------------------------------------|
@@ -177,54 +145,41 @@ export class NavbarComponent implements OnInit {
   */
   changeStatusWeb(data: any, index: number, id: number, level: number, fragment: any, name: string) {
     // Activacion de fondo del menu por seccion de la pagina
-    // console.log('data :>> ', data);
-    // console.log('index :>> ', index);
-    // console.log('id :>> ', id);
-    // console.log('level :>> ', level);
-    // console.log('name :>> ', name);
-    // console.log('this.urlActiveLevel1 :>> ', this.urlActiveLevel1);
-
-
     if (level === 1 && name === '/home') { this.isShowBgMenu = false; }
     else if ((level === 2)) { this.isShowBgMenu = true; }
     else { this.isShowBgMenu = true; }
 
     if (data[index].nodes.length > 0) {
-      //   data.forEach((item: any) => {
-      //     if (item.nodes.length > 0) {
-      //       item.nodes.forEach((subitem: any) => {
-      //         subitem.active = false;
-      //       });
-      //     } else {
-      //       item.active = false;
-      //     }
-      //   });
-      //   this.urlActiveLevel1 = this.urlActiveLevel1 + '#';
-      //   if (level === 2) {
-      //     data[index].nodes.forEach((subitem: any) => {
-      //       if (subitem.id === id) {
-      //         subitem.active = true;
-      //       } else {
-      //         subitem.active = false;
-      //       }
-      //     });
-      //   }
-      // } else {
-      //   data.forEach((item: any) => {
-      //     if (item.nodes.length > 0) {
-      //       item.nodes.forEach((subitem: any) => {
-      //         subitem.active = false;
-      //       });
-      //     } else {
-      //       if (item.id === id) {
-      //         item.active = true;
-      //       } else {
-      //         item.active = false;
-      //       }
-      //     }
-      //   });
+      data.filter((item: any) => {
+        if (item.nodes.length > 0) {
+          item.nodes.map((subitem: any) => {
+            subitem.active = false;
+          });
+        } else {
+          item.active = false;
+        }
+      });
+      this.urlActiveLevel1 = this.urlActiveLevel1 + '#';
+      if (level === 2) {
+        data[index].nodes.filter((subitem: any) => {
+          if (subitem.id === id) { subitem.active = true; }
+          else { subitem.active = false; }
+        });
+      }
+    } else {
+      data.filter((item: any) => {
+        if (item.nodes.length > 0) {
+          item.nodes.map((subitem: any) => {
+            subitem.active = false;
+          });
+        } else {
+          if (item.id === id) { item.active = true; }
+          else { item.active = false; }
+        }
+      });
     }
   }
+
 
   /**
    * -------------------------------------------------------
@@ -239,7 +194,7 @@ export class NavbarComponent implements OnInit {
    * -------------------------------------------------------
    */
   changeStatusMobile(data: any, index: number, id: number, level: number, title: string) {
-    data.forEach((item: any) => {
+    data.filter((item: any) => {
       if (item.id === id) {
         item.active = true;
       } else {
@@ -265,7 +220,7 @@ export class NavbarComponent implements OnInit {
    * -------------------------------------------------------
    */
   toggleMenuMobile() {
-    this._store.dispatch(ownActions.toggleMenuMobile());
+    this._reduxService.toggleMenuMobile();
   }
 
   /**
@@ -280,7 +235,7 @@ export class NavbarComponent implements OnInit {
   toggleSubMenuMobile(level: number, array: any, back: boolean) {
     this.submenuMobileArray = array.nodes;
     this.openMenuSubmobile = level;
-    this._store.dispatch(ownActions.setMenuMobileBack({ open_menu_mobile_back: back }));
+    this._reduxService.toggleSubMenuMobileBack(back);
   }
 
   /**
@@ -291,7 +246,7 @@ export class NavbarComponent implements OnInit {
    * -------------------------------------------------------
    */
   setLogin(value: boolean) {
-    this._store.dispatch(ownActions.setLogin({ login: value }));
+    this._reduxService.setLogin(value);
   }
 
   /**
@@ -301,7 +256,7 @@ export class NavbarComponent implements OnInit {
    * -------------------------------------------------------
    */
   toggleSubMenuMobileBack() {
-    this._store.dispatch(ownActions.setMenuMobileBack({ open_menu_mobile_back: false }));
+    this._reduxService.toggleSubMenuMobileBack(false);
   }
 
   /**
@@ -311,65 +266,42 @@ export class NavbarComponent implements OnInit {
    * -------------------------------------------------------
    */
   closeAllSubMenu() {
-    // this._store.dispatch(ownActions.setMenuSession({ show_menu_session: false }));
-    // this._store.dispatch(ownActions.setMenuApps({ show_menu_app: false }));
+    this._reduxService.closeAllSubMenu();
   }
 
-  /**
-   * -------------------------------------------------------
-   * @summary setTranslate
-   * @description Asignacion de cambio del state para translate con redux
-   * @param {string} value Valor del idioma a mostran (en-es)
-   * -------------------------------------------------------
-   */
-  setTranslate(value: string) {
-    // this._commonsService.setItemLocalStorage('initLang', 'true');
-    // console.log('this.data :>> ', this.data);
-    // console.log('setTranslate this.apiConnect :>> ', this.apiConnect);
-    // console.log('setTranslate this.apiConsumedES :>> ', this.apiConsumedES);
-    // console.log('setTranslate this.apiConsumedEN :>> ', this.apiConsumedEN);
+  // /**
+  //  * -------------------------------------------------------
+  //  * @summary setTranslate
+  //  * @description Asignacion de cambio del state para translate con redux
+  //  * @param {string} value Valor del idioma a mostran (en-es)
+  //  * -------------------------------------------------------
+  //  */
+  // setTranslate(value: string) {
+  //   // Activa el tipo de idioma
+  //   this._reduxService.setTranslate(value);
 
-    this._store.dispatch(ownActions.setTranslate({ language: value }));
-
-    if (value === 'es' && this.apiConnect && this.apiConsumedES && !this.apiConsumedEN) {
-      console.log('CARGO PRIMERA VEZ API en ESPAÑOL');
-      this._store.dispatch(ownActions.setAPIConnect({ apiConnect: true, apiConsumedES: true, apiConsumedEN: false }));
-    }
-    else if (value === 'en' && this.apiConnect && !this.apiConsumedES && this.apiConsumedEN) {
-      console.log('CARGO PRIMERA VEZ API en INGLES');
-      this._store.dispatch(ownActions.setAPIConnect({ apiConnect: true, apiConsumedES: false, apiConsumedEN: true }));
-    }
-
-    // else if (value === 'es' && !this.apiConsumedES) {
-    //   console.log('NO cargo solo API en español');
-    //   this._store.dispatch(ownActions.setAPIConnect({ apiConnect: false, apiConsumedES: false, apiConsumedEN: false }));
-    // }
-    // else if (value === 'en' && this.apiConsumedEN) {
-    //   console.log('YA cargo solo API  en ingles');
-    //   this._store.dispatch(ownActions.setAPIConnect({ apiConnect: true, apiConsumedES: false, apiConsumedEN: true }));
-    // }
-    // else if (value === 'en' && !this.apiConsumedEN) {
-    //   console.log('NO cargo solo API  en ingles');
-    //   this._store.dispatch(ownActions.setAPIConnect({ apiConnect: false, apiConsumedES: false, apiConsumedEN: true }));
-    // }
-    // else if (value === 'es' && this.apiConsumedEN || value === 'en' && this.apiConsumedES) {
-    //   console.log('YA cargo varias API');
-    //   this._store.dispatch(ownActions.setAPIConnect({ apiConnect: true, apiConsumedES: true, apiConsumedEN: true }));
-    // }
-    else {
-      // if (value === 'es' && this.apiConnect && !this.apiConsumedES && this.apiConsumedEN) {
-      //   console.log('CARGO API en ESPAÑOL');
-      //   this._store.dispatch(ownActions.setAPIConnect({ apiConnect: false, apiConsumedES: false, apiConsumedEN: true }));
-      // }
-      // else if (value === 'en' && this.apiConnect && this.apiConsumedES && !this.apiConsumedEN) {
-      //   console.log('CARGO API en INGLES');
-      //   this._store.dispatch(ownActions.setAPIConnect({ apiConnect: false, apiConsumedES: true, apiConsumedEN: false }));
-      // }
-      // else {
-        this._store.dispatch(ownActions.setAPIConnect({ apiConnect: false, apiConsumedES: this.apiConsumedES, apiConsumedEN: this.apiConsumedEN }));
-      // }
-    }
-  }
+  //   if (value === 'es' && this.apiConnect && this.apiConsumedES && !this.apiConsumedEN) {
+  //     this._reduxService.setAPIConnect(true, true, false);
+  //     // console.log('YA CARGO JSON EN ESPANOL');
+  //   }
+  //   else if (value === 'en' && this.apiConnect && !this.apiConsumedES && this.apiConsumedEN) {
+  //     this._reduxService.setAPIConnect(true, false, true);
+  //     // console.log('YA CARGO JSON EN INGLES');
+  //   }
+  //   else {
+  //     // if (value === 'es' && this.apiConnect && !this.apiConsumedES && this.apiConsumedEN) {
+  //     //   console.log('CARGO API en ESPAÑOL');
+  //     //   this._reduxService.setAPIConnect(false, false, true);
+  //     // }
+  //     // else if (value === 'en' && this.apiConnect && this.apiConsumedES && !this.apiConsumedEN) {
+  //     //   console.log('CARGO API en INGLES');
+  //     //   this._reduxService.setAPIConnect(false, true, false);
+  //     // }
+  //     // else {
+  //     this._reduxService.setAPIConnect(false, this.apiConsumedES, this.apiConsumedEN);
+  //     // }
+  //   }
+  // }
 
 
 

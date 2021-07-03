@@ -37,13 +37,25 @@ export const uiState: UiState = {
     initLang: false,
     arrayES: [],
     apiConnect: false,
-    apiConsumedES:false,
-    apiConsumedEN:false,
+    apiConsumedES: false,
+    apiConsumedEN: false,
 };
 
 const _uiReducer = createReducer(
     uiState,
 
+    //  Cambia el estado del Menu de Apps y asigmn el de menu sessiones
+    on(ownActions.toggleMenuApps, (state, { show_menu_session }) => ({
+        ...state,
+        show_menu_app: !state.show_menu_app,
+        show_menu_session
+    })),
+    //  Cambia el estado del Menu de Sessions y asigna el de menu apps
+    on(ownActions.toggleMenuSession, (state, { show_menu_app }) => ({
+        ...state,
+        show_menu_app,
+        show_menu_session: !state.show_menu_session
+    })),
     //  Asigna los valores de conexion de api
     on(ownActions.setAPIConnect, (state, { apiConnect, apiConsumedES, apiConsumedEN }) => ({
         ...state,
@@ -56,16 +68,6 @@ const _uiReducer = createReducer(
     //     ...state,
     //     arrayES,
     // })),
-    //  Cambia el estado del Menu de apps
-    on(ownActions.toggleMenuApps, (state) => ({
-        ...state,
-        show_menu_app: !state.show_menu_app,
-    })),
-    //  Cambia el estado del Menu sessions
-    on(ownActions.toggleMenuSession, (state) => ({
-        ...state,
-        show_menu_session: !state.show_menu_session,
-    })),
     //  Asigna el estado del boton del video popup
     on(ownActions.setShowBtnVideo, (state, { show_btnvideo }) => ({
         ...state,
@@ -92,14 +94,10 @@ const _uiReducer = createReducer(
         ...state,
         login
     })),
-    //  Asigna el estado del Menu de Apps
-    on(ownActions.setMenuApps, (state, { show_menu_app }) => ({
+    //  Cierra todo los submenus
+    on(ownActions.setCloseAllMenu, (state, { show_menu_app, show_menu_session }) => ({
         ...state,
-        show_menu_app
-    })),
-    //  Asigna el estado del Menu de Sessions
-    on(ownActions.setMenuSession, (state, { show_menu_session }) => ({
-        ...state,
+        show_menu_app,
         show_menu_session
     })),
     //  Cambia el estado del Menu Mobile

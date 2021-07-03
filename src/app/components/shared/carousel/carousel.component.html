@@ -1,1 +1,73 @@
-<p>carousel works!</p>
+<!-- CAROUSEL - CLIENTES -->
+<div *ngIf="type === 'clients'">
+    <app-title [label1]="data[0]?.title1" [label2]="data[0]?.title2" [words]="data[0]?.words"></app-title>
+    <div class="slick_container">
+        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="carouselClientsConfig">
+            <div ngxSlickItem *ngFor="let item of data[0]?.nodes" class="slide">
+                <app-media [data]="item.image" [type]="'img'" [format]="'jpg'" class="slide_clients"></app-media>
+            </div>
+        </ngx-slick-carousel>
+        <div class="nav-btn nav-btn__clients">
+            <button class="slide-prev" (click)="slickModal.slickPrev()">
+                <i class="icofont-curved-left icofont-4x "></i>
+            </button>
+            <button class="slide-next" (click)="slickModal.slickNext()">
+                <i class="icofont-curved-right icofont-4x "></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- CAROUSEL - NOVEDADES -->
+<div *ngIf="type === 'news'">
+    <app-title [label1]="'Nove'" [label2]="'dades'" [words]="1"></app-title>
+    <div class="slick_container">
+        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="carouselNewsConfig">
+            <div ngxSlickItem *ngFor="let item of data" class="slide slide_news ">
+                <article class="article-news">
+                    <div class="w-full">
+                        <div class="h-full overflow-hidden">
+                            <div class="image-container">
+                                <app-media [data]="item.image" [type]="'img'" [format]="'jpg'" class="image-container__img">
+                                </app-media>
+                            </div>
+                            <div class="text-container">
+                                <div class="text-container__badge">
+                                    <h2 *ngFor="let itemCategory of item.categories">{{itemCategory.title}}</h2>
+                                </div>
+                                <div class="text-container__content">
+                                    <h1>{{item.title}}</h1>
+                                    <p>{{item.description}}</p>
+                                    <footer>
+                                        <hr>
+                                        <span class="">
+                                            <i class="icofont-ui-calendar"></i>
+                                            <h5>{{item.date}}</h5>
+                                        </span>
+                                        <span
+                                            class="inline-flex items-center py-1 pr-3 ml-auto mr-3 space-x-1 text-sm leading-none text-gray-600 border-r-2 border-gray-300 lg:ml-auto md:ml-0">
+                                            <i class="mt-1 icofont-eye-alt"></i>
+                                            <h5>{{item.views}}</h5>
+                                        </span>
+                                        <span>
+                                            <i class="mt-1 icofont-ui-text-chat"></i>
+                                            <h5>{{item.comments}}</h5>
+                                        </span>
+                                    </footer>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </ngx-slick-carousel>
+        <div class="nav-btn nav-btn__news">
+            <button class="slide-prev" (click)="slickModal.slickPrev()">
+                <i class="icofont-curved-left icofont-4x "></i>
+            </button>
+            <button class="slide-next" (click)="slickModal.slickNext()">
+                <i class="icofont-curved-right icofont-4x "></i>
+            </button>
+        </div>
+    </div>
+</div>

@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 // COMPONENTS - LAYOUT
 import { AppComponent } from './app.component';
 import { NavbarComponent } from '@layout/navbar/navbar.component';
-// import { FooterComponent } from '@layout/footer/footer.component';
+import { FooterComponent } from '@layout/footer/footer.component';
 import { LoadingComponent } from '@layout/loading/loading.component';
 import { FloatComponent } from '@layout/float/float.component';
 
@@ -75,7 +75,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
   declarations: [
     AppComponent,
     NavbarComponent,
-    // FooterComponent,
+    FooterComponent,
     LoadingComponent,
     FloatComponent,
     HeaderComponent,

@@ -1,1 +1,49 @@
-<p>footer works!</p>
+<section class="contFooter" *ngFor="let item of data">
+    <div class="contFooter__level1">
+        <!-- Logo - dscripcion y socials -->
+        <div class="contLogo" (click)="closeAllSubMenu()">
+            <a href="/" aria-label="Company" title="Company">
+                <picture>
+                    <source type="image/webp" [attr.defaultImage]="item.logo+'.webp'"
+                        [attr.lazyLoad]="item.logo+'.webp'" />
+                    <img [defaultImage]="item.logo+'.png'" [lazyLoad]="item.logo+'.png'" />
+                </picture>
+            </a>
+            <div class="contLogo__description">
+                <div [innerHtml]="item.description | safedom: 'html'"></div>
+                <div class="contLogo__socials">
+                    <a *ngFor="let itemSocial of item.socials" target="_blank" [href]="itemSocial.url">
+                        <span [innerHtml]="itemSocial.icon | safedom: 'html'"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Opciones del menu -->
+        <div class="contItemsMenu">
+            <div *ngFor="let itemOpt of item.options">
+                <p>{{itemOpt.title}}</p>
+                <ul>
+                    <li *ngFor="let itemOptSub of itemOpt.nodes">
+                        <a [routerLink]="itemOptSub.url" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{exact: true}">{{itemOptSub.title}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="contFooter__level2" *ngFor="let itemCopy of item.copyright">
+        <p>{{itemCopy.description}}</p>
+        <ul>
+            <li *ngFor="let itemCopyLang of itemCopy.lang">
+                <a (click)="setTranslate(itemCopyLang.lang)">{{itemCopyLang.title}}</a>
+            </li>
+        </ul>
+        <ul>
+            <li *ngFor="let itemCopyOpt of itemCopy.options">
+                <a [routerLink]="itemCopyOpt.url" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}">{{itemCopyOpt.title}}</a>
+            </li>
+        </ul>
+    </div>
+</section>

@@ -39,18 +39,18 @@ export class ApiJsonService {
    * @param {boolean} apiConEN status de conexion de api en ingles
    * -------------------------------------------------------
    */
-   getJSON(lang: string, page: string, apiConES:boolean, apiConEN:boolean) {
-    if (lang === "en") {
-      this.url = `assets/JSON/${page}/${page}_en.json`;
-      this._reduxService.setAPIConnect(true,false,true)
-    }
-    else {
-      this.url = `assets/JSON/${page}/${page}_es.json`;
-      this._reduxService.setAPIConnect(true,true,false)
-    }
-    // return this._http.get<LayoutInterface>(this.url, this.httpOptions);
-    return this._http.get<any>(this.url, this.httpOptions);
-  }
+  //  getJSON(lang: string, page: string, apiConES:boolean, apiConEN:boolean) {
+  //   if (lang === "en") {
+  //     this.url = `assets/JSON/${page}/${page}_en.json`;
+  //     this._reduxService.setAPIConnect(true,false,true)
+  //   }
+  //   else {
+  //     this.url = `assets/JSON/${page}/${page}_es.json`;
+  //     this._reduxService.setAPIConnect(true,true,false)
+  //   }
+  //   // return this._http.get<LayoutInterface>(this.url, this.httpOptions);
+  //   return this._http.get<any>(this.url, this.httpOptions);
+  // }
 
 
 
@@ -63,14 +63,14 @@ export class ApiJsonService {
    * @param {boolean} apiConEN status de conexion de api en ingles
    * -------------------------------------------------------
    */
-  getJSONLayout(lang: string, apiConES:boolean, apiConEN:boolean) {
+  getJSONLayout(lang: string, apiConES: boolean, apiConEN: boolean) {
     if (lang === "en") {
       this.url = `assets/JSON/layout/layout_en.json`;
-      this._reduxService.setAPIConnect(true,false,true)
+      // this._reduxService.setAPIConnect(true, false, true)
     }
     else {
       this.url = `assets/JSON/layout/layout_es.json`;
-      this._reduxService.setAPIConnect(true,true,false)
+      // this._reduxService.setAPIConnect(true, true, false)
     }
     // return this._http.get<LayoutInterface>(this.url, this.httpOptions);
     return this._http.get<any>(this.url, this.httpOptions);
@@ -85,9 +85,15 @@ export class ApiJsonService {
    * @param {string} page pagina de json a cargar
    * -------------------------------------------------------
    */
-  getJSONHome(lang: string) {
-    if (lang === "en") { this.url = `assets/JSON/home/home_en.json`; }
-    else { this.url = `assets/JSON/home/home_es.json`; }
+  getJSONHome(lang: string, apiConES: boolean, apiConEN: boolean) {
+    if (lang === "en") {
+      this.url = `assets/JSON/home/home_en.json`;
+      this._reduxService.setAPIConnect(true, false, true)
+    }
+    else {
+      this.url = `assets/JSON/home/home_es.json`;
+      this._reduxService.setAPIConnect(true, true, false)
+    }
     // return this._http.get<LayoutInterface>(this.url, this.httpOptions);
     return this._http.get<any>(this.url, this.httpOptions);
   }

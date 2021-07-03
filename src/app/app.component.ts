@@ -4,7 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/store/app.reducers";
 import { Subscription } from "rxjs";
-import { ApiJsonService, CommonsService } from '@services/index';
+import { ApiJsonService, ReduxService, CommonsService } from '@services/index';
 
 @Component({
   selector: 'app-root',
@@ -39,6 +39,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private _titleService: Title,
     private _apiJSONService: ApiJsonService,
     private _commonsService: CommonsService,
+    private _reduxService: ReduxService,
     private _store: Store<AppState>
   ) { }
 
@@ -69,7 +70,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this.apiConnect = state.apiConnect;
         this.apiConsumedES = state.apiConsumedES;
         this.apiConsumedEN = state.apiConsumedEN;
-        console.clear();
+        // console.clear();
         this.getData(this.language)
       })
     );
@@ -86,12 +87,12 @@ export class AppComponent implements OnInit, OnDestroy {
    */
   getData(lang: string) {
     if ((!this.apiConnect && !this.apiConsumedES) || (!this.apiConnect && !this.apiConsumedEN)) {
-      this._apiJSONService.getJSONLayout(this.language, this.apiConsumedES, this.apiConsumedEN).subscribe(
+      this._apiJSONService.getJSONLayout(lang, this.apiConsumedES, this.apiConsumedEN).subscribe(
         (resp: any) => {
           this.data = resp;
           this.dataNavbar = this.data.navbar;
           this.dataFooter = this.data.footer;
-          console.log('API consumida ');
+          // console.log('API consumida ');
           console.log(`LAYOUT => ${this.language}`, this.data);
         },
         (error: any) => console.log(`error`, error),
@@ -107,7 +108,7 @@ export class AppComponent implements OnInit, OnDestroy {
    * -------------------------------------------------------
    */
   closeAllSubMenu() {
-    this._commonsService.closeAllSubMenu();
+    this._reduxService.closeAllSubMenu();
   }
 
   /**

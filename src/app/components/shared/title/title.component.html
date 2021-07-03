@@ -1,1 +1,23 @@
-<p>title works!</p>
+<section>
+    <div class="title__content">
+
+        <div class="title__content__label">
+            <span [ngClass]="words === 2 ? 'pr-1 pl-2':'pl-2 pr-0'">
+                {{ label1}}
+            </span>
+            <div class="cont_bullet">
+                <div class="cont_bullet__line">&nbsp;</div>
+                <div class="cont_bullet__bullet"></div>
+            </div>
+        </div>
+        <div class="title__content__label">
+            <span class="label2" [ngClass]="words === 2 ? 'pr-2 pl-1':'pl-0 pr-2'">
+                {{ label2}}
+            </span>
+            <div class="cont_bullet">
+                <div class="cont_bullet__bullet label2"></div>
+                <div class="cont_bullet__line label2">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</section>
