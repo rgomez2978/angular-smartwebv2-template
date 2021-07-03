@@ -39,7 +39,7 @@ export class CommonsService implements OnDestroy {
         this.setURlView(event, this._router.url);
         setTimeout(() => {
           this._reduxService.SetLoading(false);
-        }, 700);
+        }, 300);
       });
   }
 

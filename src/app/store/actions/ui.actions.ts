@@ -24,7 +24,6 @@ export const setAPIConnectLayout = createAction(
     }>()
 );
 
-
 export const setAPIConnectHome = createAction(
     "[UI] Set API CONNECT HOME",
     props<{
@@ -89,9 +88,9 @@ export const setAPIConnectSites = createAction(
 );
 
 
-export const setArrayES = createAction(
-    "[UI] Set Array ES",
-    props<{ arrayES: any }>()
+export const setArrayProducts = createAction(
+    "[UI] Set Array PrODUCTS",
+    props<{ arrayProducts: any }>()
 );
 
 export const setUrl = createAction(

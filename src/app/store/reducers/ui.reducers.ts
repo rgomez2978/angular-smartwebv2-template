@@ -15,7 +15,7 @@ export interface UiState {
     urlActive2: string;
     language: string;
     initLang: boolean;
-    arrayES: any;
+    arrayProducts: any;
     apiConLayout: boolean;
     apiConLayoutES: boolean;
     apiConLayoutEN: boolean;
@@ -57,7 +57,7 @@ export const uiState: UiState = {
     urlActive2: "",
     language: "es",
     initLang: false,
-    arrayES: [],
+    arrayProducts: [],
     apiConLayout: false,
     apiConLayoutES: false,
     apiConLayoutEN: false,
@@ -122,8 +122,6 @@ const _uiReducer = createReducer(
     })),
 
 
-
-
     //  Cambia el estado del Menu de Apps y asigmn el de menu sessiones
     on(ownActions.toggleMenuApps, (state, { show_menu_session }) => ({
         ...state,
@@ -138,10 +136,10 @@ const _uiReducer = createReducer(
     })),
 
     //  Asigna los valores del ARREGLO
-    // on(ownActions.setArrayES, (state, { arrayES }) => ({
-    //     ...state,
-    //     arrayES,
-    // })),
+    on(ownActions.setArrayProducts, (state, { arrayProducts }) => ({
+        ...state,
+        arrayProducts,
+    })),
     //  Asigna el estado del boton del video popup
     on(ownActions.setShowBtnVideo, (state, { show_btnvideo }) => ({
         ...state,

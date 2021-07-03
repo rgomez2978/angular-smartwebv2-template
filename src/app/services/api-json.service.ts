@@ -6,6 +6,7 @@ import { AppState } from '@redux/app.reducers';
 import { Subscription } from "rxjs";
 import { ReduxService } from '@services/index';
 // import { LayoutInterface, } from '@interfaces/index';
+import { setAPIConnectProducts } from '../store/actions/ui.actions';
 
 @Injectable({
   providedIn: 'root'
@@ -45,7 +46,7 @@ export class ApiJsonService implements OnInit, OnDestroy {
   apiConSites!: boolean;
   apiConSitesES!: boolean;
   apiConSitesEN!: boolean;
-
+  conexReturn: any;
 
   constructor(
     private _http: HttpClient,
@@ -155,21 +156,26 @@ export class ApiJsonService implements OnInit, OnDestroy {
           console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
         }
         break;
+      case 'products':
+        console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConHome, 'ES:', this.apiConHomeES, ' EN:', this.apiConHomeEN);
+        if (value === 'es' && this.apiConProducts && this.apiConProductsES && !this.apiConProductsEN) {
+          this._reduxService.setAPIConnectLayout(true, true, false);
+          this._reduxService.setAPIConnectProducts(true, true, false);
+          console.log(`XXXX YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        }
+        else if (value === 'en' && this.apiConProducts && !this.apiConProductsES && this.apiConProductsEN) {
+          this._reduxService.setAPIConnectLayout(true, false, true);
+          this._reduxService.setAPIConnectProducts(true, false, true);
+          console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        } else {
+          this._reduxService.setAPIConnectLayout(false, this.apiConLayoutES, this.apiConLayoutEN);
+          this._reduxService.setAPIConnectProducts(false, this.apiConProductsES, this.apiConProductsEN);
+          console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        }
+        break;
 
 
-      // case 'products':
-      //   if (value === 'es' && this.apiConHome && this.apiConHomeES && !this.apiConHomeEN) {
-      //     this._reduxService.setAPIConnectHome(true, true, false);
-      //     console.log('YA CARGO JSON LAYOUT - ESPANOL');
-      //   }
-      //   else if (value === 'en' && this.apiConHome && this.apiConHomeES && !this.apiConHomeEN) {
-      //     this._reduxService.setAPIConnectHome(true, false, true);
-      //     console.log('YA CARGO JSON HOME - INGLES');
-      //   } else {
-      //     // this._reduxService.setAPIConnectHome(false, this.apiConLayoutES, this.apiConLayoutEN);
-      //     // console.log('CONSUME API HOME');
-      //   }
-      //   break;
+
 
       default:
         break;
@@ -185,22 +191,50 @@ export class ApiJsonService implements OnInit, OnDestroy {
    * @description  Consumir API - GET
    * @param {string} lang lenguage
    * @param {string} pag lenguage
-   * @param {boolean} apiConES status de conexion de api en español
-   * @param {boolean} apiConEN status de conexion de api en ingles
+   * @param {string} conApi Conexion a api
    * -------------------------------------------------------
    */
-  // getJSON(lang: string, page: string, apiConES: boolean, apiConEN: boolean) {
-  //   if (lang === "en") {
-  //     this.url = `assets/JSON/${page}/${page}_en.json`;
-  //     this._reduxService.setAPIConnect(true, false, true)
-  //   }
-  //   else {
-  //     this.url = `assets/JSON/${page}/${page}_es.json`;
-  //     this._reduxService.setAPIConnect(true, true, false)
-  //   }
-  //   // return this._http.get<LayoutInterface>(this.url, this.httpOptions);
-  //   return this._http.get<any>(this.url, this.httpOptions);
-  // }
+  getJSON(lang: string, page: string, conApi: boolean) {
+
+    // Ubicacion del ARchivo JSON
+    if (lang === 'en') {
+      this.url = `assets/JSON/${page}/${page}_en.json`;
+    } else {
+      this.url = `assets/JSON/${page}/${page}_es.json`;
+    }
+
+    // VALIDACION DE PAGINA - CONFIGURACION DE RECARGA DE API
+    switch (page) {
+      // CONEXION API - HOME
+      case 'home':
+        if (lang === 'en') { this._reduxService.setAPIConnectHome(conApi, false, true) } else { this._reduxService.setAPIConnectHome(conApi, true, false) }
+        this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
+        break;
+      // CONEXION API - HOME
+      case 'products':
+        if (lang === 'en') { this._reduxService.setAPIConnectProducts(conApi, false, true) } else { this._reduxService.setAPIConnectProducts(conApi, true, false) }
+        this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
+        break;
+
+      // CONEXION API - LAYOUT
+      default:
+        if (lang === 'en') { this._reduxService.setAPIConnectLayout(true, false, true) } else { this._reduxService.setAPIConnectLayout(true, true, false) }
+        this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
+        break;
+    }
+    return this.conexReturn;
+  }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -213,18 +247,18 @@ export class ApiJsonService implements OnInit, OnDestroy {
    * @param {boolean} apiConEN status de conexion de api en ingles
    * -------------------------------------------------------
    */
-  getJSONLayout(lang: string, apiConES: boolean, apiConEN: boolean) {
-    if (lang === "en") {
-      this.url = `assets/JSON/layout/layout_en.json`;
-      this._reduxService.setAPIConnectLayout(true, false, true)
-    }
-    else {
-      this.url = `assets/JSON/layout/layout_es.json`;
-      this._reduxService.setAPIConnectLayout(true, true, false)
-    }
-    // return this._http.get<LayoutInterface>(this.url, this.httpOptions);
-    return this._http.get<any>(this.url, this.httpOptions);
-  }
+  // getJSONLayout(lang: string, apiConES: boolean, apiConEN: boolean) {
+  //   if (lang === "en") {
+  //     this.url = `assets/JSON/layout/layout_en.json`;
+  //     this._reduxService.setAPIConnectLayout(true, false, true)
+  //   }
+  //   else {
+  //     this.url = `assets/JSON/layout/layout_es.json`;
+  //     this._reduxService.setAPIConnectLayout(true, true, false)
+  //   }
+  //   // return this._http.get<LayoutInterface>(this.url, this.httpOptions);
+  //   return this._http.get<any>(this.url, this.httpOptions);
+  // }
 
 
   /**
@@ -235,18 +269,18 @@ export class ApiJsonService implements OnInit, OnDestroy {
    * @param {string} page pagina de json a cargar
    * -------------------------------------------------------
    */
-  getJSONHome(lang: string, apiConES: boolean, apiConEN: boolean) {
-    if (lang === "en") {
-      this.url = `assets/JSON/home/home_en.json`;
-      this._reduxService.setAPIConnectHome(true, false, true)
-    }
-    else {
-      this.url = `assets/JSON/home/home_es.json`;
-      this._reduxService.setAPIConnectHome(true, true, false)
-    }
-    // return this._http.get<LayoutInterface>(this.url, this.httpOptions);
-    return this._http.get<any>(this.url, this.httpOptions);
-  }
+  // getJSONHome(lang: string, apiConES: boolean, apiConEN: boolean) {
+  //   if (lang === "en") {
+  //     this.url = `assets/JSON/home/home_en.json`;
+  //     this._reduxService.setAPIConnectHome(true, false, true)
+  //   }
+  //   else {
+  //     this.url = `assets/JSON/home/home_es.json`;
+  //     this._reduxService.setAPIConnectHome(true, true, false)
+  //   }
+  //   // return this._http.get<LayoutInterface>(this.url, this.httpOptions);
+  //   return this._http.get<any>(this.url, this.httpOptions);
+  // }
 
 
   // /**

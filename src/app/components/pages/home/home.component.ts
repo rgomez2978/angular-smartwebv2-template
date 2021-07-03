@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { Location, LocationStrategy, PathLocationStrategy, } from "@angular/common";
 import { Title } from '@angular/platform-browser';
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/store/app.reducers";
@@ -26,7 +25,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   apiConHomeEN!: boolean;
 
   constructor(
-    location: Location,
     private _titleService: Title,
     private _apiJSONService: ApiJsonService,
     private _commonsService: CommonsService,
@@ -76,7 +74,7 @@ export class HomeComponent implements OnInit, OnDestroy {
    */
   getData(lang: string) {
     if ((!this.apiConHome && !this.apiConHomeES) || (!this.apiConHome && !this.apiConHomeEN)) {
-      this._apiJSONService.getJSONHome(lang, this.apiConHomeES, this.apiConHomeEN).subscribe(
+      this._apiJSONService.getJSON(lang, 'home', true).subscribe(
         (resp: any) => {
           this.data = resp;
           this.dataHeader = resp.header;

@@ -60,6 +60,33 @@ export class ReduxService {
     this._store.dispatch(ownActions.setAPIConnectHome({ apiConHome: conn, apiConHomeES: conn_es, apiConHomeEN: conn_en }));
   }
 
+  /**
+   * -------------------------------------------------------
+   * @summary setAPIConnectProducts
+   * @description Cambia el status de conectiviada a API de PRODUCTS
+   * @param {boolean} conn valor de conexiona a API en general
+   * @param {boolean} conn_es valor de conexiona a API ESPAÑOL
+   * @param {boolean} conn_en valor de conexiona a API INGLES
+   * -------------------------------------------------------
+   */
+  setAPIConnectProducts(conn: boolean, conn_es: boolean, conn_en: boolean,) {
+    this._store.dispatch(ownActions.setAPIConnectProducts({ apiConProducts: conn, apiConProductsES: conn_es, apiConProductsEN: conn_en }));
+  }
+
+
+  /**
+   * -------------------------------------------------------
+   * @summary setArrayProducts
+   * @description Cambia el status de conectiviada a API de PRODUCTS
+   * @param {any} array Array de productos
+   * -------------------------------------------------------
+   */
+  setArrayProducts(array: any) {
+    console.log('array :>> ', array);
+    this._store.dispatch(ownActions.setArrayProducts({ arrayProducts: array }));
+  }
+
+
 
 
 

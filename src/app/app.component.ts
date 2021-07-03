@@ -87,7 +87,7 @@ export class AppComponent implements OnInit, OnDestroy {
    */
   getData(lang: string) {
     if ((!this.apiConLayout && !this.apiConLayoutES) || (!this.apiConLayout && !this.apiConLayoutEN)) {
-      this._apiJSONService.getJSONLayout(lang, this.apiConLayoutES, this.apiConLayoutEN).subscribe(
+      this._apiJSONService.getJSON(lang, 'layout', true).subscribe(
         (resp: any) => {
           this.data = resp;
           this.dataNavbar = this.data.navbar;

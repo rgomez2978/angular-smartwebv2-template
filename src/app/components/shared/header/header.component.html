@@ -24,13 +24,15 @@
 
 
 <div *ngIf="type === 'fixed-carousel'">
-    <div *ngFor="let item of data" class="flex w-full px-4 py-24 border-2 border-gray-200 shadow-md md:px-10 lg:pt-28">
+
+    {{data | json}}
+
+    <!-- <div *ngFor="let item of data" class="flex w-full px-4 py-24 border-2 border-gray-200 shadow-md md:px-10 lg:pt-28">
         <div class="flex flex-col items-center justify-between lg:flex-row">
             <div class="w-full px-10 mb-10 lg:w-1/2 lg:mb-0">
                 <div class="flex flex-col items-center justify-center w-full mb-6 text-center ">
                     <h2 class="w-full mb-6 font-sans text-3xl font-bold text-gray-500 sm:text-4xl md:text-5xl">
                         {{item.title}}
-                        <!-- <span class="text-gray-400"> a lazy dog</span> -->
                     </h2>
                     <p class="text-base text-gray-700 md:text-lg">
                         {{item.description}}
@@ -71,7 +73,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 
 

@@ -3,11 +3,7 @@
         <!-- Logo - dscripcion y socials -->
         <div class="contLogo" (click)="closeAllSubMenu()">
             <a href="/" aria-label="Company" title="Company">
-                <picture>
-                    <source type="image/webp" [attr.defaultImage]="item.logo+'.webp'"
-                        [attr.lazyLoad]="item.logo+'.webp'" />
-                    <img [defaultImage]="item.logo+'.png'" [lazyLoad]="item.logo+'.png'" />
-                </picture>
+                <app-media [data]="item.logo" [type]="'img'" [format]="'png'" ></app-media>
             </a>
             <div class="contLogo__description">
                 <div [innerHtml]="item.description | safedom: 'html'"></div>
