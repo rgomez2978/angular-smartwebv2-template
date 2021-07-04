@@ -1,120 +1,133 @@
 .slick_container {
-    @apply z-30 flex flex-col items-center justify-center w-full h-auto border-2 border-transparent mb-10 overflow-hidden;
+  @apply z-30 flex flex-col items-center justify-center w-full h-auto border-2 border-transparent mb-10 overflow-hidden;
 
-    .carousel {
-      @apply absolute z-20 items-center justify-center w-11/12 h-auto border-2 border-transparent;
+  .carousel {
+    @apply absolute z-20 items-center justify-center w-11/12 h-auto border-2 border-transparent;
 
-      .slide {
-        @apply h-auto px-6;
+    .slide {
+      @apply h-auto px-6;
 
-        .slide_clients {
-          @apply flex flex-col h-24;
+      &.slide_clients {
+        @apply flex flex-col h-24;
 
-          &:hover {
-            @apply cursor-pointer;
-          }
+        &:hover {
+          @apply cursor-pointer;
         }
+      }
 
-        &.slide_news {
-          @apply flex flex-row items-center justify-center h-auto px-5 md:px-5 lg:px-7;
+      &.slide_news {
+        @apply flex flex-row items-center justify-center h-auto px-5 md:px-5 lg:px-7;
 
-          // carousel de news - Estilos de cada imagen o slide
-          .article-news {
-            @apply flex flex-row items-center justify-center w-full h-full  overflow-hidden border border-gray-200 rounded-lg shadow-lg cursor-pointer;
+        // carousel de news - Estilos de cada imagen o slide
+        .article-news {
+          @apply flex flex-row items-center justify-center w-full h-full  overflow-hidden border border-gray-200 rounded-lg shadow-lg cursor-pointer;
 
-            // carousel de news - contenedor de imagenes
-            .image-container {
-              @apply relative flex items-center justify-center overflow-hidden w-full h-40;
-              &__img {
-                @apply absolute w-full h-auto transition-all duration-300 ease-in-out transform bg-center bg-contain;
+          // carousel de news - contenedor de imagenes
+          .image-container {
+            @apply relative flex items-center justify-center overflow-hidden w-full h-40;
+            &__img {
+              @apply absolute w-full h-auto transition-all duration-300 ease-in-out transform bg-center bg-contain;
+            }
+          }
+          // carousel de news - contenido
+          .text-container {
+            @apply p-3;
 
+            &__badge {
+              @apply flex flex-row flex-wrap items-center justify-start mb-0;
+              h2 {
+                @apply px-2 py-1 mr-2 mb-3 text-xs font-medium text-gray-800 uppercase bg-gray-200 rounded w-max;
               }
             }
-            // carousel de news - contenido
-            .text-container {
-              @apply p-3;
 
-              &__badge {
-                @apply flex flex-row flex-wrap items-center justify-start mb-0;
-                h2 {
-                  @apply px-2 py-1 mr-2 mb-3 text-xs font-medium text-gray-800 uppercase bg-gray-200 rounded w-max;
-                }
+            &__content {
+              h1 {
+                @apply mb-0 text-lg font-medium text-gray-700  cursor-pointer;
               }
-
-              &__content {
-                h1 {
-                  @apply mb-0 text-lg font-medium text-gray-700  cursor-pointer;
+              p {
+                @apply mb-1 leading-relaxed text-justify line-clamp-3 text-gray-500;
+              }
+              footer {
+                @apply flex flex-wrap items-center w-full pt-2;
+                hr {
+                  @apply flex w-full pb-2;
                 }
-                p {
-                  @apply mb-1 leading-relaxed text-justify line-clamp-3 text-gray-500;
-                }
-                footer {
-                  @apply flex flex-wrap items-center w-full pt-2;
-                  hr{
-                      @apply flex w-full pb-2;
+                span {
+                  @apply inline-flex items-center space-x-2 text-gray-500;
+                  i {
+                    @apply text-sm;
                   }
-                  span{
-                      @apply inline-flex items-center space-x-2 text-gray-500;
-                      i{
-                          @apply text-sm;
-                      }
-                      h5{
-                          @apply text-sm;
-                      }
+                  h5 {
+                    @apply text-sm;
                   }
                 }
               }
             }
           }
-          .article-news:hover .image-container .image-container__img {
-            @apply scale-125;
-          }
-
-          .article-news:hover .text-container .text-container__content h1 {
-              @apply underline;
-            }
-
         }
-      }
-    }
+        .article-news:hover .image-container .image-container__img {
+          @apply scale-125;
+        }
 
-    .slick-slider .slick-track,
-    .slick-slider .slick-list {
-      @apply h-auto;
-    }
-    .slick-slide img {
-      @apply w-full h-full bg-top bg-no-repeat bg-cover;
-    }
-
-    .slick-prev,
-    .slick-next {
-      display: none !important;
-    }
-
-    .nav-btn {
-      @apply z-10 flex flex-row items-center justify-between w-full h-auto border-2 border-transparent;
-
-      &__clients {
-        @apply h-40;
-
-        [class*="slide-"] {
-          @apply w-auto h-auto transform transition-transform duration-150 scale-100 opacity-70 focus:outline-none text-gray-300 hidden ;
-          &:hover {
-            @apply opacity-100 scale-110 text-gray-400;
-          }
+        .article-news:hover .text-container .text-container__content h1 {
+          @apply underline;
         }
       }
 
-      &__news {
-        @apply h-96;
-        [class*="slide-"] {
-          @apply w-auto h-auto transform transition-transform duration-150 scale-100 -mx-3 md:-mx-3 lg:-mx-2 md:px-0  opacity-70 focus:outline-none text-gray-300 ;
-          &:hover {
-            @apply opacity-100 scale-110 text-gray-400;
-          }
+      &.slide_testimonials {
+        // carousel de news - Estilos de cada imagen o slide
+        .article-testimonials {
+          @apply flex flex-row items-center justify-center w-full h-full  overflow-hidden border border-gray-200 rounded-lg shadow-lg cursor-pointer;
         }
       }
-
-
     }
   }
+
+  .slick-slider .slick-track,
+  .slick-slider .slick-list {
+    @apply h-auto;
+  }
+  .slick-slide img {
+    @apply w-full h-full bg-top bg-no-repeat bg-cover;
+  }
+
+  .slick-prev,
+  .slick-next {
+    display: none !important;
+  }
+
+  .nav-btn {
+    @apply z-10 flex flex-row items-center justify-between w-full h-auto border-2 border-transparent;
+
+    &__clients {
+      @apply h-40;
+
+      [class*="slide-"] {
+        @apply w-auto h-auto transform transition-transform duration-150 scale-100 opacity-70 focus:outline-none text-gray-300 hidden;
+        &:hover {
+          @apply opacity-100 scale-110 text-gray-400;
+        }
+      }
+    }
+
+    &__news {
+      @apply h-96;
+      [class*="slide-"] {
+        @apply w-auto h-auto transform transition-transform duration-150 scale-100 -mx-3 md:-mx-3 lg:-mx-2 md:px-0  opacity-70 focus:outline-none text-gray-300;
+        &:hover {
+          @apply opacity-100 scale-110 text-gray-400;
+        }
+      }
+    }
+
+    &__testimonials {
+      @apply h-96;
+      [class*="slide-"] {
+        @apply w-auto h-auto transform transition-transform duration-150 scale-100 -mx-3 md:-mx-3 lg:-mx-2 md:px-0  opacity-70 focus:outline-none text-gray-300;
+        &:hover {
+          @apply opacity-100 scale-110 text-gray-400;
+        }
+      }
+    }
+  }
+}

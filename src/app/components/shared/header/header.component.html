@@ -22,23 +22,23 @@
 </div>
 
 <div *ngIf="type === 'fixed-carousel'">
-    <div *ngFor="let item of data" class="flex w-full px-4 py-24 border-2 border-gray-200 shadow-md md:px-10 lg:pt-28">
+    <div *ngFor="let item of data" class="flex w-full h-auto px-4 py-24 border-2 border-gray-200 shadow-md md:px-10 lg:pt-28 ">
         <div class="flex flex-col items-center justify-between lg:flex-row">
             <div class="w-full px-10 mb-10 lg:w-1/2 lg:mb-0">
                 <div class="flex flex-col items-center justify-center w-full mb-6 text-center ">
                     <h2 class="w-full mb-6 font-sans text-3xl font-bold text-gray-500 sm:text-4xl md:text-5xl">
                         {{item.title}}
                     </h2>
-                    <p class="text-base text-gray-700 md:text-lg">
+                    <p class="text-lg text-gray-700 md:text-xl">
                         {{item.description}}
                     </p>
                 </div>
                 <div *ngFor="let itemBtn of item.buttons"
                     class="flex flex-col items-center justify-center w-full mb-10 md:flex-row md:text-lg">
-                    <a href="/"
+                    <button
                         class="inline-flex items-center justify-center h-auto px-6 py-2 font-medium tracking-wide text-white transition duration-200 bg-gray-400 rounded shadow-md w-max hover:bg-gray-700 focus:shadow-outline focus:outline-none">
                         <span class="mr-3">{{itemBtn.title}}</span>
-                    </a>
+                    </button>
                 </div>
                 <div class="flex items-center justify-center w-full space-x-4 lg:flex-row">
                     <button *ngFor="let itemStore of item.stores"

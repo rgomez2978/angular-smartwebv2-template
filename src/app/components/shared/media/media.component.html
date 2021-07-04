@@ -1,10 +1,9 @@
 <div *ngIf="type === 'img'">
-    <picture>
+    <picture >
         <source type="image/webp" [attr.defaultImage]="data +'.webp'" [attr.lazyLoad]="data +'.webp'" />
         <img [defaultImage]="data +'.'+format" [lazyLoad]="data +'.'+format" />
     </picture>
 </div>
-
 
 <div *ngIf="type === 'video-banner'">
     <video muted autoplay loop preload="auto">

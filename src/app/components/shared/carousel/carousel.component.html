@@ -4,7 +4,7 @@
     <div class="slick_container">
         <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="carouselClientsConfig">
             <div ngxSlickItem *ngFor="let item of data[0]?.nodes" class="slide">
-                <app-media [data]="item.image" [type]="'img'" [format]="'jpg'" class="slide_clients"></app-media>
+                <app-media [data]="item.image" [type]="'img'" [format]="'jpg'" class="slide__clients"></app-media>
             </div>
         </ngx-slick-carousel>
         <div class="nav-btn nav-btn__clients">
@@ -18,6 +18,8 @@
     </div>
 </div>
 
+
+
 <!-- CAROUSEL - NOVEDADES -->
 <div *ngIf="type === 'news'">
     <app-title [label1]="'Nove'" [label2]="'dades'" [words]="1"></app-title>
@@ -28,7 +30,8 @@
                     <div class="w-full">
                         <div class="h-full overflow-hidden">
                             <div class="image-container">
-                                <app-media [data]="item.image" [type]="'img'" [format]="'jpg'" class="image-container__img">
+                                <app-media [data]="item.image" [type]="'img'" [format]="'jpg'"
+                                    class="image-container__img">
                                 </app-media>
                             </div>
                             <div class="text-container">
@@ -70,4 +73,64 @@
             </button>
         </div>
     </div>
+</div>
+
+<!-- CAROUSEL - TESTIMONIALS -->
+<div *ngIf="type === 'testimonials'">
+    <app-title [label1]="'testimo'" [label2]="'nials'" [words]="1"></app-title>
+    <div class="slick_container">
+        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="carouselNewsConfig">
+            <div ngxSlickItem *ngFor="let item of data" class="slide slide_testimonialsX ">
+                <article class="article-testimonialsX">
+                    <div class="flex flex-col w-full mx-4 my-6 shadow-lg">
+                        <div class="px-4 py-10 rounded-t-lg bg-gray-50 sm:px-8 md:px-6">
+                            <p class="relative px-6 py-1 text-lg italic text-center text-gray-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"
+                                    class="w-8 h-8 text-gray-400">
+                                    <path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
+                                    <path d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z">
+                                    </path>
+                                </svg>
+                                {{item.description}}
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"
+                                    class="absolute right-0 w-8 h-8 text-gray-400">
+                                    <path d="M280,185.143V416H496V16H457.6ZM464,384H312V198.857L464,54.1Z">
+                                    </path>
+                                    <path d="M232,16H193.6L16,185.143V416H232ZM200,384H48V198.857L200,54.1Z">
+                                    </path>
+                                </svg>
+                            </p>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center p-8 text-gray-900 bg-gray-300 rounded-b-lg">
+
+                            <div class="flex w-16 h-16 -mt-16">
+                                <img [src]="item.image" alt=""
+                                    class="w-auto h-auto mb-2 bg-gray-700 bg-center bg-cover rounded-full">
+                            </div>
+                            <p class="text-xl font-semibold leading-tight">{{item.name}}</p>
+                            <p class="text-sm uppercase">{{item.company}}</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </ngx-slick-carousel>
+        <div class="nav-btn nav-btn__testimonials">
+            <button class="slide-prev" (click)="slickModal.slickPrev()">
+                <i class="icofont-curved-left icofont-4x "></i>
+            </button>
+            <button class="slide-next" (click)="slickModal.slickNext()">
+                <i class="icofont-curved-right icofont-4x "></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<!-- CAROUSEL - TESTIMONIALS -->
+<div *ngIf="type === 'testimonialsXXXX'">
+    <!-- {{data | json}} -->
+    <section class="my-8">
+
+    </section>
 </div>

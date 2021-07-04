@@ -1,4 +1,16 @@
+#####################################################################
+HOME
+#####################################################################
 
+-----------------------
+SLIDE STICKY
+-----------------------
+- Falta colocar el slide stiky
+
+    en tal caso de que no sea posible por timepo y conomicimneto colocar un slide de la liberira slick carousel en vertical sin autoplay
+
+
+- Crear comonente Benefits
 
 #####################################################################
 PRODUCTS
@@ -7,4 +19,4 @@ PRODUCTS
 -----------------------
 HEADER
 -----------------------
-- falta dar play o cargar vidoeo en el mismo espacio
+- falta cargar el video y dar play o cargar vidoeo en el mismo espacio

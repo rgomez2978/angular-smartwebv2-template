@@ -46,7 +46,7 @@ export class ReduxService {
    * -------------------------------------------------------
    */
   setAPIConnect(page: string, conn: boolean, conn_es: boolean, conn_en: boolean,) {
-    console.log('setAPIConnect page :>> ', page);
+    // console.log('setAPIConnect page :>> ', page);
     switch (page) {
       case 'layout':
         this._store.dispatch(ownActions.setAPIConnectLayout({ apiConLayout: conn, apiConLayoutES: conn_es, apiConLayoutEN: conn_en }));
@@ -221,7 +221,6 @@ export class ReduxService {
 
   }
 
-
   /**
    * -------------------------------------------------------
    * @summary setArrayProducts
@@ -229,13 +228,71 @@ export class ReduxService {
    * @param {any} array Array de productos
    * -------------------------------------------------------
    */
-  setArrayProducts(array: any) {
-    console.log('array :>> ', array);
+  setArrayProducts(array: any, lang: string) {
+    console.log(`array PRODUCTS REDUX - :>> ${lang}`, array);
     this._store.dispatch(ownActions.setArrayProducts({ arrayProducts: array }));
   }
 
+  /**
+   * -------------------------------------------------------
+   * @summary setArrayPlanes
+   * @description Cambia el status de conectiviada a API de PLANES
+   * @param {any} array Array de productos
+   * -------------------------------------------------------
+   */
+  setArrayPlanes(array: any, lang: string) {
+    console.log(`array PLANES REDUX - :>> ${lang}`, array);
+    this._store.dispatch(ownActions.setArrayPlanes({ arrayPlanes: array }));
+  }
 
 
+  /**
+   * -------------------------------------------------------
+   * @summary setArrayResources
+   * @description Cambia el status de conectiviada a API de RESOURCES
+   * @param {any} array Array de productos
+   * -------------------------------------------------------
+   */
+  setArrayResources(array: any, lang: string) {
+    console.log(`array RESOURCES REDUX - :>> ${lang}`, array);
+    this._store.dispatch(ownActions.setArrayResources({ arrayResources: array }));
+  }
+
+  /**
+   * -------------------------------------------------------
+   * @summary setArrayInfo
+   * @description Cambia el status de conectiviada a API de INFO
+   * @param {any} array Array de productos
+   * -------------------------------------------------------
+   */
+  setArrayInfo(array: any, lang: string) {
+    console.log(`array INFO REDUX - :>> ${lang}`, array);
+    this._store.dispatch(ownActions.setArrayInfo({ arrayInfo: array }));
+  }
+
+  /**
+   * -------------------------------------------------------
+   * @summary setArrayPolicies
+   * @description Cambia el status de conectiviada a API de POLICIES
+   * @param {any} array Array de productos
+   * -------------------------------------------------------
+   */
+  setArrayPolicies(array: any, lang: string) {
+    console.log(`array POLICIES REDUX - :>> ${lang}`, array);
+    this._store.dispatch(ownActions.setArrayPolicies({ arrayPolicies: array }));
+  }
+
+  /**
+   * -------------------------------------------------------
+   * @summary setArraySites
+   * @description Cambia el status de conectiviada a API de SITES
+   * @param {any} array Array de productos
+   * -------------------------------------------------------
+   */
+  setArraySites(array: any, lang: string) {
+    console.log(`array SITES REDUX - :>> ${lang}`, array);
+    this._store.dispatch(ownActions.setArraySites({ arraySites: array }));
+  }
 
 
   /**

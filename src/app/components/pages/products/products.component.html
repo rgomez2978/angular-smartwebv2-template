@@ -1,6 +1,10 @@
 <section class="animate__animated animate__fadeIn contentPage">
     <header class="contentPage__header">
-        <app-header [data]="dataHeader" [type]="'fixed-carousel'" ></app-header>
+        <app-header [data]="dataHeader" [type]="'fixed-carousel'"></app-header>
     </header>
+    <app-content [data]="dataSpecifications[0]?.detail" [type]="'benefits'"></app-content>
+    <app-call-to-action [data]="dataSpecifications[0]?.cta" [type]="'normal'"></app-call-to-action>
+    <br>
+    <app-carousel [data]="dataSpecifications[0]?.testimonials" [type]="'testimonials'"></app-carousel>
     <!-- <app-stycky [data]="" [type]="'banner'" ></app-stycky> -->
 </section>

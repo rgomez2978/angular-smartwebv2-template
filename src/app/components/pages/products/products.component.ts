@@ -87,7 +87,7 @@ export class ProductsComponent implements OnInit {
       this._apiJSONService.getJSON(lang, 'products', true).subscribe(
         (resp: any) => {
           this.data = resp;
-          this._reduxService.setArrayProducts(this.data);
+          this._reduxService.setArrayProducts(this.data, lang);
           this.getTypeProduct(this.fullData)
           // console.log(`PRODUCTS => ${lang}`, this.fullData);
         },
@@ -95,11 +95,11 @@ export class ProductsComponent implements OnInit {
         () => { }
       );
     } else {
-      if (this.fullData || this.fullData != undefined) {
-        setTimeout(() => {
-          this.getTypeProduct(this.fullData)
-        }, 200);
-      }
+      // if (this.fullData || this.fullData != undefined) {
+      setTimeout(() => {
+        this.getTypeProduct(this.fullData)
+      }, 400);
+      // }
     }
   }
 

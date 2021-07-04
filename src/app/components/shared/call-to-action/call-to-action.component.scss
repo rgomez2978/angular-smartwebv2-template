@@ -1,0 +1,15 @@
+.containerCTA_Normal {
+  @apply w-full h-auto py-0 bg-gray-300;
+
+  &__content {
+    @apply container flex flex-col items-center justify-center p-4 mx-auto space-y-8 md:p-10 lg:space-y-0 lg:flex-row lg:justify-between;
+
+     h1 {
+      @apply text-2xl font-semibold leading-tight text-center text-gray-600 md:text-3xl lg:text-left;
+    }
+
+     button {
+      @apply inline-flex items-center justify-center h-auto px-6 py-3 font-medium tracking-wide text-white uppercase transition duration-200 bg-gray-400 rounded shadow-md w-max hover:bg-gray-700 ;
+    }
+  }
+}
