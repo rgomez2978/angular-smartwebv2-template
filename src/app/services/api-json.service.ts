@@ -6,7 +6,6 @@ import { AppState } from '@redux/app.reducers';
 import { Subscription } from "rxjs";
 import { ReduxService } from '@services/index';
 // import { LayoutInterface, } from '@interfaces/index';
-import { setAPIConnectProducts } from '../store/actions/ui.actions';
 
 @Injectable({
   providedIn: 'root'
@@ -86,31 +85,33 @@ export class ApiJsonService implements OnInit, OnDestroy {
   setSubscriptions() {
     this._store.select('ui').subscribe((state) => {
       this.language = state.language;
-      this.apiConLayout = state.apiConLayout;
-      this.apiConLayoutES = state.apiConLayoutES;
-      this.apiConLayoutEN = state.apiConLayoutEN;
-      this.apiConHome = state.apiConHome;
-      this.apiConHomeES = state.apiConHomeES;
-      this.apiConHomeEN = state.apiConHomeEN;
-      this.apiConProducts = state.apiConProducts;
-      this.apiConProductsES = state.apiConProductsES;
-      this.apiConProductsEN = state.apiConProductsEN;
-      this.apiConPlanes = state.apiConPlanes;
-      this.apiConPlanesES = state.apiConPlanesES;
-      this.apiConPlanesEN = state.apiConPlanesEN;
-      this.apiConResources = state.apiConResources;
-      this.apiConResourcesES = state.apiConResourcesES;
-      this.apiConResourcesEN = state.apiConResourcesEN;
-      this.apiConInfo = state.apiConInfo;
-      this.apiConInfoES = state.apiConInfoES;
-      this.apiConInfoEN = state.apiConInfoEN;
-      this.apiConPolicies = state.apiConPolicies;
-      this.apiConPoliciesES = state.apiConPoliciesES;
-      this.apiConPoliciesEN = state.apiConPoliciesEN;
-      this.apiConSites = state.apiConSites;
-      this.apiConSitesES = state.apiConSitesES;
-      this.apiConSitesEN = state.apiConSitesEN;
-    })
+    }),
+      this._store.select('api').subscribe((state) => {
+        this.apiConLayout = state.apiConLayout;
+        this.apiConLayoutES = state.apiConLayoutES;
+        this.apiConLayoutEN = state.apiConLayoutEN;
+        this.apiConHome = state.apiConHome;
+        this.apiConHomeES = state.apiConHomeES;
+        this.apiConHomeEN = state.apiConHomeEN;
+        this.apiConProducts = state.apiConProducts;
+        this.apiConProductsES = state.apiConProductsES;
+        this.apiConProductsEN = state.apiConProductsEN;
+        this.apiConPlanes = state.apiConPlanes;
+        this.apiConPlanesES = state.apiConPlanesES;
+        this.apiConPlanesEN = state.apiConPlanesEN;
+        this.apiConResources = state.apiConResources;
+        this.apiConResourcesES = state.apiConResourcesES;
+        this.apiConResourcesEN = state.apiConResourcesEN;
+        this.apiConInfo = state.apiConInfo;
+        this.apiConInfoES = state.apiConInfoES;
+        this.apiConInfoEN = state.apiConInfoEN;
+        this.apiConPolicies = state.apiConPolicies;
+        this.apiConPoliciesES = state.apiConPoliciesES;
+        this.apiConPoliciesEN = state.apiConPoliciesEN;
+        this.apiConSites = state.apiConSites;
+        this.apiConSitesES = state.apiConSitesES;
+        this.apiConSitesEN = state.apiConSitesEN;
+      })
   }
 
   /**
@@ -137,10 +138,12 @@ export class ApiJsonService implements OnInit, OnDestroy {
     // console.log('value :>> ', value, ' page :>> ', page);
     // Activa el tipo de idioma
     this._reduxService.setTranslate(value);
+    this._reduxService.SetLoading(true);
 
     switch (page) {
       case 'home':
         console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConHome, 'ES:', this.apiConHomeES, ' EN:', this.apiConHomeEN);
+
         if (value === 'es' && this.apiConHome && this.apiConHomeES && !this.apiConHomeEN) {
           this._reduxService.setAPIConnectLayout(true, true, false);
           this._reduxService.setAPIConnectHome(true, true, false);
@@ -156,8 +159,11 @@ export class ApiJsonService implements OnInit, OnDestroy {
           console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
         }
         break;
+
+
       case 'products':
-        console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConHome, 'ES:', this.apiConHomeES, ' EN:', this.apiConHomeEN);
+        console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConProducts, 'ES:', this.apiConProductsES, ' EN:', this.apiConProductsEN);
+
         if (value === 'es' && this.apiConProducts && this.apiConProductsES && !this.apiConProductsEN) {
           this._reduxService.setAPIConnectLayout(true, true, false);
           this._reduxService.setAPIConnectProducts(true, true, false);
@@ -174,6 +180,24 @@ export class ApiJsonService implements OnInit, OnDestroy {
         }
         break;
 
+      case 'planes':
+        console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConPlanes, 'ES:', this.apiConPlanesES, ' EN:', this.apiConPlanesEN);
+
+        if (value === 'es' && this.apiConPlanes && this.apiConPlanesES && !this.apiConPlanesEN) {
+          this._reduxService.setAPIConnectLayout(true, true, false);
+          this._reduxService.setAPIConnectPlanes(true, true, false);
+          console.log(`XXXX YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        }
+        else if (value === 'en' && this.apiConPlanes && !this.apiConPlanesES && this.apiConPlanesEN) {
+          this._reduxService.setAPIConnectLayout(true, false, true);
+          this._reduxService.setAPIConnectPlanes(true, false, true);
+          console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        } else {
+          this._reduxService.setAPIConnectLayout(false, this.apiConLayoutES, this.apiConLayoutEN);
+          this._reduxService.setAPIConnectPlanes(false, this.apiConPlanesES, this.apiConPlanesEN);
+          console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        }
+        break;
 
 
 

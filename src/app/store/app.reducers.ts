@@ -3,8 +3,11 @@ import * as reducers from './reducers';
 
 export interface AppState {
     ui: reducers.UiState;
+    api: reducers.ApiState;
+
 }
 
 export const appReduces: ActionReducerMap<AppState> = {
     ui: reducers.uiReducer,
+    api: reducers.apiReducer,
 };

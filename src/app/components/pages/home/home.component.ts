@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { Title } from '@angular/platform-browser';
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/store/app.reducers";
@@ -13,6 +14,7 @@ import { ApiJsonService, ReduxService, CommonsService } from '@services/index';
 export class HomeComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();
   data: any = [];
+  fullData: any = [];
   dataHeader: any = [];
   dataClients: any = [];
   dataProducts: any = [];
@@ -26,6 +28,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(
     private _titleService: Title,
+    private _activatedRoute: ActivatedRoute,
     private _apiJSONService: ApiJsonService,
     private _commonsService: CommonsService,
     private _reduxService: ReduxService,
@@ -52,13 +55,19 @@ export class HomeComponent implements OnInit, OnDestroy {
   */
   setSubscriptions() {
     this._subscription.add(
-      this._subscription = this._store.select('ui').subscribe((state) => {
+      this._store.select('ui').subscribe((state) => {
         this.loading = state.loading;
         this.language = state.language;
+        this.getDataAPI(this.language);
+      })
+    );
+    this._subscription.add(
+      this._store.select('api').subscribe((state) => {
         this.apiConHome = state.apiConHome;
         this.apiConHomeES = state.apiConHomeES;
         this.apiConHomeEN = state.apiConHomeEN;
-        this.getData(this.language)
+        this.fullData = state.arrayHome;
+        this.getDataAPI(this.language)
       })
     );
   }
@@ -72,22 +81,42 @@ export class HomeComponent implements OnInit, OnDestroy {
    * @param {string} page pagina de json a cargar
    * -------------------------------------------------------
    */
-  getData(lang: string) {
+  getDataAPI(lang: string) {
     if ((!this.apiConHome && !this.apiConHomeES) || (!this.apiConHome && !this.apiConHomeEN)) {
+      // console.log('CARGO API');
       this._apiJSONService.getJSON(lang, 'home', true).subscribe(
         (resp: any) => {
           this.data = resp;
-          this.dataHeader = resp.header;
-          this.dataClients = resp.clients;
-          this.dataNews = resp.news;
-          // console.log('API consumida ');
-          console.log(`HOME => ${lang}`, this.data);
+          this._reduxService.setArrayHome(this.data, lang);
+          this.getDataArray(this.fullData)
+          // console.log(`HOME => ${lang}`, this.data);
         },
         (error: any) => console.log(`error`, error),
         () => { }
       );
+    } else {
+      // console.log('CARGO ARRAY');
+      this.getDataArray(this.fullData)
     }
   }
+
+  /**
+   * -------------------------------------------------------
+   * @summary getTypeProduct
+   * @description Obtiene el nombre del producto desde la url
+   *  y asigna posicion de arreglo en data
+   * @param {any} array arraglo a buscar
+   * -------------------------------------------------------
+   */
+  getDataArray(array: any) {
+    this.data = array;
+    this.dataHeader = this.data.header;
+    this.dataClients = this.data.clients;
+    this.dataNews = this.data.news;
+    // console.log(`HOME => `, this.data);
+    return this.data;
+  }
+
 
 
   /**

@@ -64,14 +64,17 @@ export class AppComponent implements OnInit, OnDestroy {
    */
   setSubscriptions() {
     this._subscription.add(
-      this._subscription = this._store.select('ui').subscribe((state) => {
+      this._store.select('ui').subscribe((state) => {
         this.loading = state.loading;
         this.language = state.language;
+        this.getData(this.language)
+      })
+    );
+    this._subscription.add(
+      this._store.select('api').subscribe((state) => {
         this.apiConLayout = state.apiConLayout;
         this.apiConLayoutES = state.apiConLayoutES;
         this.apiConLayoutEN = state.apiConLayoutEN;
-        // console.clear();
-        this.getData(this.language)
       })
     );
   }

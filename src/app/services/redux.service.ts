@@ -58,6 +58,9 @@ export class ReduxService {
    */
   setAPIConnectHome(conn: boolean, conn_es: boolean, conn_en: boolean,) {
     this._store.dispatch(ownActions.setAPIConnectHome({ apiConHome: conn, apiConHomeES: conn_es, apiConHomeEN: conn_en }));
+    setTimeout(() => {
+      this.SetLoading(false);
+    }, 100);
   }
 
   /**
@@ -71,6 +74,42 @@ export class ReduxService {
    */
   setAPIConnectProducts(conn: boolean, conn_es: boolean, conn_en: boolean,) {
     this._store.dispatch(ownActions.setAPIConnectProducts({ apiConProducts: conn, apiConProductsES: conn_es, apiConProductsEN: conn_en }));
+    setTimeout(() => {
+      this.SetLoading(false);
+    }, 100);
+  }
+
+
+  /**
+   * -------------------------------------------------------
+   * @summary setAPIConnectPlanes
+   * @description Cambia el status de conectiviada a API de PLANES
+   * @param {boolean} conn valor de conexiona a API en general
+   * @param {boolean} conn_es valor de conexiona a API ESPAÑOL
+   * @param {boolean} conn_en valor de conexiona a API INGLES
+   * -------------------------------------------------------
+   */
+  setAPIConnectPlanes(conn: boolean, conn_es: boolean, conn_en: boolean,) {
+    this._store.dispatch(ownActions.setAPIConnectPlanes({ apiConPlanes: conn, apiConPlanesES: conn_es, apiConPlanesEN: conn_en }));
+    setTimeout(() => {
+      this.SetLoading(false);
+    }, 100);
+  }
+
+
+
+  /**
+   * -------------------------------------------------------
+   * @summary setArrayHome
+   * @description Cambia el status de conectiviada a API de HOME
+   * @param {any} array Array de productos
+   * @param {string} lang Idioma
+   * -------------------------------------------------------
+   */
+  setArrayHome(array: any, lang: string) {
+    console.log(`array HOME REDUX - :>> ${lang}`, array);
+    this._store.dispatch(ownActions.setArrayHome({ arrayHome: array }));
+
   }
 
 
@@ -188,20 +227,6 @@ export class ReduxService {
   setTranslate(value: string) {
     this._store.dispatch(ownActions.setTranslate({ language: value }));
   }
-
-  /**
-   * -------------------------------------------------------
-   * @summary toggleTranslateInit
-   * @description Asignacion de cambio del state para translate init con redux
-   * @param {string} value Valor del idioma a mostran (en-es)
-   * -------------------------------------------------------
-   */
-  setTranslateInit(value: boolean) {
-    this._store.dispatch(ownActions.setTranslateInit({ initLang: value }));
-  }
-
-
-
 
 }
 

@@ -86,25 +86,28 @@ export class NavbarComponent implements OnInit {
    * -------------------------------------------------------
    */
   setSubscriptions() {
-    // this._subscription.add(
-    this._subscription = this._store.select('ui').subscribe((state) => {
-      this.openMenuMobile = state.open_menu_mobile;
-      this.openMenuMobileBack = state.open_menu_mobile_back;
-      this.urlActiveLevel1 = state.urlActive1;
-      this.urlActiveLevel2 = state.urlActive2;
-      this.language = state.language;
-      this.apiConLayout = state.apiConLayout;
-      this.apiConLayoutES = state.apiConLayoutES;
-      this.apiConLayoutEN = state.apiConLayoutEN;
-      this.isLogin = state.login;
-
-      setTimeout(() => {
-        if (this.data[0] || this.data[0] != undefined) {
-          this.activeMenuOnLoad(this.data[0].options, this.urlActiveLevel1)
-        }
-      }, 100);
-    })
-    // );
+    this._subscription.add(
+      this._store.select('ui').subscribe((state) => {
+        this.language = state.language;
+        this.openMenuMobile = state.open_menu_mobile;
+        this.openMenuMobileBack = state.open_menu_mobile_back;
+        this.urlActiveLevel1 = state.urlActive1;
+        this.urlActiveLevel2 = state.urlActive2;
+        this.isLogin = state.login;
+      })
+    );
+    this._subscription.add(
+      this._store.select('api').subscribe((state) => {
+        this.apiConLayout = state.apiConLayout;
+        this.apiConLayoutES = state.apiConLayoutES;
+        this.apiConLayoutEN = state.apiConLayoutEN;
+        setTimeout(() => {
+          if (this.data[0] || this.data[0] != undefined) {
+            this.activeMenuOnLoad(this.data[0].options, this.urlActiveLevel1)
+          }
+        }, 100);
+      })
+    );
   }
 
   /**

@@ -60,19 +60,15 @@ export class ProductsComponent implements OnInit {
       this._store.select('ui').subscribe((state) => {
         this.loading = state.loading;
         this.language = state.language;
+        this.getDataAPI(this.language);
+      })
+    );
+    this._subscription.add(
+      this._store.select('api').subscribe((state) => {
         this.apiConProducts = state.apiConProducts;
         this.apiConProductsES = state.apiConProductsES;
         this.apiConProductsEN = state.apiConProductsEN;
         this.fullData = state.arrayProducts;
-        console.log('this.fullData :>> ', this.fullData);
-        // console.log('FULL DATA object :>> ', Object.keys(this.fullData).length);
-        if (this.fullData.length === 0) {
-          // console.log('CARGO API');
-          this.getDataAPI(this.language)
-        } else {
-          // console.log('CARGO ARRAY');
-          this.getTypeProduct(this.fullData)
-        }
       })
     );
   }
@@ -98,6 +94,12 @@ export class ProductsComponent implements OnInit {
         (error: any) => console.log(`error`, error),
         () => { }
       );
+    } else {
+      if (this.fullData || this.fullData != undefined) {
+        setTimeout(() => {
+          this.getTypeProduct(this.fullData)
+        }, 200);
+      }
     }
   }
 
@@ -111,7 +113,7 @@ export class ProductsComponent implements OnInit {
    * -------------------------------------------------------
    */
   getIdProduct(array: any, id: number) {
-    console.log('array :>> ', array, 'id :>> ', id);
+    // console.log('array :>> ', array, 'id :>> ', id);
     return array.find((opt: any) => opt.id === Number(id));
   }
 
@@ -130,7 +132,7 @@ export class ProductsComponent implements OnInit {
       this.dataHeader = this.data.header;
       this.dataSpecifications = this.data.specifications;
       this.dataNews = this.data.news;
-      console.log(`PRODUCTS FILTRADO => `, this.data);
+      // console.log(`PRODUCTS FILTRADO => `, this.data);
       // console.log(`PRODUCTS FILTRADO LONGITUD OBJECT => `, Object.keys(this.data).length);
       return this.data;
     });
