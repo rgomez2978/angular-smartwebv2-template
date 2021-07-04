@@ -34,6 +34,53 @@ export class ReduxService {
     this._store.dispatch(ownActions.setUrl({ urlActive1: url1, urlActive2: url2 }));
   }
 
+
+  /**
+   * -------------------------------------------------------
+   * @summary setAPIConnectLayout
+   * @description Cambia el status de conectiviada a API de LAYPUT
+   * @param {boolean} page valor de conexiona a API en general
+   * @param {boolean} conn valor de conexiona a API en general
+   * @param {boolean} conn_es valor de conexiona a API ESPAÑOL
+   * @param {boolean} conn_en valor de conexiona a API INGLES
+   * -------------------------------------------------------
+   */
+  setAPIConnect(page: string, conn: boolean, conn_es: boolean, conn_en: boolean,) {
+    console.log('setAPIConnect page :>> ', page);
+    switch (page) {
+      case 'layout':
+        this._store.dispatch(ownActions.setAPIConnectLayout({ apiConLayout: conn, apiConLayoutES: conn_es, apiConLayoutEN: conn_en }));
+        break;
+      case 'home':
+        this._store.dispatch(ownActions.setAPIConnectHome({ apiConHome: conn, apiConHomeES: conn_es, apiConHomeEN: conn_en }));
+        break;
+      case 'products':
+        this._store.dispatch(ownActions.setAPIConnectProducts({ apiConProducts: conn, apiConProductsES: conn_es, apiConProductsEN: conn_en }));
+        break;
+      case 'planes':
+        this._store.dispatch(ownActions.setAPIConnectPlanes({ apiConPlanes: conn, apiConPlanesES: conn_es, apiConPlanesEN: conn_en }));
+        break;
+      case 'resources':
+        this._store.dispatch(ownActions.setAPIConnectResources({ apiConResources: conn, apiConResourcesES: conn_es, apiConResourcesEN: conn_en }));
+        break;
+      case 'info':
+        this._store.dispatch(ownActions.setAPIConnectInfo({ apiConInfo: conn, apiConInfoES: conn_es, apiConInfoEN: conn_en }));
+        break;
+      case 'policies':
+        this._store.dispatch(ownActions.setAPIConnectPolicies({ apiConPolicies: conn, apiConPoliciesES: conn_es, apiConPoliciesEN: conn_en }));
+        break;
+      case 'sites':
+        this._store.dispatch(ownActions.setAPIConnectSites({ apiConSites: conn, apiConSitesES: conn_es, apiConSitesEN: conn_en }));
+        break;
+    }
+
+    setTimeout(() => {
+      this.SetLoading(false);
+    }, 100);
+
+  }
+
+
   /**
    * -------------------------------------------------------
    * @summary setAPIConnectLayout
@@ -96,7 +143,69 @@ export class ReduxService {
     }, 100);
   }
 
+  /**
+   * -------------------------------------------------------
+   * @summary setAPIConnectResources
+   * @description Cambia el status de conectiviada a API de RESOURCES
+   * @param {boolean} conn valor de conexiona a API en general
+   * @param {boolean} conn_es valor de conexiona a API ESPAÑOL
+   * @param {boolean} conn_en valor de conexiona a API INGLES
+   * -------------------------------------------------------
+   */
+  setAPIConnectResources(conn: boolean, conn_es: boolean, conn_en: boolean,) {
+    this._store.dispatch(ownActions.setAPIConnectResources({ apiConResources: conn, apiConResourcesES: conn_es, apiConResourcesEN: conn_en }));
+    setTimeout(() => {
+      this.SetLoading(false);
+    }, 100);
+  }
 
+  /**
+   * -------------------------------------------------------
+   * @summary setAPIConnectInfo
+   * @description Cambia el status de conectiviada a API de INFO
+   * @param {boolean} conn valor de conexiona a API en general
+   * @param {boolean} conn_es valor de conexiona a API ESPAÑOL
+   * @param {boolean} conn_en valor de conexiona a API INGLES
+   * -------------------------------------------------------
+   */
+  setAPIConnectInfo(conn: boolean, conn_es: boolean, conn_en: boolean,) {
+    this._store.dispatch(ownActions.setAPIConnectInfo({ apiConInfo: conn, apiConInfoES: conn_es, apiConInfoEN: conn_en }));
+    setTimeout(() => {
+      this.SetLoading(false);
+    }, 100);
+  }
+
+  /**
+   * -------------------------------------------------------
+   * @summary setAPIConnectPolicies
+   * @description Cambia el status de conectiviada a API de POLICIES
+   * @param {boolean} conn valor de conexiona a API en general
+   * @param {boolean} conn_es valor de conexiona a API ESPAÑOL
+   * @param {boolean} conn_en valor de conexiona a API INGLES
+   * -------------------------------------------------------
+   */
+  setAPIConnectPolicies(conn: boolean, conn_es: boolean, conn_en: boolean,) {
+    this._store.dispatch(ownActions.setAPIConnectPolicies({ apiConPolicies: conn, apiConPoliciesES: conn_es, apiConPoliciesEN: conn_en }));
+    setTimeout(() => {
+      this.SetLoading(false);
+    }, 100);
+  }
+
+  /**
+   * -------------------------------------------------------
+   * @summary setAPIConnectSites
+   * @description Cambia el status de conectiviada a API de SITES
+   * @param {boolean} conn valor de conexiona a API en general
+   * @param {boolean} conn_es valor de conexiona a API ESPAÑOL
+   * @param {boolean} conn_en valor de conexiona a API INGLES
+   * -------------------------------------------------------
+   */
+  setAPIConnectSites(conn: boolean, conn_es: boolean, conn_en: boolean,) {
+    this._store.dispatch(ownActions.setAPIConnectSites({ apiConSites: conn, apiConSitesES: conn_es, apiConSitesEN: conn_en }));
+    setTimeout(() => {
+      this.SetLoading(false);
+    }, 100);
+  }
 
   /**
    * -------------------------------------------------------

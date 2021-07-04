@@ -47,56 +47,6 @@
             "title": "SmartChart",
             "fragment": "",
             "url": "/products/2"
-          },
-          {
-            "id": 3,
-            "order": 3,
-            "level": 2,
-            "icon": "",
-            "active": false,
-            "title": "SmartWork",
-            "fragment": "",
-            "url": "/products/3"
-          },
-          {
-            "id": 4,
-            "order": 4,
-            "level": 2,
-            "icon": "",
-            "active": false,
-            "title": "SmartProcess",
-            "fragment": "",
-            "url": "/products/4"
-          },
-          {
-            "id": 5,
-            "order": 5,
-            "level": 2,
-            "icon": "",
-            "active": false,
-            "title": "SmartCRM",
-            "fragment": "",
-            "url": "/products/5"
-          },
-          {
-            "id": 6,
-            "order": 6,
-            "level": 2,
-            "icon": "",
-            "active": false,
-            "title": "SmartHR",
-            "fragment": "",
-            "url": "/products/6"
-          },
-          {
-            "id": 7,
-            "order": 7,
-            "level": 2,
-            "icon": "",
-            "active": false,
-            "title": "SmartERP",
-            "fragment": "",
-            "url": "/products/7"
           }
         ]
       },
@@ -303,56 +253,6 @@
             "title": "SmartChart",
             "fragment": "",
             "url": "/products/2"
-          },
-          {
-            "id": 3,
-            "order": 3,
-            "level": 2,
-            "icon": "",
-            "active": false,
-            "title": "SmartWork",
-            "fragment": "",
-            "url": "/products/3"
-          },
-          {
-            "id": 4,
-            "order": 4,
-            "level": 2,
-            "icon": "",
-            "active": false,
-            "title": "SmartProcess",
-            "fragment": "",
-            "url": "/products/4"
-          },
-          {
-            "id": 5,
-            "order": 5,
-            "level": 2,
-            "icon": "",
-            "active": false,
-            "title": "SmartCRM",
-            "fragment": "",
-            "url": "/products/5"
-          },
-          {
-            "id": 6,
-            "order": 6,
-            "level": 2,
-            "icon": "",
-            "active": false,
-            "title": "SmartHR",
-            "fragment": "",
-            "url": "/products/6"
-          },
-          {
-            "id": 7,
-            "order": 7,
-            "level": 2,
-            "icon": "",
-            "active": false,
-            "title": "SmartERP",
-            "fragment": "",
-            "url": "/products/7"
           }
         ]
       },

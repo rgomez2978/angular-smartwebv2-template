@@ -67,7 +67,6 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.apiConHomeES = state.apiConHomeES;
         this.apiConHomeEN = state.apiConHomeEN;
         this.fullData = state.arrayHome;
-        this.getDataAPI(this.language)
       })
     );
   }
