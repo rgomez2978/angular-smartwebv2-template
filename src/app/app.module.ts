@@ -122,7 +122,12 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     ReactiveFormsModule,
     LazyLoadImageModule,
     SlickCarouselModule,
-    StoreModule.forRoot(appReduces),
+    StoreModule.forRoot(appReduces, {
+      runtimeChecks: {
+        strictStateImmutability: false,
+        strictActionImmutability: false,
+      },
+    }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,

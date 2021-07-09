@@ -1,22 +1,22 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import { Store } from "@ngrx/store";
-import { AppState } from "src/app/store/app.reducers";
-import { Subscription } from "rxjs";
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.reducers';
+import { Subscription } from 'rxjs';
 import { ApiJsonService, ReduxService, CommonsService } from '@services/index';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();
   data: any = [];
   fullData: any = [];
   dataHeader: any = [];
-  dataClients: any = [];
+  dataClients: any = {};
   dataProducts: any = [];
   dataNews: any = [];
   loading!: boolean;
@@ -46,19 +46,17 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.setSubscriptions();
   }
 
-
   /**
-  * -------------------------------------------------------
-  * @summary setSubscriptions
-  * @description Traer el valor del state del estado del translated de redux
-  * -------------------------------------------------------
-  */
+   * -------------------------------------------------------
+   * @summary setSubscriptions
+   * @description Traer el valor del state del estado del translated de redux
+   * -------------------------------------------------------
+   */
   setSubscriptions() {
     this._subscription.add(
       this._store.select('ui').subscribe((state) => {
         this.loading = state.loading;
         this.language = state.language;
-        this.getDataAPI(this.language);
       })
     );
     this._subscription.add(
@@ -67,10 +65,12 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.apiConHomeES = state.apiConHomeES;
         this.apiConHomeEN = state.apiConHomeEN;
         this.fullData = state.arrayHome;
+        if (this.apiConHome !== undefined && this.apiConHomeES !== undefined && this.apiConHomeEN !== undefined) {
+          this.getDataAPI(this.language);
+        }
       })
     );
   }
-
 
   /**
    * -------------------------------------------------------
@@ -81,42 +81,42 @@ export class HomeComponent implements OnInit, OnDestroy {
    * -------------------------------------------------------
    */
   getDataAPI(lang: string) {
-    if ((!this.apiConHome && !this.apiConHomeES) || (!this.apiConHome && !this.apiConHomeEN)) {
-      // console.log('CARGO API');
+    if (!this.apiConHome && (!this.apiConHomeES || !this.apiConHomeEN)) {
       this._apiJSONService.getJSON(lang, 'home', true).subscribe(
         (resp: any) => {
           this.data = resp;
-          this._reduxService.setArrayHome(this.data, lang);
-          this.getDataArray(this.fullData)
-          // console.log(`HOME => ${lang}`, this.data);
+          if (this.data !== undefined) {
+            this._reduxService.setArrayHome(this.data, lang);
+            this.getDataArray(this.fullData);
+          }
         },
         (error: any) => console.log(`error`, error),
         () => { }
       );
-    } else {
-      // console.log('CARGO ARRAY');
-      this.getDataArray(this.fullData)
+    }
+    else {
+      this.getDataArray(this.fullData);
     }
   }
 
+
   /**
    * -------------------------------------------------------
-   * @summary getTypeProduct
-   * @description Obtiene el nombre del producto desde la url
+   * @summary getDataArray
+   * @description Obtiene la data del arreglo almacenado en el state
    *  y asigna posicion de arreglo en data
    * @param {any} array arraglo a buscar
    * -------------------------------------------------------
    */
   getDataArray(array: any) {
-    this.data = array;
-    this.dataHeader = this.data.header;
-    this.dataClients = this.data.clients;
-    this.dataNews = this.data.news;
-    // console.log(`HOME => `, this.data);
-    return this.data;
+    if (Object.keys(array).length > 0) {
+      this.data = array;
+      this.dataHeader = this.data.header;
+      this.dataClients = this.data.clients;
+      this.dataNews = this.data.news;
+      return this.data;
+    }
   }
-
-
 
   /**
    * -------------------------------------------------------
@@ -127,5 +127,4 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this._subscription.unsubscribe();
   }
-
 }

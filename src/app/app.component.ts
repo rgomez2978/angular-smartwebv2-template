@@ -21,6 +21,7 @@ import { ApiJsonService, ReduxService, CommonsService } from '@services/index';
 export class AppComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();
   data: any = [];
+  fullData: any = [];
   dataNavbar: any = [];
   dataFooter: any = [];
   dataClients: any = [];
@@ -67,7 +68,6 @@ export class AppComponent implements OnInit, OnDestroy {
       this._store.select('ui').subscribe((state) => {
         this.loading = state.loading;
         this.language = state.language;
-        this.getData(this.language)
       })
     );
     this._subscription.add(
@@ -75,6 +75,10 @@ export class AppComponent implements OnInit, OnDestroy {
         this.apiConLayout = state.apiConLayout;
         this.apiConLayoutES = state.apiConLayoutES;
         this.apiConLayoutEN = state.apiConLayoutEN;
+        this.fullData = state.arrayLayout;
+        if (this.apiConLayout !== undefined && this.apiConLayoutES !== undefined && this.apiConLayoutEN !== undefined) {
+          this.getDataAPI(this.language)
+        }
       })
     );
   }
@@ -82,27 +86,47 @@ export class AppComponent implements OnInit, OnDestroy {
 
   /**
    * -------------------------------------------------------
-   * @summary getData
+   * @summary getDataAPI
    * @description Retorna la data layout - menu y footer
    * @param {string} lang lenguage
    * @param {string} page pagina de json a cargar
    * -------------------------------------------------------
    */
-  getData(lang: string) {
-    if ((!this.apiConLayout && !this.apiConLayoutES) || (!this.apiConLayout && !this.apiConLayoutEN)) {
+  getDataAPI(lang: string) {
+    if (!this.apiConLayout && (!this.apiConLayoutES || !this.apiConLayoutEN)) {
       this._apiJSONService.getJSON(lang, 'layout', true).subscribe(
         (resp: any) => {
           this.data = resp;
-          this.dataNavbar = this.data.navbar;
-          this.dataFooter = this.data.footer;
-          // console.log('API consumida ');
-          console.log(`LAYOUT => ${this.language}`, this.data);
+          if (this.data !== undefined) {
+            this._reduxService.setArrayLayout(this.data, lang);
+            this.getDataArray(this.fullData);
+          }
         },
         (error: any) => console.log(`error`, error),
         () => { }
       );
     }
+    else {
+      this.getDataArray(this.fullData);
+    }
   }
+
+  /**
+   * -------------------------------------------------------
+   * @summary getDataArray
+   * @description Obtiene la data del arreglo almacenado en el state
+   * @param {any} array arraglo a buscar
+   * -------------------------------------------------------
+   */
+  getDataArray(array: any) {
+    if (Object.keys(array).length > 0) {
+      this.data = array;
+      this.dataNavbar = this.data.navbar;
+      this.dataFooter = this.data.footer;
+      return this.data;
+    }
+  }
+
 
   /**
    * -------------------------------------------------------

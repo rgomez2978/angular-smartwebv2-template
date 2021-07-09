@@ -2,6 +2,7 @@ import { createReducer, on } from "@ngrx/store";
 import * as ownActions from "../actions";
 
 export interface ApiState {
+    arrayLayout: any;
     arrayHome: any;
     arrayProducts: any;
     arrayPlanes: any;
@@ -38,6 +39,7 @@ export interface ApiState {
 }
 
 export const apiState: ApiState = {
+    arrayLayout: [],
     arrayHome: [],
     arrayProducts: [],
     arrayPlanes: [],
@@ -116,6 +118,11 @@ const _apiReducer = createReducer(
     //  CONFIGURACION DE ARREGLOS
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //  Asigna los valores del ARREGLO - LAYOUT
+    on(ownActions.setArrayLayout, (state, { arrayLayout }) => ({
+        ...state,
+        arrayLayout,
+    })),
     //  Asigna los valores del ARREGLO - HOME
     on(ownActions.setArrayHome, (state, { arrayHome }) => ({
         ...state,

@@ -153,7 +153,7 @@ export class ApiJsonService implements OnInit, OnDestroy {
         if (value === 'es' && this.apiConHome && this.apiConHomeES && !this.apiConHomeEN) {
           this._reduxService.setAPIConnectLayout(true, true, false);
           this._reduxService.setAPIConnectHome(true, true, false);
-          // console.log(`XXXX YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+          console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
         }
         else if (value === 'en' && this.apiConHome && !this.apiConHomeES && this.apiConHomeEN) {
           this._reduxService.setAPIConnectLayout(true, false, true);
@@ -162,7 +162,7 @@ export class ApiJsonService implements OnInit, OnDestroy {
         } else {
           this._reduxService.setAPIConnectLayout(false, this.apiConLayoutES, this.apiConLayoutEN);
           this._reduxService.setAPIConnectHome(false, this.apiConHomeES, this.apiConHomeEN);
-          // console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
+          console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
         }
         break;
       // =====================================================
@@ -174,16 +174,16 @@ export class ApiJsonService implements OnInit, OnDestroy {
         if (value === 'es' && this.apiConProducts && this.apiConProductsES && !this.apiConProductsEN) {
           this._reduxService.setAPIConnectLayout(true, true, false);
           this._reduxService.setAPIConnectProducts(true, true, false);
-          // console.log(`XXXX YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+          console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
         }
         else if (value === 'en' && this.apiConProducts && !this.apiConProductsES && this.apiConProductsEN) {
           this._reduxService.setAPIConnectLayout(true, false, true);
           this._reduxService.setAPIConnectProducts(true, false, true);
-          // console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+          console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
         } else {
           this._reduxService.setAPIConnectLayout(false, this.apiConLayoutES, this.apiConLayoutEN);
           this._reduxService.setAPIConnectProducts(false, this.apiConProductsES, this.apiConProductsEN);
-          // console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
+          console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
         }
         break;
       // =====================================================

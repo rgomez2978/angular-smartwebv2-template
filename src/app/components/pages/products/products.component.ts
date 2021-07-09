@@ -60,7 +60,6 @@ export class ProductsComponent implements OnInit {
       this._store.select('ui').subscribe((state) => {
         this.loading = state.loading;
         this.language = state.language;
-        this.getDataAPI(this.language);
       })
     );
     this._subscription.add(
@@ -69,6 +68,9 @@ export class ProductsComponent implements OnInit {
         this.apiConProductsES = state.apiConProductsES;
         this.apiConProductsEN = state.apiConProductsEN;
         this.fullData = state.arrayProducts;
+        if (this.apiConProducts !== undefined && this.apiConProductsES !== undefined && this.apiConProductsEN !== undefined) {
+          this.getDataAPI(this.language)
+        }
       })
     );
   }
@@ -76,29 +78,29 @@ export class ProductsComponent implements OnInit {
 
   /**
    * -------------------------------------------------------
-   * @summary getData
-   * @description Retorna la data layout - menu y footer
+   * @summary getDataAPI
+   * @description Retorna la data de products
    * @param {string} lang lenguage
    * @param {string} page pagina de json a cargar
    * -------------------------------------------------------
    */
   getDataAPI(lang: string) {
-    if ((!this.apiConProducts && !this.apiConProductsES) || (!this.apiConProducts && !this.apiConProductsEN)) {
+    if (!this.apiConProducts && (!this.apiConProductsES || !this.apiConProductsEN)) {
       this._apiJSONService.getJSON(lang, 'products', true).subscribe(
         (resp: any) => {
           this.data = resp;
-          this._reduxService.setArrayProducts(this.data, lang);
-          this.getTypeProduct(this.fullData)
-          // console.log(`PRODUCTS => ${lang}`, this.fullData);
+          if (this.data !== undefined) {
+            this._reduxService.setArrayProducts(this.data, lang);
+            this.getDataArray(this.fullData)
+          }
         },
         (error: any) => console.log(`error`, error),
         () => { }
       );
     } else {
-      // if (this.fullData || this.fullData != undefined) {
-      setTimeout(() => {
-        this.getTypeProduct(this.fullData)
-      }, 400);
+      // setTimeout(() => {
+      this.getDataArray(this.fullData)
+      // }, 400);
       // }
     }
   }
@@ -119,23 +121,25 @@ export class ProductsComponent implements OnInit {
 
   /**
    * -------------------------------------------------------
-   * @summary getTypeProduct
+   * @summary getDataArray
    * @description Obtiene el nombre del producto desde la url
-   *  y asigna posicion de arreglo en data
+   *  y asigna posicion de arreglo del state en data
    * @param {any} array arraglo a buscar
    * -------------------------------------------------------
    */
-  getTypeProduct(array: any) {
-    this._activatedRoute.params.subscribe((params) => {
-      this.type = params["id"];
-      this.data = this.getIdProduct(array, this.type);
-      this.dataHeader = this.data.header;
-      this.dataSpecifications = this.data.specifications;
-      this.dataNews = this.data.news;
-      // console.log(`PRODUCTS FILTRADO => `, this.data);
-      // console.log(`PRODUCTS FILTRADO LONGITUD OBJECT => `, Object.keys(this.data).length);
-      return this.data;
-    });
+  getDataArray(array: any) {
+    if (Object.keys(array).length > 0) {
+      this._activatedRoute.params.subscribe((params) => {
+        this.type = params["id"];
+        this.data = this.getIdProduct(array, this.type);
+        this.dataHeader = this.data.header;
+        this.dataSpecifications = this.data.specifications;
+        this.dataNews = this.data.news;
+        // console.log(`PRODUCTS FILTRADO => `, this.data);
+        // console.log(`PRODUCTS FILTRADO LONGITUD OBJECT => `, Object.keys(this.data).length);
+        return this.data;
+      });
+    }
   }
 
   /**

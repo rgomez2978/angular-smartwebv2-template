@@ -121,9 +121,10 @@ export class NavbarComponent implements OnInit {
    */
   activeMenuOnLoad(data: any, url: string) {
     if (url === '/home') { this.isShowBgMenu = false; } else { this.isShowBgMenu = true; }
-
     data.filter((item: any) => {
-      if (item.url === url) { item.active = true; }
+      if (item.url === url) {
+        item.active = true;
+      }
       else {
         item.active = false
         if (item.nodes.length > 0) {

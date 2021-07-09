@@ -207,6 +207,21 @@ export class ReduxService {
     }, 100);
   }
 
+
+  /**
+   * -------------------------------------------------------
+   * @summary setArrayLayout
+   * @description Cambia el status de conectiviada a API de HOME
+   * @param {any} array Array de productos
+   * @param {string} lang Idioma
+   * -------------------------------------------------------
+   */
+  setArrayLayout(array: any, lang: string) {
+    this._store.dispatch(ownActions.setArrayLayout({ arrayLayout: array }));
+  }
+
+
+
   /**
    * -------------------------------------------------------
    * @summary setArrayHome
@@ -216,9 +231,7 @@ export class ReduxService {
    * -------------------------------------------------------
    */
   setArrayHome(array: any, lang: string) {
-    console.log(`array HOME REDUX - :>> ${lang}`, array);
     this._store.dispatch(ownActions.setArrayHome({ arrayHome: array }));
-
   }
 
   /**
@@ -229,7 +242,6 @@ export class ReduxService {
    * -------------------------------------------------------
    */
   setArrayProducts(array: any, lang: string) {
-    console.log(`array PRODUCTS REDUX - :>> ${lang}`, array);
     this._store.dispatch(ownActions.setArrayProducts({ arrayProducts: array }));
   }
 
@@ -241,7 +253,6 @@ export class ReduxService {
    * -------------------------------------------------------
    */
   setArrayPlanes(array: any, lang: string) {
-    console.log(`array PLANES REDUX - :>> ${lang}`, array);
     this._store.dispatch(ownActions.setArrayPlanes({ arrayPlanes: array }));
   }
 
@@ -254,7 +265,6 @@ export class ReduxService {
    * -------------------------------------------------------
    */
   setArrayResources(array: any, lang: string) {
-    console.log(`array RESOURCES REDUX - :>> ${lang}`, array);
     this._store.dispatch(ownActions.setArrayResources({ arrayResources: array }));
   }
 
@@ -266,7 +276,6 @@ export class ReduxService {
    * -------------------------------------------------------
    */
   setArrayInfo(array: any, lang: string) {
-    console.log(`array INFO REDUX - :>> ${lang}`, array);
     this._store.dispatch(ownActions.setArrayInfo({ arrayInfo: array }));
   }
 
@@ -278,7 +287,6 @@ export class ReduxService {
    * -------------------------------------------------------
    */
   setArrayPolicies(array: any, lang: string) {
-    console.log(`array POLICIES REDUX - :>> ${lang}`, array);
     this._store.dispatch(ownActions.setArrayPolicies({ arrayPolicies: array }));
   }
 
@@ -290,7 +298,6 @@ export class ReduxService {
    * -------------------------------------------------------
    */
   setArraySites(array: any, lang: string) {
-    console.log(`array SITES REDUX - :>> ${lang}`, array);
     this._store.dispatch(ownActions.setArraySites({ arraySites: array }));
   }
 

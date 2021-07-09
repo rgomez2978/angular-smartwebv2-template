@@ -42,6 +42,10 @@ export const setAPIConnectSites = createAction(
 //  CONFIGURACION DE ARRAYS
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+export const setArrayLayout = createAction(
+    "[API] Set Array Layout",
+    props<{ arrayLayout: any }>()
+);
 export const setArrayHome = createAction(
     "[API] Set Array Home",
     props<{ arrayHome: any }>()

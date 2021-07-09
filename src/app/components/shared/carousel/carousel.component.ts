@@ -9,7 +9,7 @@ import { SlickCarouselComponent } from 'ngx-slick-carousel';
 })
 export class CarouselComponent implements OnInit, AfterViewInit {
   @ViewChild('slickModal') slickModal!: SlickCarouselComponent;
-  @Input() data: any;
+  @Input() data: any = [];
   @Input() type!: string;
   @Input() controls!: string;
 
