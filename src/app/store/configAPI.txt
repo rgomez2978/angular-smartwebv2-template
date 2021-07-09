@@ -1,0 +1,6 @@
+apiConLayout{
+    es:
+    en:
+    conect:
+    array:
+}
