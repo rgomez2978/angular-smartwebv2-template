@@ -1,5 +1,5 @@
 section {
-    @apply flex flex-col items-start justify-center py-8;
+    @apply flex flex-col items-start justify-center py-8 bg-white;
     .title__content {
       @apply flex flex-row items-center justify-center w-full -mb-1 text-xl font-normal uppercase sm:mb-1 md:mb-1 lg:mb-2 sm:text-xl md:text-2xl lg:text-3xl xl:text-3xl;
       &__label {

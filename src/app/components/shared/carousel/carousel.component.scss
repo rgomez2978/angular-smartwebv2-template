@@ -1,8 +1,8 @@
 .slick_container {
-  @apply z-30 flex flex-col items-center justify-center w-full h-auto border-2 border-transparent mb-10 overflow-hidden;
+  @apply z-30 flex flex-col items-center justify-center w-full h-auto border-2 border-transparent mb-10 overflow-hidden bg-white;
 
   .carousel {
-    @apply absolute z-20 items-center justify-center w-11/12 h-auto border-2 border-transparent;
+    @apply absolute z-20 items-center justify-center w-11/12 h-auto border-2 border-transparent pb-6;
 
     .slide {
       @apply h-auto px-6;
@@ -130,4 +130,17 @@
       }
     }
   }
+
+  .slick_container__news__others{
+    @apply flex justify-end items-center py-2 pt-16 w-full h-auto px-16 md:px-20 lg:px-20 xl:px-24  text-left;
+    a{
+      @apply  text-lg font-medium text-gray-500;
+
+      &:hover {
+        @apply underline;
+      }
+
+    }
+  }
+
 }

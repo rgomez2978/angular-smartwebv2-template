@@ -160,14 +160,15 @@
       "id": 1,
       "order": 1,
       "type": "btn",
-      "url": "http://smart.alphagrupo.com/register",
-      "title": "EMPEZAR AHORA",
+      "url": "",
+      "title": "Ingresa aquí",
       "description": ""
     }]
   }],
   "news": [{
     "id": 1,
     "order": 1,
+    "title": "Novedades",
     "nodes": [{
         "id": 1,
         "order": 1,

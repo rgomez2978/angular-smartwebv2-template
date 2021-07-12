@@ -320,9 +320,14 @@ export class ApiJsonService implements OnInit, OnDestroy {
         if (lang === 'en') { this._reduxService.setAPIConnectHome(conApi, false, true) } else { this._reduxService.setAPIConnectHome(conApi, true, false) }
         this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
         break;
-      // CONEXION API - HOME
+      // CONEXION API - HPRODUCTS
       case 'products':
         if (lang === 'en') { this._reduxService.setAPIConnectProducts(conApi, false, true) } else { this._reduxService.setAPIConnectProducts(conApi, true, false) }
+        this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
+        break;
+      // CONEXION API - RESOURCES
+      case 'resources':
+        if (lang === 'en') { this._reduxService.setAPIConnectResources(conApi, false, true) } else { this._reduxService.setAPIConnectResources(conApi, true, false) }
         this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
         break;
 

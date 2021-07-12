@@ -1,0 +1,28 @@
+.containerFaq {
+  @apply flex w-full px-20 py-16 mx-auto lg:py-20;
+
+  &__content {
+    @apply w-full h-auto;
+
+    .content_sep {
+      @apply space-y-6;
+    }
+
+    &__item {
+      @apply border-2 border-gray-300 rounded shadow-sm;
+      > button {
+        @apply flex items-center justify-between w-full p-4 focus:outline-none;
+        &.active {
+          @apply bg-gray-200;
+        }
+
+        >p{
+            @apply text-xl font-medium text-gray-600;
+        }
+      }
+      &.active {
+        @apply border-2 border-gray-300 shadow-md;
+      }
+    }
+  }
+}

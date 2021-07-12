@@ -1,9 +1,12 @@
 <div *ngIf="type === 'normal'">
     <section class="containerCTA_Normal">
-        <div
-            class="containerCTA_Normal__content" *ngFor="let item of data">
-            <h1>{{item.title}}</h1>
-            <button *ngFor="let itemBtn of item.links" class="focus:shadow-outline focus:outline-none">{{itemBtn.title}}</button>
+        <div class="containerCTA_Normal__content" *ngFor="let item of data">
+            <div class="containerCTA_Normal__content__text">
+                <h1>{{item.title}}</h1>
+                <p>{{item.description}}</p>
+            </div>
+            <button *ngFor="let itemBtn of item.links"
+                class="focus:shadow-outline focus:outline-none">{{itemBtn.title}}</button>
         </div>
     </section>
 </div>
