@@ -18,13 +18,17 @@
                             <li *ngFor="let itemOpt of item.options; let i = index"
                                 class="border-transparent menuHorizontal"
                                 [ngClass]="{'hover:border-black': isShowBgMenu,'hover:border-white': !isShowBgMenu,'border-white': itemOpt.active && !isShowBgMenu ,'border-black': itemOpt.active && isShowBgMenu }">
-                                <span *ngIf="itemOpt.level === 1" [ngClass]="isShowBgMenu? 'text-black':' text-white'"
+                                <span *ngIf="itemOpt.level === 1 && itemOpt.type === 'link' " [ngClass]="isShowBgMenu? 'text-black':' text-white'"
                                     [routerLink]="itemOpt.url"
                                     (click)="changeStatusWeb(item.options, i, itemOpt.id, 1, item.fragment, itemOpt.url)">
                                     {{itemOpt.title}}
                                 </span>
-                                <span *ngIf="itemOpt.level === 2" [ngClass]="isShowBgMenu? 'text-black':' text-white'"
-                                    (mouseover)="closeAllSubMenu()">
+                                <span *ngIf="itemOpt.level === 2 && itemOpt.url !== '' && itemOpt.type === 'link'" [ngClass]="isShowBgMenu? 'text-black':' text-white'"
+                                    (mouseover)="closeAllSubMenu()" [routerLink]="itemOpt.url">
+                                    {{itemOpt.title}}
+                                </span>
+                                <span *ngIf="itemOpt.level === 2 && itemOpt.url === '' && itemOpt.type === ''" [ngClass]="isShowBgMenu? 'text-black':' text-white'"
+                                    (mouseover)="closeAllSubMenu()" >
                                     {{itemOpt.title}}
                                 </span>
                                 <div *ngIf="itemOpt.level === 2" class="subItemNav menuHorizontal-hover:block">

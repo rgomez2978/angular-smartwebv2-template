@@ -25,8 +25,7 @@
   "clients": [{
     "id": 1,
     "order": 1,
-    "title1": "nuestros",
-    "title2": "clientes",
+    "title": "nuestros clientes",
     "words": 2,
     "nodes": [{
         "id": 1,
@@ -96,109 +95,114 @@
     }
   ],
   "news": [{
-      "id": 1,
-      "order": 1,
-      "date": "25/06/2021",
-      "icon": "",
-      "image": "https://via.placeholder.com/400x300",
-      "title": "Shooting Stars",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore doloribus, sint non saepe nostrum enim quis earum necessitatibus commodi. Dicta tempora similique laboriosam modi enim ex minus eius aspernatur dignissimos.",
-      "url": "",
-      "views": 10,
-      "comments": 30,
-      "categories": [{
+    "id": 1,
+    "order": 1,
+    "title": "Nuestras novedades",
+    "nodes": [{
         "id": 1,
         "order": 1,
-        "title": "Category1"
-      }, {
-        "id": 1,
-        "order": 1,
-        "title": "Category1"
-      }]
-    },
-    {
-      "id": 2,
-      "order": 2,
-      "date": "25/06/2021",
-      "icon": "",
-      "image": "https://via.placeholder.com/400x300",
-      "title": "Shooting Stars",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore doloribus, sint non saepe nostrum enim quis earum necessitatibus commodi. Dicta tempora similique laboriosam modi enim ex minus eius aspernatur dignissimos.",
-      "url": "",
-      "views": 10,
-      "comments": 30,
-      "categories": [{
-        "id": 1,
-        "order": 1,
-        "title": "Category1"
-      }, {
-        "id": 1,
-        "order": 1,
-        "title": "Category1"
-      }]
-    },
-    {
-      "id": 3,
-      "order": 3,
-      "date": "25/06/2021",
-      "icon": "",
-      "image": "https://via.placeholder.com/400x300",
-      "title": "Shooting Stars",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore doloribus, sint non saepe nostrum enim quis earum necessitatibus commodi. Dicta tempora similique laboriosam modi enim ex minus eius aspernatur dignissimos.",
-      "url": "",
-      "views": 10,
-      "comments": 30,
-      "categories": [{
-        "id": 1,
-        "order": 1,
-        "title": "Category1"
-      }, {
-        "id": 1,
-        "order": 1,
-        "title": "Category1"
-      }]
-    },
-    {
-      "id": 4,
-      "order": 4,
-      "date": "25/06/2021",
-      "icon": "",
-      "image": "https://via.placeholder.com/400x300",
-      "title": "Shooting Stars",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore doloribus, sint non saepe nostrum enim quis earum necessitatibus commodi. Dicta tempora similique laboriosam modi enim ex minus eius aspernatur dignissimos.",
-      "url": "",
-      "views": 10,
-      "comments": 30,
-      "categories": [{
-        "id": 1,
-        "order": 1,
-        "title": "Category1"
-      }, {
-        "id": 1,
-        "order": 1,
-        "title": "Category1"
-      }]
-    },
-    {
-      "id": 5,
-      "order": 5,
-      "date": "25/06/2021",
-      "icon": "",
-      "image": "https://via.placeholder.com/400x300",
-      "title": "Shooting Stars",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore doloribus, sint non saepe nostrum enim quis earum necessitatibus commodi. Dicta tempora similique laboriosam modi enim ex minus eius aspernatur dignissimos.",
-      "url": "",
-      "views": 10,
-      "comments": 30,
-      "categories": [{
-        "id": 1,
-        "order": 1,
-        "title": "Category1"
-      }, {
-        "id": 1,
-        "order": 1,
-        "title": "Category1"
-      }]
-    }
-  ]
+        "date": "25/06/2021",
+        "icon": "",
+        "image": "https://via.placeholder.com/400x300",
+        "title": "Shooting Stars",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore doloribus, sint non saepe nostrum enim quis earum necessitatibus commodi. Dicta tempora similique laboriosam modi enim ex minus eius aspernatur dignissimos.",
+        "url": "",
+        "views": 10,
+        "comments": 30,
+        "categories": [{
+          "id": 1,
+          "order": 1,
+          "title": "Category1"
+        }, {
+          "id": 1,
+          "order": 1,
+          "title": "Category1"
+        }]
+      },
+      {
+        "id": 2,
+        "order": 2,
+        "date": "25/06/2021",
+        "icon": "",
+        "image": "https://via.placeholder.com/400x300",
+        "title": "Shooting Stars",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore doloribus, sint non saepe nostrum enim quis earum necessitatibus commodi. Dicta tempora similique laboriosam modi enim ex minus eius aspernatur dignissimos.",
+        "url": "",
+        "views": 10,
+        "comments": 30,
+        "categories": [{
+          "id": 1,
+          "order": 1,
+          "title": "Category1"
+        }, {
+          "id": 1,
+          "order": 1,
+          "title": "Category1"
+        }]
+      },
+      {
+        "id": 3,
+        "order": 3,
+        "date": "25/06/2021",
+        "icon": "",
+        "image": "https://via.placeholder.com/400x300",
+        "title": "Shooting Stars",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore doloribus, sint non saepe nostrum enim quis earum necessitatibus commodi. Dicta tempora similique laboriosam modi enim ex minus eius aspernatur dignissimos.",
+        "url": "",
+        "views": 10,
+        "comments": 30,
+        "categories": [{
+          "id": 1,
+          "order": 1,
+          "title": "Category1"
+        }, {
+          "id": 1,
+          "order": 1,
+          "title": "Category1"
+        }]
+      },
+      {
+        "id": 4,
+        "order": 4,
+        "date": "25/06/2021",
+        "icon": "",
+        "image": "https://via.placeholder.com/400x300",
+        "title": "Shooting Stars",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore doloribus, sint non saepe nostrum enim quis earum necessitatibus commodi. Dicta tempora similique laboriosam modi enim ex minus eius aspernatur dignissimos.",
+        "url": "",
+        "views": 10,
+        "comments": 30,
+        "categories": [{
+          "id": 1,
+          "order": 1,
+          "title": "Category1"
+        }, {
+          "id": 1,
+          "order": 1,
+          "title": "Category1"
+        }]
+      },
+      {
+        "id": 5,
+        "order": 5,
+        "date": "25/06/2021",
+        "icon": "",
+        "image": "https://via.placeholder.com/400x300",
+        "title": "Shooting Stars",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore doloribus, sint non saepe nostrum enim quis earum necessitatibus commodi. Dicta tempora similique laboriosam modi enim ex minus eius aspernatur dignissimos.",
+        "url": "",
+        "views": 10,
+        "comments": 30,
+        "categories": [{
+          "id": 1,
+          "order": 1,
+          "title": "Category1"
+        }, {
+          "id": 1,
+          "order": 1,
+          "title": "Category1"
+        }]
+      }
+    ]
+  }]
 }

@@ -1,7 +1,6 @@
 <!-- CAROUSEL - CLIENTES -->
 <div *ngIf="type === 'clients'">
-    <app-title [label1]="data[0]?.title1" [label2]="data[0]?.title2" [words]="data[0]?.words"></app-title>
-
+    <app-title [title]="data[0]?.title" [description]="''"></app-title>
     <div class="slick_container">
         <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="carouselClientsConfig">
             <div ngxSlickItem *ngFor="let item of data[0]?.nodes" class="slide">
@@ -22,10 +21,10 @@
 
 <!-- CAROUSEL - NOVEDADES -->
 <div *ngIf="type === 'news'">
-    <app-title [label1]="'Nove'" [label2]="'dades'" [words]="1"></app-title>
+    <app-title [title]="data[0]?.title" [description]="''"></app-title>
     <div class="slick_container">
         <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="carouselNewsConfig">
-            <div ngxSlickItem *ngFor="let item of data" class="slide slide_news ">
+            <div ngxSlickItem *ngFor="let item of data[0]?.nodes" class="slide slide_news ">
                 <article class="article-news">
                     <div class="w-full">
                         <div class="h-full overflow-hidden">
@@ -77,10 +76,11 @@
 
 <!-- CAROUSEL - TESTIMONIALS -->
 <div *ngIf="type === 'testimonials'">
-    <app-title [label1]="'testimo'" [label2]="'nials'" [words]="1"></app-title>
+    <app-title [title]="data[0]?.title" [description]="''"></app-title>
+    <br>
     <div class="slick_container">
         <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="carouselNewsConfig">
-            <div ngxSlickItem *ngFor="let item of data" class="slide slide_testimonialsX ">
+            <div ngxSlickItem *ngFor="let item of data[0]?.nodes" class="slide slide_testimonialsX ">
                 <article class="article-testimonialsX">
                     <div class="flex flex-col w-full mx-4 my-6 shadow-lg">
                         <div class="px-4 py-10 rounded-t-lg bg-gray-50 sm:px-8 md:px-6">
@@ -124,6 +124,11 @@
             </button>
         </div>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
 </div>
 
 <!-- CAROUSEL - TESTIMONIALS -->

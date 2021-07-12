@@ -103,6 +103,8 @@ export class NavbarComponent implements OnInit {
         this.apiConLayoutEN = state.apiConLayoutEN;
         setTimeout(() => {
           if (this.data[0] || this.data[0] != undefined) {
+            // console.log('this.urlActiveLevel1 :>> ', this.urlActiveLevel1);
+            // console.log('this.urlActiveLevel2 :>> ', this.urlActiveLevel2);
             this.activeMenuOnLoad(this.data[0].options, this.urlActiveLevel1)
           }
         }, 100);
@@ -123,6 +125,9 @@ export class NavbarComponent implements OnInit {
     if (url === '/home') { this.isShowBgMenu = false; } else { this.isShowBgMenu = true; }
     data.filter((item: any) => {
       if (item.url === url) {
+        item.active = true;
+      }
+      else if (item.type === '' && url === '/products') {
         item.active = true;
       }
       else {

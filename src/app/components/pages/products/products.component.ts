@@ -18,7 +18,9 @@ export class ProductsComponent implements OnInit {
   dataHeader: any = [];
   dataProducts: any = [];
   dataSpecifications: any = [];
-  dataNews: any = [];
+  dataDetail: any = [];
+  dataCta: any = [];
+  dataTestimonials: any = [];
   loading!: boolean;
   type: any;
 
@@ -134,7 +136,9 @@ export class ProductsComponent implements OnInit {
         this.data = this.getIdProduct(array, this.type);
         this.dataHeader = this.data.header;
         this.dataSpecifications = this.data.specifications;
-        this.dataNews = this.data.news;
+        this.dataDetail = this.dataSpecifications[0]?.detail;
+        this.dataCta = this.dataSpecifications[0]?.cta;
+        this.dataTestimonials = this.dataSpecifications[0]?.testimonials;
         // console.log(`PRODUCTS FILTRADO => `, this.data);
         // console.log(`PRODUCTS FILTRADO LONGITUD OBJECT => `, Object.keys(this.data).length);
         return this.data;
