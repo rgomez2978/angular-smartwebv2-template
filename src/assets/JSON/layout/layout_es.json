@@ -82,7 +82,7 @@
             "icon": "",
             "active": false,
             "title": "FAQ",
-            "fragment": "",
+            "fragment": "scrollfaqs",
             "url": "/resources/faqs"
           }, {
             "id": 2,

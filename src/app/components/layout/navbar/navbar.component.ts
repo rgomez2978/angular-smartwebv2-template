@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit, OnDestroy, Input, HostListener } from "@angular/core";
 import { DOCUMENT } from '@angular/common';
+// import { PageScrollService } from 'ngx-page-scroll-core';
 import { Location, LocationStrategy, PathLocationStrategy, } from "@angular/common";
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/store/app.reducers";

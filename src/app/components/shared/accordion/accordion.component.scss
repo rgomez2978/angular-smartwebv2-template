@@ -1,27 +1,73 @@
 .containerFaq {
-  @apply flex w-full px-20 py-16 mx-auto lg:py-20;
+  @apply flex w-full px-20 py-16 mx-auto lg:py-5;
 
   &__content {
     @apply w-full h-auto;
 
     .content_sep {
-      @apply space-y-6;
+      @apply space-y-4;
     }
 
     &__item {
       @apply border-2 border-gray-300 rounded shadow-sm;
+
+      &:hover {
+        @apply bg-gray-100;
+      }
+
       > button {
         @apply flex items-center justify-between w-full p-4 focus:outline-none;
         &.active {
           @apply bg-gray-200;
         }
-
-        >p{
-            @apply text-xl font-medium text-gray-600;
+        > p {
+          @apply text-xl font-medium text-gray-600;
         }
       }
+
+
       &.active {
-        @apply border-2 border-gray-300 shadow-md;
+        @apply  shadow-md;
+
+        &:hover {
+          @apply bg-white;
+        }
+      }
+
+
+      .panel {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+
+
+        &.active {
+          max-height: 1000px;
+          overflow: hidden;
+          transition: max-height 0.3s ease;
+          @apply py-3 bg-white;
+
+          &:hover {
+            @apply bg-white;
+          }
+        }
+
+        &.inactive {
+          max-height: 0px;
+          overflow: hidden;
+        }
+
+        > section {
+          @apply py-3 px-8;
+
+          h3 {
+            @apply text-gray-600 font-medium text-base;
+          }
+
+          p {
+            @apply text-base text-gray-400 font-normal;
+          }
+        }
       }
     }
   }

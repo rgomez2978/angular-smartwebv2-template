@@ -70,6 +70,8 @@ import { appReduces } from "@redux/app.reducers";
 // LIBRERIAS INSTALADAS
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+// import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+
 
 @NgModule({
   declarations: [
@@ -122,6 +124,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     ReactiveFormsModule,
     LazyLoadImageModule,
     SlickCarouselModule,
+    // NgxPageScrollCoreModule,
     StoreModule.forRoot(appReduces, {
       runtimeChecks: {
         strictStateImmutability: false,
