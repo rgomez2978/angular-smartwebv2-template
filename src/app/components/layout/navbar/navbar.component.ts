@@ -19,6 +19,7 @@ import { ApiJsonService, CommonsService, ReduxService } from '@services/index';
     },
   ],
 })
+
 export class NavbarComponent implements OnInit {
   private _subscription: Subscription = new Subscription();
   @Input() data: any;
