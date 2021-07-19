@@ -35,7 +35,7 @@ import { ProductsComponent } from '@pages/products/products.component';
 import { PlanesComponent } from '@pages/planes/planes.component';
 import { ResourcesCenterComponent } from '@pages/resources-center/resources-center.component';
 import { HelpCenterComponent } from '@pages/help-center/help-center.component';
-import { HelpCenterDetailComponent } from '@pages/help-center-detail/help-center-detail.component';
+import { HelpCenterDetailComponent } from '@app/components/pages/help-center/help-center-detail/help-center-detail.component';
 import { FaqComponent } from '@pages/faq/faq.component';
 import { NewsComponent } from '@pages/news/news.component';
 import { NewsDetailComponent } from '@pages/news-detail/news-detail.component';

@@ -83,7 +83,7 @@
             "active": false,
             "title": "FAQ",
             "fragment": "scrollfaqs",
-            "url": "/resources/faqs"
+            "url": "/resources"
           }, {
             "id": 2,
             "order": 2,

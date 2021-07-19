@@ -1,1 +1,7 @@
-<p>breadcrumb works!</p>
+<ul class="breadcrumb">
+    <li *ngFor="let item of data" class="breadcrumb-item">
+        <a routerLink="{{item.url}}">
+            {{ item.label }}
+        </a>
+    </li>
+</ul>

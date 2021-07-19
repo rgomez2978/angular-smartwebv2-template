@@ -7,26 +7,26 @@ import { Subscription } from "rxjs";
 import { ApiJsonService, ReduxService, CommonsService } from '@services/index';
 
 @Component({
-  selector: 'app-resources-center',
-  templateUrl: './resources-center.component.html',
-  styleUrls: ['./resources-center.component.scss']
+  selector: 'app-help-center',
+  templateUrl: './help-center-list.component.html',
+  styleUrls: ['./help-center-list.component.scss']
 })
-export class ResourcesCenterComponent implements OnInit, OnDestroy {
+export class HelpCenterListComponent implements OnInit {
   private _subscription: Subscription = new Subscription();
   data: any = [];
   fullData: any = [];
   dataHeader: any = [];
-  dataResources: any = [];
-  dataFaqs: any = [];
+  dataProducts: any = [];
+  dataAccess: any = [];
   dataManuals: any = [];
   dataNews: any = [];
   loading!: boolean;
   type: any;
 
   language!: string;
-  apiConResources!: boolean;
-  apiConResourcesES!: boolean;
-  apiConResourcesEN!: boolean;
+  apiConHelp!: boolean;
+  apiConHelpES!: boolean;
+  apiConHelpEN!: boolean;
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -65,11 +65,11 @@ export class ResourcesCenterComponent implements OnInit, OnDestroy {
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
-        this.apiConResources = state.apiConResources;
-        this.apiConResourcesES = state.apiConResourcesES;
-        this.apiConResourcesEN = state.apiConResourcesEN;
-        this.fullData = state.arrayResources;
-        if (this.apiConResources !== undefined && this.apiConResourcesES !== undefined && this.apiConResourcesEN !== undefined) {
+        this.apiConHelp = state.apiConHelp;
+        this.apiConHelpES = state.apiConHelpES;
+        this.apiConHelpEN = state.apiConHelpEN;
+        this.fullData = state.arrayHelp;
+        if (this.apiConHelp !== undefined && this.apiConHelpES !== undefined && this.apiConHelpEN !== undefined) {
           this.getDataAPI(this.language)
         }
       })
@@ -86,13 +86,13 @@ export class ResourcesCenterComponent implements OnInit, OnDestroy {
     * -------------------------------------------------------
     */
   getDataAPI(lang: string) {
-    if (!this.apiConResources && (!this.apiConResourcesES || !this.apiConResourcesEN)) {
-      this._apiJSONService.getJSON(lang, 'resources', true).subscribe(
+    if (!this.apiConHelp && (!this.apiConHelpES || !this.apiConHelpEN)) {
+      this._apiJSONService.getJSON(lang, 'help', true).subscribe(
         (resp: any) => {
           console.log('resp :>> ', resp);
           this.data = resp;
           if (this.data !== undefined) {
-            this._reduxService.setArrayResources(this.data, lang);
+            this._reduxService.setArrayHelp(this.data, lang);
             this.getDataArray(this.fullData)
           }
         },
@@ -116,9 +116,9 @@ export class ResourcesCenterComponent implements OnInit, OnDestroy {
     if (Object.keys(array).length > 0) {
       this.data = array;
       this.dataHeader = this.data.header;
-      this.dataManuals = this.data.manuals;
-      this.dataFaqs = this.data.faqs;
-      this.dataNews = this.data.news;
+      // this.dataManuals = this.data.manuals;
+      // this.dataFaqs = this.data.faqs;
+      // this.dataNews = this.data.news;
       return this.data;
     }
   }
@@ -132,7 +132,5 @@ export class ResourcesCenterComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this._subscription.unsubscribe();
   }
-
-
 
 }

@@ -7,6 +7,7 @@ export interface ApiState {
     arrayProducts: any;
     arrayPlanes: any;
     arrayResources: any;
+    arrayHelp: any;
     arrayInfo: any;
     arrayPolicies: any;
     arraySites: any;
@@ -26,6 +27,9 @@ export interface ApiState {
     apiConResources: boolean;
     apiConResourcesES: boolean;
     apiConResourcesEN: boolean;
+    apiConHelp: boolean;
+    apiConHelpES: boolean;
+    apiConHelpEN: boolean;
     apiConInfo: boolean;
     apiConInfoES: boolean;
     apiConInfoEN: boolean;
@@ -44,6 +48,7 @@ export const apiState: ApiState = {
     arrayProducts: [],
     arrayPlanes: [],
     arrayResources: [],
+    arrayHelp: [],
     arrayInfo: [],
     arrayPolicies: [],
     arraySites: [],
@@ -63,6 +68,9 @@ export const apiState: ApiState = {
     apiConResources: false,
     apiConResourcesES: false,
     apiConResourcesEN: false,
+    apiConHelp: false,
+    apiConHelpES: false,
+    apiConHelpEN: false,
     apiConInfo: false,
     apiConInfoES: false,
     apiConInfoEN: false,
@@ -100,6 +108,10 @@ const _apiReducer = createReducer(
     //  Asigna los valores de conexion de API RESOURCES
     on(ownActions.setAPIConnectResources, (state, { apiConResources, apiConResourcesES, apiConResourcesEN }) => ({
         ...state, apiConResources, apiConResourcesES, apiConResourcesEN
+    })),
+    //  Asigna los valores de conexion de API RESOURCES
+    on(ownActions.setAPIConnectHelp, (state, { apiConHelp, apiConHelpES, apiConHelpEN }) => ({
+        ...state, apiConHelp, apiConHelpES, apiConHelpEN
     })),
     //  Asigna los valores de conexion de API INFO
     on(ownActions.setAPIConnectInfo, (state, { apiConInfo, apiConInfoES, apiConInfoEN }) => ({
@@ -142,6 +154,11 @@ const _apiReducer = createReducer(
     on(ownActions.setArrayResources, (state, { arrayResources }) => ({
         ...state,
         arrayResources,
+    })),
+    //  Asigna los valores del ARREGLO - RESOURCES - HELP
+    on(ownActions.setArrayHelp, (state, { arrayHelp }) => ({
+        ...state,
+        arrayHelp,
     })),
     //  Asigna los valores del ARREGLO - INFO
     on(ownActions.setArrayInfo, (state, { arrayInfo }) => ({

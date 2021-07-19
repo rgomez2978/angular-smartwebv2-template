@@ -5,7 +5,7 @@
                 <h1>{{item.title}}</h1>
                 <p>{{item.description}}</p>
             </div>
-            <button *ngFor="let itemBtn of item.links"
+            <button *ngFor="let itemBtn of item.links" [routerLink]="itemBtn.url"
                 class="focus:shadow-outline focus:outline-none">{{itemBtn.title}}</button>
         </div>
     </section>

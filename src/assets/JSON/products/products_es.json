@@ -19,8 +19,7 @@
       "id": 1,
       "order": 1,
       "type": "img",
-      "url": "assets/img/productos/contacto.png",
-      "file": "assets/img/productos/contacto.png"
+      "url": "assets/img/productos/contacto.png"
     }],
     "links": [{
       "id": 1,
@@ -71,8 +70,7 @@
           "id": 1,
           "order": 1,
           "type": "img",
-          "url": "https://via.placeholder.com/400x300",
-          "file": "https://via.placeholder.com/400x300"
+          "url": "https://via.placeholder.com/400x300"
         }],
         "bullets": [],
         "links": []
@@ -89,8 +87,7 @@
           "id": 1,
           "order": 1,
           "type": "img",
-          "url": "https://via.placeholder.com/400x300",
-          "file": "https://via.placeholder.com/400x300"
+          "url": "https://via.placeholder.com/400x300"
         }],
         "bullets": [],
         "links": []
@@ -107,8 +104,7 @@
           "id": 1,
           "order": 1,
           "type": "img",
-          "url": "https://via.placeholder.com/400x300",
-          "file": "https://via.placeholder.com/400x300"
+          "url": "https://via.placeholder.com/400x300"
         }],
         "bullets": [],
         "links": []
@@ -125,8 +121,7 @@
           "id": 1,
           "order": 1,
           "type": "img",
-          "url": "https://via.placeholder.com/400x300",
-          "file": "https://via.placeholder.com/400x300"
+          "url": "https://via.placeholder.com/400x300"
         }],
         "bullets": [],
         "links": []
@@ -143,8 +138,7 @@
           "id": 1,
           "order": 1,
           "type": "img",
-          "url": "https://via.placeholder.com/400x300",
-          "file": "https://via.placeholder.com/400x300"
+          "url": "https://via.placeholder.com/400x300"
         }],
         "bullets": [],
         "links": []
@@ -161,8 +155,7 @@
           "id": 1,
           "order": 1,
           "type": "img",
-          "url": "https://via.placeholder.com/400x300",
-          "file": "https://via.placeholder.com/400x300"
+          "url": "https://via.placeholder.com/400x300"
         }],
         "bullets": [],
         "links": []
@@ -252,8 +245,7 @@
       "id": 1,
       "order": 1,
       "type": "img",
-      "url": "assets/img/productos/contacto.png",
-      "file": "assets/img/productos/contacto.png"
+      "url": "assets/img/productos/contacto.png"
     }],
     "buttons": [{
       "id": 1,
@@ -297,8 +289,7 @@
           "id": 1,
           "order": 1,
           "type": "img",
-          "url": "https://via.placeholder.com/400x300",
-          "file": "https://via.placeholder.com/400x300"
+          "url": "https://via.placeholder.com/400x300"
         }],
         "bullets": [],
         "links": []
@@ -315,8 +306,7 @@
           "id": 1,
           "order": 1,
           "type": "img",
-          "url": "https://via.placeholder.com/400x300",
-          "file": "https://via.placeholder.com/400x300"
+          "url": "https://via.placeholder.com/400x300"
         }],
         "bullets": [],
         "links": []
@@ -333,8 +323,7 @@
           "id": 1,
           "order": 1,
           "type": "img",
-          "url": "https://via.placeholder.com/400x300",
-          "file": "https://via.placeholder.com/400x300"
+          "url": "https://via.placeholder.com/400x300"
         }],
         "bullets": [],
         "links": []
@@ -351,8 +340,7 @@
           "id": 1,
           "order": 1,
           "type": "img",
-          "url": "https://via.placeholder.com/400x300",
-          "file": "https://via.placeholder.com/400x300"
+          "url": "https://via.placeholder.com/400x300"
         }],
         "bullets": [],
         "links": []
@@ -369,8 +357,7 @@
           "id": 1,
           "order": 1,
           "type": "img",
-          "url": "https://via.placeholder.com/400x300",
-          "file": "https://via.placeholder.com/400x300"
+          "url": "https://via.placeholder.com/400x300"
         }],
         "bullets": [],
         "links": []
@@ -387,8 +374,7 @@
           "id": 1,
           "order": 1,
           "type": "img",
-          "url": "https://via.placeholder.com/400x300",
-          "file": "https://via.placeholder.com/400x300"
+          "url": "https://via.placeholder.com/400x300"
         }],
         "bullets": [],
         "links": []
@@ -456,6 +442,5 @@
         }
       ]
     }]
-
   }]
 }]

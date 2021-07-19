@@ -34,6 +34,11 @@ export class ApiJsonService implements OnInit, OnDestroy {
   apiConResourcesES!: boolean;
   apiConResourcesEN!: boolean;
 
+  apiConHelp!: boolean;
+  apiConHelpES!: boolean;
+  apiConHelpEN!: boolean;
+
+
   apiConInfo!: boolean;
   apiConInfoES!: boolean;
   apiConInfoEN!: boolean;
@@ -105,6 +110,9 @@ export class ApiJsonService implements OnInit, OnDestroy {
         this.apiConResources = state.apiConResources;
         this.apiConResourcesES = state.apiConResourcesES;
         this.apiConResourcesEN = state.apiConResourcesEN;
+        this.apiConHelp = state.apiConHelp;
+        this.apiConHelpES = state.apiConHelpES;
+        this.apiConHelpEN = state.apiConHelpEN;
         this.apiConInfo = state.apiConInfo;
         this.apiConInfoES = state.apiConInfoES;
         this.apiConInfoEN = state.apiConInfoEN;
@@ -230,6 +238,27 @@ export class ApiJsonService implements OnInit, OnDestroy {
         }
         break;
       // =====================================================
+      // CONEXION API - RESOURCES
+      // =====================================================
+      case 'help':
+        console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConHelp, 'ES:', this.apiConHelpES, ' EN:', this.apiConHelpEN);
+
+        if (value === 'es' && this.apiConHelp && this.apiConHelpES && !this.apiConHelpEN) {
+          this._reduxService.setAPIConnectLayout(true, true, false);
+          this._reduxService.setAPIConnectHelp(true, true, false);
+          console.log(`XXXX YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        }
+        else if (value === 'en' && this.apiConHelp && !this.apiConHelpES && this.apiConHelpEN) {
+          this._reduxService.setAPIConnectLayout(true, false, true);
+          this._reduxService.setAPIConnectHelp(true, false, true);
+          console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        } else {
+          this._reduxService.setAPIConnectLayout(false, this.apiConLayoutES, this.apiConLayoutEN);
+          this._reduxService.setAPIConnectHelp(false, this.apiConHelpES, this.apiConHelpEN);
+          console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        }
+        break;
+      // =====================================================
       // CONEXION API - INFO
       // =====================================================
       case 'info':
@@ -317,18 +346,29 @@ export class ApiJsonService implements OnInit, OnDestroy {
     switch (page) {
       // CONEXION API - HOME
       case 'home':
-        if (lang === 'en') { this._reduxService.setAPIConnectHome(conApi, false, true) } else { this._reduxService.setAPIConnectHome(conApi, true, false) }
+        if (lang === 'en') { this._reduxService.setAPIConnectHome(conApi, false, true) }
+        else { this._reduxService.setAPIConnectHome(conApi, true, false) }
         this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
         break;
       // CONEXION API - HPRODUCTS
       case 'products':
-        if (lang === 'en') { this._reduxService.setAPIConnectProducts(conApi, false, true) } else { this._reduxService.setAPIConnectProducts(conApi, true, false) }
+        if (lang === 'en') { this._reduxService.setAPIConnectProducts(conApi, false, true) }
+        else { this._reduxService.setAPIConnectProducts(conApi, true, false) }
         this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
         break;
       // CONEXION API - RESOURCES
       case 'resources':
-        if (lang === 'en') { this._reduxService.setAPIConnectResources(conApi, false, true) } else { this._reduxService.setAPIConnectResources(conApi, true, false) }
+        if (lang === 'en') { this._reduxService.setAPIConnectResources(conApi, false, true) }
+        else { this._reduxService.setAPIConnectResources(conApi, true, false) }
         this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
+        break;
+      // CONEXION API - HELP
+      case 'help':
+        if (lang === 'en') { this._reduxService.setAPIConnectHelp(conApi, false, true) }
+        else { this._reduxService.setAPIConnectHelp(conApi, true, false) }
+        console.log('this.url :>> ', this.url);
+        this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
+
         break;
 
       // CONEXION API - LAYOUT
@@ -339,218 +379,6 @@ export class ApiJsonService implements OnInit, OnDestroy {
     }
     return this.conexReturn;
   }
-
-
-
-  // /**
-  //  * -------------------------------------------------------
-  //  * @summary setTranslate
-  //  * @description Asignacion de cambio del state para translate de cada pagina con redux
-  //  * @param {string} value Valor del idioma a mostran (en-es)
-  //  * @param {string} page PAgina que se mostrara (en-es)
-  //  * -------------------------------------------------------
-  //  */
-  // setTranslateMALA(value: string, page: string) {
-  //   this.setSubscriptions();
-  //   // console.log('value :>> ', value, ' page :>> ', page);
-  //   // Activa el tipo de idioma
-  //   this._reduxService.setTranslate(value);
-  //   this._reduxService.SetLoading(true);
-
-  //   switch (page) {
-  //     // =====================================================
-  //     // CONEXION API - HOME
-  //     // =====================================================
-  //     case 'home':
-  //       // console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConHome, 'ES:', this.apiConHomeES, ' EN:', this.apiConHomeEN);
-  //       if (value === 'es' && this.apiConHome && this.apiConHomeES && !this.apiConHomeEN) {
-  //         this._reduxService.setAPIConnect('layout', true, true, false);
-  //         this._reduxService.setAPIConnect('home', true, true, false);
-  //         // console.log(`XXXX YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
-  //       }
-  //       else if (value === 'en' && this.apiConHome && !this.apiConHomeES && this.apiConHomeEN) {
-  //         this._reduxService.setAPIConnect('layout', true, false, true);
-  //         this._reduxService.setAPIConnect('home', true, false, true);
-  //         console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
-  //       } else {
-  //         this._reduxService.setAPIConnect('layout', false, this.apiConLayoutES, this.apiConLayoutEN);
-  //         this._reduxService.setAPIConnect('home', false, this.apiConHomeES, this.apiConHomeEN);
-  //         // console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
-  //       }
-  //       break;
-  //     // =====================================================
-  //     // CONEXION API - PRODUCTS
-  //     // =====================================================
-  //     case 'products':
-  //       // console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConProducts, 'ES:', this.apiConProductsES, ' EN:', this.apiConProductsEN);
-
-  //       if (value === 'es' && this.apiConProducts && this.apiConProductsES && !this.apiConProductsEN) {
-  //         this._reduxService.setAPIConnect('layout', true, true, false);
-  //         this._reduxService.setAPIConnect('products', true, true, false);
-  //         // console.log(`XXXX YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
-  //       }
-  //       else if (value === 'en' && this.apiConProducts && !this.apiConProductsES && this.apiConProductsEN) {
-  //         this._reduxService.setAPIConnect('layout', true, false, true);
-  //         this._reduxService.setAPIConnect('products', true, false, true);
-  //         // console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
-  //       } else {
-  //         this._reduxService.setAPIConnect('layout', false, this.apiConLayoutES, this.apiConLayoutEN);
-  //         this._reduxService.setAPIConnect('products', false, this.apiConProductsES, this.apiConProductsEN);
-  //         // console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
-  //       }
-  //       break;
-  //     // =====================================================
-  //     // CONEXION API - PLANES
-  //     // =====================================================
-  //     case 'planes':
-  //       console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConPlanes, 'ES:', this.apiConPlanesES, ' EN:', this.apiConPlanesEN);
-
-  //       if (value === 'es' && this.apiConPlanes && this.apiConPlanesES && !this.apiConPlanesEN) {
-  //         this._reduxService.setAPIConnect('layout', true, true, false);
-  //         this._reduxService.setAPIConnect('planes', true, true, false);
-  //         console.log(`XXXX YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
-  //       }
-  //       else if (value === 'en' && this.apiConPlanes && !this.apiConPlanesES && this.apiConPlanesEN) {
-  //         this._reduxService.setAPIConnect('layout', true, false, true);
-  //         this._reduxService.setAPIConnect('planes', true, false, true);
-  //         console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
-  //       } else {
-  //         this._reduxService.setAPIConnect('layout', false, this.apiConLayoutES, this.apiConLayoutEN);
-  //         this._reduxService.setAPIConnect('planes', false, this.apiConPlanesES, this.apiConPlanesEN);
-  //         console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
-  //       }
-  //       break;
-
-  //     // =====================================================
-  //     // CONEXION API - RESOURCES
-  //     // =====================================================
-  //     case 'resources':
-  //       console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConResources, 'ES:', this.apiConResourcesES, ' EN:', this.apiConResourcesEN);
-
-  //       if (value === 'es' && this.apiConResources && this.apiConResourcesES && !this.apiConResourcesEN) {
-  //         this._reduxService.setAPIConnect('layout', true, true, false);
-  //         this._reduxService.setAPIConnect('resources', true, true, false);
-  //         console.log(`XXXX YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
-  //       }
-  //       else if (value === 'en' && this.apiConResources && !this.apiConResourcesES && this.apiConResourcesEN) {
-  //         this._reduxService.setAPIConnect('layout', true, false, true);
-  //         this._reduxService.setAPIConnect('resources', true, false, true);
-  //         console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
-  //       } else {
-  //         this._reduxService.setAPIConnect('layout', false, this.apiConLayoutES, this.apiConLayoutEN);
-  //         this._reduxService.setAPIConnect('resources', false, this.apiConResourcesES, this.apiConResourcesEN);
-  //         console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
-  //       }
-  //       break;
-  //     // =====================================================
-  //     // CONEXION API - INFO
-  //     // =====================================================
-  //     case 'info':
-  //       console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConInfo, 'ES:', this.apiConInfoES, ' EN:', this.apiConInfoEN);
-
-  //       if (value === 'es' && this.apiConInfo && this.apiConInfoES && !this.apiConInfoEN) {
-  //         this._reduxService.setAPIConnect('layout', true, true, false);
-  //         this._reduxService.setAPIConnect('info', true, true, false);
-  //         console.log(`XXXX YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
-  //       }
-  //       else if (value === 'en' && this.apiConInfo && !this.apiConInfoES && this.apiConInfoEN) {
-  //         this._reduxService.setAPIConnect('layout', true, false, true);
-  //         this._reduxService.setAPIConnect('info', true, false, true);
-  //         console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
-  //       } else {
-  //         this._reduxService.setAPIConnect('layout', false, this.apiConLayoutES, this.apiConLayoutEN);
-  //         this._reduxService.setAPIConnect('info', false, this.apiConInfoES, this.apiConInfoEN);
-  //         console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
-  //       }
-  //       break;
-  //     // =====================================================
-  //     // CONEXION API - POLICIES
-  //     // =====================================================
-  //     case 'policies':
-  //       console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConPolicies, 'ES:', this.apiConPoliciesES, ' EN:', this.apiConPoliciesEN);
-
-  //       if (value === 'es' && this.apiConPolicies && this.apiConPoliciesES && !this.apiConPoliciesEN) {
-  //         this._reduxService.setAPIConnect('layout', true, true, false);
-  //         this._reduxService.setAPIConnect('policies', true, true, false);
-  //         console.log(`XXXX YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
-  //       }
-  //       else if (value === 'en' && this.apiConPolicies && !this.apiConPoliciesES && this.apiConPoliciesEN) {
-  //         this._reduxService.setAPIConnect('layout', true, false, true);
-  //         this._reduxService.setAPIConnect('policies', true, false, true);
-  //         console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
-  //       } else {
-  //         this._reduxService.setAPIConnect('layout', false, this.apiConLayoutES, this.apiConLayoutEN);
-  //         this._reduxService.setAPIConnect('policies', false, this.apiConPoliciesES, this.apiConPoliciesEN);
-  //         console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
-  //       }
-  //       break;
-  //     // =====================================================
-  //     // CONEXION API - SITES
-  //     // =====================================================
-  //     case 'sites':
-  //       console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConSites, 'ES:', this.apiConSitesES, ' EN:', this.apiConSitesEN);
-
-  //       if (value === 'es' && this.apiConSites && this.apiConSitesES && !this.apiConSitesEN) {
-  //         this._reduxService.setAPIConnect('layout', true, true, false);
-  //         this._reduxService.setAPIConnect('sites', true, true, false);
-  //         console.log(`XXXX YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
-  //       }
-  //       else if (value === 'en' && this.apiConSites && !this.apiConSitesES && this.apiConSitesEN) {
-  //         this._reduxService.setAPIConnect('layout', true, false, true);
-  //         this._reduxService.setAPIConnect('sites', true, false, true);
-  //         console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
-  //       } else {
-  //         this._reduxService.setAPIConnect('layout', false, this.apiConLayoutES, this.apiConLayoutEN);
-  //         this._reduxService.setAPIConnect('sites', false, this.apiConSitesES, this.apiConSitesEN);
-  //         console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
-  //       }
-  //       break;
-  //   }
-  // }
-
-
-
-  // /**
-  //  * -------------------------------------------------------
-  //  * @summary getJSON
-  //  * @description  Consumir API - GET
-  //  * @param {string} lang lenguage
-  //  * @param {string} pag lenguage
-  //  * @param {string} conApi Conexion a api
-  //  * -------------------------------------------------------
-  //  */
-  // getJSONFULL(lang: string, page: string, conApi: boolean) {
-
-  //   // Ubicacion del ARchivo JSON
-  //   if (lang === 'en') {
-  //     this.url = `assets/JSON/${page}/${page}_en.json`;
-  //   } else {
-  //     this.url = `assets/JSON/${page}/${page}_es.json`;
-  //   }
-
-  //   // VALIDACION DE PAGINA - CONFIGURACION DE RECARGA DE API
-  //   switch (page) {
-  //     // CONEXION API - HOME
-  //     case 'home':
-  //       if (lang === 'en') { this._reduxService.setAPIConnect('home', conApi, false, true) } else { this._reduxService.setAPIConnect('home', conApi, true, false) }
-  //       this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
-  //       break;
-  //     // CONEXION API - HOME
-  //     case 'products':
-  //       if (lang === 'en') { this._reduxService.setAPIConnect('products', conApi, false, true) } else { this._reduxService.setAPIConnect('products', conApi, true, false) }
-  //       this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
-  //       break;
-
-  //     // CONEXION API - LAYOUT
-  //     default:
-  //       if (lang === 'en') { this._reduxService.setAPIConnect('layout', true, false, true) } else { this._reduxService.setAPIConnect('layout', true, true, false) }
-  //       this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
-  //       break;
-  //   }
-  //   return this.conexReturn;
-  // }
-
-
 
 
 

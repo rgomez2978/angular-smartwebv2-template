@@ -5,13 +5,12 @@
             <div *ngFor="let item of data ">
                 <div class="itemBenefit" [ngClass]="item.position === 'left' ? 'left' : 'right'">
                     <div class="itemBenefit__img" *ngFor="let itemMedia of item.media">
-                        <app-media [data]="itemMedia.file" [type]="'img'" [format]="'png'"></app-media>
+                        <app-media [data]="itemMedia.url" [type]="'img'" [format]="'png'"></app-media>
                     </div>
                     <div class="itemBenefit__cont">
                         <span>{{item.title_head}}</span>
                         <h2>{{item.title}}</h2>
                         <p>{{item.description}}</p>
-                        <!-- <button class="self-start">Action</button> -->
                     </div>
                 </div>
                 <hr class="w-3/5 h-1 mx-auto bg-gray-100 mt-14 ">

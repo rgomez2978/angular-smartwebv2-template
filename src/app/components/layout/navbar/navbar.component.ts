@@ -221,13 +221,14 @@ export class NavbarComponent implements OnInit {
       } else {
         this.toggleSubMenuMobile(level, data[index], true);
       }
+      this.toggleMenuMobile();
     }
   }
 
   /**
    * -------------------------------------------------------
    * @summary toggleMenuMobile
-   * @description Cambia el valor del menu mobile obteniendo valor desde localstorage
+   * @description Cambia el valor del menu mobile obteniendo valor desde redux
    * -------------------------------------------------------
    */
   toggleMenuMobile() {
@@ -237,16 +238,18 @@ export class NavbarComponent implements OnInit {
   /**
    * -------------------------------------------------------
    * @summary toggleSubMenuMobile
-   * @description Cambia el valor del submenu menu mobile obteniendo valor desde localstorage
+   * @description Cambia el valor del submenu menu mobile obteniendo valor desde redux
    * @param {any} array Arreglo
    * @param {number} level Nivel del menu
    * @param {boolean} back Ir atras o no
    * -------------------------------------------------------
    */
   toggleSubMenuMobile(level: number, array: any, back: boolean) {
+    console.log('array :>> ', level, back, array);
     this.submenuMobileArray = array.nodes;
     this.openMenuSubmobile = level;
     this._reduxService.toggleSubMenuMobileBack(back);
+    // this.toggleMenuMobile();
   }
 
   /**
@@ -263,7 +266,7 @@ export class NavbarComponent implements OnInit {
   /**
    * -------------------------------------------------------
    * @summary toggleSubMenuMobile
-   * @description Cambia el valor del menu mobile obteniendo valor desde localstorage
+   * @description Cambia el valor del menu mobile obteniendo valor desde redux
    * -------------------------------------------------------
    */
   toggleSubMenuMobileBack() {
@@ -273,7 +276,7 @@ export class NavbarComponent implements OnInit {
   /**
    * -------------------------------------------------------
    * @summary closeAllSubMenu
-   * @description Asigna el valor del menu de sesiones  y apps obteniendo valor desde localstorage
+   * @description Asigna el valor del menu de sesiones  y apps obteniendo valor desde redux
    * -------------------------------------------------------
    */
   closeAllSubMenu() {

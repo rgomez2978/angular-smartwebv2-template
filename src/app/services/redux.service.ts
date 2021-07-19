@@ -63,6 +63,9 @@ export class ReduxService {
       case 'resources':
         this._store.dispatch(ownActions.setAPIConnectResources({ apiConResources: conn, apiConResourcesES: conn_es, apiConResourcesEN: conn_en }));
         break;
+      case 'help':
+        this._store.dispatch(ownActions.setAPIConnectHelp({ apiConHelp: conn, apiConHelpES: conn_es, apiConHelpEN: conn_en }));
+        break;
       case 'info':
         this._store.dispatch(ownActions.setAPIConnectInfo({ apiConInfo: conn, apiConInfoES: conn_es, apiConInfoEN: conn_en }));
         break;
@@ -154,6 +157,27 @@ export class ReduxService {
    */
   setAPIConnectResources(conn: boolean, conn_es: boolean, conn_en: boolean,) {
     this._store.dispatch(ownActions.setAPIConnectResources({ apiConResources: conn, apiConResourcesES: conn_es, apiConResourcesEN: conn_en }));
+    setTimeout(() => {
+      this.SetLoading(false);
+    }, 100);
+  }
+
+
+  /**
+   * -------------------------------------------------------
+   * @summary setAPIConnectHelp
+   * @description Cambia el status de conectiviada a API de HELP
+   * @param {boolean} conn valor de conexiona a API en general
+   * @param {boolean} conn_es valor de conexiona a API ESPAÑOL
+   * @param {boolean} conn_en valor de conexiona a API INGLES
+   * -------------------------------------------------------
+   */
+  setAPIConnectHelp(conn: boolean, conn_es: boolean, conn_en: boolean,) {
+    console.log('conn :>> ', conn);
+    console.log('conn_es :>> ', conn_es);
+    console.log('conn_en :>> ', conn_en);
+
+    this._store.dispatch(ownActions.setAPIConnectHelp({ apiConHelp: conn, apiConHelpES: conn_es, apiConHelpEN: conn_en }));
     setTimeout(() => {
       this.SetLoading(false);
     }, 100);
@@ -266,6 +290,17 @@ export class ReduxService {
    */
   setArrayResources(array: any, lang: string) {
     this._store.dispatch(ownActions.setArrayResources({ arrayResources: array }));
+  }
+
+  /**
+   * -------------------------------------------------------
+   * @summary setArrayHelp
+   * @description Cambia el status de conectiviada a API de HELP
+   * @param {any} array Array de productos
+   * -------------------------------------------------------
+   */
+  setArrayHelp(array: any, lang: string) {
+    this._store.dispatch(ownActions.setArrayHelp({ arrayHelp: array }));
   }
 
   /**

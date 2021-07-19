@@ -7,8 +7,8 @@ import { HomeComponent } from '@pages/home/home.component';
 import { ProductsComponent } from '@pages/products/products.component';
 import { PlanesComponent } from '@pages/planes/planes.component';
 import { ResourcesCenterComponent } from '@pages/resources-center/resources-center.component';
-import { HelpCenterComponent } from '@pages/help-center/help-center.component';
-import { HelpCenterDetailComponent } from '@pages/help-center-detail/help-center-detail.component';
+// import { HelpCenterComponent } from '@pages/help-center/help-center.component';
+// import { HelpCenterDetailComponent } from '@app/components/pages/help-center/help-center-detail/help-center-detail.component';
 import { NewsComponent } from '@pages/news/news.component';
 import { NewsDetailComponent } from '@pages/news-detail/news-detail.component';
 import { ContactusComponent } from '@pages/contactus/contactus.component';
@@ -32,8 +32,13 @@ const routes: Routes = [
   { path: "products/:id", component: ProductsComponent },
   { path: "planes", component: PlanesComponent },
   { path: "resources", component: ResourcesCenterComponent },
-  { path: "resources/help", component: HelpCenterComponent },
-  { path: "resources/help/:id", component: HelpCenterDetailComponent },
+  {
+    path: 'resources/help',
+    loadChildren: '@pages/help-center/help.module#HelpModule',
+    data: { title: 'Help' }
+  },
+  // { path: "resources/help", component: HelpCenterComponent },
+  // { path: "resources/help/:id", component: HelpCenterDetailComponent },
   { path: "resources/news", component: NewsComponent },
   { path: "resources/news/:id", component: NewsDetailComponent },
   { path: "resources/faqs", component: ResourcesCenterComponent },
