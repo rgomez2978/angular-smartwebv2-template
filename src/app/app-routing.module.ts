@@ -1,16 +1,12 @@
 // MODULES
 import { NgModule } from "@angular/core";
-import { Routes, RouterModule, ExtraOptions } from "@angular/router";
+import { Routes, RouterModule, ExtraOptions, PreloadAllModules } from "@angular/router";
 
 // PAGES
 import { HomeComponent } from '@pages/home/home.component';
 import { ProductsComponent } from '@pages/products/products.component';
 import { PlanesComponent } from '@pages/planes/planes.component';
 import { ResourcesCenterComponent } from '@pages/resources-center/resources-center.component';
-// import { HelpCenterComponent } from '@pages/help-center/help-center.component';
-// import { HelpCenterDetailComponent } from '@app/components/pages/help-center/help-center-detail/help-center-detail.component';
-import { NewsComponent } from '@pages/news/news.component';
-import { NewsDetailComponent } from '@pages/news-detail/news-detail.component';
 import { ContactusComponent } from '@pages/contactus/contactus.component';
 import { LegalTermsComponent } from '@pages/legal-terms/legal-terms.component';
 import { PrivacyPoliticsComponent } from '@pages/privacy-politics/privacy-politics.component';
@@ -19,6 +15,9 @@ import { SiteMapComponent } from '@pages/site-map/site-map.component';
 import { AboutusComponent } from '@pages/aboutus/aboutus.component';
 import { WhySmartComponent } from '@pages/why-smart/why-smart.component';
 import { NotFoundComponent } from '@pages/not-found/not-found.component';
+import { HelpCenterComponent } from './components/pages/help-center/help-center.component';
+import { NewsComponent } from './components/pages/news/news.component';
+
 
 const routerOptions: ExtraOptions = {
   scrollPositionRestoration: "enabled",
@@ -34,13 +33,17 @@ const routes: Routes = [
   { path: "resources", component: ResourcesCenterComponent },
   {
     path: 'resources/help',
-    loadChildren: '@pages/help-center/help.module#HelpModule',
+    // usarchildren ver video de udemy
+    // component: HelpCenterComponent,
+    loadChildren: () => import('../../src/app/components/pages/help-center/help.module').then(m => m.HelpModule),
     data: { title: 'Help' }
   },
-  // { path: "resources/help", component: HelpCenterComponent },
-  // { path: "resources/help/:id", component: HelpCenterDetailComponent },
-  { path: "resources/news", component: NewsComponent },
-  { path: "resources/news/:id", component: NewsDetailComponent },
+  // {
+  //   path: 'resources/news',
+  //   // component: NewsComponent,
+  //   loadChildren: () => import('@pages/news/news.module').then(m => m.NewsModule),
+  //   data: { title: 'News' }
+  // },
   { path: "resources/faqs", component: ResourcesCenterComponent },
   { path: "policies/privacy", component: PrivacyPoliticsComponent },
   { path: "policies/legal", component: LegalTermsComponent },
@@ -52,7 +55,10 @@ const routes: Routes = [
   { path: "**", component: NotFoundComponent },
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes, routerOptions)],
+  imports: [RouterModule.forRoot(routes, {
+    enableTracing: false,
+    preloadingStrategy: PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

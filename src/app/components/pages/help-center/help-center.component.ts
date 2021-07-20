@@ -8,10 +8,10 @@ import { ApiJsonService, ReduxService, CommonsService } from '@services/index';
 
 @Component({
   selector: 'app-help-center',
-  templateUrl: './help-center-list.component.html',
-  styleUrls: ['./help-center-list.component.scss']
+  templateUrl: './help-center.component.html',
+  styleUrls: ['./help-center.component.scss']
 })
-export class HelpCenterListComponent implements OnInit {
+export class HelpCenterComponent implements OnInit {
   private _subscription: Subscription = new Subscription();
   data: any = [];
   fullData: any = [];
