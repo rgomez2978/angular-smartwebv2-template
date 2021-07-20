@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '@components/shared.module';
-import { AppRoutingModule } from '../../app-routing.module';
+import { RouterModule } from '@angular/router';
 
 // COMPONENTS
 import { HomeComponent } from '@pages/home/home.component';
@@ -39,7 +39,7 @@ import { NotFoundComponent } from '@pages/not-found/not-found.component';
   imports: [
     CommonModule,
     SharedModule,
-    AppRoutingModule
+    RouterModule
   ],
   exports: [
     HomeComponent,

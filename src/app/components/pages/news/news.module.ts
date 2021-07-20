@@ -1,7 +1,7 @@
 // MODULES
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NewsRoutingModule } from './news-routing.module';
+// import { NewsRoutingModule } from './news-routing.module';
 import { SharedModule } from '@components/shared.module';
 
 // COMPONENTS
@@ -12,7 +12,7 @@ import { NewsDetailComponent } from '@pages/news/news-detail/news-detail.compone
 @NgModule({
     imports: [
         CommonModule,
-        NewsRoutingModule,
+        // NewsRoutingModule,
         SharedModule
     ],
     declarations: [

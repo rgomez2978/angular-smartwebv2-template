@@ -46,7 +46,7 @@ export class HelpCenterComponent implements OnInit {
    */
   ngOnInit() {
     this._titleService.setTitle('Smart Suite Tools');
-    // this.setSubscriptions();
+    this.setSubscriptions();
   }
 
 

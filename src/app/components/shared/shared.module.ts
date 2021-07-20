@@ -1,9 +1,11 @@
 // MODULES
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AppRoutingModule } from '../../app-routing.module';
+// import { AppRoutingModule } from '../../app-routing.module';
+import { RouterModule } from '@angular/router';
+
+
 
 // LIBRERIAS INSTALADAS
 import { LazyLoadImageModule } from 'ng-lazyload-image';
@@ -55,13 +57,12 @@ import { SafedomPipe } from '@pipes/safedom.pipe';
     NoimagePipe
   ],
   imports: [
+    RouterModule,
     CommonModule,
-    BrowserAnimationsModule,
     FormsModule,
     SlickCarouselModule,
     ReactiveFormsModule,
     LazyLoadImageModule,
-    AppRoutingModule,
   ],
   exports: [
     HeaderComponent,

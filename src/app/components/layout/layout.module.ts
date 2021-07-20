@@ -1,7 +1,9 @@
 // MODULES
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppRoutingModule } from '../../app-routing.module';
+import { RouterModule } from '@angular/router';
+
+
 import { SharedModule } from '@components/shared.module';
 
 // COMPONENTS
@@ -23,7 +25,7 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
   imports: [
     CommonModule,
     SharedModule,
-    AppRoutingModule,
+    RouterModule,
     LazyLoadImageModule
   ],
   exports: [
