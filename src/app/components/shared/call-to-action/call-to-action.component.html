@@ -1,12 +1,32 @@
+<!-- CALL TO ACTION - NORMAL -->
 <div *ngIf="type === 'normal'">
-    <section class="containerCTA_Normal">
-        <div class="containerCTA_Normal__content" *ngFor="let item of data">
-            <div class="containerCTA_Normal__content__text">
+    <section class="containerCTA">
+        <div class="containerCTA__content" *ngFor="let item of data">
+            <div class="containerCTA__content__text">
                 <h1>{{item.title}}</h1>
                 <p>{{item.description}}</p>
             </div>
-            <button *ngFor="let itemBtn of item.links" [routerLink]="itemBtn.url"
-                class="focus:shadow-outline focus:outline-none">{{itemBtn.title}}</button>
+            <div class="containerCTA__content__btn">
+                <button *ngFor="let itemBtn of item.links" [routerLink]="itemBtn.url"
+                    class="focus:shadow-outline focus:outline-none">{{itemBtn.title}}</button>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<!-- CALL TO ACTION - HELP -->
+<div *ngIf="type === 'center'">
+    <section class="containerCTA">
+        <div class="containerCTA__content vertical" *ngFor="let item of data">
+            <div class="containerCTA__content__text_help">
+                <h1>{{item.title}}</h1>
+                <p>{{item.description}}</p>
+            </div>
+            <div class="containerCTA__content__btn">
+                <button *ngFor="let itemBtn of item.links" [routerLink]="itemBtn.url"
+                    class="focus:shadow-outline focus:outline-none">{{itemBtn.title}}</button>
+            </div>
         </div>
     </section>
 </div>

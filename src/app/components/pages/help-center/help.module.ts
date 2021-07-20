@@ -5,10 +5,10 @@ import { HelpRoutingModule } from './help-routing.module';
 import { SharedModule } from '@components/shared.module';
 
 // COMPONENTS
+import { HelpCenterComponent } from '@pages/help-center/help-center.component';
+import { HelpCenterHomeComponent } from './help-center-home/help-center-home.component';
 import { HelpCenterListComponent } from '@pages/help-center/help-center-list/help-center-list.component';
 import { HelpCenterDetailComponent } from '@pages/help-center/help-center-detail/help-center-detail.component';
-import { HelpCenterComponent } from '@pages/help-center/help-center.component';
-
 @NgModule({
     imports: [
         CommonModule,
@@ -16,10 +16,10 @@ import { HelpCenterComponent } from '@pages/help-center/help-center.component';
         SharedModule,
     ],
     declarations: [
+        HelpCenterComponent,
+        HelpCenterHomeComponent,
         HelpCenterListComponent,
         HelpCenterDetailComponent,
-        HelpCenterComponent
     ]
 })
 export class HelpModule { }
-

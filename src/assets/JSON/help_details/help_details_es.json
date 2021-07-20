@@ -1,0 +1,71 @@
+{
+  "browser": [{
+    "id": 1,
+    "order": 1,
+    "title": "Recursos - Manuales de uso",
+    "description": ""
+  }],
+  "content": [{
+    "id": 1,
+    "order": 1,
+    "img": "",
+    "title": "Adjuntar imágenes",
+    "description": "Facilita la incorporación de imágenes (por ejemplo, capturas de pantalla) a cada paso de un flujo de proceso, para ayudar a ampliar el flujo de trabajo descrito. Esta característica ayudará a quienes estén revisando su documento a tener acceso a información adicional relevante sin desordenar el diagrama.",
+    "breadcrumbs": [{
+      "id": 1,
+      "order": 1,
+      "url": "/resorces/help",
+      "title": "Manuales de uso"
+    }, {
+      "id": 2,
+      "order": 2,
+      "url": "/resorces/help/1",
+      "title": "SmartConnect"
+    }, {
+      "id": 3,
+      "order": 3,
+      "url": "/resorces/help/1/2",
+      "title": "Características avanzadas "
+    }],
+    "items": [{
+      "id": 1,
+      "order": 1,
+      "position": "left",
+      "title": "Preguntas frecuentes sobre el uso de imágenes adjuntas",
+      "description": "Excepteur dolore exercitation mollit irure. Ipsum velit esse minim eiusmod ut officia. Ipsum ex veniam proident labore non elit dolore laborum elit. In minim excepteur eiusmod aliqua excepteur occaecat.",
+      "media": [{
+        "id": 1,
+        "order": 1,
+        "type": "img",
+        "url": "",
+        "file": ""
+      }]
+    }, {
+      "id": 2,
+      "order": 2,
+      "position": "rigth",
+      "title": "¿Dónde se pueden adjuntar las imágenes?",
+      "description": "Incididunt cupidatat est non proident esse cupidatat excepteur est aliqua commodo nulla sint in exercitation. Anim minim aute Lorem exercitation pariatur minim pariatur Lorem. Eu exercitation proident minim cillum anim culpa irure amet non consequat nostrud veniam. Nulla excepteur qui sunt laboris.",
+      "media": [{
+        "id": 1,
+        "order": 1,
+        "type": "img",
+        "url": "",
+        "file": ""
+      }]
+    }, {
+      "id": 3,
+      "order": 3,
+      "position": "center",
+      "title": "¿¿Cómo puedo reutilizar las formas con imágenes adjuntas??",
+      "description": "Excepteur irure nisi exercitation qui culpa sint ea. Do non esse laborum elit. Aliquip anim dolor consectetur consectetur aute aute culpa adipisicing sit ullamco velit sit deserunt. Do commodo velit eu dolor dolore labore Lorem et quis anim velit reprehenderit non. Non eu veniam non pariatur labore nostrud est commodo culpa consectetur ut aute deserunt commodo. Pariatur fugiat proident eu incididunt ea duis tempor aute enim do ipsum laboris qui. Eiusmod cillum veniam ullamco tempor mollit exercitation veniam incididunt labore pariatur veniam.",
+      "media": [{
+        "id": 1,
+        "order": 1,
+        "type": "img",
+        "url": "",
+        "file": ""
+      }]
+    }]
+  }]
+}

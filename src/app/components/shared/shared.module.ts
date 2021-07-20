@@ -2,10 +2,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { AppRoutingModule } from '../../app-routing.module';
 import { RouterModule } from '@angular/router';
-
-
 
 // LIBRERIAS INSTALADAS
 import { LazyLoadImageModule } from 'ng-lazyload-image';
@@ -26,7 +23,6 @@ import { FormComponent } from '@components/form/form.component';
 import { BreadcrumbComponent } from '@components/breadcrumb/breadcrumb.component';
 import { StyckyComponent } from '@components/stycky/stycky.component';
 import { MediaComponent } from '@components/media/media.component';
-
 
 // DIRECTIVES
 import { FormValidateDirective } from '@directives/form-validate.directive';

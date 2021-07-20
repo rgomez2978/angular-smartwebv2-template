@@ -5,46 +5,6 @@
     "title": "Recursos - Manuales de uso",
     "description": ""
   }],
-  "header": [{
-    "id": 1,
-    "order": 1,
-    "background": "",
-    "title": "¿Cómo podemos ayudarte?",
-    "description": "",
-    "links": [{}],
-    "form": [{
-      "name": "frmSendSearch",
-      "objects": [{
-        "id": 1,
-        "order": 1,
-        "type": "text",
-        "field_name": "txt_search",
-        "label": "Buscar",
-        "properties": [{
-          "type": "text",
-          "inputType": "text",
-          "field_name": "txt_search",
-          "fcname": "fcn_txt_search",
-          "directive": "apponlyalphanumerics",
-          "minLength": 3,
-          "maxLength": 45,
-          "required": true,
-          "label": "Buscar",
-          "errorRequired": "Por favor, ingresa un nombre. ",
-          "errorValid": "Debe ingresar solo caracteres de texto.",
-          "errorMinMax": "Debe ingresar minimo 3 y máximo 25 caracteres."
-        }]
-      }],
-      "buttons": [{
-        "id": 1,
-        "order": 1,
-        "type": "btn",
-        "icon": "",
-        "url": "",
-        "title": "Buscar",
-      }]
-    }]
-  }],
   "features": [{
     "id": 1,
     "order": 1,

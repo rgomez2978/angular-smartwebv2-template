@@ -2,8 +2,6 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule, ExtraOptions, PreloadAllModules } from "@angular/router";
-// import { HelpRoutingModule } from '@pages/help-center/help-routing.module';
-// import { routesNews } from '@pages/news/news-routing.module';
 
 // PAGES
 import { HomeComponent } from '@pages/home/home.component';
@@ -18,13 +16,6 @@ import { SiteMapComponent } from '@pages/site-map/site-map.component';
 import { AboutusComponent } from '@pages/aboutus/aboutus.component';
 import { WhySmartComponent } from '@pages/why-smart/why-smart.component';
 import { NotFoundComponent } from '@pages/not-found/not-found.component';
-import { HelpCenterComponent } from '@pages/help-center/help-center.component';
-import { NewsComponent } from '@pages/news/news.component';
-import { HelpCenterListComponent } from './components/pages/help-center/help-center-list/help-center-list.component';
-import { HelpCenterDetailComponent } from './components/pages/help-center/help-center-detail/help-center-detail.component';
-import { NewsListComponent } from './components/pages/news/news-list/news-list.component';
-import { NewsDetailComponent } from './components/pages/news/news-detail/news-detail.component';
-import { HelpRoutingModule } from './components/pages/help-center/help-routing.module';
 
 const routerOptions: ExtraOptions = {
   scrollPositionRestoration: "enabled",
@@ -42,11 +33,10 @@ const routes: Routes = [
     path: 'resources/help',
     loadChildren: () => import('@pages/help-center/help.module').then(m => m.HelpModule),
   },
-  // {
-  //   path: 'resources/help',
-  //   component: HelpCenterComponent,
-  //   children: HelpRoutingModule
-  // },
+  {
+    path: 'resources/news',
+    loadChildren: () => import('@pages/news/news.module').then(m => m.NewsModule),
+  },
   { path: "resources/faqs", component: ResourcesCenterComponent },
   { path: "policies/privacy", component: PrivacyPoliticsComponent },
   { path: "policies/legal", component: LegalTermsComponent },
@@ -58,7 +48,7 @@ const routes: Routes = [
   { path: "**", component: NotFoundComponent },
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes), BrowserModule],
+  imports: [RouterModule.forRoot(routes, routerOptions), BrowserModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

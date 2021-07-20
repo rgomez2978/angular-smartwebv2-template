@@ -7,19 +7,16 @@ import { Subscription } from "rxjs";
 import { ApiJsonService, ReduxService, CommonsService } from '@services/index';
 
 @Component({
-  selector: 'app-help-center',
-  templateUrl: './help-center.component.html',
-  styleUrls: ['./help-center.component.scss']
+  selector: 'app-help-center-home',
+  templateUrl: './help-center-home.component.html',
+  styleUrls: ['./help-center-home.component.scss']
 })
-export class HelpCenterComponent implements OnInit {
+export class HelpCenterHomeComponent implements OnInit {
   private _subscription: Subscription = new Subscription();
   data: any = [];
   fullData: any = [];
-  dataHeader: any = [];
   dataProducts: any = [];
-  dataCta: any = [];
-  // dataManuals: any = [];
-  // dataNews: any = [];
+
   loading!: boolean;
   type: any;
 
@@ -115,10 +112,8 @@ export class HelpCenterComponent implements OnInit {
   getDataArray(array: any) {
     if (Object.keys(array).length > 0) {
       this.data = array;
-      this.dataHeader = this.data.header;
-      this.dataCta = this.data.cta;
-      // this.dataFaqs = this.data.faqs;
-      // this.dataNews = this.data.news;
+      // console.log('this.data :>> ', this.data);
+      this.dataProducts = this.data.products;
       return this.data;
     }
   }
@@ -132,5 +127,4 @@ export class HelpCenterComponent implements OnInit {
   ngOnDestroy() {
     this._subscription.unsubscribe();
   }
-
 }

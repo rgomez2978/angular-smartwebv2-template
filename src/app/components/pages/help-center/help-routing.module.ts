@@ -1,9 +1,10 @@
 // MODULES
-import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 // COMPONENTS
 import { HelpCenterComponent } from '@pages/help-center/help-center.component';
+import { HelpCenterHomeComponent } from './help-center-home/help-center-home.component';
 import { HelpCenterListComponent } from '@pages/help-center/help-center-list/help-center-list.component';
 import { HelpCenterDetailComponent } from '@pages/help-center/help-center-detail/help-center-detail.component';
 
@@ -13,18 +14,23 @@ const routesHelp: Routes = [
         component: HelpCenterComponent,
         children: [
             {
+                path: '',
+                component: HelpCenterHomeComponent,
+                data: { breadcrumb: 'HELP' }
+            },
+            {
                 path: 'list',
                 component: HelpCenterListComponent,
-                data: { breadcrumb: 'List' }
+                data: { breadcrumb: 'LIST' }
             },
             {
                 path: 'details',
                 component: HelpCenterDetailComponent,
-                data: { breadcrumb: 'Details' }
+                data: { breadcrumb: 'DETAILS' }
             },
             { path: "**", pathMatch: 'full', redirectTo: '' },
         ],
-        data: { breadcrumb: 'Help' }
+        data: { breadcrumb: 'HELP' }
     }
 ];
 @NgModule({

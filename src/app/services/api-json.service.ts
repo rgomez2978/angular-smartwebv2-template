@@ -37,6 +37,9 @@ export class ApiJsonService implements OnInit, OnDestroy {
   apiConHelp!: boolean;
   apiConHelpES!: boolean;
   apiConHelpEN!: boolean;
+  apiConHelpFeatures!: boolean;
+  apiConHelpFeaturesES!: boolean;
+  apiConHelpFeaturesEN!: boolean;
 
 
   apiConInfo!: boolean;
@@ -113,6 +116,9 @@ export class ApiJsonService implements OnInit, OnDestroy {
         this.apiConHelp = state.apiConHelp;
         this.apiConHelpES = state.apiConHelpES;
         this.apiConHelpEN = state.apiConHelpEN;
+        this.apiConHelpFeatures = state.apiConHelpFeatures;
+        this.apiConHelpFeaturesES = state.apiConHelpFeaturesES;
+        this.apiConHelpFeaturesEN = state.apiConHelpFeaturesEN;
         this.apiConInfo = state.apiConInfo;
         this.apiConInfoES = state.apiConInfoES;
         this.apiConInfoEN = state.apiConInfoEN;
@@ -238,7 +244,7 @@ export class ApiJsonService implements OnInit, OnDestroy {
         }
         break;
       // =====================================================
-      // CONEXION API - RESOURCES
+      // CONEXION API - RESOURCES - HELP
       // =====================================================
       case 'help':
         console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConHelp, 'ES:', this.apiConHelpES, ' EN:', this.apiConHelpEN);
@@ -255,6 +261,27 @@ export class ApiJsonService implements OnInit, OnDestroy {
         } else {
           this._reduxService.setAPIConnectLayout(false, this.apiConLayoutES, this.apiConLayoutEN);
           this._reduxService.setAPIConnectHelp(false, this.apiConHelpES, this.apiConHelpEN);
+          console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        }
+        break;
+      // =====================================================
+      // CONEXION API - RESOURCES - HELP - HOME
+      // =====================================================
+      case 'help_features':
+        console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConHelpFeatures, 'ES:', this.apiConHelpFeaturesES, ' EN:', this.apiConHelpFeaturesEN);
+
+        if (value === 'es' && this.apiConHelpFeatures && this.apiConHelpFeaturesES && !this.apiConHelpFeaturesEN) {
+          this._reduxService.setAPIConnectLayout(true, true, false);
+          this._reduxService.setAPIConnectHelpFeatures(true, true, false);
+          console.log(`XXXX YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        }
+        else if (value === 'en' && this.apiConHelpFeatures && !this.apiConHelpFeaturesES && this.apiConHelpFeaturesEN) {
+          this._reduxService.setAPIConnectLayout(true, false, true);
+          this._reduxService.setAPIConnectHelpFeatures(true, false, true);
+          console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        } else {
+          this._reduxService.setAPIConnectLayout(false, this.apiConLayoutES, this.apiConLayoutEN);
+          this._reduxService.setAPIConnectHelpFeatures(false, this.apiConHelpFeaturesES, this.apiConHelpFeaturesEN);
           console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
         }
         break;
@@ -368,7 +395,13 @@ export class ApiJsonService implements OnInit, OnDestroy {
         else { this._reduxService.setAPIConnectHelp(conApi, true, false) }
         console.log('this.url :>> ', this.url);
         this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
-
+        break;
+      // CONEXION API - HELP - HOME
+      case 'help_features':
+        if (lang === 'en') { this._reduxService.setAPIConnectHelpFeatures(conApi, false, true) }
+        else { this._reduxService.setAPIConnectHelpFeatures(conApi, true, false) }
+        console.log('this.url :>> ', this.url);
+        this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
         break;
 
       // CONEXION API - LAYOUT
