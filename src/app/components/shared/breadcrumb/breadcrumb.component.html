@@ -1,7 +1,8 @@
+<!-- {{urlBreadcrumbs}} -->
 <ul class="breadcrumb">
-    <li *ngFor="let item of data" class="breadcrumb-item">
-        <a routerLink="{{item.url}}">
-            {{ item.label }}
+    <li *ngFor="let item of urlBreadcrumbs" class="breadcrumb-item">
+        <a routerLink="{{item}}">
+            {{ item }}
         </a>
     </li>
 </ul>

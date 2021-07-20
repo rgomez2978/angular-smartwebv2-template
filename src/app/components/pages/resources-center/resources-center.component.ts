@@ -89,7 +89,7 @@ export class ResourcesCenterComponent implements OnInit, OnDestroy {
     if (!this.apiConResources && (!this.apiConResourcesES || !this.apiConResourcesEN)) {
       this._apiJSONService.getJSON(lang, 'resources', true).subscribe(
         (resp: any) => {
-          console.log('resp :>> ', resp);
+          // console.log('resp :>> ', resp);
           this.data = resp;
           if (this.data !== undefined) {
             this._reduxService.setArrayResources(this.data, lang);

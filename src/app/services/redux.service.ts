@@ -30,8 +30,20 @@ export class ReduxService {
    * @param {string} url2 valor del la URL 2
    * -------------------------------------------------------
    */
-  setUrl(url1: string, url2: string,) {
+  setUrl(url1: string, url2: string) {
     this._store.dispatch(ownActions.setUrl({ urlActive1: url1, urlActive2: url2 }));
+  }
+
+  /**
+   * -------------------------------------------------------
+   * @summary setUrlBreadcrumbs
+   * @description Cambia el ststus del URL de breadcrumbs con redux
+   * @param {string} url1 valor del la URL
+   * -------------------------------------------------------
+   */
+  setUrlBreadcrumbs(url1: string) {
+    // console.log('url1 :>> ', url1);
+    this._store.dispatch(ownActions.setUrlBreadcrumbs({ urlBreadcrumbs: url1 }));
   }
 
 

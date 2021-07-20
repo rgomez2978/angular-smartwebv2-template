@@ -19,12 +19,12 @@ const routesHelp: Routes = [
                 data: { breadcrumb: 'HELP' }
             },
             {
-                path: 'list',
+                path: 'list/:id',
                 component: HelpCenterListComponent,
                 data: { breadcrumb: 'LIST' }
             },
             {
-                path: 'details',
+                path: 'details/:id',
                 component: HelpCenterDetailComponent,
                 data: { breadcrumb: 'DETAILS' }
             },

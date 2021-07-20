@@ -13,6 +13,7 @@ export interface UiState {
     loading: boolean;
     urlActive1: string;
     urlActive2: string;
+    urlBreadcrumbs: string;
     language: string;
 
 }
@@ -29,6 +30,7 @@ export const uiState: UiState = {
     loading: false,
     urlActive1: "",
     urlActive2: "",
+    urlBreadcrumbs: "",
     language: "es",
 };
 
@@ -66,6 +68,11 @@ const _uiReducer = createReducer(
         ...state,
         urlActive1,
         urlActive2
+    })),
+    //  Asigna los valores de las URL BREADCRUMB
+    on(ownActions.setUrlBreadcrumbs, (state, { urlBreadcrumbs }) => ({
+        ...state,
+        urlBreadcrumbs
     })),
     //  Asigna el estado del Menu Mobile
     on(ownActions.setLoading, (state, { loading }) => ({

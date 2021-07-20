@@ -19,6 +19,10 @@ export const setUrl = createAction(
     "[UI] Set Url",
     props<{ urlActive1: string, urlActive2: string }>()
 );
+export const setUrlBreadcrumbs = createAction(
+    "[UI] Set UrlBreadcrumbs",
+    props<{ urlBreadcrumbs: string }>()
+);
 export const setLoading = createAction(
     "[UI] Set Loading",
     props<{ loading: boolean }>()

@@ -369,6 +369,9 @@ export class ApiJsonService implements OnInit, OnDestroy {
       this.url = `assets/JSON/${page}/${page}_es.json`;
     }
 
+    // console.log('this.url :>> ', this.url);
+
+
     // VALIDACION DE PAGINA - CONFIGURACION DE RECARGA DE API
     switch (page) {
       // CONEXION API - HOME
@@ -393,14 +396,12 @@ export class ApiJsonService implements OnInit, OnDestroy {
       case 'help':
         if (lang === 'en') { this._reduxService.setAPIConnectHelp(conApi, false, true) }
         else { this._reduxService.setAPIConnectHelp(conApi, true, false) }
-        console.log('this.url :>> ', this.url);
         this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
         break;
       // CONEXION API - HELP - HOME
       case 'help_features':
         if (lang === 'en') { this._reduxService.setAPIConnectHelpFeatures(conApi, false, true) }
         else { this._reduxService.setAPIConnectHelpFeatures(conApi, true, false) }
-        console.log('this.url :>> ', this.url);
         this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
         break;
 
