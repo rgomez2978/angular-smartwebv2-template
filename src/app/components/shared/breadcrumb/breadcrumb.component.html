@@ -2,11 +2,11 @@
     <li *ngFor="let item of fullBreadcrumbs; let i=index;" >
         <div *ngIf="item.link !== ''" routerLink="{{item.link}}" class="breadCont">
             <span class="breadCont__title lnk">{{ item.title }}</span>
-            <span *ngIf="i < fullBreadcrumbs.length - 1"><i class="ml-3 text-2xl text-gray-400 icofont-rounded-right"></i> </span>
+            <span *ngIf="i < fullBreadcrumbs.length - 1"><i class="icofont-rounded-right"></i> </span>
         </div>
         <div *ngIf="item.link === ''" class="breadCont">
             <span class="breadCont__title">{{ item.title }}</span>
-            <span *ngIf="i < fullBreadcrumbs.length - 1"><i class="ml-3 text-2xl text-gray-400 icofont-rounded-right"></i></span>
+            <span *ngIf="i < fullBreadcrumbs.length - 1"><i class="icofont-rounded-right"></i></span>
         </div>
     </li>
 </ul>
