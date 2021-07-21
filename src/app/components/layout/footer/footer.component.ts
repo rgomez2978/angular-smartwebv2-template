@@ -13,6 +13,9 @@ export class FooterComponent implements OnInit {
   @Input() data: any;
   urlActiveLevel1!: string;
   urlActiveLevel2!: string;
+  urlBreadcrumbs!: any;
+  fullBreadcrumbs: any = [];
+
   language!: string;
 
   constructor(
@@ -45,6 +48,7 @@ export class FooterComponent implements OnInit {
       this._store.select('ui').subscribe((state) => {
         this.urlActiveLevel1 = state.urlActive1;
         this.urlActiveLevel2 = state.urlActive2;
+        this.urlBreadcrumbs = state.urlBreadcrumbs;
         this.language = state.language;
       })
     );
@@ -65,14 +69,25 @@ export class FooterComponent implements OnInit {
   /**
    * -------------------------------------------------------
    * @summary setTranslate
-   * @description Asignacion de cambio del state para translate con redux
+   * @description Asignacion de cambio del state para translate con redux,
+   * Activa el tipo de idioma y bloque nuevo consumo de api
    * @param {string} value Valor del idioma a mostran (en-es)
    * -------------------------------------------------------
    */
   setTranslate(value: string) {
-    // Activa el tipo de idioma y bloque nuevo consumo de api
+    let url = this.urlBreadcrumbs;
+    let urFinal = '';
     let page = this.urlActiveLevel1.split('/')[1];
-    this._apiJsonService.setTranslate(value, page);
+    // console.log('url.length :>> ', url.length);
+    // console.log('page :>> ', page, url);
+    // console.log('page2 :>> ', url[3]);
+    if (page === 'resources' && url.length >= 3) {
+      url[3] === undefined ? urFinal = url[2] : urFinal = url[3];
+      this._apiJsonService.setTranslate(value, urFinal);
+    } else {
+      console.log('pagina normal');
+      this._apiJsonService.setTranslate(value, page);
+    }
   }
 
 

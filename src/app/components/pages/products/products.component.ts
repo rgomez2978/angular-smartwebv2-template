@@ -100,10 +100,7 @@ export class ProductsComponent implements OnInit {
         () => { }
       );
     } else {
-      // setTimeout(() => {
       this.getDataArray(this.fullData)
-      // }, 400);
-      // }
     }
   }
 

@@ -33,6 +33,10 @@ export const setAPIConnectHelpFeatures = createAction(
     "[API] Set API CONNECT HELP - HOME",
     props<{ apiConHelpFeatures: boolean, apiConHelpFeaturesES: boolean, apiConHelpFeaturesEN: boolean }>()
 );
+export const setAPIConnectHelpSearch = createAction(
+    "[API] Set API CONNECT HELP - SEARCH",
+    props<{ apiConHelpSearch: boolean, apiConHelpSearchES: boolean, apiConHelpSearchEN: boolean }>()
+);
 export const setAPIConnectInfo = createAction(
     "[API] Set API CONNECT INFO",
     props<{ apiConInfo: boolean, apiConInfoES: boolean, apiConInfoEN: boolean }>()
@@ -77,6 +81,10 @@ export const setArrayHelp = createAction(
 export const setArrayHelpFeatures = createAction(
     "[API] Set Array HELP HOME",
     props<{ arrayHelpFeatures: any }>()
+);
+export const setArrayHelpSearch = createAction(
+    "[API] Set Array HELP SEARCH",
+    props<{ arrayHelpSearch: any }>()
 );
 export const setArrayInfo = createAction(
     "[API] Set Array Info",

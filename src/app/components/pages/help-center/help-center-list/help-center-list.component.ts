@@ -15,18 +15,15 @@ export class HelpCenterListComponent implements OnInit {
   private _subscription: Subscription = new Subscription();
   data: any = [];
   fullData: any = [];
-  dataHeader: any = [];
   dataProducts: any = [];
-  dataAccess: any = [];
-  dataManuals: any = [];
-  dataNews: any = [];
+  dataFeatures: any = [];
   loading!: boolean;
   type: any;
 
   language!: string;
-  apiConHelp!: boolean;
-  apiConHelpES!: boolean;
-  apiConHelpEN!: boolean;
+  apiConHelpFeatures!: boolean;
+  apiConHelpFeaturesES!: boolean;
+  apiConHelpFeaturesEN!: boolean;
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -46,7 +43,7 @@ export class HelpCenterListComponent implements OnInit {
    */
   ngOnInit() {
     this._titleService.setTitle('Smart Suite Tools');
-    // this.setSubscriptions();
+    this.setSubscriptions();
   }
 
 
@@ -65,11 +62,11 @@ export class HelpCenterListComponent implements OnInit {
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
-        this.apiConHelp = state.apiConHelp;
-        this.apiConHelpES = state.apiConHelpES;
-        this.apiConHelpEN = state.apiConHelpEN;
-        this.fullData = state.arrayHelp;
-        if (this.apiConHelp !== undefined && this.apiConHelpES !== undefined && this.apiConHelpEN !== undefined) {
+        this.apiConHelpFeatures = state.apiConHelpFeatures;
+        this.apiConHelpFeaturesES = state.apiConHelpFeaturesES;
+        this.apiConHelpFeaturesEN = state.apiConHelpFeaturesEN;
+        this.fullData = state.arrayHelpFeatures;
+        if (this.apiConHelpFeatures !== undefined && this.apiConHelpFeaturesES !== undefined && this.apiConHelpFeaturesEN !== undefined) {
           this.getDataAPI(this.language)
         }
       })
@@ -86,13 +83,12 @@ export class HelpCenterListComponent implements OnInit {
     * -------------------------------------------------------
     */
   getDataAPI(lang: string) {
-    if (!this.apiConHelp && (!this.apiConHelpES || !this.apiConHelpEN)) {
-      this._apiJSONService.getJSON(lang, 'help', true).subscribe(
+    if (!this.apiConHelpFeatures && (!this.apiConHelpFeaturesES || !this.apiConHelpFeaturesEN)) {
+      this._apiJSONService.getJSON(lang, 'help_features', true).subscribe(
         (resp: any) => {
-          console.log('resp :>> ', resp);
           this.data = resp;
           if (this.data !== undefined) {
-            this._reduxService.setArrayHelp(this.data, lang);
+            this._reduxService.setArrayHelpFeatures(this.data, lang);
             this.getDataArray(this.fullData)
           }
         },
@@ -102,6 +98,23 @@ export class HelpCenterListComponent implements OnInit {
     } else {
       this.getDataArray(this.fullData)
     }
+  }
+
+
+
+
+  /**
+   * -------------------------------------------------------
+   * @summary getIdData
+   * @description Obtiene la data por el ID, y la posicion del arreglo
+   * @param {any} array arraglo a buscar
+   * @param {number} idProduct numero o id del producto a buscar
+   * @param {number} idFeature numero o id de kla caracteristica dentro del producto a buscar
+   * -------------------------------------------------------
+   */
+  getIdData(array: any, idProduct: number, idFeature: number) {
+    let filterProd = array.filter((opt: any) => opt.id === idProduct);
+    return filterProd[0].nodes.find((feat: any) => feat.id === idFeature);
   }
 
   /**
@@ -114,12 +127,14 @@ export class HelpCenterListComponent implements OnInit {
    */
   getDataArray(array: any) {
     if (Object.keys(array).length > 0) {
-      this.data = array;
-      this.dataHeader = this.data.header;
-      // this.dataManuals = this.data.manuals;
-      // this.dataFaqs = this.data.faqs;
-      // this.dataNews = this.data.news;
-      return this.data;
+      this._activatedRoute.params.subscribe((params) => {
+        this.data = this.getIdData(array.features, Number(params['product']), Number(params['feature']));
+        this.dataProducts = this.data;
+        this.dataFeatures = this.data.nodes;
+        // console.log(`this.dataProducts`, this.dataProducts)
+        // console.log(`this.dataFeatures`, this.dataFeatures)
+        return this.data;
+      });
     }
   }
 

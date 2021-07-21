@@ -57,46 +57,47 @@ export class ReduxService {
    * @param {boolean} conn_en valor de conexiona a API INGLES
    * -------------------------------------------------------
    */
-  setAPIConnect(page: string, conn: boolean, conn_es: boolean, conn_en: boolean,) {
-    // console.log('setAPIConnect page :>> ', page);
-    switch (page) {
-      case 'layout':
-        this._store.dispatch(ownActions.setAPIConnectLayout({ apiConLayout: conn, apiConLayoutES: conn_es, apiConLayoutEN: conn_en }));
-        break;
-      case 'home':
-        this._store.dispatch(ownActions.setAPIConnectHome({ apiConHome: conn, apiConHomeES: conn_es, apiConHomeEN: conn_en }));
-        break;
-      case 'products':
-        this._store.dispatch(ownActions.setAPIConnectProducts({ apiConProducts: conn, apiConProductsES: conn_es, apiConProductsEN: conn_en }));
-        break;
-      case 'planes':
-        this._store.dispatch(ownActions.setAPIConnectPlanes({ apiConPlanes: conn, apiConPlanesES: conn_es, apiConPlanesEN: conn_en }));
-        break;
-      case 'resources':
-        this._store.dispatch(ownActions.setAPIConnectResources({ apiConResources: conn, apiConResourcesES: conn_es, apiConResourcesEN: conn_en }));
-        break;
-      case 'help':
-        this._store.dispatch(ownActions.setAPIConnectHelp({ apiConHelp: conn, apiConHelpES: conn_es, apiConHelpEN: conn_en }));
-        break;
-      case 'help_home':
-        this._store.dispatch(ownActions.setAPIConnectHelpFeatures({ apiConHelpFeatures: conn, apiConHelpFeaturesES: conn_es, apiConHelpFeaturesEN: conn_en }));
-        break;
-      case 'info':
-        this._store.dispatch(ownActions.setAPIConnectInfo({ apiConInfo: conn, apiConInfoES: conn_es, apiConInfoEN: conn_en }));
-        break;
-      case 'policies':
-        this._store.dispatch(ownActions.setAPIConnectPolicies({ apiConPolicies: conn, apiConPoliciesES: conn_es, apiConPoliciesEN: conn_en }));
-        break;
-      case 'sites':
-        this._store.dispatch(ownActions.setAPIConnectSites({ apiConSites: conn, apiConSitesES: conn_es, apiConSitesEN: conn_en }));
-        break;
-    }
+  // setAPIConnect(page: string, conn: boolean, conn_es: boolean, conn_en: boolean,) {
+  //   console.log('setAPIConnect page :>> ', page, conn, conn_es, conn_en);
 
-    setTimeout(() => {
-      this.SetLoading(false);
-    }, 100);
+  //   switch (page) {
+  //     case 'layout':
+  //       this._store.dispatch(ownActions.setAPIConnectLayout({ apiConLayout: conn, apiConLayoutES: conn_es, apiConLayoutEN: conn_en }));
+  //       break;
+  //     case 'home':
+  //       this._store.dispatch(ownActions.setAPIConnectHome({ apiConHome: conn, apiConHomeES: conn_es, apiConHomeEN: conn_en }));
+  //       break;
+  //     case 'products':
+  //       this._store.dispatch(ownActions.setAPIConnectProducts({ apiConProducts: conn, apiConProductsES: conn_es, apiConProductsEN: conn_en }));
+  //       break;
+  //     case 'planes':
+  //       this._store.dispatch(ownActions.setAPIConnectPlanes({ apiConPlanes: conn, apiConPlanesES: conn_es, apiConPlanesEN: conn_en }));
+  //       break;
+  //     case 'resources':
+  //       this._store.dispatch(ownActions.setAPIConnectResources({ apiConResources: conn, apiConResourcesES: conn_es, apiConResourcesEN: conn_en }));
+  //       break;
+  //     case 'help':
+  //       this._store.dispatch(ownActions.setAPIConnectHelp({ apiConHelp: conn, apiConHelpES: conn_es, apiConHelpEN: conn_en }));
+  //       break;
+  //     case 'help_home':
+  //       this._store.dispatch(ownActions.setAPIConnectHelpFeatures({ apiConHelpFeatures: conn, apiConHelpFeaturesES: conn_es, apiConHelpFeaturesEN: conn_en }));
+  //       break;
+  //     case 'info':
+  //       this._store.dispatch(ownActions.setAPIConnectInfo({ apiConInfo: conn, apiConInfoES: conn_es, apiConInfoEN: conn_en }));
+  //       break;
+  //     case 'policies':
+  //       this._store.dispatch(ownActions.setAPIConnectPolicies({ apiConPolicies: conn, apiConPoliciesES: conn_es, apiConPoliciesEN: conn_en }));
+  //       break;
+  //     case 'sites':
+  //       this._store.dispatch(ownActions.setAPIConnectSites({ apiConSites: conn, apiConSitesES: conn_es, apiConSitesEN: conn_en }));
+  //       break;
+  //   }
 
-  }
+  //   setTimeout(() => {
+  //     this.SetLoading(false);
+  //   }, 100);
+
+  // }
 
 
   /**
@@ -188,6 +189,8 @@ export class ReduxService {
    * -------------------------------------------------------
    */
   setAPIConnectHelp(conn: boolean, conn_es: boolean, conn_en: boolean,) {
+    console.log('setAPIConnectHelp :>> ', conn, conn_es, conn_en);
+
     this._store.dispatch(ownActions.setAPIConnectHelp({ apiConHelp: conn, apiConHelpES: conn_es, apiConHelpEN: conn_en }));
     setTimeout(() => {
       this.SetLoading(false);
@@ -209,6 +212,23 @@ export class ReduxService {
       this.SetLoading(false);
     }, 100);
   }
+
+  /**
+   * -------------------------------------------------------
+   * @summary setAPIConnectHelpSearch
+   * @description Cambia el status de conectiviada a API de HELP
+   * @param {boolean} conn valor de conexiona a API en general
+   * @param {boolean} conn_es valor de conexiona a API ESPAÑOL
+   * @param {boolean} conn_en valor de conexiona a API INGLES
+   * -------------------------------------------------------
+   */
+  setAPIConnectHelpSearch(conn: boolean, conn_es: boolean, conn_en: boolean,) {
+    this._store.dispatch(ownActions.setAPIConnectHelpSearch({ apiConHelpSearch: conn, apiConHelpSearchES: conn_es, apiConHelpSearchEN: conn_en }));
+    setTimeout(() => {
+      this.SetLoading(false);
+    }, 100);
+  }
+
 
   /**
    * -------------------------------------------------------
@@ -338,9 +358,19 @@ export class ReduxService {
    * -------------------------------------------------------
    */
   setArrayHelpFeatures(array: any, lang: string) {
-    this._store.dispatch(ownActions.setArrayHelp({ arrayHelp: array }));
+    this._store.dispatch(ownActions.setArrayHelpFeatures({ arrayHelpFeatures: array }));
   }
 
+  /**
+   * -------------------------------------------------------
+   * @summary setArrayHelpSearch
+   * @description Cambia el status de conectiviada a API de HELP
+   * @param {any} array Array de productos
+   * -------------------------------------------------------
+   */
+  setArrayHelpSearch(array: any, lang: string) {
+    this._store.dispatch(ownActions.setArrayHelpSearch({ arrayHelpSearch: array }));
+  }
 
   /**
    * -------------------------------------------------------

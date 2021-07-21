@@ -14,6 +14,8 @@ export class BreadcrumbComponent implements OnInit {
   private _subscription: Subscription = new Subscription();
   loading!: boolean;
   type: any;
+  dataHelp: any = [];
+  dataHelpFeatures: any = [];
   fullData: any = [];
   fullBreadcrumbs: any = [];
   urlBreadcrumbs!: string;
@@ -43,7 +45,7 @@ export class BreadcrumbComponent implements OnInit {
     this.setSubscriptions();
 
     setTimeout(() => {
-      this.convertUrl(this.urlBreadcrumbs, this.fullData, this.language);
+      this.convertUrl(this.urlBreadcrumbs, this.language);
     }, 200);
   }
 
@@ -64,7 +66,8 @@ export class BreadcrumbComponent implements OnInit {
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
-        this.fullData = state.arrayHelp;
+        this.dataHelp = state.arrayHelp;
+        this.dataHelpFeatures = state.arrayHelpFeatures;
       })
     );
   }
@@ -77,14 +80,13 @@ export class BreadcrumbComponent implements OnInit {
    * @param {string} url Url
   * -------------------------------------------------------
   */
-  convertUrl(url: any, data: any, lang: string) {
-    console.log(`url`, url)
-    console.log(`url.length`, url.length)
-    console.log(`data`, data)
+  convertUrl(url: any, lang: string) {
+    // console.log(`url`, url)
+    // console.log(`url.length`, url.length)
+    // console.log(`data`, data)
 
 
     this.fullBreadcrumbs = [];
-
     for (let key in url) {
       if (key !== undefined || key !== '') {
         switch (url[key]) {
@@ -99,20 +101,16 @@ export class BreadcrumbComponent implements OnInit {
             this.addItemBreadcrumbs(this.title, this.link);
             break;
           case 'list':
-            let productById = data.products.find((prod: any) => prod.id === parseInt(url[4]));
-            this.addItemBreadcrumbs(productById.title, '');
+            let productById = this.dataHelpFeatures.features.find((prod: any) => prod.id === parseInt(url[4]));
             let featureProductById = productById.nodes.find((feaProd: any) => feaProd.id === parseInt(url[5]));
-            console.log(`featureProductById`, featureProductById)
-            // this.addItemBreadcrumbs(featureProductById.title, featureProductById.url + '/' + parseInt(url[4]) + '/' + parseInt(url[5]));
+            this.addItemBreadcrumbs(productById.title, '');
             this.addItemBreadcrumbs(featureProductById.title, '');
-
             break;
-          // console.log(`object`, url[key])
         }
 
       }
     }
-    console.log(`this.fullBreadcrumbs`, this.fullBreadcrumbs)
+    // console.log(`this.fullBreadcrumbs`, this.fullBreadcrumbs)
 
   }
 

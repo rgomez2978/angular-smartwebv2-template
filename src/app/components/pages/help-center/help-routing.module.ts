@@ -7,6 +7,7 @@ import { HelpCenterComponent } from '@pages/help-center/help-center.component';
 import { HelpCenterHomeComponent } from './help-center-home/help-center-home.component';
 import { HelpCenterListComponent } from '@pages/help-center/help-center-list/help-center-list.component';
 import { HelpCenterDetailComponent } from '@pages/help-center/help-center-detail/help-center-detail.component';
+import { HelpCenterSearchComponent } from './help-center-search/help-center-search.component';
 
 const routesHelp: Routes = [
     {
@@ -16,17 +17,18 @@ const routesHelp: Routes = [
             {
                 path: '',
                 component: HelpCenterHomeComponent,
-                data: { breadcrumb: 'HELP' }
             },
             {
                 path: 'list/:product/:feature',
                 component: HelpCenterListComponent,
-                data: { breadcrumb: 'LIST' }
             },
             {
                 path: 'details/:id',
                 component: HelpCenterDetailComponent,
-                data: { breadcrumb: 'DETAILS' }
+            },
+            {
+                path: 'search',
+                component: HelpCenterSearchComponent,
             },
             { path: "**", pathMatch: 'full', redirectTo: '' },
         ],

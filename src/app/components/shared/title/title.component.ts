@@ -27,7 +27,7 @@ export class TitleComponent implements OnInit, AfterContentInit {
   ngAfterContentInit(): void {
     setTimeout(() => {
       if (this.title !== null) {
-        // console.log('this.title :>> ', this.title);
+        console.log('this.title :>> ', this.title);
         const split = this.title.split(" ");
         // console.log('split.length :>> ', split.length);
         if (split.length === 1) {

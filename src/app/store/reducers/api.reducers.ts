@@ -9,6 +9,7 @@ export interface ApiState {
     arrayResources: any;
     arrayHelp: any;
     arrayHelpFeatures: any;
+    arrayHelpSearch: any;
     arrayInfo: any;
     arrayPolicies: any;
     arraySites: any;
@@ -36,6 +37,10 @@ export interface ApiState {
     apiConHelpFeaturesES: boolean;
     apiConHelpFeaturesEN: boolean;
 
+    apiConHelpSearch: boolean;
+    apiConHelpSearchES: boolean;
+    apiConHelpSearchEN: boolean;
+
     apiConInfo: boolean;
     apiConInfoES: boolean;
     apiConInfoEN: boolean;
@@ -56,6 +61,7 @@ export const apiState: ApiState = {
     arrayResources: [],
     arrayHelp: [],
     arrayHelpFeatures: [],
+    arrayHelpSearch: [],
     arrayInfo: [],
     arrayPolicies: [],
     arraySites: [],
@@ -83,6 +89,9 @@ export const apiState: ApiState = {
     apiConHelpFeaturesES: false,
     apiConHelpFeaturesEN: false,
 
+    apiConHelpSearch: false,
+    apiConHelpSearchES: false,
+    apiConHelpSearchEN: false,
 
     apiConInfo: false,
     apiConInfoES: false,
@@ -126,11 +135,14 @@ const _apiReducer = createReducer(
     on(ownActions.setAPIConnectHelp, (state, { apiConHelp, apiConHelpES, apiConHelpEN }) => ({
         ...state, apiConHelp, apiConHelpES, apiConHelpEN
     })),
-    //  Asigna los valores de conexion de API RESOURCES - HELP - HOME
+    //  Asigna los valores de conexion de API RESOURCES - HELP - FEATURES
     on(ownActions.setAPIConnectHelpFeatures, (state, { apiConHelpFeatures, apiConHelpFeaturesES, apiConHelpFeaturesEN }) => ({
         ...state, apiConHelpFeatures, apiConHelpFeaturesES, apiConHelpFeaturesEN
     })),
-
+    //  Asigna los valores de conexion de API RESOURCES - HELP - SEARCH
+    on(ownActions.setAPIConnectHelpSearch, (state, { apiConHelpSearch, apiConHelpSearchES, apiConHelpSearchEN }) => ({
+        ...state, apiConHelpSearch, apiConHelpSearchES, apiConHelpSearchEN
+    })),
     //  Asigna los valores de conexion de API INFO
     on(ownActions.setAPIConnectInfo, (state, { apiConInfo, apiConInfoES, apiConInfoEN }) => ({
         ...state, apiConInfo, apiConInfoES, apiConInfoEN
@@ -178,10 +190,15 @@ const _apiReducer = createReducer(
         ...state,
         arrayHelp,
     })),
-    //  Asigna los valores del ARREGLO - RESOURCES - HELP-HOME
+    //  Asigna los valores del ARREGLO - RESOURCES - HELP- FEATURES
     on(ownActions.setArrayHelpFeatures, (state, { arrayHelpFeatures }) => ({
         ...state,
         arrayHelpFeatures,
+    })),
+    //  Asigna los valores del ARREGLO - RESOURCES - HELP- SEARCH
+    on(ownActions.setArrayHelpSearch, (state, { arrayHelpSearch }) => ({
+        ...state,
+        arrayHelpSearch,
     })),
     //  Asigna los valores del ARREGLO - INFO
     on(ownActions.setArrayInfo, (state, { arrayInfo }) => ({

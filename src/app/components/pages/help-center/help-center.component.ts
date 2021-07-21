@@ -117,8 +117,6 @@ export class HelpCenterComponent implements OnInit {
       this.data = array;
       this.dataHeader = this.data.header;
       this.dataCta = this.data.cta;
-      // this.dataFaqs = this.data.faqs;
-      // this.dataNews = this.data.news;
       return this.data;
     }
   }

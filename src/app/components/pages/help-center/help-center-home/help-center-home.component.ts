@@ -112,7 +112,6 @@ export class HelpCenterHomeComponent implements OnInit {
   getDataArray(array: any) {
     if (Object.keys(array).length > 0) {
       this.data = array;
-      // console.log('this.data :>> ', this.data);
       this.dataProducts = this.data.products;
       return this.data;
     }

@@ -32,12 +32,10 @@ const routes: Routes = [
   {
     path: 'resources/help',
     loadChildren: () => import('@pages/help-center/help.module').then(m => m.HelpModule),
-    data: { title: 'Help' }
   },
   {
     path: 'resources/news',
     loadChildren: () => import('@pages/news/news.module').then(m => m.NewsModule),
-    data: { title: 'News' }
   },
   { path: "resources/faqs", component: ResourcesCenterComponent },
   { path: "policies/privacy", component: PrivacyPoliticsComponent },

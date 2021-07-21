@@ -66,15 +66,15 @@
       @apply flex w-full items-center justify-center text-2xl  font-semibold text-gray-700 mb-5 leading-5;
     }
     > ul{
-      @apply  text-lg md:text-lg text-gray-900 px-5;
+      @apply  text-lg md:text-lg text-gray-500 px-5 font-medium;
 
       >li{
         @apply py-1;
-        &:hover{
-          @apply underline;
-        }
         a{
-        }
+          &:hover{
+            @apply  text-gray-700 font-medium;
+          }
+          }
       }
     }
   }

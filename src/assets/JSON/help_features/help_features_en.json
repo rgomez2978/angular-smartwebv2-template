@@ -10,17 +10,201 @@
     "order": 1,
     "img": "",
     "title": "SmartConnect",
-    "breadcrumbs": [{
+    "nodes": [{
       "id": 1,
       "order": 1,
-      "url": "/resorces/help",
-      "title": "Manuales de uso"
+      "img": "",
+      "title": "Features avanzadas",
+      "description": "",
+      "nodes": [{
+        "id": 1,
+        "order": 1,
+        "url": "",
+        "title": "Adjuntar imágenes",
+        "nodes": [{
+          "id": 1,
+          "order": 1,
+          "url": "",
+          "title": "link 1 - 1"
+        }, {
+          "id": 2,
+          "order": 2,
+          "url": "",
+          "title": "link 1 - 2"
+        }, {
+          "id": 3,
+          "order": 3,
+          "url": "",
+          "title": "link 1 - 3"
+        }]
+      }, {
+        "id": 2,
+        "order": 2,
+        "url": "",
+        "title": "Datos y automatización",
+        "nodes": [{
+          "id": 1,
+          "order": 1,
+          "url": "",
+          "title": "link 2 - 1"
+        }, {
+          "id": 2,
+          "order": 2,
+          "url": "",
+          "title": "link 2 - 2"
+        }, {
+          "id": 3,
+          "order": 3,
+          "url": "",
+          "title": "link 2 - 3"
+        }]
+      }, {
+        "id": 3,
+        "order": 3,
+        "url": "",
+        "title": "Bibliotecas de formas",
+        "nodes": [{
+          "id": 1,
+          "order": 1,
+          "url": "",
+          "title": "link 3 - 1"
+        }, {
+          "id": 2,
+          "order": 2,
+          "url": "",
+          "title": "link 3 - 2"
+        }, {
+          "id": 3,
+          "order": 3,
+          "url": "",
+          "title": "link 3 - 3"
+        }]
+      }]
     }, {
       "id": 2,
       "order": 2,
-      "url": "/resorces/help/1",
-      "title": "SmartConnect"
-    }],
+      "img": "",
+      "title": "Tips",
+      "description": "",
+      "nodes": [{
+        "id": 1,
+        "order": 1,
+        "url": "",
+        "title": "Actualiza en modo árbol",
+        "nodes": [{
+          "id": 1,
+          "order": 1,
+          "url": "",
+          "title": "link 1 - 1"
+        }, {
+          "id": 2,
+          "order": 2,
+          "url": "",
+          "title": "link 1 - 2"
+        }, {
+          "id": 3,
+          "order": 3,
+          "url": "",
+          "title": "link 1 - 3"
+        }]
+      }, {
+        "id": 2,
+        "order": 2,
+        "url": "",
+        "title": "Archiva varios lienzos",
+        "nodes": [{
+          "id": 1,
+          "order": 1,
+          "url": "",
+          "title": "link 2 - 1"
+        }, {
+          "id": 2,
+          "order": 2,
+          "url": "",
+          "title": "link 2 - 2"
+        }, {
+          "id": 3,
+          "order": 3,
+          "url": "",
+          "title": "link 2 - 3"
+        }]
+      }, {
+        "id": 3,
+        "order": 3,
+        "url": "",
+        "title": "Otorga permisos específicos",
+        "nodes": [{
+          "id": 1,
+          "order": 1,
+          "url": "",
+          "title": "link 3 - 1"
+        }, {
+          "id": 2,
+          "order": 2,
+          "url": "",
+          "title": "link 3 - 2"
+        }, {
+          "id": 3,
+          "order": 3,
+          "url": "",
+          "title": "link 3 - 3"
+        }]
+      }]
+    }, {
+      "id": 3,
+      "order": 3,
+      "img": "",
+      "title": "Funciones integradas",
+      "description": "",
+      "nodes": [{
+        "id": 1,
+        "order": 1,
+        "url": "",
+        "title": "Usa libreta de contactos",
+        "nodes": [{
+          "id": 1,
+          "order": 1,
+          "url": "",
+          "title": "link 1 - 1"
+        }, {
+          "id": 2,
+          "order": 2,
+          "url": "",
+          "title": "link 1 - 2"
+        }, {
+          "id": 3,
+          "order": 3,
+          "url": "",
+          "title": "link 1 - 3"
+        }]
+      }, {
+        "id": 2,
+        "order": 2,
+        "url": "",
+        "title": "Integra la vista por cargos en Ssmartwork",
+        "nodes": [{
+          "id": 1,
+          "order": 1,
+          "url": "",
+          "title": "link 2 - 1"
+        }, {
+          "id": 2,
+          "order": 2,
+          "url": "",
+          "title": "link 2 - 2"
+        }, {
+          "id": 3,
+          "order": 3,
+          "url": "",
+          "title": "link 2 - 3"
+        }]
+      }]
+    }]
+  },{
+    "id": 2,
+    "order": 2,
+    "img": "",
+    "title": "SmartChart",
     "nodes": [{
       "id": 1,
       "order": 1,
@@ -31,19 +215,67 @@
         "id": 1,
         "order": 1,
         "url": "",
-        "title": "Adjuntar imágenes"
+        "title": "Adjuntar imágenes",
+        "nodes": [{
+          "id": 1,
+          "order": 1,
+          "url": "",
+          "title": "link 1 - 1"
+        }, {
+          "id": 2,
+          "order": 2,
+          "url": "",
+          "title": "link 1 - 2"
+        }, {
+          "id": 3,
+          "order": 3,
+          "url": "",
+          "title": "link 1 - 3"
+        }]
       }, {
         "id": 2,
         "order": 2,
         "url": "",
-        "title": "Datos y automatización"
+        "title": "Datos y automatización",
+        "nodes": [{
+          "id": 1,
+          "order": 1,
+          "url": "",
+          "title": "link 2 - 1"
+        }, {
+          "id": 2,
+          "order": 2,
+          "url": "",
+          "title": "link 2 - 2"
+        }, {
+          "id": 3,
+          "order": 3,
+          "url": "",
+          "title": "link 2 - 3"
+        }]
       }, {
         "id": 3,
         "order": 3,
         "url": "",
-        "title": "Bibliotecas de formas"
+        "title": "Bibliotecas de formas",
+        "nodes": [{
+          "id": 1,
+          "order": 1,
+          "url": "",
+          "title": "link 3 - 1"
+        }, {
+          "id": 2,
+          "order": 2,
+          "url": "",
+          "title": "link 3 - 2"
+        }, {
+          "id": 3,
+          "order": 3,
+          "url": "",
+          "title": "link 3 - 3"
+        }]
       }]
-    },{
+    }, {
       "id": 2,
       "order": 2,
       "img": "",
@@ -53,19 +285,67 @@
         "id": 1,
         "order": 1,
         "url": "",
-        "title": "Actualiza en modo árbol"
+        "title": "Actualiza en modo árbol",
+        "nodes": [{
+          "id": 1,
+          "order": 1,
+          "url": "",
+          "title": "link 1 - 1"
+        }, {
+          "id": 2,
+          "order": 2,
+          "url": "",
+          "title": "link 1 - 2"
+        }, {
+          "id": 3,
+          "order": 3,
+          "url": "",
+          "title": "link 1 - 3"
+        }]
       }, {
         "id": 2,
         "order": 2,
         "url": "",
-        "title": "Archiva varios lienzos"
+        "title": "Archiva varios lienzos",
+        "nodes": [{
+          "id": 1,
+          "order": 1,
+          "url": "",
+          "title": "link 2 - 1"
+        }, {
+          "id": 2,
+          "order": 2,
+          "url": "",
+          "title": "link 2 - 2"
+        }, {
+          "id": 3,
+          "order": 3,
+          "url": "",
+          "title": "link 2 - 3"
+        }]
       }, {
         "id": 3,
         "order": 3,
         "url": "",
-        "title": "Otorga permisos específicos"
+        "title": "Otorga permisos específicos",
+        "nodes": [{
+          "id": 1,
+          "order": 1,
+          "url": "",
+          "title": "link 3 - 1"
+        }, {
+          "id": 2,
+          "order": 2,
+          "url": "",
+          "title": "link 3 - 2"
+        }, {
+          "id": 3,
+          "order": 3,
+          "url": "",
+          "title": "link 3 - 3"
+        }]
       }]
-    },{
+    }, {
       "id": 3,
       "order": 3,
       "img": "",
@@ -75,12 +355,44 @@
         "id": 1,
         "order": 1,
         "url": "",
-        "title": "Usa libreta de contactos"
+        "title": "Usa libreta de contactos",
+        "nodes": [{
+          "id": 1,
+          "order": 1,
+          "url": "",
+          "title": "link 1 - 1"
+        }, {
+          "id": 2,
+          "order": 2,
+          "url": "",
+          "title": "link 1 - 2"
+        }, {
+          "id": 3,
+          "order": 3,
+          "url": "",
+          "title": "link 1 - 3"
+        }]
       }, {
         "id": 2,
         "order": 2,
         "url": "",
-        "title": "Integra la vista por cargos en Ssmartwork"
+        "title": "Integra la vista por cargos en Ssmartwork",
+        "nodes": [{
+          "id": 1,
+          "order": 1,
+          "url": "",
+          "title": "link 2 - 1"
+        }, {
+          "id": 2,
+          "order": 2,
+          "url": "",
+          "title": "link 2 - 2"
+        }, {
+          "id": 3,
+          "order": 3,
+          "url": "",
+          "title": "link 2 - 3"
+        }]
       }]
     }]
   }]

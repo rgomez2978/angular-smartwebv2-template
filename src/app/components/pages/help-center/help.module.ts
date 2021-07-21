@@ -9,6 +9,7 @@ import { HelpCenterComponent } from '@pages/help-center/help-center.component';
 import { HelpCenterHomeComponent } from './help-center-home/help-center-home.component';
 import { HelpCenterListComponent } from '@pages/help-center/help-center-list/help-center-list.component';
 import { HelpCenterDetailComponent } from '@pages/help-center/help-center-detail/help-center-detail.component';
+import { HelpCenterSearchComponent } from './help-center-search/help-center-search.component';
 @NgModule({
     imports: [
         CommonModule,
@@ -20,6 +21,7 @@ import { HelpCenterDetailComponent } from '@pages/help-center/help-center-detail
         HelpCenterHomeComponent,
         HelpCenterListComponent,
         HelpCenterDetailComponent,
+        HelpCenterSearchComponent,
     ]
 })
 export class HelpModule { }

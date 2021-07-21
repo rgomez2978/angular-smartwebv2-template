@@ -1,12 +1,9 @@
 import { Injectable, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-// import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '@redux/app.reducers';
 import { Subscription } from "rxjs";
 import { ReduxService } from '@services/index';
-// import { LayoutInterface, } from '@interfaces/index';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -17,19 +14,15 @@ export class ApiJsonService implements OnInit, OnDestroy {
   apiConLayout!: boolean;
   apiConLayoutES!: boolean;
   apiConLayoutEN!: boolean;
-
   apiConHome!: boolean;
   apiConHomeES!: boolean;
   apiConHomeEN!: boolean;
-
   apiConProducts!: boolean;
   apiConProductsES!: boolean;
   apiConProductsEN!: boolean;
-
   apiConPlanes!: boolean;
   apiConPlanesES!: boolean;
   apiConPlanesEN!: boolean;
-
   apiConResources!: boolean;
   apiConResourcesES!: boolean;
   apiConResourcesEN!: boolean;
@@ -40,7 +33,9 @@ export class ApiJsonService implements OnInit, OnDestroy {
   apiConHelpFeatures!: boolean;
   apiConHelpFeaturesES!: boolean;
   apiConHelpFeaturesEN!: boolean;
-
+  apiConHelpSearch!: boolean;
+  apiConHelpSearchES!: boolean;
+  apiConHelpSearchEN!: boolean;
 
   apiConInfo!: boolean;
   apiConInfoES!: boolean;
@@ -116,9 +111,14 @@ export class ApiJsonService implements OnInit, OnDestroy {
         this.apiConHelp = state.apiConHelp;
         this.apiConHelpES = state.apiConHelpES;
         this.apiConHelpEN = state.apiConHelpEN;
+
         this.apiConHelpFeatures = state.apiConHelpFeatures;
         this.apiConHelpFeaturesES = state.apiConHelpFeaturesES;
         this.apiConHelpFeaturesEN = state.apiConHelpFeaturesEN;
+        this.apiConHelpSearch = state.apiConHelpSearch;
+        this.apiConHelpSearchES = state.apiConHelpSearchES;
+        this.apiConHelpSearchEN = state.apiConHelpSearchEN;
+
         this.apiConInfo = state.apiConInfo;
         this.apiConInfoES = state.apiConInfoES;
         this.apiConInfoEN = state.apiConInfoEN;
@@ -151,263 +151,167 @@ export class ApiJsonService implements OnInit, OnDestroy {
    * @param {string} page PAgina que se mostrara (en-es)
    * -------------------------------------------------------
    */
-  setTranslate(value: string, page: string) {
+  setTranslate(lang: string, page: string) {
+    console.log('setTranslate :>> ', lang, page);
     this.setSubscriptions();
-    // console.log('value :>> ', value, ' page :>> ', page);
-    // Activa el tipo de idioma
-    this._reduxService.setTranslate(value);
+    this._reduxService.setTranslate(lang);
     this._reduxService.SetLoading(true);
 
     switch (page) {
-      // =====================================================
-      // CONEXION API - HOME
-      // =====================================================
       case 'home':
-        // console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConHome, 'ES:', this.apiConHomeES, ' EN:', this.apiConHomeEN);
-        if (value === 'es' && this.apiConHome && this.apiConHomeES && !this.apiConHomeEN) {
-          this._reduxService.setAPIConnectLayout(true, true, false);
-          this._reduxService.setAPIConnectHome(true, true, false);
-          console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        if (lang === 'es' && this.apiConHome && this.apiConHomeES && !this.apiConHomeEN) {
+          this.setAPIConfig(page, true, true, false);
         }
-        else if (value === 'en' && this.apiConHome && !this.apiConHomeES && this.apiConHomeEN) {
-          this._reduxService.setAPIConnectLayout(true, false, true);
-          this._reduxService.setAPIConnectHome(true, false, true);
-          console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        else if (lang === 'en' && this.apiConHome && !this.apiConHomeES && this.apiConHomeEN) {
+          this.setAPIConfig(page, true, false, true);
         } else {
-          this._reduxService.setAPIConnectLayout(false, this.apiConLayoutES, this.apiConLayoutEN);
-          this._reduxService.setAPIConnectHome(false, this.apiConHomeES, this.apiConHomeEN);
-          console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
+          this.setAPIConfig(page, false, this.apiConLayoutES, this.apiConLayoutEN);
         }
         break;
-      // =====================================================
-      // CONEXION API - PRODUCTS
-      // =====================================================
       case 'products':
-        // console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConProducts, 'ES:', this.apiConProductsES, ' EN:', this.apiConProductsEN);
-
-        if (value === 'es' && this.apiConProducts && this.apiConProductsES && !this.apiConProductsEN) {
-          this._reduxService.setAPIConnectLayout(true, true, false);
-          this._reduxService.setAPIConnectProducts(true, true, false);
-          console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        if (lang === 'es' && this.apiConProducts && this.apiConProductsES && !this.apiConProductsEN) {
+          this.setAPIConfig(page, true, true, false);
         }
-        else if (value === 'en' && this.apiConProducts && !this.apiConProductsES && this.apiConProductsEN) {
-          this._reduxService.setAPIConnectLayout(true, false, true);
-          this._reduxService.setAPIConnectProducts(true, false, true);
-          console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        else if (lang === 'en' && this.apiConProducts && !this.apiConProductsES && this.apiConProductsEN) {
+          this.setAPIConfig(page, true, false, true);
         } else {
-          this._reduxService.setAPIConnectLayout(false, this.apiConLayoutES, this.apiConLayoutEN);
-          this._reduxService.setAPIConnectProducts(false, this.apiConProductsES, this.apiConProductsEN);
-          console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
+          this.setAPIConfig(page, false, this.apiConLayoutES, this.apiConLayoutEN);
         }
         break;
-      // =====================================================
-      // CONEXION API - PLANES
-      // =====================================================
       case 'planes':
-        console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConPlanes, 'ES:', this.apiConPlanesES, ' EN:', this.apiConPlanesEN);
-
-        if (value === 'es' && this.apiConPlanes && this.apiConPlanesES && !this.apiConPlanesEN) {
-          this._reduxService.setAPIConnectLayout(true, true, false);
-          this._reduxService.setAPIConnectPlanes(true, true, false);
-          console.log(`XXXX YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        if (lang === 'es' && this.apiConPlanes && this.apiConPlanesES && !this.apiConPlanesEN) {
+          this.setAPIConfig(page, true, true, false);
         }
-        else if (value === 'en' && this.apiConPlanes && !this.apiConPlanesES && this.apiConPlanesEN) {
-          this._reduxService.setAPIConnectLayout(true, false, true);
-          this._reduxService.setAPIConnectPlanes(true, false, true);
-          console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        else if (lang === 'en' && this.apiConPlanes && !this.apiConPlanesES && this.apiConPlanesEN) {
+          this.setAPIConfig(page, true, false, true);
         } else {
-          this._reduxService.setAPIConnectLayout(false, this.apiConLayoutES, this.apiConLayoutEN);
-          this._reduxService.setAPIConnectPlanes(false, this.apiConPlanesES, this.apiConPlanesEN);
-          console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
+          this.setAPIConfig(page, false, this.apiConLayoutES, this.apiConLayoutEN);
         }
         break;
-
-      // =====================================================
-      // CONEXION API - RESOURCES
-      // =====================================================
       case 'resources':
-        console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConResources, 'ES:', this.apiConResourcesES, ' EN:', this.apiConResourcesEN);
-
-        if (value === 'es' && this.apiConResources && this.apiConResourcesES && !this.apiConResourcesEN) {
-          this._reduxService.setAPIConnectLayout(true, true, false);
-          this._reduxService.setAPIConnectResources(true, true, false);
-          console.log(`XXXX YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        if (lang === 'es' && this.apiConResources && this.apiConResourcesES && !this.apiConResourcesEN) {
+          this.setAPIConfig(page, true, true, false);
         }
-        else if (value === 'en' && this.apiConResources && !this.apiConResourcesES && this.apiConResourcesEN) {
-          this._reduxService.setAPIConnectLayout(true, false, true);
-          this._reduxService.setAPIConnectResources(true, false, true);
-          console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        else if (lang === 'en' && this.apiConResources && !this.apiConResourcesES && this.apiConResourcesEN) {
+          this.setAPIConfig(page, true, false, true);
         } else {
-          this._reduxService.setAPIConnectLayout(false, this.apiConLayoutES, this.apiConLayoutEN);
-          this._reduxService.setAPIConnectResources(false, this.apiConResourcesES, this.apiConResourcesEN);
-          console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
+          this.setAPIConfig(page, false, this.apiConLayoutES, this.apiConLayoutEN);
         }
         break;
-      // =====================================================
-      // CONEXION API - RESOURCES - HELP
-      // =====================================================
       case 'help':
-        console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConHelp, 'ES:', this.apiConHelpES, ' EN:', this.apiConHelpEN);
-
-        if (value === 'es' && this.apiConHelp && this.apiConHelpES && !this.apiConHelpEN) {
-          this._reduxService.setAPIConnectLayout(true, true, false);
-          this._reduxService.setAPIConnectHelp(true, true, false);
-          console.log(`XXXX YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        if (lang === 'es' && this.apiConHelp && this.apiConHelpES && !this.apiConHelpEN) {
+          this.setAPIConfig(page, true, true, false);
         }
-        else if (value === 'en' && this.apiConHelp && !this.apiConHelpES && this.apiConHelpEN) {
-          this._reduxService.setAPIConnectLayout(true, false, true);
-          this._reduxService.setAPIConnectHelp(true, false, true);
-          console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        else if (lang === 'en' && this.apiConHelp && !this.apiConHelpES && this.apiConHelpEN) {
+          this.setAPIConfig(page, true, false, true);
         } else {
-          this._reduxService.setAPIConnectLayout(false, this.apiConLayoutES, this.apiConLayoutEN);
-          this._reduxService.setAPIConnectHelp(false, this.apiConHelpES, this.apiConHelpEN);
-          console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
+          this.setAPIConfig(page, false, this.apiConLayoutES, this.apiConLayoutEN);
         }
         break;
-      // =====================================================
-      // CONEXION API - RESOURCES - HELP - HOME
-      // =====================================================
       case 'help_features':
-        console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConHelpFeatures, 'ES:', this.apiConHelpFeaturesES, ' EN:', this.apiConHelpFeaturesEN);
-
-        if (value === 'es' && this.apiConHelpFeatures && this.apiConHelpFeaturesES && !this.apiConHelpFeaturesEN) {
-          this._reduxService.setAPIConnectLayout(true, true, false);
-          this._reduxService.setAPIConnectHelpFeatures(true, true, false);
-          console.log(`XXXX YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        if (lang === 'es' && this.apiConHelpFeatures && this.apiConHelpFeaturesES && !this.apiConHelpFeaturesEN) {
+          this.setAPIConfig(page, true, true, false);
         }
-        else if (value === 'en' && this.apiConHelpFeatures && !this.apiConHelpFeaturesES && this.apiConHelpFeaturesEN) {
-          this._reduxService.setAPIConnectLayout(true, false, true);
-          this._reduxService.setAPIConnectHelpFeatures(true, false, true);
-          console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        else if (lang === 'en' && this.apiConHelpFeatures && !this.apiConHelpFeaturesES && this.apiConHelpFeaturesEN) {
+          this.setAPIConfig(page, true, false, true);
         } else {
-          this._reduxService.setAPIConnectLayout(false, this.apiConLayoutES, this.apiConLayoutEN);
-          this._reduxService.setAPIConnectHelpFeatures(false, this.apiConHelpFeaturesES, this.apiConHelpFeaturesEN);
-          console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
+          this.setAPIConfig(page, false, this.apiConLayoutES, this.apiConLayoutEN);
         }
         break;
-      // =====================================================
-      // CONEXION API - INFO
-      // =====================================================
+      case 'help_search':
+        if (lang === 'es' && this.apiConHelpSearch && this.apiConHelpSearchES && !this.apiConHelpSearchEN) {
+          this.setAPIConfig(page, true, true, false);
+        }
+        else if (lang === 'en' && this.apiConHelpSearch && !this.apiConHelpSearchES && this.apiConHelpSearchEN) {
+          this.setAPIConfig(page, true, false, true);
+        } else {
+          this.setAPIConfig(page, false, this.apiConLayoutES, this.apiConLayoutEN);
+        }
+        break;
       case 'info':
-        console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConInfo, 'ES:', this.apiConInfoES, ' EN:', this.apiConInfoEN);
-
-        if (value === 'es' && this.apiConInfo && this.apiConInfoES && !this.apiConInfoEN) {
-          this._reduxService.setAPIConnectLayout(true, true, false);
-          this._reduxService.setAPIConnectInfo(true, true, false);
-          console.log(`XXXX YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        if (lang === 'es' && this.apiConInfo && this.apiConInfoES && !this.apiConInfoEN) {
+          this.setAPIConfig(page, true, true, false);
         }
-        else if (value === 'en' && this.apiConInfo && !this.apiConInfoES && this.apiConInfoEN) {
-          this._reduxService.setAPIConnectLayout(true, false, true);
-          this._reduxService.setAPIConnectInfo(true, false, true);
-          console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        else if (lang === 'en' && this.apiConInfo && !this.apiConInfoES && this.apiConInfoEN) {
+          this.setAPIConfig(page, true, false, true);
         } else {
-          this._reduxService.setAPIConnectLayout(false, this.apiConLayoutES, this.apiConLayoutEN);
-          this._reduxService.setAPIConnectInfo(false, this.apiConInfoES, this.apiConInfoEN);
-          console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
+          this.setAPIConfig(page, false, this.apiConLayoutES, this.apiConLayoutEN);
         }
         break;
-      // =====================================================
-      // CONEXION API - POLICIES
-      // =====================================================
       case 'policies':
-        console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConPolicies, 'ES:', this.apiConPoliciesES, ' EN:', this.apiConPoliciesEN);
-
-        if (value === 'es' && this.apiConPolicies && this.apiConPoliciesES && !this.apiConPoliciesEN) {
-          this._reduxService.setAPIConnectLayout(true, true, false);
-          this._reduxService.setAPIConnectPolicies(true, true, false);
-          console.log(`XXXX YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        if (lang === 'es' && this.apiConPolicies && this.apiConPoliciesES && !this.apiConPoliciesEN) {
+          this.setAPIConfig(page, true, true, false);
         }
-        else if (value === 'en' && this.apiConPolicies && !this.apiConPoliciesES && this.apiConPoliciesEN) {
-          this._reduxService.setAPIConnectLayout(true, false, true);
-          this._reduxService.setAPIConnectPolicies(true, false, true);
-          console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        else if (lang === 'en' && this.apiConPolicies && !this.apiConPoliciesES && this.apiConPoliciesEN) {
+          this.setAPIConfig(page, true, false, true);
         } else {
-          this._reduxService.setAPIConnectLayout(false, this.apiConLayoutES, this.apiConLayoutEN);
-          this._reduxService.setAPIConnectPolicies(false, this.apiConPoliciesES, this.apiConPoliciesEN);
-          console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
+          this.setAPIConfig(page, false, this.apiConLayoutES, this.apiConLayoutEN);
         }
         break;
-      // =====================================================
-      // CONEXION API - SITES
-      // =====================================================
       case 'sites':
-        console.log(`API DEL ${page.toUpperCase()} (${value.toUpperCase()}) ==> `, ' CONEX:', this.apiConSites, 'ES:', this.apiConSitesES, ' EN:', this.apiConSitesEN);
-
-        if (value === 'es' && this.apiConSites && this.apiConSitesES && !this.apiConSitesEN) {
-          this._reduxService.setAPIConnectLayout(true, true, false);
-          this._reduxService.setAPIConnectSites(true, true, false);
-          console.log(`XXXX YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        if (lang === 'es' && this.apiConSites && this.apiConSitesES && !this.apiConSitesEN) {
+          this.setAPIConfig(page, true, true, false);
         }
-        else if (value === 'en' && this.apiConSites && !this.apiConSitesES && this.apiConSitesEN) {
-          this._reduxService.setAPIConnectLayout(true, false, true);
-          this._reduxService.setAPIConnectSites(true, false, true);
-          console.log(`YA CARGO JSON ${page.toUpperCase()} - ${value.toUpperCase()}`);
+        else if (lang === 'en' && this.apiConSites && !this.apiConSitesES && this.apiConSitesEN) {
+          this.setAPIConfig(page, true, false, true);
         } else {
-          this._reduxService.setAPIConnectLayout(false, this.apiConLayoutES, this.apiConLayoutEN);
-          this._reduxService.setAPIConnectSites(false, this.apiConSitesES, this.apiConSitesEN);
-          console.log(`CONSUME API ${page.toUpperCase()} - ${value.toUpperCase()}`);
+          this.setAPIConfig(page, false, this.apiConLayoutES, this.apiConLayoutEN);
         }
         break;
     }
   }
 
+
   /**
- * -------------------------------------------------------
- * @summary getJSON
- * @description  Consumir API - GET
- * @param {string} lang lenguage
- * @param {string} pag lenguage
- * @param {string} conApi Conexion a api
- * -------------------------------------------------------
- */
+   * -------------------------------------------------------
+   * @summary getJSON
+   * @description  Consumir API - GET
+   * @param {string} lang lenguage
+   * @param {string} pag lenguage
+   * @param {string} conApi Conexion a api
+   * -------------------------------------------------------
+   */
   getJSON(lang: string, page: string, conApi: boolean) {
 
+    console.log(`getJSON =>`, lang, page, conApi)
     // Ubicacion del ARchivo JSON
-    if (lang === 'en') {
-      this.url = `assets/JSON/${page}/${page}_en.json`;
-    } else {
-      this.url = `assets/JSON/${page}/${page}_es.json`;
-    }
-
-    // console.log('this.url :>> ', this.url);
-
+    lang === 'en' ? this.url = `assets/JSON/${page}/${page}_en.json` : this.url = `assets/JSON/${page}/${page}_es.json`;
 
     // VALIDACION DE PAGINA - CONFIGURACION DE RECARGA DE API
     switch (page) {
       // CONEXION API - HOME
       case 'home':
-        if (lang === 'en') { this._reduxService.setAPIConnectHome(conApi, false, true) }
-        else { this._reduxService.setAPIConnectHome(conApi, true, false) }
+        lang === 'es' ? this._reduxService.setAPIConnectHome(conApi, true, false) : this._reduxService.setAPIConnectHome(conApi, false, true);
         this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
         break;
       // CONEXION API - HPRODUCTS
       case 'products':
-        if (lang === 'en') { this._reduxService.setAPIConnectProducts(conApi, false, true) }
-        else { this._reduxService.setAPIConnectProducts(conApi, true, false) }
+        lang === 'es' ? this._reduxService.setAPIConnectProducts(conApi, true, false) : this._reduxService.setAPIConnectProducts(conApi, false, true);
         this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
         break;
       // CONEXION API - RESOURCES
       case 'resources':
-        if (lang === 'en') { this._reduxService.setAPIConnectResources(conApi, false, true) }
-        else { this._reduxService.setAPIConnectResources(conApi, true, false) }
-        this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
-        break;
-      // CONEXION API - HELP
-      case 'help':
-        if (lang === 'en') { this._reduxService.setAPIConnectHelp(conApi, false, true) }
-        else { this._reduxService.setAPIConnectHelp(conApi, true, false) }
+        lang === 'es' ? this._reduxService.setAPIConnectResources(conApi, true, false) : this._reduxService.setAPIConnectResources(conApi, false, true);
         this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
         break;
       // CONEXION API - HELP - HOME
-      case 'help_features':
-        if (lang === 'en') { this._reduxService.setAPIConnectHelpFeatures(conApi, false, true) }
-        else { this._reduxService.setAPIConnectHelpFeatures(conApi, true, false) }
+      case 'help':
+        lang === 'es' ? this._reduxService.setAPIConnectHelp(conApi, true, false) : this._reduxService.setAPIConnectHelp(conApi, false, true);
         this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
         break;
-
+      // CONEXION API - HELP - FEATURES
+      case 'help_features':
+        lang === 'es' ? this._reduxService.setAPIConnectHelpFeatures(conApi, true, false) : this._reduxService.setAPIConnectHelpFeatures(conApi, false, true);
+        this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
+        break;
+      // CONEXION API - HELP - SEARCH
+      case 'help_search':
+        lang === 'es' ? this._reduxService.setAPIConnectHelpSearch(conApi, true, false) : this._reduxService.setAPIConnectHelpSearch(conApi, false, true);
+        this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
+        break;
       // CONEXION API - LAYOUT
       default:
-        if (lang === 'en') { this._reduxService.setAPIConnectLayout(true, false, true) } else { this._reduxService.setAPIConnectLayout(true, true, false) }
+        lang === 'es' ? this._reduxService.setAPIConnectLayout(true, true, false) : this._reduxService.setAPIConnectLayout(true, false, true);
         this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
         break;
     }
@@ -415,6 +319,60 @@ export class ApiJsonService implements OnInit, OnDestroy {
   }
 
 
+  /**
+   * -------------------------------------------------------
+   * @summary setAPIConfig
+   * @description  Cambio del state para registro de carga de api en ES y EN  por redux
+   * @param {string} pag lenguage
+   * @param {boolean} conApi Conexion a api
+   * @param {boolean} conApiES Conexion a api ES
+   * @param {boolean} conApiEN Conexion a api EN
+   * -------------------------------------------------------
+   */
+  setAPIConfig(pag: string, conAPi: boolean, conApiES: boolean, conApiEN: boolean) {
+    switch (pag) {
+      case 'home':
+        this._reduxService.setAPIConnectLayout(conAPi, conApiES, conApiEN);
+        this._reduxService.setAPIConnectHome(conAPi, conApiES, conApiEN);
+        break;
+      case 'products':
+        this._reduxService.setAPIConnectLayout(conAPi, conApiES, conApiEN);
+        this._reduxService.setAPIConnectProducts(conAPi, conApiES, conApiEN);
+        break;
+      case 'planes':
+        this._reduxService.setAPIConnectLayout(conAPi, conApiES, conApiEN);
+        this._reduxService.setAPIConnectPlanes(conAPi, conApiES, conApiEN);
+        break;
+      case 'resources':
+        this._reduxService.setAPIConnectLayout(conAPi, conApiES, conApiEN);
+        this._reduxService.setAPIConnectResources(conAPi, conApiES, conApiEN);
+        break;
+      case 'help':
+        this._reduxService.setAPIConnectLayout(conAPi, conApiES, conApiEN);
+        this._reduxService.setAPIConnectHelp(conAPi, conApiES, conApiEN);
+        break;
+      case 'help_features':
+        this._reduxService.setAPIConnectLayout(conAPi, conApiES, conApiEN);
+        this._reduxService.setAPIConnectHelpFeatures(conAPi, conApiES, conApiEN);
+        break;
+      case 'help_search':
+        this._reduxService.setAPIConnectLayout(conAPi, conApiES, conApiEN);
+        this._reduxService.setAPIConnectHelpSearch(conAPi, conApiES, conApiEN);
+        break;
+      case 'info':
+        this._reduxService.setAPIConnectLayout(conAPi, conApiES, conApiEN);
+        this._reduxService.setAPIConnectInfo(conAPi, conApiES, conApiEN);
+        break;
+      case 'policies':
+        this._reduxService.setAPIConnectLayout(conAPi, conApiES, conApiEN);
+        this._reduxService.setAPIConnectPolicies(conAPi, conApiES, conApiEN);
+        break;
+      case 'sites':
+        this._reduxService.setAPIConnectLayout(conAPi, conApiES, conApiEN);
+        this._reduxService.setAPIConnectSites(conAPi, conApiES, conApiEN);
+        break;
+    }
 
+  }
 
 }
