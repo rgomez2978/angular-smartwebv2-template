@@ -15,7 +15,10 @@ export class BreadcrumbComponent implements OnInit {
   loading!: boolean;
   type: any;
   fullData: any = [];
+  fullBreadcrumbs: any = [];
   urlBreadcrumbs!: string;
+  title!: string;
+  link!: string;
 
   language!: string;
 
@@ -38,7 +41,10 @@ export class BreadcrumbComponent implements OnInit {
   ngOnInit() {
     this._titleService.setTitle('Smart Suite Tools');
     this.setSubscriptions();
-    this.convertUrl(this.urlBreadcrumbs);
+
+    setTimeout(() => {
+      this.convertUrl(this.urlBreadcrumbs, this.fullData, this.language);
+    }, 200);
   }
 
 
@@ -58,7 +64,7 @@ export class BreadcrumbComponent implements OnInit {
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
-        this.fullData = state.arrayProducts;
+        this.fullData = state.arrayHelp;
       })
     );
   }
@@ -71,11 +77,51 @@ export class BreadcrumbComponent implements OnInit {
    * @param {string} url Url
   * -------------------------------------------------------
   */
-  convertUrl(url: string) {
-    console.log('url :>> ', url);
+  convertUrl(url: any, data: any, lang: string) {
+    console.log(`url`, url)
+    console.log(`url.length`, url.length)
+    console.log(`data`, data)
 
-    // let sep = url.split('');
-    // console.log('sep :>> ', sep);
+
+    this.fullBreadcrumbs = [];
+
+    for (let key in url) {
+      if (key !== undefined || key !== '') {
+        switch (url[key]) {
+          case 'resources':
+            lang === 'en' ? this.title = 'Resources' : this.title = 'Recursos';
+            this.link = '/resources';
+            this.addItemBreadcrumbs(this.title, this.link);
+            break;
+          case 'help':
+            lang === 'en' ? this.title = 'Help' : this.title = 'Manuales de Uso';
+            this.link = '/resources/help';
+            this.addItemBreadcrumbs(this.title, this.link);
+            break;
+          case 'list':
+            let productById = data.products.find((prod: any) => prod.id === parseInt(url[4]));
+            this.addItemBreadcrumbs(productById.title, '');
+            let featureProductById = productById.nodes.find((feaProd: any) => feaProd.id === parseInt(url[5]));
+            console.log(`featureProductById`, featureProductById)
+            // this.addItemBreadcrumbs(featureProductById.title, featureProductById.url + '/' + parseInt(url[4]) + '/' + parseInt(url[5]));
+            this.addItemBreadcrumbs(featureProductById.title, '');
+
+            break;
+          // console.log(`object`, url[key])
+        }
+
+      }
+    }
+    console.log(`this.fullBreadcrumbs`, this.fullBreadcrumbs)
+
+  }
+
+
+  addItemBreadcrumbs(title: string, link: string) {
+    this.fullBreadcrumbs.push({
+      title: title,
+      link: link
+    });
   }
 
 }

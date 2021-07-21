@@ -1,0 +1,24 @@
+.containerBreadcrumb {
+  @apply flex flex-row items-center justify-start space-x-2 px-5;
+
+  > li {
+    @apply flex items-center justify-start py-3;
+
+    .breadCont {
+      @apply flex flex-row items-center justify-start h-full;
+
+      &__title {
+        @apply items-center px-2 py-1 text-base text-gray-500 border-2 border-gray-300 rounded-md;
+      }
+      .lnk {
+        @apply cursor-pointer;
+        &:hover {
+          @apply bg-gray-200;
+        }
+      }
+
+      > i {
+      }
+    }
+  }
+}
