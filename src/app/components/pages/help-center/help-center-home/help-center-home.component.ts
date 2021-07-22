@@ -14,16 +14,13 @@ import { ApiJsonService, ReduxService, CommonsService } from '@services/index';
 export class HelpCenterHomeComponent implements OnInit {
   private _subscription: Subscription = new Subscription();
   data: any = [];
-  fullData: any = [];
   dataProducts: any = [];
-
-  loading!: boolean;
   type: any;
-
+  loading!: boolean;
   language!: string;
   apiConHelp!: boolean;
-  apiConHelpES!: boolean;
-  apiConHelpEN!: boolean;
+  apiConHelpLang!: string;
+  fullData: any = [];
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -62,11 +59,10 @@ export class HelpCenterHomeComponent implements OnInit {
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
-        // this.apiConHelp = state.apiConHelp;
-        // this.apiConHelpES = state.apiConHelpES;
-        // this.apiConHelpEN = state.apiConHelpEN;
-        // this.fullData = state.arrayHelp;
-        if (this.apiConHelp !== undefined && this.apiConHelpES !== undefined && this.apiConHelpEN !== undefined) {
+        this.apiConHelp = state.apiConHelp.apiCon;
+        this.apiConHelpLang = state.apiConHelp.apiLang;
+        this.fullData = state.arrayHelp.apiArray;
+        if (this.apiConHelp !== undefined) {
           this.getDataAPI(this.language)
         }
       })
@@ -83,13 +79,12 @@ export class HelpCenterHomeComponent implements OnInit {
     * -------------------------------------------------------
     */
   getDataAPI(lang: string) {
-    if (!this.apiConHelp && (!this.apiConHelpES || !this.apiConHelpEN)) {
+    if (!this.apiConHelp) {
       this._apiJSONService.getJSON(lang, 'help', true).subscribe(
         (resp: any) => {
-          // console.log('resp :>> ', resp);
           this.data = resp;
           if (this.data !== undefined) {
-            // this._reduxService.setArrayHelp(this.data, lang);
+            this._reduxService.setArray('help', this.data, lang);
             this.getDataArray(this.fullData)
           }
         },

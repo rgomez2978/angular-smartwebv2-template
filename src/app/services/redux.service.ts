@@ -47,61 +47,113 @@ export class ReduxService {
   }
 
 
-  /**
-   * -------------------------------------------------------
-   * @summary setAPIConnectLayout
-   * @description Cambia el status de conectiviada a API de LAYPUT
-   * @param {boolean} conn valor de conexiona a API en general
-   * @param {boolean} conn_es valor de conexiona a API ESPAÑOL
-   * @param {boolean} conn_en valor de conexiona a API INGLES
-   * -------------------------------------------------------
-   */
-  setAPIConnectLayout(conn: boolean, conn_es: boolean, conn_en: boolean) {
-    console.log(`setAPIConnectLayout`, conn, conn_es, conn_en)
-    this._store.dispatch(ownActions.setAPIConnectLayout({ apiConLayout: { apiCon: conn, apiConEs: conn_es, apiConEn: conn_en } }));
-  }
 
   /**
    * -------------------------------------------------------
-   * @summary setAPIConnectHome
-   * @description Cambia el status de conectiviada a API de LAYPUT
-   * @param {boolean} conn valor de conexiona a API en general
-   * @param {boolean} conn_es valor de conexiona a API ESPAÑOL
-   * @param {boolean} conn_en valor de conexiona a API INGLES
+   * @summary setAPIConnect
+   * @description Cambia el status de conectividad del API
+   * @param {boolean} page nombre de la pagina
+   * @param {boolean} conn valor de conexiona a API
+   * @param {boolean} lang valor del lenguaje
    * -------------------------------------------------------
    */
-  setAPIConnectHome(conn: boolean, conn_es: boolean, conn_en: boolean) {
-    let arrayHome = { apiCon: conn, apiConEs: conn_es, apiConEn: conn_en };
-    this._store.dispatch(ownActions.setAPIConnectHome({ apiConHome: arrayHome }));
+  setAPIConnect(page: string, conn: boolean, lang: string) {
+    switch (page) {
+      case 'home':
+        this._store.dispatch(ownActions.setAPIConnectHome({ apiConHome: { apiCon: conn, apiLang: lang } }));
+        break;
+      case 'products':
+        this._store.dispatch(ownActions.setAPIConnectProducts({ apiConProducts: { apiCon: conn, apiLang: lang } }));
+        break;
+      case 'planes':
+        this._store.dispatch(ownActions.setAPIConnectPlanes({ apiConPlanes: { apiCon: conn, apiLang: lang } }));
+        break;
+      case 'resources':
+        this._store.dispatch(ownActions.setAPIConnectResources({ apiConResources: { apiCon: conn, apiLang: lang } }));
+        break;
+      case 'info':
+        this._store.dispatch(ownActions.setAPIConnectInfo({ apiConInfo: { apiCon: conn, apiLang: lang } }));
+        break;
+      case 'policies':
+        this._store.dispatch(ownActions.setAPIConnectPolicies({ apiConPolicies: { apiCon: conn, apiLang: lang } }));
+        break;
+      case 'sites':
+        this._store.dispatch(ownActions.setAPIConnectSites({ apiConSites: { apiCon: conn, apiLang: lang } }));
+        break;
+      case 'help':
+        this._store.dispatch(ownActions.setAPIConnectHelp({ apiConHelp: { apiCon: conn, apiLang: lang } }));
+        break;
+      case 'help_features':
+        this._store.dispatch(ownActions.setAPIConnectHelpF({ apiConHelpF: { apiCon: conn, apiLang: lang } }));
+        break;
+      case 'help_details':
+        this._store.dispatch(ownActions.setAPIConnectHelpD({ apiConHelpD: { apiCon: conn, apiLang: lang } }));
+        break;
+      case 'help_search':
+        this._store.dispatch(ownActions.setAPIConnectHelpS({ apiConHelpS: { apiCon: conn, apiLang: lang } }));
+        break;
+      default:
+        this._store.dispatch(ownActions.setAPIConnectLayout({ apiConLayout: { apiCon: conn, apiLang: lang } }));
+        break
+    }
     setTimeout(() => {
       this.SetLoading(false);
     }, 50);
   }
 
-  /**
-   * -------------------------------------------------------
-   * @summary setArrayLayout
-   * @description Cambia el status de conectiviada a API de HOME
-   * @param {any} array Array de productos
-   * @param {string} lang Idioma
-   * -------------------------------------------------------
-   */
-  setArrayLayout(array: any, lang: string) {
-    this._store.dispatch(ownActions.setArrayLayout({ arrayLayout: array }));
-  }
-
 
   /**
    * -------------------------------------------------------
-   * @summary setArrayHome
-   * @description Cambia el status de conectiviada a API de HOME
-   * @param {any} array Array de productos
+   * @summary setArray
+   * @description Asigna Idioma y arreglo de cada pagina
+   * @param {boolean} page nombre de la pagina
+   * @param {any} array Arreglo de contenido
    * @param {string} lang Idioma
    * -------------------------------------------------------
    */
-  setArrayHome(array: any, lang: string) {
-    this._store.dispatch(ownActions.setArrayHome({ arrayHome: array }));
+  setArray(page: string, array: any, lang: string) {
+    // console.log('setArray :>> ', page, array, lang);
+    switch (page) {
+      case 'home':
+        this._store.dispatch(ownActions.setArrayHome({ arrayHome: { apiLang: lang, apiArray: array } }));
+        break;
+      case 'products':
+        this._store.dispatch(ownActions.setArrayProducts({ arrayProducts: { apiLang: lang, apiArray: array } }));
+        break;
+      case 'planes':
+        this._store.dispatch(ownActions.setArrayPlanes({ arrayPlanes: { apiLang: lang, apiArray: array } }));
+        break;
+      case 'resources':
+        this._store.dispatch(ownActions.setArrayResources({ arrayResources: { apiLang: lang, apiArray: array } }));
+        break;
+      case 'info':
+        this._store.dispatch(ownActions.setArrayInfo({ arrayInfo: { apiLang: lang, apiArray: array } }));
+        break;
+      case 'policies':
+        this._store.dispatch(ownActions.setArrayPolicies({ arrayPolicies: { apiLang: lang, apiArray: array } }));
+        break;
+      case 'sites':
+        this._store.dispatch(ownActions.setArraySites({ arraySites: { apiLang: lang, apiArray: array } }));
+        break;
+      case 'help':
+        this._store.dispatch(ownActions.setArrayHelp({ arrayHelp: { apiLang: lang, apiArray: array } }));
+        break;
+      case 'help_features':
+        this._store.dispatch(ownActions.setArrayHelpF({ arrayHelpF: { apiLang: lang, apiArray: array } }));
+        break;
+      case 'help_details':
+        this._store.dispatch(ownActions.setArrayHelpD({ arrayHelpD: { apiLang: lang, apiArray: array } }));
+        break;
+      case 'help_search':
+        this._store.dispatch(ownActions.setArrayHelpS({ arrayHelpS: { apiLang: lang, apiArray: array } }));
+        break;
+      default:
+        this._store.dispatch(ownActions.setArrayLayout({ arrayLayout: { apiLang: lang, apiArray: array } }));
+        break;
+    }
   }
+
+
 
   /**
    * -------------------------------------------------------

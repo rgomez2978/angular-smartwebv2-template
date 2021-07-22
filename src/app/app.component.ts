@@ -21,19 +21,16 @@ import { ApiJsonService, ReduxService, CommonsService } from '@services/index';
 export class AppComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();
   data: any = [];
-  fullData: any = [];
   dataNavbar: any = [];
   dataFooter: any = [];
   dataClients: any = [];
-
-  loading!: boolean;
   showMenuApps!: boolean;
   showMenuSession!: boolean;
-
+  loading!: boolean;
   language!: string;
   apiConLayout!: boolean;
-  apiConLayoutES!: boolean;
-  apiConLayoutEN!: boolean;
+  apiConLayoutLang!: string;
+  fullData: any = [];
 
   constructor(
     location: Location,
@@ -72,12 +69,10 @@ export class AppComponent implements OnInit, OnDestroy {
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
-        console.log(`object`, state.apiConLayout)
         this.apiConLayout = state.apiConLayout.apiCon;
-        this.apiConLayoutES = state.apiConLayout.apiConEs;
-        this.apiConLayoutEN = state.apiConLayout.apiConEn;
-        this.fullData = state.arrayLayout;
-        if (this.apiConLayout !== undefined && this.apiConLayoutES !== undefined && this.apiConLayoutEN !== undefined) {
+        this.apiConLayoutLang = state.apiConLayout.apiLang;
+        this.fullData = state.arrayLayout.apiArray;
+        if (this.apiConLayout !== undefined) {
           this.getDataAPI(this.language)
         }
       })
@@ -94,12 +89,12 @@ export class AppComponent implements OnInit, OnDestroy {
    * -------------------------------------------------------
    */
   getDataAPI(lang: string) {
-    if (!this.apiConLayout && (!this.apiConLayoutES || !this.apiConLayoutEN)) {
+    if (!this.apiConLayout) {
       this._apiJSONService.getJSON(lang, 'layout', true).subscribe(
         (resp: any) => {
           this.data = resp;
           if (this.data !== undefined) {
-            this._reduxService.setArrayLayout(this.data, lang);
+            this._reduxService.setArray('layout', this.data, lang);
             this.getDataArray(this.fullData);
           }
         },

@@ -14,13 +14,13 @@ export class BreadcrumbComponent implements OnInit {
   private _subscription: Subscription = new Subscription();
   loading!: boolean;
   type: any;
-  dataHelp: any = [];
-  dataHelpFeatures: any = [];
   fullData: any = [];
   fullBreadcrumbs: any = [];
   urlBreadcrumbs!: string;
   title!: string;
   link!: string;
+  dataHelp: any = [];
+  dataHelpF: any = [];
 
   language!: string;
 
@@ -66,8 +66,8 @@ export class BreadcrumbComponent implements OnInit {
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
-        // this.dataHelp = state.arrayHelp;
-        // this.dataHelpFeatures = state.arrayHelpFeatures;
+        this.dataHelp = state.arrayHelp.apiArray;
+        this.dataHelpF = state.arrayHelpF.apiArray;
       })
     );
   }
@@ -84,8 +84,6 @@ export class BreadcrumbComponent implements OnInit {
     // console.log(`url`, url)
     // console.log(`url.length`, url.length)
     // console.log(`data`, data)
-
-
     this.fullBreadcrumbs = [];
     for (let key in url) {
       if (key !== undefined || key !== '') {
@@ -101,7 +99,7 @@ export class BreadcrumbComponent implements OnInit {
             this.addItemBreadcrumbs(this.title, this.link);
             break;
           case 'list':
-            let productById = this.dataHelpFeatures.features.find((prod: any) => prod.id === parseInt(url[4]));
+            let productById = this.dataHelpF.features.find((prod: any) => prod.id === parseInt(url[4]));
             let featureProductById = productById.nodes.find((feaProd: any) => feaProd.id === parseInt(url[5]));
             this.addItemBreadcrumbs(productById.title, '');
             this.addItemBreadcrumbs(featureProductById.title, '');

@@ -78,14 +78,10 @@ export class FooterComponent implements OnInit {
     let url = this.urlBreadcrumbs;
     let urFinal = '';
     let page = this.urlActiveLevel1.split('/')[1];
-    // console.log('url.length :>> ', url.length);
-    // console.log('page :>> ', page, url);
-    // console.log('page2 :>> ', url[3]);
     if (page === 'resources' && url.length >= 3) {
       url[3] === undefined ? urFinal = url[2] : urFinal = url[3];
       this._apiJsonService.setTranslate(value, urFinal);
     } else {
-      console.log('pagina normal');
       this._apiJsonService.setTranslate(value, page);
     }
   }

@@ -14,20 +14,19 @@ import { ApiJsonService, ReduxService, CommonsService } from '@services/index';
 export class ProductsComponent implements OnInit {
   private _subscription: Subscription = new Subscription();
   data: any = [];
-  fullData: any = [];
   dataHeader: any = [];
   dataProducts: any = [];
   dataSpecifications: any = [];
   dataDetail: any = [];
   dataCta: any = [];
   dataTestimonials: any = [];
-  loading!: boolean;
   type: any;
-
+  loading!: boolean;
   language!: string;
   apiConProducts!: boolean;
-  apiConProductsES!: boolean;
-  apiConProductsEN!: boolean;
+  apiConProductsLang!: string;
+  fullData: any = [];
+
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -66,11 +65,10 @@ export class ProductsComponent implements OnInit {
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
-        // this.apiConProducts = state.apiConProducts;
-        // this.apiConProductsES = state.apiConProductsES;
-        // this.apiConProductsEN = state.apiConProductsEN;
-        // this.fullData = state.arrayProducts;
-        if (this.apiConProducts !== undefined && this.apiConProductsES !== undefined && this.apiConProductsEN !== undefined) {
+        this.apiConProducts = state.apiConProducts.apiCon;
+        this.apiConProductsLang = state.apiConProducts.apiLang;
+        this.fullData = state.arrayProducts.apiArray;
+        if (this.apiConProducts !== undefined) {
           this.getDataAPI(this.language)
         }
       })
@@ -87,12 +85,12 @@ export class ProductsComponent implements OnInit {
    * -------------------------------------------------------
    */
   getDataAPI(lang: string) {
-    if (!this.apiConProducts && (!this.apiConProductsES || !this.apiConProductsEN)) {
+    if (!this.apiConProducts) {
       this._apiJSONService.getJSON(lang, 'products', true).subscribe(
         (resp: any) => {
           this.data = resp;
           if (this.data !== undefined) {
-            // this._reduxService.setArrayProducts(this.data, lang);
+            this._reduxService.setArray('products', this.data, lang);
             this.getDataArray(this.fullData)
           }
         },
@@ -114,7 +112,6 @@ export class ProductsComponent implements OnInit {
    * -------------------------------------------------------
    */
   getIdProduct(array: any, id: number) {
-    // console.log('array :>> ', array, 'id :>> ', id);
     return array.find((opt: any) => opt.id === Number(id));
   }
 
@@ -136,8 +133,6 @@ export class ProductsComponent implements OnInit {
         this.dataDetail = this.dataSpecifications[0]?.detail;
         this.dataCta = this.dataSpecifications[0]?.cta;
         this.dataTestimonials = this.dataSpecifications[0]?.testimonials;
-        // console.log(`PRODUCTS FILTRADO => `, this.data);
-        // console.log(`PRODUCTS FILTRADO LONGITUD OBJECT => `, Object.keys(this.data).length);
         return this.data;
       });
     }

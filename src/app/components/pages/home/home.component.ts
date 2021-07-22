@@ -14,17 +14,16 @@ import { ApiJsonService, ReduxService, CommonsService } from '@services/index';
 export class HomeComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();
   data: any = [];
-  fullData: any = [];
   dataHeader: any = [];
   dataClients: any = {};
   dataProducts: any = [];
   dataNews: any = [];
   loading!: boolean;
-
   language!: string;
   apiConHome!: boolean;
-  apiConHomeES!: boolean;
-  apiConHomeEN!: boolean;
+  apiConHomeLang!: string;
+  fullData: any = [];
+
 
   constructor(
     private _titleService: Title,
@@ -62,10 +61,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
         this.apiConHome = state.apiConHome.apiCon;
-        this.apiConHomeES = state.apiConHome.apiConEs;
-        this.apiConHomeEN = state.apiConHome.apiConEs;
-        this.fullData = state.arrayHome;
-        if (this.apiConHome !== undefined && this.apiConHomeES !== undefined && this.apiConHomeEN !== undefined) {
+        this.apiConHomeLang = state.apiConHome.apiLang;
+        this.fullData = state.arrayHome.apiArray;
+        if (this.apiConHome !== undefined) {
           this.getDataAPI(this.language);
         }
       })
@@ -81,12 +79,12 @@ export class HomeComponent implements OnInit, OnDestroy {
    * -------------------------------------------------------
    */
   getDataAPI(lang: string) {
-    if (!this.apiConHome && (!this.apiConHomeES || !this.apiConHomeEN)) {
+    if (!this.apiConHome) {
       this._apiJSONService.getJSON(lang, 'home', true).subscribe(
         (resp: any) => {
           this.data = resp;
           if (this.data !== undefined) {
-            this._reduxService.setArrayHome(this.data, lang);
+            this._reduxService.setArray('home', this.data, lang);
             this.getDataArray(this.fullData);
           }
         },

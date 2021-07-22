@@ -14,16 +14,14 @@ import { ApiJsonService, ReduxService, CommonsService } from '@services/index';
 export class HelpCenterListComponent implements OnInit {
   private _subscription: Subscription = new Subscription();
   data: any = [];
-  fullData: any = [];
   dataProducts: any = [];
   dataFeatures: any = [];
-  loading!: boolean;
   type: any;
-
+  loading!: boolean;
   language!: string;
-  apiConHelpFeatures!: boolean;
-  apiConHelpFeaturesES!: boolean;
-  apiConHelpFeaturesEN!: boolean;
+  apiConHelpF!: boolean;
+  apiConHelpFLang!: string;
+  fullData: any = [];
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -62,11 +60,10 @@ export class HelpCenterListComponent implements OnInit {
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
-        // this.apiConHelpFeatures = state.apiConHelpFeatures;
-        // this.apiConHelpFeaturesES = state.apiConHelpFeaturesES;
-        // this.apiConHelpFeaturesEN = state.apiConHelpFeaturesEN;
-        // this.fullData = state.arrayHelpFeatures;
-        if (this.apiConHelpFeatures !== undefined && this.apiConHelpFeaturesES !== undefined && this.apiConHelpFeaturesEN !== undefined) {
+        this.apiConHelpF = state.apiConHelpF.apiCon;
+        this.apiConHelpFLang = state.apiConHelpF.apiLang;
+        this.fullData = state.arrayHelpF.apiArray;
+        if (this.apiConHelpF !== undefined) {
           this.getDataAPI(this.language)
         }
       })
@@ -83,12 +80,12 @@ export class HelpCenterListComponent implements OnInit {
     * -------------------------------------------------------
     */
   getDataAPI(lang: string) {
-    if (!this.apiConHelpFeatures && (!this.apiConHelpFeaturesES || !this.apiConHelpFeaturesEN)) {
+    if (!this.apiConHelpF) {
       this._apiJSONService.getJSON(lang, 'help_features', true).subscribe(
         (resp: any) => {
           this.data = resp;
           if (this.data !== undefined) {
-            // this._reduxService.setArrayHelpFeatures(this.data, lang);
+            this._reduxService.setArray('help_features', this.data, lang);
             this.getDataArray(this.fullData)
           }
         },
@@ -117,6 +114,7 @@ export class HelpCenterListComponent implements OnInit {
     return filterProd[0].nodes.find((feat: any) => feat.id === idFeature);
   }
 
+
   /**
    * -------------------------------------------------------
    * @summary getDataArray
@@ -131,8 +129,6 @@ export class HelpCenterListComponent implements OnInit {
         this.data = this.getIdData(array.features, Number(params['product']), Number(params['feature']));
         this.dataProducts = this.data;
         this.dataFeatures = this.data.nodes;
-        // console.log(`this.dataProducts`, this.dataProducts)
-        // console.log(`this.dataFeatures`, this.dataFeatures)
         return this.data;
       });
     }

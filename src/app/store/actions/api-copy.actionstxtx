@@ -1,0 +1,148 @@
+import { Action } from "@ngrx/store";
+import { ApiConnectModel } from '../models/conAPI.models';
+
+export enum ApiActionTypes {
+    setAPIConnect = "[API CONN] Set API CONNECT",
+    setAPIConnectLayout = "[API CONN] Set API CONNECT LAYOUT",
+    setAPIConnectHome = "[API CONN] Set API CONNECT HOME",
+    setAPIConnectProducts = "[API CONN] Set API CONNECT PRODUCTS",
+    setAPIConnectPlanes = "[API CONN] Set API CONNECT PLANES",
+    setAPIConnectResources = "[API CONN] Set API CONNECT RESOURCES",
+    setAPIConnectHelp = "[API CONN] Set API CONNECT HELP",
+    setAPIConnectHelpFeatures = "[API CONN] Set API CONNECT HELP - HOME",
+    setAPIConnectHelpSearch = "[API CONN] Set API CONNECT HELP - SEARCH",
+    setAPIConnectInfo = "[API CONN] Set API CONNECT INFO",
+    setAPIConnectPolicies = "[API CONN] Set API CONNECT POLICIES",
+    setAPIConnectSites = "[API CONN] Set API CONNECT SITES",
+    setArrayLayout = "[ARRAY] Set Array Layout",
+    setArrayHome = "[ARRAY] Set Array Home",
+    setArrayProducts = "[ARRAY] Set Array Products",
+    setArrayPlanes = "[ARRAY] Set Array Planes",
+    setArrayResources = "[ARRAY] Set Array Resources",
+    setArrayHelp = "[ARRAY] Set Array HELP",
+    setArrayHelpFeatures = "[ARRAY] Set Array HELP FEATURES",
+    setArrayHelpSearch = "[ARRAY] Set Array HELP SEARCH",
+    setArrayInfo = "[ARRAY] Set Array Info",
+    setArrayPolicies = "[ARRAY] Set Array Policies",
+    setArraySites = "[ARRAY] Set Array Sites",
+}
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  CONFIGURACION DE APIS
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+export class setAPIConnect implements Action {
+    readonly type = ApiActionTypes.setAPIConnect;
+    constructor(public apiConData: ApiConnectModel[]) { }
+}
+
+export class setAPIConnectLayout implements Action {
+    readonly type = ApiActionTypes.setAPIConnectLayout;
+    constructor(public apiConLayout: boolean, public apiConLayoutES: boolean, public apiConLayoutEN: boolean) { }
+}
+export class setAPIConnectHome implements Action {
+    readonly type = ApiActionTypes.setAPIConnectHome;
+    constructor(public apiConHome: boolean, public apiConHomeES: boolean, public apiConHomeEN: boolean) { }
+}
+export class setAPIConnectProducts implements Action {
+    readonly type = ApiActionTypes.setAPIConnectProducts;
+    constructor(public apiConProducts: boolean, public apiConProductsES: boolean, public apiConProductsEN: boolean) { }
+}
+
+export class setAPIConnectPlanes implements Action {
+    readonly type = ApiActionTypes.setAPIConnectPlanes;
+    constructor(public apiConPlanes: boolean, public apiConPlanesES: boolean, public apiConPlanesEN: boolean) { }
+}
+
+export class setAPIConnectResources implements Action {
+    readonly type = ApiActionTypes.setAPIConnectResources;
+    constructor(public apiConResources: boolean, public apiConResourcesES: boolean, public apiConResourcesEN: boolean) { }
+}
+
+export class setAPIConnectHelp implements Action {
+    readonly type = ApiActionTypes.setAPIConnectHelp;
+    constructor(public apiConHelp: boolean, public apiConHelpES: boolean, public apiConHelpEN: boolean) { }
+}
+
+export class setAPIConnectHelpFeatures implements Action {
+    readonly type = ApiActionTypes.setAPIConnectHelpFeatures;
+    constructor(public apiConHelpFeatures: boolean, public apiConHelpFeaturesES: boolean, public apiConHelpFeaturesEN: boolean) { }
+}
+
+export class setAPIConnectHelpSearch implements Action {
+    readonly type = ApiActionTypes.setAPIConnectHelpSearch;
+    constructor(public apiConHelpSearch: boolean, public apiConHelpSearchES: boolean, public apiConHelpSearchEN: boolean) { }
+}
+
+export class setAPIConnectInfo implements Action {
+    readonly type = ApiActionTypes.setAPIConnectInfo;
+    constructor(public apiConInfo: boolean, public apiConInfoES: boolean, public apiConInfoEN: boolean) { }
+}
+
+export class setAPIConnectPolicies implements Action {
+    readonly type = ApiActionTypes.setAPIConnectPolicies;
+    constructor(public apiConPolicies: boolean, public apiConPoliciesES: boolean, public apiConPoliciesEN: boolean) { }
+}
+
+export class setAPIConnectSites implements Action {
+    readonly type = ApiActionTypes.setAPIConnectSites;
+    constructor(public apiConSites: boolean, public apiConSitesES: boolean, public apiConSitesEN: boolean) { }
+}
+
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  CONFIGURACION DE ARRAYS
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+export class setArrayLayout implements Action {
+    readonly type = ApiActionTypes.setArrayLayout;
+    constructor(public arrayLayout: any) { }
+}
+export class setArrayHome implements Action {
+    readonly type = ApiActionTypes.setArrayHome;
+    constructor(public arrayHome: any) { }
+}
+export class setArrayProducts implements Action {
+    readonly type = ApiActionTypes.setArrayProducts;
+    constructor(public arrayProducts: any) { }
+}
+export class setArrayPlanes implements Action {
+    readonly type = ApiActionTypes.setArrayPlanes;
+    constructor(public arrayPlanes: any) { }
+}
+export class setArrayResources implements Action {
+    readonly type = ApiActionTypes.setArrayResources;
+    constructor(public arrayResources: any) { }
+}
+export class setArrayHelp implements Action {
+    readonly type = ApiActionTypes.setArrayHelp;
+    constructor(public arrayHelp: any) { }
+}
+
+export class setArrayHelpFeatures implements Action {
+    readonly type = ApiActionTypes.setArrayHelpFeatures;
+    constructor(public arrayHelpFeatures: any) { }
+}
+export class setArrayHelpSearch implements Action {
+    readonly type = ApiActionTypes.setArrayHelpSearch;
+    constructor(public arrayHelpSearch: any) { }
+}
+
+export class setArrayInfo implements Action {
+    readonly type = ApiActionTypes.setArrayInfo;
+    constructor(public arrayInfo: any) { }
+}
+export class setArrayPolicies implements Action {
+    readonly type = ApiActionTypes.setArrayPolicies;
+    constructor(public arrayPolicies: any) { }
+}
+export class setArraySites implements Action {
+    readonly type = ApiActionTypes.setArraySites;
+    constructor(public arraySites: any) { }
+}
+
+
+export type ApiActionsUnion = setAPIConnect | setAPIConnectLayout | setAPIConnectHome | setAPIConnectProducts | setAPIConnectPlanes | setAPIConnectResources | setAPIConnectHelp | setAPIConnectHelpFeatures | setAPIConnectHelpSearch | setAPIConnectInfo | setAPIConnectPolicies | setAPIConnectSites | setArrayLayout | setArrayHome | setArrayProducts | setArrayPlanes | setArrayResources | setArrayHelp | setArrayHelpFeatures | setArrayHelpSearch | setArrayInfo | setArrayPolicies | setArraySites;

@@ -11,13 +11,54 @@ export class ApiJsonService implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();
   url!: string;
   language!: string;
-  apiConLayout!: boolean;
-  apiConLayoutES!: boolean;
-  apiConLayoutEN!: boolean;
-  apiConHome!: boolean;
-  apiConHomeES!: boolean;
-  apiConHomeEN!: boolean;
   conexReturn: any;
+  apiConLayout!: boolean;
+  apiConLayoutLang!: string;
+  arrayLayout: any = [];
+  apiConHome!: boolean;
+  apiConHomeLang!: string;
+  arrayHome: any = [];
+  apiConProducts!: boolean;
+  apiConProductsLang!: string;
+  arrayProducts: any = [];
+  apiConPlanes!: boolean;
+  apiConPlanesLang!: string;
+  arrayPlanes: any = [];
+  apiConResources!: boolean;
+  apiConResourcesLang!: string;
+  arrayResources: any = [];
+  apiConInfo!: boolean;
+  apiConInfoLang!: string;
+  arrayInfo: any = [];
+  apiConPolicies!: boolean;
+  apiConPoliciesLang!: string;
+  arrayPolicies: any = [];
+  apiConSites!: boolean;
+  apiConSitesLang!: string;
+  arraySites: any = [];
+
+  apiConHelp!: boolean;
+  apiConHelpLang!: string;
+  arrayHelp: any = [];
+  apiConHelpF!: boolean;
+  apiConHelpFLang!: string;
+  arrayHelpF: any = [];
+  apiConHelpD!: boolean;
+  apiConHelpDLang!: string;
+  arrayHelpD: any = [];
+  apiConHelpS!: boolean;
+  apiConHelpSLang!: string;
+  arrayHelpS: any = [];
+
+  apiConNews!: boolean;
+  apiConNewsLang!: string;
+  arrayNews: any = [];
+  apiConNewsD!: boolean;
+  apiConNewsDLang!: string;
+  arrayNewsD: any = [];
+  apiConNewsS!: boolean;
+  apiConNewsSLang!: string;
+  arrayNewsS: any = [];
 
   constructor(
     private _http: HttpClient,
@@ -62,12 +103,41 @@ export class ApiJsonService implements OnInit, OnDestroy {
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
+        // console.log(`API SERVICE state`, state)
         this.apiConLayout = state.apiConLayout.apiCon;
-        this.apiConLayoutES = state.apiConLayout.apiConEs;
-        this.apiConLayoutEN = state.apiConLayout.apiConEs;
+        this.apiConLayoutLang = state.apiConLayout.apiLang;
         this.apiConHome = state.apiConHome.apiCon;
-        this.apiConHomeES = state.apiConHome.apiConEs;
-        this.apiConHomeEN = state.apiConHome.apiConEn;
+        this.apiConHomeLang = state.apiConHome.apiLang;
+        this.apiConProducts = state.apiConProducts.apiCon;
+        this.apiConProductsLang = state.apiConProducts.apiLang;
+        this.apiConPlanes = state.apiConPlanes.apiCon;
+        this.apiConPlanesLang = state.apiConPlanes.apiLang;
+        this.apiConResources = state.apiConResources.apiCon;
+        this.apiConResourcesLang = state.apiConResources.apiLang;
+        this.apiConInfo = state.apiConInfo.apiCon;
+        this.apiConInfoLang = state.apiConInfo.apiLang;
+        this.apiConPolicies = state.apiConPolicies.apiCon;
+        this.apiConPoliciesLang = state.apiConPolicies.apiLang;
+        this.apiConSites = state.apiConSites.apiCon;
+        this.apiConSitesLang = state.apiConSites.apiLang;
+
+        this.apiConHelp = state.apiConHelp.apiCon;
+        this.apiConHelpLang = state.apiConHelp.apiLang;
+        this.apiConHelpF = state.apiConHelpF.apiCon;
+        this.apiConHelpFLang = state.apiConHelpF.apiLang;
+        this.apiConHelpD = state.apiConHelpD.apiCon;
+        this.apiConHelpDLang = state.apiConHelpD.apiLang;
+        this.apiConHelpS = state.apiConHelpS.apiCon;
+        this.apiConHelpSLang = state.apiConHelpS.apiLang;
+
+        this.apiConNews = state.apiConNews.apiCon;
+        this.apiConNewsLang = state.apiConNews.apiLang;
+        this.apiConNewsD = state.apiConNewsD.apiCon;
+        this.apiConNewsDLang = state.apiConNewsD.apiLang;
+        this.apiConNewsS = state.apiConNewsS.apiCon;
+        this.apiConNewsSLang = state.apiConNewsS.apiLang;
+
+
       })
     );
   }
@@ -92,28 +162,111 @@ export class ApiJsonService implements OnInit, OnDestroy {
    * -------------------------------------------------------
    */
   setTranslate(lang: string, page: string) {
-    console.log('setTranslate :>> ', lang, page);
     this.setSubscriptions();
     this._reduxService.setTranslate(lang);
     this._reduxService.SetLoading(true);
-
-
-    console.log(`this.apiConHome`, this.apiConHome, this.apiConHomeES, this.apiConHomeEN)
-
     switch (page) {
       case 'home':
-        if (lang === 'es' && this.apiConHome && this.apiConHomeES && !this.apiConHomeEN) {
-          console.log(`esta en espa;ol`)
-          // this.setAPIConfig(page, true, true, false);
-        }
-        else if (lang === 'en' && this.apiConHome && !this.apiConHomeES && this.apiConHomeEN) {
-          console.log(`esta en ingles`)
-          // this.setAPIConfig(page, true, false, true);
+        if (lang === this.apiConHomeLang && this.apiConHome) {
+          this._reduxService.setAPIConnect('layout', true, lang);
+          this._reduxService.setAPIConnect(page, true, lang);
         } else {
-          console.log(`esta en otor`)
-          this.setAPIConfig(page, false, this.apiConLayoutES, this.apiConLayoutEN);
+          this._reduxService.setAPIConnect('layout', false, lang);
+          this._reduxService.setAPIConnect(page, false, lang);
         }
         break;
+      case 'products':
+        if (lang === this.apiConProductsLang && this.apiConProducts) {
+          this._reduxService.setAPIConnect('layout', true, lang);
+          this._reduxService.setAPIConnect(page, true, lang);
+        } else {
+          this._reduxService.setAPIConnect('layout', false, lang);
+          this._reduxService.setAPIConnect(page, false, lang);
+        }
+        break;
+      case 'planes':
+        if (lang === this.apiConPlanesLang && this.apiConPlanes) {
+          this._reduxService.setAPIConnect('layout', true, lang);
+          this._reduxService.setAPIConnect(page, true, lang);
+        } else {
+          this._reduxService.setAPIConnect('layout', false, lang);
+          this._reduxService.setAPIConnect(page, false, lang);
+        }
+        break;
+      case 'resources':
+        if (lang === this.apiConResourcesLang && this.apiConResources) {
+          this._reduxService.setAPIConnect('layout', true, lang);
+          this._reduxService.setAPIConnect(page, true, lang);
+        } else {
+          this._reduxService.setAPIConnect('layout', false, lang);
+          this._reduxService.setAPIConnect(page, false, lang);
+        }
+        break;
+      case 'info':
+        if (lang === this.apiConInfoLang && this.apiConInfo) {
+          this._reduxService.setAPIConnect('layout', true, lang);
+          this._reduxService.setAPIConnect(page, true, lang);
+        } else {
+          this._reduxService.setAPIConnect('layout', false, lang);
+          this._reduxService.setAPIConnect(page, false, lang);
+        }
+        break;
+      case 'policies':
+        if (lang === this.apiConPoliciesLang && this.apiConPolicies) {
+          this._reduxService.setAPIConnect('layout', true, lang);
+          this._reduxService.setAPIConnect(page, true, lang);
+        } else {
+          this._reduxService.setAPIConnect('layout', false, lang);
+          this._reduxService.setAPIConnect(page, false, lang);
+        }
+        break;
+      case 'sites':
+        if (lang === this.apiConSitesLang && this.apiConSites) {
+          this._reduxService.setAPIConnect('layout', true, lang);
+          this._reduxService.setAPIConnect(page, true, lang);
+        } else {
+          this._reduxService.setAPIConnect('layout', false, lang);
+          this._reduxService.setAPIConnect(page, false, lang);
+        }
+        break;
+      case 'help':
+        if (lang === this.apiConHelpLang && this.apiConHelp) {
+          this._reduxService.setAPIConnect('layout', true, lang);
+          this._reduxService.setAPIConnect(page, true, lang);
+        } else {
+          this._reduxService.setAPIConnect('layout', false, lang);
+          this._reduxService.setAPIConnect(page, false, lang);
+        }
+        break;
+      case 'help_features':
+        if (lang === this.apiConHelpFLang && this.apiConHelpF) {
+          this._reduxService.setAPIConnect('layout', true, lang);
+          this._reduxService.setAPIConnect(page, true, lang);
+        } else {
+          this._reduxService.setAPIConnect('layout', false, lang);
+          this._reduxService.setAPIConnect(page, false, lang);
+        }
+        break;
+      case 'help_details':
+        if (lang === this.apiConHelpDLang && this.apiConHelpD) {
+          this._reduxService.setAPIConnect('layout', true, lang);
+          this._reduxService.setAPIConnect(page, true, lang);
+        } else {
+          this._reduxService.setAPIConnect('layout', false, lang);
+          this._reduxService.setAPIConnect(page, false, lang);
+        }
+        break;
+      case 'help_search':
+        if (lang === this.apiConHelpSLang && this.apiConHelpS) {
+          this._reduxService.setAPIConnect('layout', true, lang);
+          this._reduxService.setAPIConnect(page, true, lang);
+        } else {
+          this._reduxService.setAPIConnect('layout', false, lang);
+          this._reduxService.setAPIConnect(page, false, lang);
+        }
+        break;
+      default:
+        break
     }
   }
 
@@ -128,46 +281,12 @@ export class ApiJsonService implements OnInit, OnDestroy {
    * -------------------------------------------------------
    */
   getJSON(lang: string, page: string, conApi: boolean) {
-    console.log(`getJSON =>`, lang, page, conApi)
-    // Ubicacion del ARchivo JSON
+    // console.log(`getJSON =>`, lang, page, conApi)
     lang === 'en' ? this.url = `assets/JSON/${page}/${page}_en.json` : this.url = `assets/JSON/${page}/${page}_es.json`;
-
-    // VALIDACION DE PAGINA - CONFIGURACION DE RECARGA DE API
-    switch (page) {
-      // CONEXION API - HOME
-      case 'home':
-        lang === 'es' ? this._reduxService.setAPIConnectHome(conApi, true, false) : this._reduxService.setAPIConnectHome(conApi, false, true);
-        this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
-        break;
-      // CONEXION API - LAYOUT
-      default:
-        lang === 'es' ? this._reduxService.setAPIConnectLayout(true, true, false) : this._reduxService.setAPIConnectLayout(true, false, true);
-        this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
-        break;
-    }
+    this._reduxService.setAPIConnect(page, conApi, lang);
+    this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
     return this.conexReturn;
   }
 
-
-  /**
-   * -------------------------------------------------------
-   * @summary setAPIConfig
-   * @description  Cambio del state para registro de carga de api en ES y EN  por redux
-   * @param {string} pag lenguage
-   * @param {boolean} conApi Conexion a api
-   * @param {boolean} conApiES Conexion a api ES
-   * @param {boolean} conApiEN Conexion a api EN
-   * -------------------------------------------------------
-   */
-  setAPIConfig(pag: string, conApi: boolean, conApiES: boolean, conApiEN: boolean) {
-    console.log(`setAPIConfig`, pag, conApi, conApiES, conApiEN)
-    switch (pag) {
-      case 'home':
-        this._reduxService.setAPIConnectLayout(conApi, conApiES, conApiEN);
-        this._reduxService.setAPIConnectHome(conApi, conApiES, conApiEN);
-        break;
-    }
-
-  }
 
 }

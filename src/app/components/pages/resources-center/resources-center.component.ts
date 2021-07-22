@@ -14,19 +14,17 @@ import { ApiJsonService, ReduxService, CommonsService } from '@services/index';
 export class ResourcesCenterComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();
   data: any = [];
-  fullData: any = [];
   dataHeader: any = [];
   dataResources: any = [];
   dataFaqs: any = [];
   dataManuals: any = [];
   dataNews: any = [];
-  loading!: boolean;
   type: any;
-
+  loading!: boolean;
   language!: string;
   apiConResources!: boolean;
-  apiConResourcesES!: boolean;
-  apiConResourcesEN!: boolean;
+  apiConResourcesLang!: string;
+  fullData: any = [];
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -65,11 +63,10 @@ export class ResourcesCenterComponent implements OnInit, OnDestroy {
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
-        // this.apiConResources = state.apiConResources;
-        // this.apiConResourcesES = state.apiConResourcesES;
-        // this.apiConResourcesEN = state.apiConResourcesEN;
-        // this.fullData = state.arrayResources;
-        if (this.apiConResources !== undefined && this.apiConResourcesES !== undefined && this.apiConResourcesEN !== undefined) {
+        this.apiConResources = state.apiConResources.apiCon;
+        this.apiConResourcesLang = state.apiConResources.apiLang;
+        this.fullData = state.arrayResources.apiArray;
+        if (this.apiConResources !== undefined) {
           this.getDataAPI(this.language)
         }
       })
@@ -86,13 +83,12 @@ export class ResourcesCenterComponent implements OnInit, OnDestroy {
     * -------------------------------------------------------
     */
   getDataAPI(lang: string) {
-    if (!this.apiConResources && (!this.apiConResourcesES || !this.apiConResourcesEN)) {
+    if (!this.apiConResources) {
       this._apiJSONService.getJSON(lang, 'resources', true).subscribe(
         (resp: any) => {
-          // console.log('resp :>> ', resp);
           this.data = resp;
           if (this.data !== undefined) {
-            // this._reduxService.setArrayResources(this.data, lang);
+            this._reduxService.setArray('resources', this.data, lang);
             this.getDataArray(this.fullData)
           }
         },
