@@ -97,14 +97,20 @@ export class ApiJsonService implements OnInit, OnDestroy {
     this._reduxService.setTranslate(lang);
     this._reduxService.SetLoading(true);
 
+
+    console.log(`this.apiConHome`, this.apiConHome, this.apiConHomeES, this.apiConHomeEN)
+
     switch (page) {
       case 'home':
         if (lang === 'es' && this.apiConHome && this.apiConHomeES && !this.apiConHomeEN) {
-          this.setAPIConfig(page, true, true, false);
+          console.log(`esta en espa;ol`)
+          // this.setAPIConfig(page, true, true, false);
         }
         else if (lang === 'en' && this.apiConHome && !this.apiConHomeES && this.apiConHomeEN) {
-          this.setAPIConfig(page, true, false, true);
+          console.log(`esta en ingles`)
+          // this.setAPIConfig(page, true, false, true);
         } else {
+          console.log(`esta en otor`)
           this.setAPIConfig(page, false, this.apiConLayoutES, this.apiConLayoutEN);
         }
         break;
@@ -153,11 +159,12 @@ export class ApiJsonService implements OnInit, OnDestroy {
    * @param {boolean} conApiEN Conexion a api EN
    * -------------------------------------------------------
    */
-  setAPIConfig(pag: string, conAPi: boolean, conApiES: boolean, conApiEN: boolean) {
+  setAPIConfig(pag: string, conApi: boolean, conApiES: boolean, conApiEN: boolean) {
+    console.log(`setAPIConfig`, pag, conApi, conApiES, conApiEN)
     switch (pag) {
       case 'home':
-        this._reduxService.setAPIConnectLayout(conAPi, conApiES, conApiEN);
-        this._reduxService.setAPIConnectHome(conAPi, conApiES, conApiEN);
+        this._reduxService.setAPIConnectLayout(conApi, conApiES, conApiEN);
+        this._reduxService.setAPIConnectHome(conApi, conApiES, conApiEN);
         break;
     }
 
