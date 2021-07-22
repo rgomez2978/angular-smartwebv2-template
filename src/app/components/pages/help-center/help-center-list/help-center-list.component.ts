@@ -62,10 +62,10 @@ export class HelpCenterListComponent implements OnInit {
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
-        this.apiConHelpFeatures = state.apiConHelpFeatures;
-        this.apiConHelpFeaturesES = state.apiConHelpFeaturesES;
-        this.apiConHelpFeaturesEN = state.apiConHelpFeaturesEN;
-        this.fullData = state.arrayHelpFeatures;
+        // this.apiConHelpFeatures = state.apiConHelpFeatures;
+        // this.apiConHelpFeaturesES = state.apiConHelpFeaturesES;
+        // this.apiConHelpFeaturesEN = state.apiConHelpFeaturesEN;
+        // this.fullData = state.arrayHelpFeatures;
         if (this.apiConHelpFeatures !== undefined && this.apiConHelpFeaturesES !== undefined && this.apiConHelpFeaturesEN !== undefined) {
           this.getDataAPI(this.language)
         }
@@ -88,7 +88,7 @@ export class HelpCenterListComponent implements OnInit {
         (resp: any) => {
           this.data = resp;
           if (this.data !== undefined) {
-            this._reduxService.setArrayHelpFeatures(this.data, lang);
+            // this._reduxService.setArrayHelpFeatures(this.data, lang);
             this.getDataArray(this.fullData)
           }
         },

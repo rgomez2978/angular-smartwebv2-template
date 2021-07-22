@@ -66,8 +66,8 @@ export class BreadcrumbComponent implements OnInit {
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
-        this.dataHelp = state.arrayHelp;
-        this.dataHelpFeatures = state.arrayHelpFeatures;
+        // this.dataHelp = state.arrayHelp;
+        // this.dataHelpFeatures = state.arrayHelpFeatures;
       })
     );
   }

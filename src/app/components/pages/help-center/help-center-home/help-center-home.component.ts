@@ -62,10 +62,10 @@ export class HelpCenterHomeComponent implements OnInit {
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
-        this.apiConHelp = state.apiConHelp;
-        this.apiConHelpES = state.apiConHelpES;
-        this.apiConHelpEN = state.apiConHelpEN;
-        this.fullData = state.arrayHelp;
+        // this.apiConHelp = state.apiConHelp;
+        // this.apiConHelpES = state.apiConHelpES;
+        // this.apiConHelpEN = state.apiConHelpEN;
+        // this.fullData = state.arrayHelp;
         if (this.apiConHelp !== undefined && this.apiConHelpES !== undefined && this.apiConHelpEN !== undefined) {
           this.getDataAPI(this.language)
         }
@@ -89,7 +89,7 @@ export class HelpCenterHomeComponent implements OnInit {
           // console.log('resp :>> ', resp);
           this.data = resp;
           if (this.data !== undefined) {
-            this._reduxService.setArrayHelp(this.data, lang);
+            // this._reduxService.setArrayHelp(this.data, lang);
             this.getDataArray(this.fullData)
           }
         },

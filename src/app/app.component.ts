@@ -72,9 +72,10 @@ export class AppComponent implements OnInit, OnDestroy {
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
-        this.apiConLayout = state.apiConLayout;
-        this.apiConLayoutES = state.apiConLayoutES;
-        this.apiConLayoutEN = state.apiConLayoutEN;
+        console.log(`object`, state.apiConLayout)
+        this.apiConLayout = state.apiConLayout.apiCon;
+        this.apiConLayoutES = state.apiConLayout.apiConEs;
+        this.apiConLayoutEN = state.apiConLayout.apiConEn;
         this.fullData = state.arrayLayout;
         if (this.apiConLayout !== undefined && this.apiConLayoutES !== undefined && this.apiConLayoutEN !== undefined) {
           this.getDataAPI(this.language)

@@ -61,9 +61,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
-        this.apiConHome = state.apiConHome;
-        this.apiConHomeES = state.apiConHomeES;
-        this.apiConHomeEN = state.apiConHomeEN;
+        this.apiConHome = state.apiConHome.apiCon;
+        this.apiConHomeES = state.apiConHome.apiConEs;
+        this.apiConHomeEN = state.apiConHome.apiConEs;
         this.fullData = state.arrayHome;
         if (this.apiConHome !== undefined && this.apiConHomeES !== undefined && this.apiConHomeEN !== undefined) {
           this.getDataAPI(this.language);

@@ -66,10 +66,10 @@ export class ProductsComponent implements OnInit {
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
-        this.apiConProducts = state.apiConProducts;
-        this.apiConProductsES = state.apiConProductsES;
-        this.apiConProductsEN = state.apiConProductsEN;
-        this.fullData = state.arrayProducts;
+        // this.apiConProducts = state.apiConProducts;
+        // this.apiConProductsES = state.apiConProductsES;
+        // this.apiConProductsEN = state.apiConProductsEN;
+        // this.fullData = state.arrayProducts;
         if (this.apiConProducts !== undefined && this.apiConProductsES !== undefined && this.apiConProductsEN !== undefined) {
           this.getDataAPI(this.language)
         }
@@ -92,7 +92,7 @@ export class ProductsComponent implements OnInit {
         (resp: any) => {
           this.data = resp;
           if (this.data !== undefined) {
-            this._reduxService.setArrayProducts(this.data, lang);
+            // this._reduxService.setArrayProducts(this.data, lang);
             this.getDataArray(this.fullData)
           }
         },
