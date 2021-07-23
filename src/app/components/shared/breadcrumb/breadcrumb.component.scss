@@ -1,24 +1,24 @@
 .containerBreadcrumb {
-  @apply flex flex-row items-center justify-start space-x-2 px-5;
+  @apply flex flex-row items-center justify-start ;
 
   > li {
-    @apply flex items-center justify-start py-3;
+    @apply flex items-center justify-start py-2;
 
     .breadCont {
       @apply flex flex-row items-center justify-start h-full;
 
       &__title {
-        @apply items-center px-2 py-1 text-base text-gray-500 border-2 border-gray-300 rounded-md;
+        @apply items-center py-2 pr-2  text-base text-gray-500 ;
       }
       .lnk {
         @apply cursor-pointer;
         &:hover {
-          @apply bg-gray-200;
+          @apply underline;
         }
       }
 
       i {
-        @apply ml-3 text-2xl text-gray-400;
+        @apply mr-2 text-base text-gray-400;
       }
     }
   }

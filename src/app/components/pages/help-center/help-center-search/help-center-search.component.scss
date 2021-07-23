@@ -1,0 +1,9 @@
+.contentPage {
+    @apply w-full bg-transparent -mt-24;
+    &__header {
+      @apply w-full h-full pb-2;
+    }
+    &__content {
+      @apply py-2;
+    }
+  }

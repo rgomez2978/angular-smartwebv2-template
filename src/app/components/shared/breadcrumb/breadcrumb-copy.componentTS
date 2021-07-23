@@ -84,35 +84,39 @@ export class BreadcrumbComponent implements OnInit {
   * -------------------------------------------------------
   */
   convertUrl(url: any, lang: string) {
+    // console.log(`url`, url)
+    // console.log(`url.length`, url.length)
     this.fullBreadcrumbs = [];
     for (let key in url) {
-      if (this.type === 'page') {
-        if (key !== undefined || key !== '') {
-          switch (url[key]) {
-            case 'resources':
-              lang === 'en' ? this.title = 'Resources' : this.title = 'Recursos';
-              this.addItemBreadcrumbs(this.title, '/resources');
-              break;
-            case 'help':
-              lang === 'en' ? this.title = 'Help' : this.title = 'Manuales de Uso';
-              this.addItemBreadcrumbs(this.title, '/resources/help');
-              break;
-            case 'list':
-              let productById = this.dataHelpF.features.find((prod: any) => prod.id === parseInt(url[4]));
-              let featureProductById = productById.nodes.find((feaProd: any) => feaProd.id === parseInt(url[5]));
-              this.addItemBreadcrumbs(productById.title, '');
-              this.addItemBreadcrumbs(featureProductById.title, '');
-              break;
-            case 'search':
-              lang === 'en' ? this.title = 'Search' : this.title = 'Busqueda';
-              this.addItemBreadcrumbs(this.title, '/resources/help/search');
-              break;
-          }
+      console.log(`url[key]`, url[key])
+      if (key !== undefined || key !== '') {
+        switch (url[key]) {
+          case 'resources':
+            lang === 'en' ? this.title = 'Resources' : this.title = 'Recursos';
+            this.link = '/resources';
+            this.addItemBreadcrumbs(this.title, this.link);
+            break;
+          case 'help':
+            lang === 'en' ? this.title = 'Help' : this.title = 'Manuales de Uso';
+            this.link = '/resources/help';
+            this.addItemBreadcrumbs(this.title, this.link);
+            break;
+          case 'list':
+            let productById = this.dataHelpF.features.find((prod: any) => prod.id === parseInt(url[4]));
+            let featureProductById = productById.nodes.find((feaProd: any) => feaProd.id === parseInt(url[5]));
+            this.addItemBreadcrumbs(productById.title, '');
+            this.addItemBreadcrumbs(featureProductById.title, '');
+            break;
+          case 'search':
+            lang === 'en' ? this.title = 'Search' : this.title = 'Busqueda';
+            this.link = '/resources/help/search';
+            this.addItemBreadcrumbs(this.title, this.link);
+            break;
         }
-      } else {
-        this.fullBreadcrumbs = this.data
       }
     }
+    // console.log(`this.fullBreadcrumbs`, this.fullBreadcrumbs)
+
   }
 
 

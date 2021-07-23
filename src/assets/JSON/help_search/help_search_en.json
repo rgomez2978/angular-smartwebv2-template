@@ -8,7 +8,7 @@
   "content": [{
     "header": [{
       "filter": [{
-        "title": "Ordenar por:",
+        "title": "Filter by:",
         "nodes": [{
           "id": 1,
           "order": 1,
@@ -24,11 +24,11 @@
       }]
     }],
     "results": [{
-      "title": "Resultados para \"Adjuntar imagenes\"",
+      "title": "Results for \"Attach images\"",
       "items": [{
         "id": 1,
         "order": 1,
-        "title": "Adjuntar imágenes",
+        "title": "Attach images",
         "description": "Excepteur dolore exercitation mollit irure. Ipsum velit esse minim eiusmod ut officia. Ipsum ex veniam proident labore non elit dolore laborum elit. In minim excepteur eiusmod...",
         "date": "2021/07/23",
         "breadcrumbs": [{
@@ -54,7 +54,7 @@
       }, {
         "id": 1,
         "order": 1,
-        "title": "Adjuntar imágenes en contactos",
+        "title": "Attach images to contacts",
         "description": "Excepteur dolore exercitation mollit irure. Ipsum velit esse minim eiusmod ut officia. ...",
         "date": "2020/05/05",
         "breadcrumbs": [{

@@ -28,6 +28,8 @@
     </div>
 </div>
 
+
+
 <!-- MENU SESSION LOGGED - 1 -->
 <div *ngIf="type === 'logged1' ">
     <div class="menu_session_container" (click)="toggleMenuSession()">
@@ -94,6 +96,19 @@
             class="mobile_session_container__close">
             <span [innerHtml]="itemLogout.icon | safedom: 'html'"></span>
         </button>
+    </div>
+</div>
+
+<!-- MENU SEARCH - SESSION HELP -->
+<div *ngIf="type === 'search' ">
+    <div class="menu_session_container">
+        <ul class="menu_session_container__items">
+            <li class="hover:bg-gray-200" *ngFor="let item of data">
+                <div class="items_cont">
+                    <h4>{{item.title}}</h4>
+                </div>
+            </li>
+        </ul>
     </div>
 </div>
 

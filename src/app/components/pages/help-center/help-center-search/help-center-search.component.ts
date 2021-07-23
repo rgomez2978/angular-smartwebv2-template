@@ -14,14 +14,15 @@ import { ApiJsonService, ReduxService, CommonsService } from '@services/index';
 export class HelpCenterSearchComponent implements OnInit {
   private _subscription: Subscription = new Subscription();
   data: any = [];
-  dataProducts: any = [];
-  dataFeatures: any = [];
+  dataContent: any = [];
+
   type: any;
   loading!: boolean;
   language!: string;
   apiConHelpS!: boolean;
   apiConHelpSLang!: string;
   fullData: any = [];
+
 
 
   constructor(
@@ -110,6 +111,9 @@ export class HelpCenterSearchComponent implements OnInit {
   getDataArray(array: any) {
     if (Object.keys(array).length > 0) {
       this.data = array;
+      this.dataContent = this.data.content;
+
+
       return this.data;
     }
   }
