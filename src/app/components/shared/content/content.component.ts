@@ -15,6 +15,30 @@ export class ContentComponent implements OnInit {
   count = 0;
   tableSize = 3;
   tableSizes = [3, 6, 9, 12];
+  public maxSize: number = 7;
+  public directionLinks: boolean = true;
+  public autoHide: boolean = false;
+  public responsive: boolean = true;
+  public labels: any = {
+    previousLabel: '<--',
+    nextLabel: '-->',
+    screenReaderPaginationLabel: 'Pagination',
+    screenReaderPageLabel: 'page',
+    screenReaderCurrentLabel: `You're on page`
+  };
+
+
+
+
+
+  config = {
+    id: 'custom',
+    itemsPerPage: 2,
+    currentPage: 1,
+    totalItems: this.collection.count
+  };
+
+
   constructor() { }
 
   ngOnInit(): void {
@@ -29,10 +53,13 @@ export class ContentComponent implements OnInit {
   }
 
 
-
+  onPageChange(event: any) {
+    console.log(event);
+    this.config.currentPage = event;
+  }
 
   onTableDataChange(event: any) {
-    this.page = event;
+    // this.page = event;
   }
 
   onTableSizeChange(event: any): void {

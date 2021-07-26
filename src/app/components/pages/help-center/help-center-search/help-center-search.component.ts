@@ -112,8 +112,6 @@ export class HelpCenterSearchComponent implements OnInit {
     if (Object.keys(array).length > 0) {
       this.data = array;
       this.dataContent = this.data.content;
-
-
       return this.data;
     }
   }
