@@ -84,6 +84,7 @@ export class HelpCenterListComponent implements OnInit {
       this._apiJSONService.getJSON(lang, 'help_features', true).subscribe(
         (resp: any) => {
           this.data = resp;
+          console.log(`this.data`, this.data)
           if (this.data !== undefined) {
             this._reduxService.setArray('help_features', this.data, lang);
             this.getDataArray(this.fullData)

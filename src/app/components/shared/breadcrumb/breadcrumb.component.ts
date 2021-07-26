@@ -97,10 +97,13 @@ export class BreadcrumbComponent implements OnInit {
               this.addItemBreadcrumbs(this.title, '/resources/help');
               break;
             case 'list':
-              let productById = this.dataHelpF.features.find((prod: any) => prod.id === parseInt(url[4]));
-              let featureProductById = productById.nodes.find((feaProd: any) => feaProd.id === parseInt(url[5]));
-              this.addItemBreadcrumbs(productById.title, '');
-              this.addItemBreadcrumbs(featureProductById.title, '');
+              lang === 'en' ? this.title = 'Help' : this.title = 'Manuales de Uso';
+              this.addItemBreadcrumbs(this.title, '/resources/help');
+              console.log(`this.dataHelpF.features`, this.dataHelpF.features)
+              // let productById = this.dataHelpF.features.find((prod: any) => prod.id === parseInt(url[4]));
+              // let featureProductById = productById.nodes.find((feaProd: any) => feaProd.id === parseInt(url[5]));
+              // this.addItemBreadcrumbs(productById.title, '');
+              // this.addItemBreadcrumbs(featureProductById.title, '');
               break;
             case 'search':
               lang === 'en' ? this.title = 'Search' : this.title = 'Busqueda';

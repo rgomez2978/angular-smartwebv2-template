@@ -19,7 +19,7 @@ const routesHelp: Routes = [
                 component: HelpCenterHomeComponent,
             },
             {
-                path: 'list/:product/:feature',
+                path: '/:id',
                 component: HelpCenterListComponent,
             },
             {

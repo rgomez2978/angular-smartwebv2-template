@@ -41,7 +41,7 @@
             <h2>{{item.title}}</h2>
             <ul>
                 <li *ngFor="let itemNode of item.nodes">
-                    <a [routerLink]="itemNode.url+'/'+item.id+'/'+itemNode.id" routerLinkActive="active">
+                    <a [routerLink]="itemNode.url" routerLinkActive="active">
                         {{itemNode.title}}
                     </a>
                 </li>

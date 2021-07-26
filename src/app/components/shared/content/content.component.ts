@@ -28,9 +28,6 @@ export class ContentComponent implements OnInit {
   };
 
 
-
-
-
   config = {
     id: 'custom',
     itemsPerPage: 2,

@@ -162,6 +162,7 @@ export class ApiJsonService implements OnInit, OnDestroy {
    * -------------------------------------------------------
    */
   setTranslate(lang: string, page: string) {
+    // console.log(`setTranslate`, lang, page)
     this.setSubscriptions();
     this._reduxService.setTranslate(lang);
     this._reduxService.SetLoading(true);

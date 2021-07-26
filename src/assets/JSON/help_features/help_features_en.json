@@ -14,13 +14,13 @@
       "id": 1,
       "order": 1,
       "img": "",
-      "title": "Features avanzadas",
+      "title": "Advanced features",
       "description": "",
       "nodes": [{
         "id": 1,
         "order": 1,
         "url": "",
-        "title": "Adjuntar imágenes",
+        "title": "Attach images",
         "nodes": [{
           "id": 1,
           "order": 1,
@@ -41,7 +41,7 @@
         "id": 2,
         "order": 2,
         "url": "",
-        "title": "Datos y automatización",
+        "title": "Data and automation",
         "nodes": [{
           "id": 1,
           "order": 1,
@@ -62,7 +62,7 @@
         "id": 3,
         "order": 3,
         "url": "",
-        "title": "Bibliotecas de formas",
+        "title": "Shape Libraries",
         "nodes": [{
           "id": 1,
           "order": 1,
@@ -90,7 +90,7 @@
         "id": 1,
         "order": 1,
         "url": "",
-        "title": "Actualiza en modo árbol",
+        "title": "Update in tree mode",
         "nodes": [{
           "id": 1,
           "order": 1,
@@ -111,7 +111,7 @@
         "id": 2,
         "order": 2,
         "url": "",
-        "title": "Archiva varios lienzos",
+        "title": "Archive multiple canvases",
         "nodes": [{
           "id": 1,
           "order": 1,
@@ -132,7 +132,7 @@
         "id": 3,
         "order": 3,
         "url": "",
-        "title": "Otorga permisos específicos",
+        "title": "Grant specific permissions",
         "nodes": [{
           "id": 1,
           "order": 1,
@@ -154,13 +154,13 @@
       "id": 3,
       "order": 3,
       "img": "",
-      "title": "Funciones integradas",
+      "title": "Integrated functions",
       "description": "",
       "nodes": [{
         "id": 1,
         "order": 1,
         "url": "",
-        "title": "Usa libreta de contactos",
+        "title": "Use contact book",
         "nodes": [{
           "id": 1,
           "order": 1,
@@ -181,7 +181,7 @@
         "id": 2,
         "order": 2,
         "url": "",
-        "title": "Integra la vista por cargos en Ssmartwork",
+        "title": "Integrate the view for charges in Ssmartwork",
         "nodes": [{
           "id": 1,
           "order": 1,
@@ -209,13 +209,13 @@
       "id": 1,
       "order": 1,
       "img": "",
-      "title": "Características avanzadas",
+      "title": "Advanced features",
       "description": "",
       "nodes": [{
         "id": 1,
         "order": 1,
         "url": "",
-        "title": "Adjuntar imágenes",
+        "title": "Attach images",
         "nodes": [{
           "id": 1,
           "order": 1,
@@ -236,7 +236,7 @@
         "id": 2,
         "order": 2,
         "url": "",
-        "title": "Datos y automatización",
+        "title": "Data and automation",
         "nodes": [{
           "id": 1,
           "order": 1,
@@ -257,7 +257,7 @@
         "id": 3,
         "order": 3,
         "url": "",
-        "title": "Bibliotecas de formas",
+        "title": "Shape Libraries",
         "nodes": [{
           "id": 1,
           "order": 1,
@@ -285,7 +285,7 @@
         "id": 1,
         "order": 1,
         "url": "",
-        "title": "Actualiza en modo árbol",
+        "title": "Update in tree mode",
         "nodes": [{
           "id": 1,
           "order": 1,
@@ -306,7 +306,7 @@
         "id": 2,
         "order": 2,
         "url": "",
-        "title": "Archiva varios lienzos",
+        "title": "Archive multiple canvases",
         "nodes": [{
           "id": 1,
           "order": 1,
@@ -327,7 +327,7 @@
         "id": 3,
         "order": 3,
         "url": "",
-        "title": "Otorga permisos específicos",
+        "title": "Grant specific permissions",
         "nodes": [{
           "id": 1,
           "order": 1,
@@ -349,13 +349,13 @@
       "id": 3,
       "order": 3,
       "img": "",
-      "title": "Funciones integradas",
+      "title": "Integrated functions",
       "description": "",
       "nodes": [{
         "id": 1,
         "order": 1,
         "url": "",
-        "title": "Usa libreta de contactos",
+        "title": "Use contact book",
         "nodes": [{
           "id": 1,
           "order": 1,
@@ -376,7 +376,7 @@
         "id": 2,
         "order": 2,
         "url": "",
-        "title": "Integra la vista por cargos en Ssmartwork",
+        "title": "Integrate the view for charges in Ssmartwork",
         "nodes": [{
           "id": 1,
           "order": 1,

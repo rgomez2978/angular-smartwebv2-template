@@ -41,17 +41,17 @@
     "nodes": [{
       "id": 1,
       "order": 1,
-      "url": "/resources/help/list",
+      "url": "/resources/help/1",
       "title": "Características avanzadas"
     }, {
       "id": 2,
       "order": 2,
-      "url": "/resources/help/list",
+      "url": "/resources/help/1",
       "title": "Funciones integradas"
     }, {
       "id": 3,
       "order": 3,
-      "url": "/resources/help/list",
+      "url": "/resources/help/1",
       "title": "Tips"
     }]
   }, {
@@ -63,17 +63,17 @@
     "nodes": [{
       "id": 1,
       "order": 1,
-      "url": "/resources/help/list",
+      "url": "/resources/help/2",
       "title": "Características avanzadas"
     }, {
       "id": 2,
       "order": 2,
-      "url": "/resources/help/list",
+      "url": "/resources/help/2",
       "title": "Funciones integradas"
     }, {
       "id": 3,
       "order": 3,
-      "url": "/resources/help/list",
+      "url": "/resources/help/2",
       "title": "Tips"
     }]
   }, {
@@ -85,17 +85,17 @@
     "nodes": [{
       "id": 1,
       "order": 1,
-      "url": "/resources/help/list",
+      "url": "/resources/help/3",
       "title": "Características avanzadas"
     }, {
       "id": 2,
       "order": 2,
-      "url": "/resources/help/list",
+      "url": "/resources/help/3",
       "title": "Funciones integradas"
     }, {
       "id": 3,
       "order": 3,
-      "url": "/resources/help/list",
+      "url": "/resources/help/3",
       "title": "Tips"
     }]
   }, {
@@ -107,17 +107,17 @@
     "nodes": [{
       "id": 1,
       "order": 1,
-      "url": "/resources/help/list",
+      "url": "/resources/help/4",
       "title": "Características avanzadas"
     }, {
       "id": 2,
       "order": 2,
-      "url": "/resources/help/list",
+      "url": "/resources/help/4",
       "title": "Funciones integradas"
     }, {
       "id": 3,
       "order": 3,
-      "url": "/resources/help/list",
+      "url": "/resources/help/4",
       "title": "Tips"
     }]
   }],
