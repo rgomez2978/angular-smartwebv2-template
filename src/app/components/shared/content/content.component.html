@@ -53,11 +53,8 @@
 
 <!-- CONTENT - RESULT  -->
 <div *ngIf="type === 'results'">
-    <div class="flex flex-col w-full px-10">
-
-
-
-        <div class="flex flex-col items-end mb-10">
+    <div class="relative z-30 flex flex-col w-full px-10">
+        <div class="flex flex-col items-end mb-10 mt-14">
             <div class="flex flex-row items-center" *ngFor="let item of data[0]?.header[0]?.filter">
                 <span class="mr-5">{{item.title}}</span>
                 <select class="px-2 py-1 border border-gray-500 rounded-md outline-none focus:outline-none">
@@ -68,12 +65,11 @@
                 </select>
             </div>
         </div>
-
-        <div class="flex flex-col w-full" *ngFor="let item of data[0]?.results">
+        <div class="flex flex-col w-full " *ngFor="let item of data[0]?.results">
             <h1 class="mb-3 text-2xl font-bold text-gray-600">
                 {{item.items.length}} {{item.title}}
             </h1>
-            <div *ngFor="let itemNode of item.items" class="py-4">
+            <div *ngFor="let itemNode of item.items | paginate : { itemsPerPage: tableSize, currentPage: page, totalItems: count }; let i = index"  class="py-4 animate__animated animate__fadeIn ">
                 <div class="container w-full px-6 py-2 mx-auto border-2 border-gray-400 rounded-lg shadow-sm">
                     <div class="mt-3">
                         <a href="#" class="text-xl font-bold text-gray-600 hover:underline">
@@ -94,8 +90,66 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="flex">
+            <pagination-controls
+              previousLabel="Prev"
+              nextLabel="Next"
+              (pageChange)="onTableDataChange($event)">
+            </pagination-controls>
+          </div>
+    </div>
+</div>
 
+<!-- CONTENT - RESULT  -->
+<!-- <div *ngIf="type === 'results'">
+    <div class="relative z-30 flex flex-col w-full px-10">
+        <div class="flex flex-col items-end mb-10 mt-14">
+            <div class="flex flex-row items-center" *ngFor="let item of data[0]?.header[0]?.filter">
+                <span class="mr-5">{{item.title}}</span>
+                <select class="px-2 py-1 border border-gray-500 rounded-md outline-none focus:outline-none">
+                    <option value="">Selecccione un opcion</option>
+                    <option *ngFor="let itemFil of item.nodes" [value]="itemFil.id">
+                        {{itemFil.title}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <table>
+            <tr class="flex flex-col w-full" *ngFor="let item of data[0]?.results | paginate : { itemsPerPage: tableSize, currentPage: page, totalItems: count }; let i = index">
+                <td>
+                    <h1 class="mb-3 text-2xl font-bold text-gray-600">
+                        {{item.items.length}} {{item.title}}
+                    </h1>
+                    <div *ngFor="let itemNode of item.items" class="py-4">
+                        <div class="container w-full px-6 py-2 mx-auto border-2 border-gray-400 rounded-lg shadow-sm">
+                            <div class="mt-3">
+                                <a href="#" class="text-xl font-bold text-gray-600 hover:underline">
+                                    {{itemNode.title}}
+                                </a>
+                                <p class="mt-2 text-gray-500">
+                                    {{itemNode.description}}
+                                </p>
+                            </div>
+                            <div class="flex items-center justify-between mt-2">
+                                <app-breadcrumb [data]="itemNode.breadcrumbs" [type]="'search'"></app-breadcrumb>
+                                <div>
+                                    <div class="flex items-center text-gray-500">
+                                        <i class="mr-2 icofont-ui-calendar"></i>
+                                        <h5>{{itemNode.date | date:'mediumDate'}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="flex">
+            <pagination-controls
+            (pageChange)="onTableDataChange($event)">
+          </pagination-controls>
         </div>
     </div>
+</div> -->
 
-</div>

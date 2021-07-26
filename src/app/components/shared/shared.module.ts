@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 // LIBRERIAS INSTALADAS
+import { NgxPaginationModule } from 'ngx-pagination';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 
@@ -56,6 +57,7 @@ import { SafedomPipe } from '@pipes/safedom.pipe';
     RouterModule,
     CommonModule,
     FormsModule,
+    NgxPaginationModule,
     SlickCarouselModule,
     ReactiveFormsModule,
     LazyLoadImageModule,

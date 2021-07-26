@@ -1,10 +1,10 @@
-<ul class="containerBreadcrumb" >
+<ul class="containerBreadcrumb" [ngClass]="type === 'search'?'flex':' z-10 absolute'">
     <li *ngFor="let item of fullBreadcrumbs; let i=index;" >
-        <div *ngIf="item.link !== ''" routerLink="{{item.link}}" class="breadCont">
+        <div *ngIf="item.url !== ''" routerLink="{{item.url}}" class="breadCont">
             <span class="breadCont__title lnk">{{ item.title }}</span>
             <span *ngIf="i < fullBreadcrumbs.length - 1"><i class="icofont-rounded-right"></i> </span>
         </div>
-        <div *ngIf="item.link === ''" class="breadCont">
+        <div *ngIf="item.url === ''" class="breadCont">
             <span class="breadCont__title">{{ item.title }}</span>
             <span *ngIf="i < fullBreadcrumbs.length - 1"><i class="icofont-rounded-right"></i></span>
         </div>

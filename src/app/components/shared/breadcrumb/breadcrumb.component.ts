@@ -46,7 +46,6 @@ export class BreadcrumbComponent implements OnInit {
     this.setSubscriptions();
 
     setTimeout(() => {
-      console.log(`this.data`, this.data)
       this.data === undefined ? this.convertUrl(this.urlBreadcrumbs, this.language) : this.convertUrl(this.data, this.language);
 
     }, 200);
@@ -113,13 +112,15 @@ export class BreadcrumbComponent implements OnInit {
         this.fullBreadcrumbs = this.data
       }
     }
+    // console.log(`this.fullBreadcrumbs`, this.fullBreadcrumbs)
+
   }
 
 
   addItemBreadcrumbs(title: string, link: string) {
     this.fullBreadcrumbs.push({
       title: title,
-      link: link
+      url: link
     });
   }
 
