@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 // COMPONENTS
 import { HelpCenterComponent } from '@pages/help-center/help-center.component';
 import { HelpCenterHomeComponent } from './help-center-home/help-center-home.component';
-import { HelpCenterListComponent } from '@pages/help-center/help-center-list/help-center-list.component';
+import { HelpCenterFeatureComponent } from '@app/components/pages/help-center/help-center-feature/help-center-feature.component';
 import { HelpCenterDetailComponent } from '@pages/help-center/help-center-detail/help-center-detail.component';
 import { HelpCenterSearchComponent } from './help-center-search/help-center-search.component';
 
@@ -20,7 +20,7 @@ const routesHelp: Routes = [
             },
             {
                 path: 'feature/:id',
-                component: HelpCenterListComponent,
+                component: HelpCenterFeatureComponent,
             },
             {
                 path: 'details/:id',

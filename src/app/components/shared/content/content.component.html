@@ -1,8 +1,7 @@
-<!-- CONTENT - BENEFITS -->
+<!-- CONTENT - PRODUCTS - BENEFITS -->
 <div *ngIf="type === 'benefits'">
     <section class="containerBenefits ">
         <div class="containerBenefits__content">
-            <!-- Left -->
             <div *ngFor="let item of data ">
                 <div class="itemBenefit" [ngClass]="item.position === 'left' ? 'left' : 'right'">
                     <div class="itemBenefit__img" *ngFor="let itemMedia of item.media">
@@ -21,21 +20,8 @@
 </div>
 
 
-<!-- CONTENT - CARDS -->
-<div *ngIf="type === 'cards'">
-    <div class="containerCardHelp">
-        <div class="containerCardHelp__card">
-            <h2>The doctor said</h2>
-            <p>
-                Baseball ipsum dolor sit amet cellar rubber win hack tossed. Slugging catcher slide bench league, left
-                fielder nubber.
-            </p>
-        </div>
-    </div>
-</div>
-
-<!-- CONTENT - CARDS - HELP -->
-<div *ngIf="type === 'cards_help'">
+<!-- CONTENT - HELP - CARDS -->
+<div *ngIf="type === 'help_cards'">
     <div class="containerCardHelp">
         <div *ngFor="let item of data" class="containerCardHelp__card">
             <h2>{{item.title}}</h2>
@@ -51,8 +37,8 @@
 </div>
 
 
-<!-- CONTENT - RESULT  -->
-<div *ngIf="type === 'results'">
+<!-- CONTENT - HELP - RESULT  -->
+<div *ngIf="type === 'help_results'">
     <div class="containerResultSearch animate__animated animate__fadeIn ">
         <div class="flex flex-col items-end mb-10 mt-14">
             <div class="flex flex-row items-center" *ngFor="let item of data[0]?.header[0]?.filter">
@@ -95,13 +81,13 @@
                         <a *ngIf="!p.isFirstPage()" (click)="p.setCurrent(1)">
                             <i class="icofont-rounded-double-left"></i>
                         </a>
-                      </div>
+                    </div>
                     <div class="pagination-previous" [class.disabled]="p.isFirstPage()">
                         <span *ngIf="!p.isFirstPage()" (click)="p.previous()">
                             <i class="icofont-simple-left"></i>
-                         </span>
+                        </span>
                     </div>
-                     <div class="page-number" *ngFor="let page of p.pages"
+                    <div class="page-number" *ngFor="let page of p.pages"
                         [class.current]="p.getCurrent() === page.value">
                         <span (click)="p.setCurrent(page.value)" *ngIf="p.getCurrent() !== page.value">
                             {{ page.label}}
@@ -124,4 +110,12 @@
             </pagination-template>
         </div>
     </div>
+</div>
+
+
+<!-- CONTENT - HELP - DETAIL -->
+<div *ngIf="type === 'help_detail'">
+    <!-- {{data | json}} -->
+
+
 </div>

@@ -6,11 +6,11 @@ import { Subscription } from "rxjs";
 import { ApiJsonService, ReduxService } from '@services/index';
 
 @Component({
-  selector: 'app-help-center',
-  templateUrl: './help-center-list.component.html',
-  styleUrls: ['./help-center-list.component.scss']
+  selector: 'app-help-center-feature',
+  templateUrl: './help-center-feature.component.html',
+  styleUrls: ['./help-center-feature.component.scss']
 })
-export class HelpCenterListComponent implements OnInit, OnDestroy {
+export class HelpCenterFeatureComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();
   data: any = [];
   dataProducts: any = [];
