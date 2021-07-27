@@ -19,7 +19,7 @@ const routesHelp: Routes = [
                 component: HelpCenterHomeComponent,
             },
             {
-                path: '/:id',
+                path: 'feature/:id',
                 component: HelpCenterListComponent,
             },
             {
@@ -30,9 +30,8 @@ const routesHelp: Routes = [
                 path: 'search',
                 component: HelpCenterSearchComponent,
             },
-            { path: "**", pathMatch: 'full', redirectTo: '' },
+            // { path: "**", pathMatch: 'full', redirectTo: '' },
         ],
-        data: { breadcrumb: 'HELP' }
     }
 ];
 @NgModule({

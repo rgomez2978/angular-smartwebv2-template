@@ -12,4 +12,6 @@ export class HelpCenterDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
 }

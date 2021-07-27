@@ -1,10 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducers';
 import { Subscription } from 'rxjs';
-import { ApiJsonService, ReduxService, CommonsService } from '@services/index';
+import { ApiJsonService, ReduxService } from '@services/index';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +17,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   dataClients: any = {};
   dataProducts: any = [];
   dataNews: any = [];
-  loading!: boolean;
   language!: string;
   apiConHome!: boolean;
   apiConHomeLang!: string;
@@ -27,9 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(
     private _titleService: Title,
-    private _activatedRoute: ActivatedRoute,
     private _apiJSONService: ApiJsonService,
-    private _commonsService: CommonsService,
     private _reduxService: ReduxService,
     private _store: Store<AppState>
   ) { }
@@ -54,14 +50,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   setSubscriptions() {
     this._subscription.add(
       this._store.select('ui').subscribe((state) => {
-        this.loading = state.loading;
         this.language = state.language;
       })
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
         this.apiConHome = state.apiConHome.apiCon;
-        this.apiConHomeLang = state.apiConHome.apiLang;
         this.fullData = state.arrayHome.apiArray;
         if (this.apiConHome !== undefined) {
           this.getDataAPI(this.language);

@@ -1,20 +1,17 @@
 import { Component, OnInit, OnDestroy, Input } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
 import { Title } from '@angular/platform-browser';
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/store/app.reducers";
 import { Subscription } from "rxjs";
-import { ApiJsonService, ReduxService, CommonsService } from '@services/index';
 @Component({
   selector: 'app-breadcrumb',
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.scss']
 })
-export class BreadcrumbComponent implements OnInit {
+export class BreadcrumbComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();
   @Input() data: any;
   @Input() type!: string;
-  loading!: boolean;
   fullData: any = [];
   fullBreadcrumbs: any = [];
   urlBreadcrumbs!: string;
@@ -22,15 +19,10 @@ export class BreadcrumbComponent implements OnInit {
   link!: string;
   dataHelp: any = [];
   dataHelpF: any = [];
-
   language!: string;
 
   constructor(
-    private _activatedRoute: ActivatedRoute,
     private _titleService: Title,
-    private _apiJSONService: ApiJsonService,
-    private _commonsService: CommonsService,
-    private _reduxService: ReduxService,
     private _store: Store<AppState>
   ) { }
 
@@ -47,7 +39,6 @@ export class BreadcrumbComponent implements OnInit {
 
     setTimeout(() => {
       this.data === undefined ? this.convertUrl(this.urlBreadcrumbs, this.language) : this.convertUrl(this.data, this.language);
-
     }, 200);
   }
 
@@ -61,7 +52,6 @@ export class BreadcrumbComponent implements OnInit {
   setSubscriptions() {
     this._subscription.add(
       this._store.select('ui').subscribe((state) => {
-        this.loading = state.loading;
         this.language = state.language;
         this.urlBreadcrumbs = state.urlBreadcrumbs;
       })
@@ -83,11 +73,16 @@ export class BreadcrumbComponent implements OnInit {
   * -------------------------------------------------------
   */
   convertUrl(url: any, lang: string) {
+    console.log(`url`, lang, url, this.type)
+
     this.fullBreadcrumbs = [];
     for (let key in url) {
       if (this.type === 'page') {
         if (key !== undefined || key !== '') {
+          console.log(`url[key]`, url[key]);
           switch (url[key]) {
+            case '':
+              break;
             case 'resources':
               lang === 'en' ? this.title = 'Resources' : this.title = 'Recursos';
               this.addItemBreadcrumbs(this.title, '/resources');
@@ -96,18 +91,27 @@ export class BreadcrumbComponent implements OnInit {
               lang === 'en' ? this.title = 'Help' : this.title = 'Manuales de Uso';
               this.addItemBreadcrumbs(this.title, '/resources/help');
               break;
-            case 'list':
-              lang === 'en' ? this.title = 'Help' : this.title = 'Manuales de Uso';
-              this.addItemBreadcrumbs(this.title, '/resources/help');
-              console.log(`this.dataHelpF.features`, this.dataHelpF.features)
+            case 'search':
+              lang === 'en' ? this.title = 'Search' : this.title = 'Busqueda';
+              this.addItemBreadcrumbs(this.title, '/resources/help/search');
+              break;
+            case 'feature':
+              this.title = this.dataHelpF.features[0]?.product;
+              this.addItemBreadcrumbs(this.title, '');
+              this.title = this.dataHelpF.features[0]?.title;
+              this.addItemBreadcrumbs(this.title, '');
+              break;
+            default:
+              // console.log(`object`, this.dataHelpF.features[0]?.product)
+              // this.title = this.dataHelpF.features[0]?.product;
+              // this.addItemBreadcrumbs(this.title, '');
+              // this.title = this.dataHelpF.features[0]?.title;
+              // this.addItemBreadcrumbs(this.title, '');
+              // console.log(`this.dataHelpF.features`, this.dataHelpF.features[0]?.title)
               // let productById = this.dataHelpF.features.find((prod: any) => prod.id === parseInt(url[4]));
               // let featureProductById = productById.nodes.find((feaProd: any) => feaProd.id === parseInt(url[5]));
               // this.addItemBreadcrumbs(productById.title, '');
               // this.addItemBreadcrumbs(featureProductById.title, '');
-              break;
-            case 'search':
-              lang === 'en' ? this.title = 'Search' : this.title = 'Busqueda';
-              this.addItemBreadcrumbs(this.title, '/resources/help/search');
               break;
           }
         }
@@ -116,15 +120,31 @@ export class BreadcrumbComponent implements OnInit {
       }
     }
     // console.log(`this.fullBreadcrumbs`, this.fullBreadcrumbs)
-
   }
 
-
+  /**
+   * -------------------------------------------------------
+   * @summary addItemBreadcrumbs
+   * @description  Agregar opbjeto de opciones para la consturccion del breadcrumbs
+   * @params {string} title titulo de la opcion
+   * @params {string} link enlace a link de seccion o pagina
+   * -------------------------------------------------------
+   */
   addItemBreadcrumbs(title: string, link: string) {
     this.fullBreadcrumbs.push({
       title: title,
       url: link
     });
+  }
+
+  /**
+   * -------------------------------------------------------
+   * @summary ngOnDestroy
+   * @description  Destruye conexiones abiertas
+   * -------------------------------------------------------
+   */
+  ngOnDestroy() {
+    this._subscription.unsubscribe();
   }
 
 }

@@ -1,34 +1,28 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
 import { Title } from '@angular/platform-browser';
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/store/app.reducers";
 import { Subscription } from "rxjs";
-import { ApiJsonService, ReduxService, CommonsService } from '@services/index';
-
+import { ApiJsonService, ReduxService } from '@services/index';
 @Component({
   selector: 'app-help-center',
   templateUrl: './help-center.component.html',
   styleUrls: ['./help-center.component.scss']
 })
-export class HelpCenterComponent implements OnInit {
+export class HelpCenterComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();
   data: any = [];
   dataHeader: any = [];
   dataProducts: any = [];
   dataCta: any = [];
   type: any;
-  loading!: boolean;
   language!: string;
   apiConHelp!: boolean;
-  apiConHelpLang!: string;
   fullData: any = [];
 
   constructor(
-    private _activatedRoute: ActivatedRoute,
     private _titleService: Title,
     private _apiJSONService: ApiJsonService,
-    private _commonsService: CommonsService,
     private _reduxService: ReduxService,
     private _store: Store<AppState>
   ) { }
@@ -43,6 +37,7 @@ export class HelpCenterComponent implements OnInit {
   ngOnInit() {
     this._titleService.setTitle('Smart Suite Tools');
     this.setSubscriptions();
+
   }
 
 
@@ -55,14 +50,12 @@ export class HelpCenterComponent implements OnInit {
   setSubscriptions() {
     this._subscription.add(
       this._store.select('ui').subscribe((state) => {
-        this.loading = state.loading;
         this.language = state.language;
       })
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
         this.apiConHelp = state.apiConHelp.apiCon;
-        this.apiConHelpLang = state.apiConHelp.apiLang;
         this.fullData = state.arrayHelp.apiArray;
         if (this.apiConHelp !== undefined) {
           this.getDataAPI(this.language)

@@ -29,11 +29,9 @@ export class AppComponent implements OnInit, OnDestroy {
   loading!: boolean;
   language!: string;
   apiConLayout!: boolean;
-  apiConLayoutLang!: string;
   fullData: any = [];
 
   constructor(
-    location: Location,
     private _titleService: Title,
     private _apiJSONService: ApiJsonService,
     private _commonsService: CommonsService,
@@ -70,7 +68,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
         this.apiConLayout = state.apiConLayout.apiCon;
-        this.apiConLayoutLang = state.apiConLayout.apiLang;
         this.fullData = state.arrayLayout.apiArray;
         if (this.apiConLayout !== undefined) {
           this.getDataAPI(this.language)

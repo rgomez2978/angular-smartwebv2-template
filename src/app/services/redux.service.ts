@@ -58,6 +58,7 @@ export class ReduxService {
    * -------------------------------------------------------
    */
   setAPIConnect(page: string, conn: boolean, lang: string) {
+    console.log(`page`, page, conn, lang)
     switch (page) {
       case 'home':
         this._store.dispatch(ownActions.setAPIConnectHome({ apiConHome: { apiCon: conn, apiLang: lang } }));

@@ -36,75 +36,30 @@ export const uiState: UiState = {
 
 const _uiReducer = createReducer(
     uiState,
-    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    //  CONFIGURACION DE LAYOUT
-    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //  Cambia el estado del Menu de Apps y asigmn el de menu sessiones
-    on(ownActions.toggleMenuApps, (state, { show_menu_session }) => ({
-        ...state,
-        show_menu_app: !state.show_menu_app,
-        show_menu_session
-    })),
+    on(ownActions.toggleMenuApps, (state, { show_menu_session }) => ({ ...state, show_menu_app: !state.show_menu_app, show_menu_session })),
     //  Cambia el estado del Menu de Sessions y asigna el de menu apps
-    on(ownActions.toggleMenuSession, (state, { show_menu_app }) => ({
-        ...state,
-        show_menu_app,
-        show_menu_session: !state.show_menu_session
-    })),
+    on(ownActions.toggleMenuSession, (state, { show_menu_app }) => ({ ...state, show_menu_app, show_menu_session: !state.show_menu_session })),
     //  Asigna el estado del boton del video popup
-    on(ownActions.setShowBtnVideo, (state, { show_btnvideo }) => ({
-        ...state,
-        show_btnvideo,
-    })),
+    on(ownActions.setShowBtnVideo, (state, { show_btnvideo }) => ({ ...state, show_btnvideo, })),
     //  Asigna el estado del background del menu horizontal
-    on(ownActions.setShowBgMenu, (state, { showBgMenu }) => ({
-        ...state,
-        showBgMenu,
-    })),
+    on(ownActions.setShowBgMenu, (state, { showBgMenu }) => ({ ...state, showBgMenu, })),
     //  Asigna los valores de las URL
-    on(ownActions.setUrl, (state, { urlActive1, urlActive2 }) => ({
-        ...state,
-        urlActive1,
-        urlActive2
-    })),
+    on(ownActions.setUrl, (state, { urlActive1, urlActive2 }) => ({ ...state, urlActive1, urlActive2 })),
     //  Asigna los valores de las URL BREADCRUMB
-    on(ownActions.setUrlBreadcrumbs, (state, { urlBreadcrumbs }) => ({
-        ...state,
-        urlBreadcrumbs
-    })),
+    on(ownActions.setUrlBreadcrumbs, (state, { urlBreadcrumbs }) => ({ ...state, urlBreadcrumbs })),
     //  Asigna el estado del Menu Mobile
-    on(ownActions.setLoading, (state, { loading }) => ({
-        ...state,
-        loading
-    })),
+    on(ownActions.setLoading, (state, { loading }) => ({ ...state, loading })),
     //  Asigna el estado del Usuario Logueado
-    on(ownActions.setLogin, (state, { login }) => ({
-        ...state,
-        login
-    })),
+    on(ownActions.setLogin, (state, { login }) => ({ ...state, login })),
     //  Cierra todo los submenus
-    on(ownActions.setCloseAllMenu, (state, { show_menu_app, show_menu_session }) => ({
-        ...state,
-        show_menu_app,
-        show_menu_session
-    })),
+    on(ownActions.setCloseAllMenu, (state, { show_menu_app, show_menu_session }) => ({ ...state, show_menu_app, show_menu_session })),
     //  Cambia el estado del Menu Mobile
-    on(ownActions.toggleMenuMobile, (state) => ({
-        ...state,
-        open_menu_mobile: !state.open_menu_mobile,
-    })),
+    on(ownActions.toggleMenuMobile, (state) => ({ ...state, open_menu_mobile: !state.open_menu_mobile, })),
     //  Asigna el estado del de la apertura del submenu mobile
-    on(ownActions.setMenuMobileBack, (state, { open_menu_mobile_back }) => ({
-        ...state,
-        open_menu_mobile_back
-    })),
+    on(ownActions.setMenuMobileBack, (state, { open_menu_mobile_back }) => ({ ...state, open_menu_mobile_back })),
     // Asigna el lenguage o idioma
-    on(ownActions.setTranslate, (state, { language }) => ({
-        ...state,
-        language
-    })),
+    on(ownActions.setTranslate, (state, { language }) => ({ ...state, language })),
 );
 
 export function uiReducer(state: any, action: any) {

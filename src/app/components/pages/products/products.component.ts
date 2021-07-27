@@ -4,14 +4,14 @@ import { Title } from '@angular/platform-browser';
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/store/app.reducers";
 import { Subscription } from "rxjs";
-import { ApiJsonService, ReduxService, CommonsService } from '@services/index';
+import { ApiJsonService, ReduxService } from '@services/index';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();
   data: any = [];
   dataHeader: any = [];
@@ -21,10 +21,8 @@ export class ProductsComponent implements OnInit {
   dataCta: any = [];
   dataTestimonials: any = [];
   type: any;
-  loading!: boolean;
   language!: string;
   apiConProducts!: boolean;
-  apiConProductsLang!: string;
   fullData: any = [];
 
 
@@ -32,7 +30,6 @@ export class ProductsComponent implements OnInit {
     private _activatedRoute: ActivatedRoute,
     private _titleService: Title,
     private _apiJSONService: ApiJsonService,
-    private _commonsService: CommonsService,
     private _reduxService: ReduxService,
     private _store: Store<AppState>
   ) { }
@@ -59,14 +56,12 @@ export class ProductsComponent implements OnInit {
   setSubscriptions() {
     this._subscription.add(
       this._store.select('ui').subscribe((state) => {
-        this.loading = state.loading;
         this.language = state.language;
       })
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
         this.apiConProducts = state.apiConProducts.apiCon;
-        this.apiConProductsLang = state.apiConProducts.apiLang;
         this.fullData = state.arrayProducts.apiArray;
         if (this.apiConProducts !== undefined) {
           this.getDataAPI(this.language)

@@ -1,10 +1,9 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
 import { Title } from '@angular/platform-browser';
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/store/app.reducers";
 import { Subscription } from "rxjs";
-import { ApiJsonService, ReduxService, CommonsService } from '@services/index';
+import { ApiJsonService, ReduxService } from '@services/index';
 
 @Component({
   selector: 'app-resources-center',
@@ -20,17 +19,14 @@ export class ResourcesCenterComponent implements OnInit, OnDestroy {
   dataManuals: any = [];
   dataNews: any = [];
   type: any;
-  loading!: boolean;
   language!: string;
   apiConResources!: boolean;
   apiConResourcesLang!: string;
   fullData: any = [];
 
   constructor(
-    private _activatedRoute: ActivatedRoute,
     private _titleService: Title,
     private _apiJSONService: ApiJsonService,
-    private _commonsService: CommonsService,
     private _reduxService: ReduxService,
     private _store: Store<AppState>
   ) { }
@@ -57,14 +53,12 @@ export class ResourcesCenterComponent implements OnInit, OnDestroy {
   setSubscriptions() {
     this._subscription.add(
       this._store.select('ui').subscribe((state) => {
-        this.loading = state.loading;
         this.language = state.language;
       })
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
         this.apiConResources = state.apiConResources.apiCon;
-        this.apiConResourcesLang = state.apiConResources.apiLang;
         this.fullData = state.arrayResources.apiArray;
         if (this.apiConResources !== undefined) {
           this.getDataAPI(this.language)

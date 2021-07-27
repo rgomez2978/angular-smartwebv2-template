@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/store/app.reducers";
 import { Subscription } from "rxjs";
-import { ReduxService, ApiJsonService, CommonsService } from '@services/index';
+import { ReduxService, ApiJsonService } from '@services/index';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -21,7 +21,6 @@ export class FooterComponent implements OnInit {
   constructor(
     private _reduxService: ReduxService,
     private _apiJsonService: ApiJsonService,
-    private _commonsService: CommonsService,
     private _store: Store<AppState>
   ) { }
 
@@ -54,6 +53,46 @@ export class FooterComponent implements OnInit {
     );
   }
 
+  /**
+   * -------------------------------------------------------
+   * @summary setTranslate
+   * @description Asignacion de cambio del state para translate con redux,
+   * Activa el tipo de idioma y bloque nuevo consumo de api
+   * @param {string} value Valor del idioma a mostran (en-es)
+   * -------------------------------------------------------
+   */
+  setTranslate(value: string) {
+    let url = this.urlBreadcrumbs;
+    let urlFinal = '';
+    let page = this.urlActiveLevel1.split('/')[1];
+    console.log(`page`, page)
+    console.log(`url`, url)
+    console.log(`url[3]`, url[3])
+    if (page === 'resources' && url.length >= 3) {
+      if (url[3] === undefined) {
+        urlFinal = url[2]
+      } else {
+        switch (url[3]) {
+          // case 'list':
+          //   urlFinal = 'help_features';
+          //   break;
+          case 'search':
+            urlFinal = 'help_search';
+            break;
+          case 'details':
+            urlFinal = 'help_details';
+            break;
+          default:
+            urlFinal = 'help_features';
+            break;
+        }
+      }
+      this._apiJsonService.setTranslate(value, urlFinal);
+    } else {
+      this._apiJsonService.setTranslate(value, page);
+    }
+  }
+
 
   /**
    * -------------------------------------------------------
@@ -68,52 +107,12 @@ export class FooterComponent implements OnInit {
 
   /**
    * -------------------------------------------------------
-   * @summary setTranslate
-   * @description Asignacion de cambio del state para translate con redux,
-   * Activa el tipo de idioma y bloque nuevo consumo de api
-   * @param {string} value Valor del idioma a mostran (en-es)
-   * -------------------------------------------------------
-   */
-  setTranslate(value: string) {
-    let url = this.urlBreadcrumbs;
-    let urlFinal = '';
-    let page = this.urlActiveLevel1.split('/')[1];
-    // console.log(`page`, page)
-    // console.log(`url`, url)
-    // console.log(`url[3]`, url[3])
-    if (page === 'resources' && url.length >= 3) {
-      if (url[3] === undefined) {
-        urlFinal = url[2]
-      } else {
-        switch (url[3]) {
-          case 'list':
-            urlFinal = 'help_features';
-            break;
-          case 'search':
-            urlFinal = 'help_search';
-            break;
-          case 'details':
-            urlFinal = 'help_details';
-            break;
-          default:
-            urlFinal = url[3];
-            break;
-        }
-      }
-      this._apiJsonService.setTranslate(value, urlFinal);
-    } else {
-      this._apiJsonService.setTranslate(value, page);
-    }
-  }
-
-
-  /**
-   * -------------------------------------------------------
    * @summary ngOnDestroy
    * @description  Destruye conexiones abiertas
    * -------------------------------------------------------
    */
   ngOnDestroy() {
+    this._subscription.unsubscribe();
   }
 
 }

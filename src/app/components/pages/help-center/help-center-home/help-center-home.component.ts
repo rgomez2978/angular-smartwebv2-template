@@ -1,17 +1,15 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
 import { Title } from '@angular/platform-browser';
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/store/app.reducers";
 import { Subscription } from "rxjs";
-import { ApiJsonService, ReduxService, CommonsService } from '@services/index';
 
 @Component({
   selector: 'app-help-center-home',
   templateUrl: './help-center-home.component.html',
   styleUrls: ['./help-center-home.component.scss']
 })
-export class HelpCenterHomeComponent implements OnInit {
+export class HelpCenterHomeComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();
   data: any = [];
   dataProducts: any = [];
@@ -23,11 +21,7 @@ export class HelpCenterHomeComponent implements OnInit {
   fullData: any = [];
 
   constructor(
-    private _activatedRoute: ActivatedRoute,
     private _titleService: Title,
-    private _apiJSONService: ApiJsonService,
-    private _commonsService: CommonsService,
-    private _reduxService: ReduxService,
     private _store: Store<AppState>
   ) { }
 
@@ -60,7 +54,6 @@ export class HelpCenterHomeComponent implements OnInit {
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
         this.apiConHelp = state.apiConHelp.apiCon;
-        this.apiConHelpLang = state.apiConHelp.apiLang;
         this.fullData = state.arrayHelp.apiArray;
         if (this.apiConHelp !== undefined) {
           this.getDataAPI(this.language)
@@ -73,27 +66,13 @@ export class HelpCenterHomeComponent implements OnInit {
   /**
     * -------------------------------------------------------
     * @summary getDataAPI
-    * @description Retorna la data de Resources
+    * @description Retorna la data de Help
     * @param {string} lang lenguage
     * @param {string} page pagina de json a cargar
     * -------------------------------------------------------
     */
   getDataAPI(lang: string) {
-    if (!this.apiConHelp) {
-      this._apiJSONService.getJSON(lang, 'help', true).subscribe(
-        (resp: any) => {
-          this.data = resp;
-          if (this.data !== undefined) {
-            this._reduxService.setArray('help', this.data, lang);
-            this.getDataArray(this.fullData)
-          }
-        },
-        (error: any) => console.log(`error`, error),
-        () => { }
-      );
-    } else {
-      this.getDataArray(this.fullData)
-    }
+    this.getDataArray(this.fullData)
   }
 
   /**

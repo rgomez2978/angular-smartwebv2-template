@@ -1,35 +1,29 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
 import { Title } from '@angular/platform-browser';
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/store/app.reducers";
 import { Subscription } from "rxjs";
-import { ApiJsonService, ReduxService, CommonsService } from '@services/index';
+import { ApiJsonService, ReduxService } from '@services/index';
 
 @Component({
   selector: 'app-help-center-search',
   templateUrl: './help-center-search.component.html',
   styleUrls: ['./help-center-search.component.scss']
 })
-export class HelpCenterSearchComponent implements OnInit {
+export class HelpCenterSearchComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();
   data: any = [];
   dataContent: any = [];
-
   type: any;
-  loading!: boolean;
   language!: string;
   apiConHelpS!: boolean;
-  apiConHelpSLang!: string;
   fullData: any = [];
 
 
 
   constructor(
-    private _activatedRoute: ActivatedRoute,
     private _titleService: Title,
     private _apiJSONService: ApiJsonService,
-    private _commonsService: CommonsService,
     private _reduxService: ReduxService,
     private _store: Store<AppState>
   ) { }
@@ -57,14 +51,12 @@ export class HelpCenterSearchComponent implements OnInit {
   setSubscriptions() {
     this._subscription.add(
       this._store.select('ui').subscribe((state) => {
-        this.loading = state.loading;
         this.language = state.language;
       })
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
         this.apiConHelpS = state.apiConHelpS.apiCon;
-        this.apiConHelpSLang = state.apiConHelpS.apiLang;
         this.fullData = state.arrayHelpS.apiArray;
         if (this.apiConHelpS !== undefined) {
           this.getDataAPI(this.language)
