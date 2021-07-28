@@ -162,8 +162,8 @@ export class ApiJsonService implements OnInit, OnDestroy {
    * -------------------------------------------------------
    */
   setTranslate(lang: string, page: string) {
-    console.log('');
-    console.log(`setTranslate`, lang, page)
+    // console.log('');
+    // console.log(`setTranslate`, lang, page)
 
     this.setSubscriptions();
     this._reduxService.setTranslate(lang);
@@ -284,7 +284,7 @@ export class ApiJsonService implements OnInit, OnDestroy {
    * -------------------------------------------------------
    */
   getJSON(lang: string, page: string, conApi: boolean) {
-    console.log(`getJSON =>`, lang, page, conApi)
+    // console.log(`getJSON =>`, lang, page, conApi)
     lang === 'en' ? this.url = `assets/JSON/${page}/${page}_en.json` : this.url = `assets/JSON/${page}/${page}_es.json`;
     this._reduxService.setAPIConnect(page, conApi, lang);
     this.conexReturn = this._http.get<any>(this.url, this.httpOptions);

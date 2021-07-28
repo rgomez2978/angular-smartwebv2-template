@@ -17,7 +17,7 @@ export class HelpCenterDetailComponent implements OnInit, OnDestroy {
   language!: string;
   apiConHelpD!: boolean;
   fullData: any = [];
-  currentSection = 'section1';
+  currentSection = 'section0';
 
   constructor(
     private _titleService: Title,
@@ -81,7 +81,7 @@ export class HelpCenterDetailComponent implements OnInit, OnDestroy {
         (resp: any) => {
           this.data = resp;
           if (this.data !== undefined) {
-            console.log(`this.data`, this.data)
+            // console.log(`this.data`, this.data)
             this._reduxService.setArray('help_details', this.data, lang);
             this.getDataArray(this.fullData)
           }
@@ -107,7 +107,7 @@ export class HelpCenterDetailComponent implements OnInit, OnDestroy {
   getDataArray(array: any) {
     if (Object.keys(array).length > 0) {
       this.data = array;
-      this.dataContent = this.data;
+      this.dataContent = this.data.content;
       return this.data;
     }
   }
@@ -115,14 +115,14 @@ export class HelpCenterDetailComponent implements OnInit, OnDestroy {
 
 
   onSectionChange(sectionId: string) {
-    console.log(`sectionId`, sectionId)
+    // console.log(`sectionId`, sectionId)
     this.currentSection = sectionId;
   }
 
 
   scrollTo(section: any) {
     let element = document.querySelector('#' + section);
-    element?.scrollIntoView();
+    element?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
   }
 
 
