@@ -21,7 +21,7 @@ export class ScrollContentDirective {
     for (let i = 0; i < children.length; i++) {
       const element = children[i];
       if (this.tagType.some((t: any) => t === element.tagName)) {
-        if (((element.offsetTop - parentOffset) - 70) <= scrollTop) {
+        if (((element.offsetTop - parentOffset) - 700) <= scrollTop) {
           currentSection = element.id;
         }
       }
