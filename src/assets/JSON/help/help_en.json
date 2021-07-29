@@ -126,20 +126,20 @@
     "order": 1,
     "background": "",
     "img": "",
-    "title": "¿Encontraste lo que buscabas?",
-    "description": "También puedes leer",
+    "title": "Did you find what you were looking for?",
+    "description": "You can also read",
     "links": [{
       "id": 1,
       "order": 1,
       "type": "btn",
       "url": "http://smart.alphagrupo.com/register",
-      "title": "Preguntas frecuentes"
+      "title": "Frequent questions"
     }, {
       "id": 2,
       "order": 2,
       "type": "btn",
       "url": "http://smart.alphagrupo.com/register",
-      "title": "Nuestro Blog"
+      "title": "Our blog"
     }]
   }]
 }

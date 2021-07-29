@@ -244,27 +244,33 @@ export class ApiJsonService implements OnInit, OnDestroy {
       case 'help_features':
         if (lang === this.apiConHelpFLang && this.apiConHelpF) {
           this._reduxService.setAPIConnect('layout', true, lang);
+          this._reduxService.setAPIConnect('help', true, lang);
           this._reduxService.setAPIConnect(page, true, lang);
         } else {
           this._reduxService.setAPIConnect('layout', false, lang);
+          this._reduxService.setAPIConnect('help', false, lang);
           this._reduxService.setAPIConnect(page, false, lang);
         }
         break;
       case 'help_details':
         if (lang === this.apiConHelpDLang && this.apiConHelpD) {
           this._reduxService.setAPIConnect('layout', true, lang);
+          this._reduxService.setAPIConnect('help', true, lang);
           this._reduxService.setAPIConnect(page, true, lang);
         } else {
           this._reduxService.setAPIConnect('layout', false, lang);
+          this._reduxService.setAPIConnect('help', false, lang);
           this._reduxService.setAPIConnect(page, false, lang);
         }
         break;
       case 'help_search':
         if (lang === this.apiConHelpSLang && this.apiConHelpS) {
           this._reduxService.setAPIConnect('layout', true, lang);
+          this._reduxService.setAPIConnect('help', true, lang);
           this._reduxService.setAPIConnect(page, true, lang);
         } else {
           this._reduxService.setAPIConnect('layout', false, lang);
+          this._reduxService.setAPIConnect('help', false, lang);
           this._reduxService.setAPIConnect(page, false, lang);
         }
         break;
