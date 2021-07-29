@@ -9,7 +9,7 @@
     "id": 1,
     "order": 1,
     "background": "",
-    "video": "./assets/video/46864998_480958359846948_3732618213144601967_n.mp4",
+    "video": "./assets/video/video_banner.mp4",
     "title": "Sistemas que ofrecen soluciones completas que facilitan tu gestion de las organizaciones en entornos dinamicos",
     "description": "",
     "links": [{
@@ -17,7 +17,7 @@
       "order": 1,
       "type": "link",
       "icon": "<i class=\"icofont-play-alt-3\"></i>",
-      "url": "./assets/video/46864998_480958359846948_3732618213144601967_n.mp4",
+      "url": "./assets/video/video_banner.mp4",
       "title": "Ver video",
       "description": ""
     }]

@@ -4,6 +4,9 @@ import { CommonModule } from '@angular/common';
 import { HelpRoutingModule } from './help-routing.module';
 import { SharedModule } from '@components/shared.module';
 
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+
+
 // COMPONENTS
 import { HelpCenterComponent } from '@pages/help-center/help-center.component';
 import { HelpCenterHomeComponent } from './help-center-home/help-center-home.component';
@@ -16,6 +19,8 @@ import { ScrollContentDirective } from '@directives/scroll-content.directive';
         CommonModule,
         HelpRoutingModule,
         SharedModule,
+        NgxPageScrollCoreModule.forRoot(),
+
     ],
     declarations: [
         HelpCenterComponent,

@@ -1,9 +1,12 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Component, OnInit, OnDestroy, Inject } from "@angular/core";
 import { Title } from '@angular/platform-browser';
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/store/app.reducers";
 import { Subscription } from "rxjs";
 import { ApiJsonService, ReduxService } from '@services/index';
+import { DOCUMENT } from '@angular/common';
+import { PageScrollService } from 'ngx-page-scroll-core';
+
 @Component({
   selector: 'app-help-center-detail',
   templateUrl: './help-center-detail.component.html',
@@ -17,13 +20,16 @@ export class HelpCenterDetailComponent implements OnInit, OnDestroy {
   language!: string;
   apiConHelpD!: boolean;
   fullData: any = [];
-  currentSection = 'section0';
+  currentSection: string = 'section0';
 
   constructor(
     private _titleService: Title,
     private _apiJSONService: ApiJsonService,
     private _reduxService: ReduxService,
-    private _store: Store<AppState>
+    private _store: Store<AppState>,
+    private pageScrollService: PageScrollService,
+    @Inject(DOCUMENT) private document: any
+
   ) { }
 
 
@@ -114,25 +120,35 @@ export class HelpCenterDetailComponent implements OnInit, OnDestroy {
 
 
 
+  /**
+   * -------------------------------------------------------
+   * @summary onSectionChange
+   * @description obtiene el nombre del id o seccion seleccionada
+   * @param {string} sectionId nombre del id o seccion
+   * -------------------------------------------------------
+   */
   onSectionChange(sectionId: string) {
-    // console.log(`sectionId`, sectionId)
     this.currentSection = sectionId;
   }
 
 
+
+  /**
+   * -------------------------------------------------------
+   * @summary scrollTo
+   * @description Realiza scroll a la seccion seleccionada
+   * @param {string} sectionId nombre del id o seccion
+   * -------------------------------------------------------
+   */
   scrollTo(section: any) {
-    let element = document.querySelector('#' + section);
-
-    // setTimeout(() => {
-    //   const y = element!.getBoundingClientRect().top + window.pageYOffset + 600;
-    // window.scroll({ behavior: 'smooth' });
-    setTimeout(() => {
-      element!.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-      // window.scrollTo({ top: 300, behavior: 'smooth' });
-    }, 100);
-    // }, 300);
-
-
+    this.pageScrollService.scroll({
+      document: this.document,
+      scrollTarget: '#' + section,
+      duration: 400,
+      scrollOffset: 150,
+      verticalScrolling: true,
+      interruptible: false,
+    });
   }
 
 
