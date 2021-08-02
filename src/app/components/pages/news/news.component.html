@@ -1,12 +1,16 @@
 <section class="animate__animated animate__fadeIn contentPage">
     <header class="contentPage__header">
-        <br><br><br><br><br><br><br><br>
-        NEWS
-        <!-- {{dataHeader | json}} -->
-        <!-- <app-header [data]="dataHeader" [type]="'helpcenter'"></app-header> -->
+        <app-header [data]="dataHeader" [type]="'helpcenter'"></app-header>
     </header>
-    <router-outlet></router-outlet>
-    <div>
-        call to action
+    <div  class="mb-5 ml-10">
+        <app-breadcrumb [data]="" [type]="'page'"></app-breadcrumb>
+    </div>
+    <div class="contentPage__content">
+        <div class="contentPage__content__left">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="contentPage__content__right">
+            <app-menu [type]="'news'" [data]="dataMenu"></app-menu>
+        </div>
     </div>
 </section>

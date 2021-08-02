@@ -125,3 +125,14 @@
         </svg>
     </button>
 </div> -->
+
+
+<!-- Menu de Opciones - News -->
+<div *ngIf="type === 'news'">
+    <div class="menu_news" *ngFor="let item of data; let i = index">
+        <h1>{{item.title}}</h1>
+        <div class="menu_news__items">
+            <a [routerLink]="itemNode.url" *ngFor="let itemNode of item.nodes">{{itemNode.title}}</a>
+        </div>
+    </div>
+</div>

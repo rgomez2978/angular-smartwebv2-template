@@ -1,0 +1,23 @@
+.contentPage {
+    @apply w-full bg-white;
+
+    &__header {
+      @apply w-full h-full pb-2;
+    }
+
+    &__content{
+        @apply py-10 flex flex-row items-start justify-start space-x-6;
+
+        &__left{
+            @apply flex-row flex items-start justify-start;
+        }
+
+        &__right{
+            @apply hidden md:w-1/4 md:flex sticky inset-y-32  justify-center items-center;
+        }
+    }
+
+    &__footer{
+        @apply mb-10;
+    }
+}

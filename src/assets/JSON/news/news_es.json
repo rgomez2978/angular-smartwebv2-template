@@ -1,0 +1,139 @@
+{
+  "browser": [{
+    "id": 1,
+    "order": 1,
+    "title": "Recursos - Manuales de uso",
+    "description": ""
+  }],
+  "header": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "title": "Blog",
+    "description": "",
+    "links": [{}],
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "title": "Planificación estrategica",
+      "url": ""
+    }, {
+      "id": 2,
+      "order": 2,
+      "title": "Desarrollo humano",
+      "url": ""
+    }, {
+      "id": 3,
+      "order": 3,
+      "title": "Liderazgo",
+      "url": ""
+    }, {
+      "id": 4,
+      "order": 4,
+      "title": "Cultura organizacional",
+      "url": ""
+    }, {
+      "id": 5,
+      "order": 5,
+      "title": "Finanzas",
+      "url": ""
+    }]
+  }],
+  "news": [{
+    "id": 1,
+    "order": 1,
+    "title": "5 tips para trabajar tu planificación estratégica",
+    "description": "Conoce cómo utilizar nuestra herramienta de gestión que te permite establecer de forma eficiente tus próximos pasos como organización.",
+    "date": "2021/05/05",
+    "url_title": "Leer más",
+    "url": "",
+    "media": [{
+      "id": 1,
+      "order": 1,
+      "type": "img",
+      "url": "https://via.placeholder.com/300x200",
+      "file": "https://via.placeholder.com/300x200"
+    }]
+  }, {
+    "id": 2,
+    "order": 2,
+    "title": "¿Cómo potenciar tu cultura organizacional?",
+    "description": "Es útil dedicar tiempo a considerar formas en las que puedas mantener a tu equipo identificado con la misión de tu organización. Descubre cómo puedes utilizar nuestras herramientas para eso.",
+    "date": "2021/10/20",
+    "url_title": "Leer más",
+    "url": "",
+    "media": [{
+      "id": 1,
+      "order": 1,
+      "type": "img",
+      "url": "https://via.placeholder.com/300x200",
+      "file": "https://via.placeholder.com/300x200"
+    }]
+  }, {
+    "id": 3,
+    "order": 3,
+    "title": "Pasos para una gestión  de cambio efectiva",
+    "description": "Cuando se trata de planificar un proyecto, la estructura de desglose del trabajo es una de las primeras cosas en las que tiene que trabajar un director de proyecto.",
+    "date": "2021/11/02",
+    "url_title": "Leer más",
+    "url": "",
+    "media": [{
+      "id": 1,
+      "order": 1,
+      "type": "img",
+      "url": "https://via.placeholder.com/300x200",
+      "file": "https://via.placeholder.com/300x200"
+    }]
+  }, {
+    "id": 4,
+    "order": 4,
+    "title": "¿Cómo puedo reutilizar las formas con imágenes adjuntas?",
+    "description": "Excepteur irure nisi exercitation qui culpa sint ea. Do non esse laborum elit. Aliquip anim dolor consectetur consectetur aute aute culpa adipisicing sit ullamco velit sit deserunt. Do commodo velit eu dolor dolore labore Lorem et quis anim velit reprehenderit non. Non eu veniam non pariatur labore nostrud est commodo culpa consectetur ut aute deserunt commodo.",
+    "date": "2021/11/02",
+    "url_title": "Leer más",
+    "url": "",
+    "media": [{
+      "id": 1,
+      "order": 1,
+      "type": "img",
+      "url": "https://via.placeholder.com/300x200",
+      "file": "https://via.placeholder.com/300x200"
+    }]
+  }, {
+    "id": 5,
+    "order": 5,
+    "title": "¿Dónde se pueden adjuntar las imágenes?",
+    "description": "Eu exercitation proident minim cillum anim culpa irure amet non consequat nostrud veniam. Nulla excepteur qui sunt laboris.Incididunt cupidatat est non proident esse cupidatat excepteur est aliqua commodo nulla sint in exercitation.",
+    "date": "2021/11/02",
+    "url_title": "Leer más",
+    "url": "",
+    "media": [{
+      "id": 1,
+      "order": 1,
+      "type": "img",
+      "url": "https://via.placeholder.com/300x200",
+      "file": "https://via.placeholder.com/300x200"
+    }]
+  }],
+  "menu": [{
+    "id": 1,
+    "order": 1,
+    "title": "Populares",
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "title": "Planificación estratégica",
+      "url": ""
+    }, {
+      "id": 2,
+      "order": 2,
+      "title": "Cultura organizacional",
+      "url": ""
+    }, {
+      "id": 3,
+      "order": 3,
+      "title": "Satisfacción al cliente",
+      "url": ""
+    }]
+  }]
+}

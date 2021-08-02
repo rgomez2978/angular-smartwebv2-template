@@ -95,6 +95,9 @@ export class ReduxService {
       case 'help_search':
         this._store.dispatch(ownActions.setAPIConnectHelpS({ apiConHelpS: { apiCon: conn, apiLang: lang } }));
         break;
+      case 'news':
+        this._store.dispatch(ownActions.setAPIConnectNews({ apiConNews: { apiCon: conn, apiLang: lang } }));
+        break;
       default:
         this._store.dispatch(ownActions.setAPIConnectLayout({ apiConLayout: { apiCon: conn, apiLang: lang } }));
         break
@@ -150,12 +153,14 @@ export class ReduxService {
       case 'help_search':
         this._store.dispatch(ownActions.setArrayHelpS({ arrayHelpS: { apiLang: lang, apiArray: array } }));
         break;
+      case 'news':
+        this._store.dispatch(ownActions.setArrayNews({ arrayNews: { apiLang: lang, apiArray: array } }));
+        break;
       default:
         this._store.dispatch(ownActions.setArrayLayout({ arrayLayout: { apiLang: lang, apiArray: array } }));
         break;
     }
   }
-
 
 
   /**

@@ -13,14 +13,12 @@ const routesNews: Routes = [
         component: NewsComponent,
         children: [
             {
-                path: 'list',
+                path: '',
                 component: NewsListComponent,
-                data: { breadcrumb: 'List' }
             },
             {
-                path: 'details',
+                path: 'details/:id',
                 component: NewsDetailComponent,
-                data: { breadcrumb: 'Details' }
             },
             { path: "**", pathMatch: 'full', redirectTo: '' },
         ],

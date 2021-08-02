@@ -100,10 +100,88 @@
             @apply mt-2 text-gray-500;
           }
         }
-        &__paragraph{
+        &__paragraph {
           @apply flex items-center justify-between mt-2;
-          .date{
+          .date {
             @apply flex items-center text-gray-500;
+          }
+        }
+      }
+    }
+  }
+
+  &__pagination {
+    @apply flex flex-row items-center justify-center mt-6;
+    .custom-pagination {
+      @apply flex flex-row items-center justify-center space-x-2;
+      .page-number {
+        @apply flex flex-row items-center justify-center w-auto h-auto text-sm font-normal rounded border-2 border-gray-400 cursor-pointer;
+
+        &.current {
+          @apply flex flex-row items-center justify-center w-auto h-auto  text-sm rounded border-2 border-gray-400 bg-gray-300 text-gray-600 font-bold cursor-pointer;
+        }
+        span {
+          @apply flex flex-row items-center justify-center w-8 h-8;
+        }
+      }
+
+      .pagination-previous,
+      .pagination-next {
+        i {
+          @apply text-2xl font-bold text-gray-500 cursor-pointer;
+        }
+      }
+
+      .pagination-first,
+      .pagination-last {
+        i {
+          @apply text-2xl font-bold text-gray-500 cursor-pointer;
+        }
+      }
+    }
+  }
+}
+
+.containerListNews {
+  @apply flex flex-col w-full p-0 ;
+
+  &__results {
+    @apply flex flex-col w-full;
+    .content {
+      @apply py-4;
+
+      .content_inside {
+        @apply container  flex flex-row  w-full px-6 py-2 mx-auto border-2 border-gray-400 rounded-lg shadow-sm;
+
+        &__text {
+          @apply flex-1;
+          &__title {
+            @apply mt-3;
+            a {
+              @apply text-xl font-bold text-gray-600 hover:underline;
+            }
+            p {
+              @apply mt-2 text-gray-500;
+            }
+          }
+          &__paragraph {
+            @apply flex items-center justify-start mt-2 text-gray-500;
+            .date {
+              @apply flex items-center justify-center text-center mr-10 ;
+            }
+            > a {
+              @apply text-base font-normal;
+              &:hover {
+                @apply text-gray-700 underline;
+              }
+            }
+          }
+        }
+
+        &__img{
+          @apply ml-8 w-1/4;
+          >picture{
+            @apply rounded-2xl;
           }
         }
       }
