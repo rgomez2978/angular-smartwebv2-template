@@ -59,7 +59,7 @@
                 class="content animate__animated animate__fadeIn">
                 <div class="content_inside ">
                     <div class="content_inside__title">
-                        <a href="#">{{itemNode.title}}</a>
+                        <a [routerLink]="itemNode.url">{{itemNode.title}}</a>
                         <p class="">{{itemNode.description}}</p>
                     </div>
                     <div class="content_inside__paragraph">
@@ -134,7 +134,7 @@
                 <div class="content_inside">
                     <div class="content_inside__text">
                         <div class="content_inside__text__title">
-                            <a href="#">{{item.title}}</a>
+                            <a [routerLink]="item.url">{{item.title}}</a>
                             <p class="">{{item.description}}</p>
                         </div>
                         <div class="content_inside__text__paragraph">

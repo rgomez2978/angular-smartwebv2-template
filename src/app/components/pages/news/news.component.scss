@@ -6,14 +6,14 @@
     }
 
     &__content{
-        @apply py-5 flex flex-row items-start justify-between space-x-5;
+        @apply py-5 flex flex-row items-start justify-between space-x-3;
 
         &__left{
             @apply flex-row flex-1 items-start justify-start;
         }
 
         &__right{
-            @apply hidden md:w-1/4 md:flex sticky inset-y-32  justify-end items-center mr-1;
+            @apply hidden md:w-64 md:flex sticky inset-y-32  justify-end items-center mr-1;
         }
     }
 

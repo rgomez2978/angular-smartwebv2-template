@@ -94,7 +94,7 @@
         &__title {
           @apply mt-3;
           a {
-            @apply text-xl font-bold text-gray-600 hover:underline;
+            @apply text-xl font-bold text-gray-600 hover:underline cursor-pointer;
           }
           p {
             @apply mt-2 text-gray-500;

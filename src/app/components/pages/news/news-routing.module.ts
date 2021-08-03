@@ -21,7 +21,7 @@ const routesNews: Routes = [
                 component: NewsListComponent,
             },
             {
-                path: 'details/:idCat/:id',
+                path: 'details/:id',
                 component: NewsDetailComponent,
             },
             // { path: "**", pathMatch: 'full', redirectTo: '' },
