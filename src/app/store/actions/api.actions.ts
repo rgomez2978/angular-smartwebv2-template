@@ -20,6 +20,7 @@ export const setAPIConnectHelpS = createAction("[API] Set API Connect Help - Sea
 export const setAPIConnectNews = createAction("[API] Set API Connect News", props<{ apiConNews: ApiConnect }>());
 export const setAPIConnectNewsD = createAction("[API] Set API Connect News - Details", props<{ apiConNewsD: ApiConnect }>());
 export const setAPIConnectNewsS = createAction("[API] Set API Connect News - Search", props<{ apiConNewsS: ApiConnect }>());
+// export const setNewsCategory = createAction("[API] Set News Category", props<{ newsCategory: string }>());
 
 
 // ARRAYS

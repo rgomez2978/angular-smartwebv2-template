@@ -19,6 +19,8 @@ export class NewsListComponent implements OnInit, OnDestroy {
   apiConNews!: boolean;
   apiConNewsLang!: string;
   fullData: any = [];
+  urlBreadcrumbs!: any;
+
 
   constructor(
     private _titleService: Title,
@@ -47,6 +49,7 @@ export class NewsListComponent implements OnInit, OnDestroy {
   setSubscriptions() {
     this._subscription.add(
       this._store.select('ui').subscribe((state) => {
+        this.urlBreadcrumbs = state.urlBreadcrumbs;
         this.loading = state.loading;
         this.language = state.language;
       })
@@ -72,9 +75,26 @@ export class NewsListComponent implements OnInit, OnDestroy {
     * -------------------------------------------------------
     */
   getDataAPI(lang: string) {
-    console.log(`this.fullData`, this.fullData)
     this.getDataArray(this.fullData)
   }
+
+
+
+
+
+  /**
+  * -------------------------------------------------------
+  * @summary getCategoryNews
+  * @description Obtiene el product por el ID, y la posicion del arreglo
+  * @param {any} array arraglo a buscar
+  * @param {number} id numero o id del producto a buscar
+  * -------------------------------------------------------
+  */
+  getCategoryNews(array: any, id: number) {
+    return array.news.filter((opt: any) => opt.catId === id);
+  }
+
+
 
   /**
    * -------------------------------------------------------
@@ -87,10 +107,16 @@ export class NewsListComponent implements OnInit, OnDestroy {
   getDataArray(array: any) {
     if (Object.keys(array).length > 0) {
       this.data = array;
-      this.dataNews = this.data.news;
+      if (this.urlBreadcrumbs[3] === undefined) {
+        this.dataNews = this.data.news;
+      } else {
+        let idcat = this.urlBreadcrumbs[3].substr(3)
+        this.dataNews = this.getCategoryNews(array, Number(idcat));
+      }
       return this.data;
     }
   }
+
 
   /**
    * -------------------------------------------------------

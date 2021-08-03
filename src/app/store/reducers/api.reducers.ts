@@ -35,6 +35,7 @@ export interface ApiState {
     arrayNews: ApiSetArray;
     arrayNewsD: ApiSetArray;
     arrayNewsS: ApiSetArray;
+    // newsCategory: string;
 }
 
 export const apiState: ApiState = {
@@ -69,7 +70,7 @@ export const apiState: ApiState = {
     arrayNews: { apiLang: 'es', apiArray: [] },
     arrayNewsD: { apiLang: 'es', apiArray: [] },
     arrayNewsS: { apiLang: 'es', apiArray: [] },
-
+    // newsCategory: '0'
 
 };
 
@@ -105,7 +106,7 @@ const _apiReducer = createReducer(apiState,
     on(ownActions.setArrayNews, (state, { arrayNews }) => ({ ...state, arrayNews: { ...arrayNews } })),
     on(ownActions.setArrayNewsD, (state, { arrayNewsD }) => ({ ...state, arrayNewsD: { ...arrayNewsD } })),
     on(ownActions.setArrayNewsS, (state, { arrayNewsS }) => ({ ...state, arrayNewsS: { ...arrayNewsS } })),
-
+    // on(ownActions.setNewsCategory, (state, { newsCategory }) => ({ ...state, newsCategory })),
 
 );
 

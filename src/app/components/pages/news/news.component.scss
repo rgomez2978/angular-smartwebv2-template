@@ -9,7 +9,7 @@
         @apply py-10 flex flex-row items-start justify-start space-x-6;
 
         &__left{
-            @apply flex-row flex items-start justify-start;
+            @apply flex-row flex-1 items-start justify-start;
         }
 
         &__right{

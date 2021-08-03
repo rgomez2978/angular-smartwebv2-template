@@ -167,7 +167,7 @@
           &__paragraph {
             @apply flex items-center justify-start mt-2 text-gray-500;
             .date {
-              @apply flex items-center justify-center text-center mr-10 ;
+              @apply flex items-center justify-center text-center mr-10;
             }
             > a {
               @apply text-base font-normal;
@@ -178,10 +178,30 @@
           }
         }
 
-        &__img{
+        &__img {
           @apply ml-8 w-1/4;
-          >picture{
+          > picture {
             @apply rounded-2xl;
+          }
+        }
+      }
+
+      .content_inside_empty {
+        @apply container flex flex-row px-6 py-2 mx-auto;
+
+        &__text {
+          // @apply flex-1;
+          &__title {
+            @apply mt-3;
+            a {
+              @apply text-xl font-bold text-gray-600 hover:underline;
+            }
+            span {
+              @apply text-xl font-bold text-gray-600;
+            }
+            p {
+              @apply mt-2 text-gray-500;
+            }
           }
         }
       }

@@ -15,33 +15,45 @@
     "nodes": [{
       "id": 1,
       "order": 1,
+      "active": false,
       "title": "Planificación estrategica",
-      "url": ""
+      "url": "cat1"
     }, {
       "id": 2,
       "order": 2,
+      "active": false,
       "title": "Desarrollo humano",
-      "url": ""
+      "url": "cat2"
     }, {
       "id": 3,
       "order": 3,
+      "active": false,
       "title": "Liderazgo",
-      "url": ""
+      "url": "cat3"
     }, {
       "id": 4,
       "order": 4,
+      "active": false,
       "title": "Cultura organizacional",
-      "url": ""
+      "url": "cat4"
     }, {
       "id": 5,
       "order": 5,
+      "active": false,
       "title": "Finanzas",
-      "url": ""
+      "url": "cat5"
+    }, {
+      "id": 6,
+      "order": 6,
+      "active": false,
+      "title": "Todas",
+      "url": "/resources/news"
     }]
   }],
   "news": [{
     "id": 1,
     "order": 1,
+    "catId": 1,
     "title": "5 tips para trabajar tu planificación estratégica",
     "description": "Conoce cómo utilizar nuestra herramienta de gestión que te permite establecer de forma eficiente tus próximos pasos como organización.",
     "date": "2021/05/05",
@@ -57,6 +69,7 @@
   }, {
     "id": 2,
     "order": 2,
+    "catId": 1,
     "title": "¿Cómo potenciar tu cultura organizacional?",
     "description": "Es útil dedicar tiempo a considerar formas en las que puedas mantener a tu equipo identificado con la misión de tu organización. Descubre cómo puedes utilizar nuestras herramientas para eso.",
     "date": "2021/10/20",
@@ -72,6 +85,7 @@
   }, {
     "id": 3,
     "order": 3,
+    "catId": 2,
     "title": "Pasos para una gestión  de cambio efectiva",
     "description": "Cuando se trata de planificar un proyecto, la estructura de desglose del trabajo es una de las primeras cosas en las que tiene que trabajar un director de proyecto.",
     "date": "2021/11/02",
@@ -87,6 +101,7 @@
   }, {
     "id": 4,
     "order": 4,
+    "catId": 3,
     "title": "¿Cómo puedo reutilizar las formas con imágenes adjuntas?",
     "description": "Excepteur irure nisi exercitation qui culpa sint ea. Do non esse laborum elit. Aliquip anim dolor consectetur consectetur aute aute culpa adipisicing sit ullamco velit sit deserunt. Do commodo velit eu dolor dolore labore Lorem et quis anim velit reprehenderit non. Non eu veniam non pariatur labore nostrud est commodo culpa consectetur ut aute deserunt commodo.",
     "date": "2021/11/02",
@@ -102,6 +117,7 @@
   }, {
     "id": 5,
     "order": 5,
+    "catId": 4,
     "title": "¿Dónde se pueden adjuntar las imágenes?",
     "description": "Eu exercitation proident minim cillum anim culpa irure amet non consequat nostrud veniam. Nulla excepteur qui sunt laboris.Incididunt cupidatat est non proident esse cupidatat excepteur est aliqua commodo nulla sint in exercitation.",
     "date": "2021/11/02",

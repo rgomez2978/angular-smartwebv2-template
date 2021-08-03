@@ -17,12 +17,15 @@ const routesNews: Routes = [
                 component: NewsListComponent,
             },
             {
-                path: 'details/:id',
+                path: ':cat',
+                component: NewsListComponent,
+            },
+            {
+                path: 'details/:idCat/:id',
                 component: NewsDetailComponent,
             },
-            { path: "**", pathMatch: 'full', redirectTo: '' },
+            // { path: "**", pathMatch: 'full', redirectTo: '' },
         ],
-        data: { breadcrumb: 'Help' }
     }
 ];
 

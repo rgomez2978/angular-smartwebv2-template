@@ -128,8 +128,7 @@
 
 <!-- CONTENT - NEWS - HOME -->
 <div *ngIf="type === 'news_home'">
-
-    <div class="containerListNews animate__animated animate__fadeIn ">
+    <div *ngIf="data.length > 0" class="containerListNews animate__animated animate__fadeIn ">
         <div class="containerListNews__results" *ngFor="let item of data | paginate : config; let i = index">
             <div class="content animate__animated animate__fadeIn">
                 <div class="content_inside">
@@ -147,7 +146,7 @@
                         </div>
                     </div>
                     <div class="content_inside__img" *ngFor="let itemMedia of item.media">
-                        <app-media  [data]="itemMedia.file" [type]="'img'" [format]="'png'"></app-media>
+                        <app-media [data]="itemMedia.file" [type]="'img'" [format]="'png'"></app-media>
                     </div>
                 </div>
             </div>
@@ -188,4 +187,19 @@
             </pagination-template>
         </div>
     </div>
+    <div *ngIf="data.length === 0" class="containerListNews animate__animated animate__fadeIn ">
+        <div class="containerListNews__results">
+            <div class="content animate__animated animate__fadeIn">
+                <div class="content_inside_empty">
+                    <div class="content_inside_empty__text">
+                        <div class="content_inside_empty__text__title">
+                            <span>{{message}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>

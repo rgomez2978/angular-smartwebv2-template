@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Store } from "@ngrx/store";
+import { AppState } from "src/app/store/app.reducers";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: 'app-content',
@@ -6,6 +9,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit {
+  private _subscription: Subscription = new Subscription();
+
   @Input() data: any;
   @Input() type!: string;
   dataSearch: any = [];
@@ -15,17 +20,8 @@ export class ContentComponent implements OnInit {
   count = 0;
   tableSize = 3;
   tableSizes = [3, 6, 9, 12];
-  public maxSize: number = 7;
-  public directionLinks: boolean = true;
-  public autoHide: boolean = false;
-  public responsive: boolean = true;
-  public labels: any = {
-    previousLabel: '<--',
-    nextLabel: '-->',
-    screenReaderPaginationLabel: 'Pagination',
-    screenReaderPageLabel: 'page',
-    screenReaderCurrentLabel: `You're on page`
-  };
+  message!: string;
+  language!: string;
 
 
   config = {
@@ -36,22 +32,48 @@ export class ContentComponent implements OnInit {
   };
 
 
-  constructor() { }
+  constructor(
+    private _store: Store<AppState>
+  ) { }
 
+
+  /**
+   * -------------------------------------------------------
+   * @summary ngOnInit
+   * @description  Inicializa funciones al cargar el
+   * -------------------------------------------------------
+   */
   ngOnInit(): void {
-
+    this.setSubscriptions();
     setTimeout(() => {
       this.dataSearch = this.data[0]?.results;
+      if (this.language === 'es') {
+        this.message = 'No existen noticias asociadas para esta categoria, por favor seleccione otra categoria.'
+      } else {
+        this.message = 'There are no associated news for this category, please select another category.'
+      }
     }, 100);
+  }
 
-    // for (let i = 1; i <= 100; i++) {
-    //   this.collection.push(`item ${i}`);
-    // }
+
+
+  /**
+  * -------------------------------------------------------
+  * @summary setSubscriptions
+  * @description Traer el valor del state del estado del translated de redux
+  * -------------------------------------------------------
+  */
+  setSubscriptions() {
+    this._subscription.add(
+      this._store.select('ui').subscribe((state) => {
+        this.language = state.language;
+      })
+    );
   }
 
 
   onPageChange(event: any) {
-    console.log(event);
+    // console.log(event);
     this.config.currentPage = event;
   }
 

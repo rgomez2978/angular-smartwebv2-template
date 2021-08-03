@@ -100,13 +100,8 @@ export class NavbarComponent implements OnInit {
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
-        // this.apiConLayout = state.apiConLayout.apiCon;
-        // this.apiConLayoutES = state.apiConLayout.apiConEs;
-        // this.apiConLayoutEN = state.apiConLayout.apiConEn;
         setTimeout(() => {
           if (this.data[0] || this.data[0] != undefined) {
-            // console.log('this.urlActiveLevel1 :>> ', this.urlActiveLevel1);
-            // console.log('this.urlActiveLevel2 :>> ', this.urlActiveLevel2);
             this.activeMenuOnLoad(this.data[0].options, this.urlActiveLevel1)
           }
         }, 100);

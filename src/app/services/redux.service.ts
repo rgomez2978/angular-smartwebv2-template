@@ -162,6 +162,17 @@ export class ReduxService {
     }
   }
 
+  /**
+   * -------------------------------------------------------
+   * @summary setNewsCategory
+   * @description Asigna el id de la categoria de noticas seleccionada
+   * @param {string} id id de la categoria
+   * -------------------------------------------------------
+   */
+  // setNewsCategory(id: string) {
+  //   this._store.dispatch(ownActions.setNewsCategory({ newsCategory: id }));
+  // }
+
 
   /**
    * -------------------------------------------------------

@@ -1,32 +1,209 @@
 .contHeader__video {
-    @apply flex flex-row items-center justify-center w-full;
+  @apply flex flex-row items-center justify-center w-full;
 
-    &__cont {
-      @apply relative z-30 flex flex-row items-center justify-start w-full h-auto;
+  &__cont {
+    @apply relative z-30 flex flex-row items-center justify-start w-full h-auto;
 
-      .videoTag {
-        @apply flex-row w-full;
+    .videoTag {
+      @apply flex-row w-full;
+    }
+    .videoCont {
+      @apply absolute z-10 flex flex-col items-start justify-center w-full px-10 mt-10 md:mt-0 cursor-default;
+
+      > h1 {
+        @apply w-full pb-5 font-semibold leading-tight tracking-normal text-center text-white sm:text-2xl md:pb-7 md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-5xl;
+      }
+      .videoBtn {
+        @apply flex w-full pl-7 py-1;
+        a {
+          @apply flex w-max items-center text-white border-2 p-2 border-transparent rounded-md  hover:border-white;
+          span {
+            @apply text-2xl md:text-2xl lg:text-3xl;
+          }
+          h4 {
+            @apply pl-2 font-light sm:text-xl md:text-2xl lg:text-2xl;
+          }
+        }
+      }
+    }
+  }
+}
+
+.contHeader__fixed {
+  @apply flex w-full h-auto px-4 py-24 bg-gray-200 border-2 border-gray-200 shadow-md md:px-10 lg:pt-28;
+
+  .container {
+    @apply flex flex-col items-center justify-between lg:flex-row;
+
+    &__text {
+      @apply w-full px-10 mb-10 lg:w-1/2 lg:mb-0;
+
+      &__cont {
+        @apply flex flex-col items-center justify-center w-full mb-6 text-center;
+
+        > h2 {
+          @apply w-full mb-6 font-sans text-3xl font-bold text-gray-500 sm:text-4xl md:text-5xl;
+        }
+        > p {
+          @apply text-lg text-gray-700 md:text-xl;
+        }
       }
 
-      .videoCont {
-        @apply absolute z-10 flex flex-col items-start justify-center w-full px-10 mt-10 md:mt-0 cursor-default;
+      &__btn {
+        @apply flex flex-col items-center justify-center w-full mb-10 md:flex-row md:text-lg;
+        > button {
+          @apply inline-flex items-center justify-center h-auto px-6 py-2 font-medium tracking-wide text-white transition duration-200 bg-gray-400 rounded shadow-md w-max hover:bg-gray-700;
+          span {
+            @apply mr-3;
+          }
+        }
+      }
 
-        > h1 {
-          @apply w-full pb-5 font-semibold leading-tight tracking-normal text-center text-white sm:text-2xl md:pb-7 md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-5xl;
+      &__store {
+        @apply flex items-center justify-center w-full space-x-4 lg:flex-row;
+
+        > button {
+          @apply inline-flex items-center px-4 py-3 bg-gray-200 border-2 border-gray-300 rounded-lg hover:bg-gray-300 focus:outline-none;
+
+          > div {
+            @apply flex flex-col items-start ml-2 leading-none;
+
+            > h2 {
+              @apply mb-1 text-xs text-gray-600 capitalize;
+            }
+
+            > h4 {
+              @apply font-medium capitalize;
+            }
+          }
+        }
+      }
+    }
+
+    &__video {
+      @apply relative lg:w-1/2;
+
+      &__cont {
+        @apply flex w-full;
+
+        > img {
+          @apply object-cover w-full h-56 rounded shadow-lg sm:h-96;
         }
 
-        .videoBtn {
-          @apply flex w-full pl-7 py-1;
-          a {
-            @apply flex w-max items-center text-white border-2 p-2 border-transparent rounded-md  hover:border-white;
-            span {
-              @apply text-2xl md:text-2xl lg:text-3xl;
-            }
-            h4 {
-              @apply pl-2 font-light sm:text-xl md:text-2xl lg:text-2xl;
+        a {
+          div {
+            i {
+              @apply text-white transition-transform duration-150  opacity-80 hover:opacity-100;
             }
           }
         }
       }
     }
   }
+}
+
+.contHeader__resources {
+  @apply flex w-full h-auto px-4 py-24 bg-gray-200 border-2 border-gray-200 shadow-md lg:pt-32;
+
+  .main_container {
+    @apply flex flex-col items-center justify-center w-full lg:flex-row;
+
+    &__cont {
+      @apply justify-center w-full px-10 mb-10 items-center lg:mb-0;
+
+      &__text {
+        @apply flex flex-col items-center justify-center w-full mb-6 text-center;
+
+        > h2 {
+          @apply w-full mb-6 font-sans text-3xl font-bold text-gray-500 sm:text-4xl md:text-5xl;
+        }
+
+        > p {
+          @apply text-lg text-gray-700 md:text-xl;
+        }
+      }
+    }
+  }
+}
+
+.contHeader__help {
+  @apply flex w-full h-auto px-4 bg-gray-200 border-2 border-gray-200 shadow-md py-14 lg:pt-32;
+
+  .main_container {
+    @apply flex flex-col items-center justify-center w-full lg:flex-row;
+
+    &__cont {
+      @apply justify-center w-full px-10 mb-0 mt-14 items-center lg:mb-0 lg:mt-5;
+
+      &__text {
+        @apply flex flex-col items-center justify-center w-full mb-0 text-center;
+
+        > h2 {
+          @apply w-full mb-6 font-sans text-3xl font-bold text-gray-500 sm:text-3xl md:text-4xl;
+        }
+
+        > p {
+          @apply text-lg text-gray-700 md:text-xl;
+        }
+      }
+
+      &__form {
+        @apply flex flex-col items-center justify-center w-full mb-3 md:flex-row md:text-lg;
+
+        &__container {
+          @apply w-full lg:w-8/12;
+        }
+      }
+    }
+  }
+}
+
+.contHeader__news {
+  @apply flex w-full h-auto px-4 bg-gray-200 border-2 border-gray-200 shadow-md py-14 lg:pt-32;
+
+  .main_container {
+    @apply flex flex-col items-center justify-center w-full lg:flex-row;
+
+    &__cont {
+      @apply justify-center w-full px-10 mb-0 mt-14 items-center lg:mb-0 lg:mt-5;
+
+      &__text {
+        @apply flex flex-col items-center justify-center w-full mb-0 text-center;
+
+        > h2 {
+          @apply w-full mb-6 font-sans text-3xl font-bold text-gray-500 sm:text-3xl md:text-4xl;
+        }
+
+        > p {
+          @apply text-lg text-gray-700 md:text-xl;
+        }
+      }
+
+      &__nav {
+        @apply flex flex-row items-center justify-center w-full mb-3 md:flex-row md:text-base;
+        > ul {
+          @apply w-full flex flex-row justify-center items-center flex-wrap space-x-5;
+          > li {
+            @apply border-2 border-gray-400 rounded px-3 py-1 mb-5;
+            > a {
+              @apply text-gray-500;
+
+            }
+            &:hover {
+              @apply bg-gray-300 cursor-pointer;
+              a{
+                @apply text-gray-700 ;
+              }
+            }
+            &.active{
+              @apply bg-gray-300;
+              a{
+                @apply text-gray-700;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

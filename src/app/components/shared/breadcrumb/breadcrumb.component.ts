@@ -110,6 +110,12 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
               // this.title = this.dataHelpD.features[0]?.title;
               // this.addItemBreadcrumbs(this.title, '');
               break;
+            case 'news':
+              lang === 'en' ? this.title = 'Blog' : this.title = 'Noticias';
+              this.addItemBreadcrumbs(this.title, '/resources/news');
+              break;
+
+
             default:
               // console.log(`object`, this.dataHelpF.features[0]?.product)
               // this.title = this.dataHelpF.features[0]?.product;

@@ -17,6 +17,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   videoSource!: string;
   title!: string;
   showBtnVideo!: boolean;
+  urlBreadcrumbs!: any;
+  fullData: any = [];
 
   constructor(
     private _apiJSONService: ApiJsonService,
@@ -46,9 +48,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
    * -------------------------------------------------------
    */
   setSubscriptions() {
-    this._subscription = this._store.select('ui').subscribe((state) => {
-      this.showBtnVideo = state.show_btnvideo;
-    })
+    this._subscription.add(
+      this._store.select('ui').subscribe((state) => {
+        this.showBtnVideo = state.show_btnvideo;
+        this.urlBreadcrumbs = state.urlBreadcrumbs;
+      })
+    );
+    this._subscription.add(
+      this._store.select('api').subscribe((state) => {
+        this.fullData = state.arrayNews.apiArray;
+        this.activeCategoryMenu(this.fullData.header);
+      })
+    );
+
   }
 
 
@@ -91,6 +103,30 @@ export class HeaderComponent implements OnInit, OnDestroy {
       });
 
     });
+  }
+
+
+  /**
+   * -------------------------------------------------------
+   * @summary activeCategoryMenu
+   * @description Asigna el valor de true o false al atributo active del menu de categorias
+   * @param {array} data areglo de opciones del menu de categorias
+   * -------------------------------------------------------
+   */
+  activeCategoryMenu(data: any) {
+    if (data !== undefined) {
+      data[0]?.nodes.filter((item: any) => {
+        if (item.url === '/resources/news' && this.urlBreadcrumbs[3] === undefined) {
+          item.active = true
+        } else if (item.url === this.urlBreadcrumbs[3]) {
+          item.active = true
+        }
+        else {
+          item.active = false
+        }
+
+      });
+    }
   }
 
   /**

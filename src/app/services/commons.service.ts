@@ -58,6 +58,7 @@ export class CommonsService implements OnDestroy {
     let urlActiveLevel2 = '';
 
     this._reduxService.setUrlBreadcrumbs(arrayUrl1);
+
     if (arrayUrl2.length === 1) {
       if (arrayUrl2[0] === '') {
         urlActiveLevel1 = '/home';

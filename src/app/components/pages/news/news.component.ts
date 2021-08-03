@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { Title } from '@angular/platform-browser';
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/store/app.reducers";
@@ -13,14 +14,20 @@ import { ApiJsonService, ReduxService } from '@services/index';
 export class NewsComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();
   data: any = [];
+  dataNews: any = [];
   dataHeader: any = [];
   dataMenu: any = [];
   type: any;
   language!: string;
   apiConNews!: boolean;
+  category!: number;
   fullData: any = [];
 
+  urlBreadcrumbs!: any;
+  fullBreadcrumbs: any = [];
+
   constructor(
+    private _activatedRoute: ActivatedRoute,
     private _titleService: Title,
     private _apiJSONService: ApiJsonService,
     private _reduxService: ReduxService,
@@ -49,6 +56,7 @@ export class NewsComponent implements OnInit, OnDestroy {
   setSubscriptions() {
     this._subscription.add(
       this._store.select('ui').subscribe((state) => {
+        this.urlBreadcrumbs = state.urlBreadcrumbs;
         this.language = state.language;
       })
     );
@@ -90,6 +98,8 @@ export class NewsComponent implements OnInit, OnDestroy {
       this.getDataArray(this.fullData)
     }
   }
+
+
 
   /**
    * -------------------------------------------------------
