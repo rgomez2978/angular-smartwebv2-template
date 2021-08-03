@@ -14,11 +14,12 @@ import { ApiJsonService, ReduxService } from '@services/index';
 export class NewsComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();
   data: any = [];
-  dataNews: any = [];
   dataHeader: any = [];
   dataMenu: any = [];
+  dataFilter: any = [];
   type: any;
   language!: string;
+  message!: string;
   apiConNews!: boolean;
   category!: number;
   fullData: any = [];
@@ -44,6 +45,12 @@ export class NewsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this._titleService.setTitle('Smart Suite Tools');
     this.setSubscriptions();
+
+    if (this.language === 'es') {
+      this.message = 'Selecccione una opción';
+    } else {
+      this.message = 'Please select an option';
+    }
   }
 
 
@@ -114,6 +121,8 @@ export class NewsComponent implements OnInit, OnDestroy {
       this.data = array;
       this.dataHeader = this.data.header;
       this.dataMenu = this.data.menu;
+      this.dataFilter = this.data.filter;
+      console.log(`this.dataFilter`, this.dataFilter)
       return this.data;
     }
   }

@@ -50,6 +50,20 @@
       "url": "/resources/news"
     }]
   }],
+  "filter": [{
+    "title": "Sort by:",
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "url": "",
+      "title": "More popular"
+    }, {
+      "id": 2,
+      "order": 2,
+      "url": "",
+      "title": "Publication date"
+    }]
+  }],
   "news": [{
     "id": 1,
     "order": 1,
