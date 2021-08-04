@@ -1,42 +1,5 @@
 <section class="animate__animated animate__fadeIn contentPage">
-    <div class="contentPage__content" [ngClass]="{'class': true}">
-        <div class="containerScrollContent" *ngFor="let item of dataContent">
-            <header>
-                <h1> {{item.title}}</h1>
-                <p>{{item.description}}</p>
-            </header>
-            <section>
-                <div class="containerScrollContent__left">
-                    <h3 *ngFor="let itemNode of item.items; let i = index"
-                        [ngClass]="{'active':currentSection==='section'+ i}" (click)="scrollTo('section'+i)">
-                        {{itemNode.title}}</h3>
-                </div>
-                <div class="containerScrollContent__right">
-                    <div id="parentDiv" appScrollContent [tagType]="['DIV']" (sectionChange)="onSectionChange($event)"
-                        class="containerScrollContent__right__items">
-                        <div *ngFor="let itemNode of item.items; let i = index" [id]="'section'+i"
-                            class="content_right">
-                            <h1>{{itemNode.title}}</h1>
-                            <div class="content_right__text"
-                                [ngClass]="{'reverse': itemNode.position === 'left', 'center': itemNode.position === 'center'}">
-                                <p [innerHtml]="itemNode.description | safedom: 'html'"></p>
-                                <div *ngFor="let itemNodeMedia of itemNode.media"
-                                    [ngClass]="{'reverse': itemNode.position === 'left'}">
-                                    <app-media [data]="itemNodeMedia.url" [type]="'img'" [format]="'png'"></app-media>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="containerScrollContent__right__footer">
-                        <h2>{{item.access[0]?.title}}</h2>
-                        <ul>
-                            <li *ngFor="let itemNodeAccess of item.access[0]?.nodes">
-                                {{itemNodeAccess.title}}
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-        </div>
+    <div class="contentPage__content">
+        <app-content [data]="dataContent" [type]="'help_detail'"></app-content>
     </div>
 </section>

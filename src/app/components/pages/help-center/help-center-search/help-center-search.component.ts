@@ -8,7 +8,7 @@ import { ApiJsonService, ReduxService } from '@services/index';
 @Component({
   selector: 'app-help-center-search',
   templateUrl: './help-center-search.component.html',
-  styleUrls: ['./help-center-search.component.scss']
+  styleUrls: ['../../pages.component.scss'],
 })
 export class HelpCenterSearchComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();

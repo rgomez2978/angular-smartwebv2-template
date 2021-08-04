@@ -1,16 +1,14 @@
-import { Component, OnInit, OnDestroy, Inject } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Title } from '@angular/platform-browser';
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/store/app.reducers";
 import { Subscription } from "rxjs";
 import { ApiJsonService, ReduxService } from '@services/index';
-import { DOCUMENT } from '@angular/common';
-import { PageScrollService } from 'ngx-page-scroll-core';
 
 @Component({
   selector: 'app-help-center-detail',
   templateUrl: './help-center-detail.component.html',
-  styleUrls: ['./help-center-detail.component.scss']
+  styleUrls: ['../../pages.component.scss'],
 })
 export class HelpCenterDetailComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();
@@ -20,16 +18,12 @@ export class HelpCenterDetailComponent implements OnInit, OnDestroy {
   language!: string;
   apiConHelpD!: boolean;
   fullData: any = [];
-  currentSection: string = 'section0';
 
   constructor(
     private _titleService: Title,
     private _apiJSONService: ApiJsonService,
     private _reduxService: ReduxService,
     private _store: Store<AppState>,
-    private pageScrollService: PageScrollService,
-    @Inject(DOCUMENT) private document: any
-
   ) { }
 
 
@@ -43,10 +37,6 @@ export class HelpCenterDetailComponent implements OnInit, OnDestroy {
     this._titleService.setTitle('Smart Suite Tools');
     this.setSubscriptions();
   }
-
-
-
-
 
   /**
   * -------------------------------------------------------
@@ -87,7 +77,6 @@ export class HelpCenterDetailComponent implements OnInit, OnDestroy {
         (resp: any) => {
           this.data = resp;
           if (this.data !== undefined) {
-            // console.log(`this.data`, this.data)
             this._reduxService.setArray('help_details', this.data, lang);
             this.getDataArray(this.fullData)
           }
@@ -99,7 +88,6 @@ export class HelpCenterDetailComponent implements OnInit, OnDestroy {
       this.getDataArray(this.fullData)
     }
   }
-
 
 
   /**
@@ -118,38 +106,6 @@ export class HelpCenterDetailComponent implements OnInit, OnDestroy {
     }
   }
 
-
-
-  /**
-   * -------------------------------------------------------
-   * @summary onSectionChange
-   * @description obtiene el nombre del id o seccion seleccionada
-   * @param {string} sectionId nombre del id o seccion
-   * -------------------------------------------------------
-   */
-  onSectionChange(sectionId: string) {
-    this.currentSection = sectionId;
-  }
-
-
-
-  /**
-   * -------------------------------------------------------
-   * @summary scrollTo
-   * @description Realiza scroll a la seccion seleccionada
-   * @param {string} sectionId nombre del id o seccion
-   * -------------------------------------------------------
-   */
-  scrollTo(section: any) {
-    this.pageScrollService.scroll({
-      document: this.document,
-      scrollTarget: '#' + section,
-      duration: 400,
-      scrollOffset: 150,
-      verticalScrolling: true,
-      interruptible: false,
-    });
-  }
 
 
   /**

@@ -283,6 +283,17 @@ export class ApiJsonService implements OnInit, OnDestroy {
           this._reduxService.setAPIConnect(page, false, lang);
         }
         break;
+      case 'news_details':
+        if (lang === this.apiConNewsDLang && this.apiConHelpD) {
+          this._reduxService.setAPIConnect('layout', true, lang);
+          this._reduxService.setAPIConnect('news', true, lang);
+          this._reduxService.setAPIConnect(page, true, lang);
+        } else {
+          this._reduxService.setAPIConnect('layout', false, lang);
+          this._reduxService.setAPIConnect('news', false, lang);
+          this._reduxService.setAPIConnect(page, false, lang);
+        }
+        break;
       default:
         break
     }

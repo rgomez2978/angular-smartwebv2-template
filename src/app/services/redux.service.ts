@@ -98,6 +98,9 @@ export class ReduxService {
       case 'news':
         this._store.dispatch(ownActions.setAPIConnectNews({ apiConNews: { apiCon: conn, apiLang: lang } }));
         break;
+      case 'news_details':
+        this._store.dispatch(ownActions.setAPIConnectNewsD({ apiConNewsD: { apiCon: conn, apiLang: lang } }));
+        break;
       default:
         this._store.dispatch(ownActions.setAPIConnectLayout({ apiConLayout: { apiCon: conn, apiLang: lang } }));
         break
@@ -155,6 +158,9 @@ export class ReduxService {
         break;
       case 'news':
         this._store.dispatch(ownActions.setArrayNews({ arrayNews: { apiLang: lang, apiArray: array } }));
+        break;
+      case 'news_details':
+        this._store.dispatch(ownActions.setArrayNewsD({ arrayNewsD: { apiLang: lang, apiArray: array } }));
         break;
       default:
         this._store.dispatch(ownActions.setArrayLayout({ arrayLayout: { apiLang: lang, apiArray: array } }));

@@ -1,0 +1,53 @@
+.contentPage {
+  @apply w-full bg-white;
+
+  &.pag {
+    @apply bg-transparent -mt-24;
+  }
+
+  &__header {
+    @apply w-full h-full pb-2;
+  }
+
+  &__breadcrumbs {
+    @apply flex flex-row items-center justify-between mx-10 mb-5;
+
+    .breadcrumb_filter {
+      @apply flex flex-col items-end mt-5;
+      &__container{
+        @apply flex flex-row items-center;
+
+        >span{
+          @apply mr-5;
+        }
+
+        >select{
+          @apply px-2 py-1 border border-gray-500 rounded-md outline-none focus:outline-none;
+        }
+      }
+    }
+  }
+
+  &__content {
+    @apply py-10;
+
+    &.cont {
+      @apply py-2 px-0 md:px-5;
+    }
+    &.contNews {
+      @apply py-5 flex flex-row items-start justify-between;
+
+      &__left {
+        @apply flex-row flex-1 items-start justify-start p-0;
+      }
+
+      &__right {
+        @apply hidden  md:flex py-0 sticky inset-y-32 justify-end items-center p-0 ml-10 mr-1;
+      }
+    }
+  }
+
+  &__footer {
+    @apply mb-10;
+  }
+}

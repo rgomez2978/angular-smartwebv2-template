@@ -113,20 +113,49 @@
 </div>
 
 
-
-
 <!-- CONTENT - HELP - DETAIL -->
 <div *ngIf="type === 'help_detail'">
-    <!-- {{data | json}} -->
+    <div class="containerDetailHelp" *ngFor="let item of data">
+        <header>
+            <h1> {{item.title}}</h1>
+            <p>{{item.description}}</p>
+        </header>
+        <section>
+            <div class="containerDetailHelp__left">
+                <h3 *ngFor="let itemNode of item.items; let i = index"
+                    [ngClass]="{'active':currentSection==='section'+ i}" (click)="scrollTo('section'+i)">
+                    {{itemNode.title}}</h3>
+            </div>
+            <div class="containerDetailHelp__right">
+                <div id="parentDiv" appScrollContent [tagType]="['DIV']" (sectionChange)="onSectionChange($event)"
+                    class="containerDetailHelp__right__items">
+                    <div *ngFor="let itemNode of item.items; let i = index" [id]="'section'+i" class="content_right">
+                        <h1>{{itemNode.title}}</h1>
+                        <div class="content_right__text"
+                            [ngClass]="{'reverse': itemNode.position === 'left', 'center': itemNode.position === 'center'}">
+                            <p [innerHtml]="itemNode.description | safedom: 'html'"></p>
+                            <div *ngFor="let itemNodeMedia of itemNode.media"
+                                [ngClass]="{'reverse': itemNode.position === 'left'}">
+                                <app-media [data]="itemNodeMedia.url" [type]="'img'" [format]="'png'"></app-media>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="containerDetailHelp__right__footer">
+                    <h2>{{item.access[0]?.title}}</h2>
+                    <ul>
+                        <li *ngFor="let itemNodeAccess of item.access[0]?.nodes">
+                            {{itemNodeAccess.title}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
 </div>
 
 
-
-
-
-
-
-<!-- CONTENT - NEWS - HOME -->
+<!-- CONTENT - NEWS - HOME - LIST -->
 <div *ngIf="type === 'news_home'">
     <div *ngIf="data.length > 0" class="containerListNews animate__animated animate__fadeIn ">
         <div class="containerListNews__results" *ngFor="let item of data | paginate : config; let i = index">
@@ -200,6 +229,24 @@
             </div>
         </div>
     </div>
+</div>
 
 
+
+<!-- CONTENT - NEWS - DETAILS  -->
+<div *ngIf="type === 'news_detail'">
+    <div class="containerDetailNews" *ngFor="let item of data">
+        <section>
+            <div class="containerDetailNews__content">
+                <div class="containerDetailNews__content__items">
+                    <div *ngFor="let item of data; let i = index" class="content">
+                        <h1>{{item.title}}</h1>
+                        <div class="content__text">
+                            <p [innerHtml]="item.description | safedom: 'html'"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </div>

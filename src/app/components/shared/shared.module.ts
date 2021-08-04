@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 
 // COMPONENTS
 import { HeaderComponent } from '@components/header/header.component';
@@ -27,6 +28,7 @@ import { MediaComponent } from '@components/media/media.component';
 
 // DIRECTIVES
 import { FormValidateDirective } from '@directives/form-validate.directive';
+import { ScrollContentDirective } from '@directives/scroll-content.directive';
 
 // PIPES
 import { NoimagePipe } from '@pipes/noimage.pipe';
@@ -51,7 +53,8 @@ import { SafedomPipe } from '@pipes/safedom.pipe';
     MediaComponent,
     FormValidateDirective,
     SafedomPipe,
-    NoimagePipe
+    NoimagePipe,
+    ScrollContentDirective
   ],
   imports: [
     RouterModule,
@@ -61,6 +64,7 @@ import { SafedomPipe } from '@pipes/safedom.pipe';
     SlickCarouselModule,
     ReactiveFormsModule,
     LazyLoadImageModule,
+    NgxPageScrollCoreModule.forRoot(),
   ],
   exports: [
     HeaderComponent,
@@ -78,6 +82,7 @@ import { SafedomPipe } from '@pipes/safedom.pipe';
     StyckyComponent,
     MediaComponent,
     FormValidateDirective,
+    ScrollContentDirective,
     SafedomPipe,
     NoimagePipe
   ],

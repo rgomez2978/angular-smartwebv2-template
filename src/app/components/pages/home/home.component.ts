@@ -4,11 +4,10 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducers';
 import { Subscription } from 'rxjs';
 import { ApiJsonService, ReduxService } from '@services/index';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  styleUrls: ['../pages.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();

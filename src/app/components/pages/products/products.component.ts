@@ -9,7 +9,7 @@ import { ApiJsonService, ReduxService } from '@services/index';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  styleUrls: ['../pages.component.scss'],
 })
 export class ProductsComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();

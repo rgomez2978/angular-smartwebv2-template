@@ -1,0 +1,15 @@
+{
+    "browser": [{
+      "id": 1,
+      "order": 1,
+      "title": "Resources - News",
+      "description": ""
+    }],
+    "content": [{
+      "id": 1,
+      "order": 1,
+      "date": "2021/05/05",
+      "title": "5 tips to work on your strategic planning",
+      "description": "<p>Es fundamental que este proceso inicie con un an&aacute;lisis objetivo y realista del escenario actual de la empresa pero siempre con miras hacia el futuro de manera ambiciosa, presentando retos y crecimiento y buscando cumplir con la misi&oacute;n para la cual fue creada la empresa y a su vez avanzar en el camino hacia la visi&oacute;n establecida.</p> <p style=\"text-align:center\"><img alt=\"sadasdasdasdasdasdasd\" src=\"https://via.placeholder.com/300x200\" style=\"height:200px; width:300px\" /></p> <p style=\"text-align:center\">&nbsp;</p> <ol> <li>Involucra a tu equipo de trabajo por medio de sesiones de lluvia de ideas.</li> <li>Procura no limitarte a modelos establecidos o plantillas.</li> <li>Utiliza un lenguaje sencillo y claro en el establecimiento de tus objetivos.</li> <li>Piensa &ldquo;fuera de la caja&rdquo; y atr&eacute;vete a innovar.</li> <li>Aseg&uacute;rate de que tu personal tenga claras la misi&oacute;n y visi&oacute;n de la compa&ntilde;&iacute;a</li> <li>prueba</li> </ol> <p style=\"text-align:center\">&nbsp;</p>"
+    }]
+  }

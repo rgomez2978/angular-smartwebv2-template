@@ -30,7 +30,7 @@ const routesHelp: Routes = [
                 path: 'search',
                 component: HelpCenterSearchComponent,
             },
-            // { path: "**", pathMatch: 'full', redirectTo: '' },
+            { path: "**", pathMatch: 'full', redirectTo: '' },
         ],
     }
 ];

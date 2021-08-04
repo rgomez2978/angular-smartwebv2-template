@@ -7,7 +7,8 @@ import { Subscription } from "rxjs";
 @Component({
   selector: 'app-news-list',
   templateUrl: './news-list.component.html',
-  styleUrls: ['./news-list.component.scss']
+  styleUrls: ['../../pages.component.scss'],
+
 })
 export class NewsListComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();
@@ -20,7 +21,6 @@ export class NewsListComponent implements OnInit, OnDestroy {
   apiConNewsLang!: string;
   fullData: any = [];
   urlBreadcrumbs!: any;
-
 
   constructor(
     private _titleService: Title,
@@ -38,7 +38,6 @@ export class NewsListComponent implements OnInit, OnDestroy {
     this._titleService.setTitle('Smart Suite Tools');
     this.setSubscriptions();
   }
-
 
   /**
   * -------------------------------------------------------
@@ -79,9 +78,6 @@ export class NewsListComponent implements OnInit, OnDestroy {
   }
 
 
-
-
-
   /**
   * -------------------------------------------------------
   * @summary getCategoryNews
@@ -93,8 +89,6 @@ export class NewsListComponent implements OnInit, OnDestroy {
   getCategoryNews(array: any, cat: string) {
     return array.news.filter((opt: any) => opt.category === cat);
   }
-
-
 
   /**
    * -------------------------------------------------------
@@ -116,7 +110,6 @@ export class NewsListComponent implements OnInit, OnDestroy {
       return this.data;
     }
   }
-
 
   /**
    * -------------------------------------------------------

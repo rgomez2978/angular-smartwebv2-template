@@ -67,12 +67,10 @@ export class FooterComponent implements OnInit {
     let page = this.urlActiveLevel1.split('/')[1];
     // console.log(`page`, page)
     console.log(`url`, url)
-    // console.log(`url[3]`, url[3])
     if (page === 'resources' && url.length >= 3) {
       if (url[3] === undefined) {
         urlFinal = url[2]
       } else {
-
         if (url[2] === 'news') {
           urlFinal = 'news';
         } else {

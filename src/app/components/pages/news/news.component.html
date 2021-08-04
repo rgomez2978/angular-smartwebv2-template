@@ -2,14 +2,16 @@
     <header class="contentPage__header">
         <app-header [data]="dataHeader" [type]="'news'"></app-header>
     </header>
-    <div class="flex flex-row items-center justify-between mx-10 mb-5">
+
+
+    <div class="contentPage__breadcrumbs">
         <div class="-mt-10">
             <app-breadcrumb [data]="" [type]="'page'"></app-breadcrumb>
         </div>
-        <div class="flex flex-col items-end mt-5">
-            <div class="flex flex-row items-center" *ngFor="let item of dataFilter">
-                <span class="mr-5">{{item.title}}</span>
-                <select class="px-2 py-1 border border-gray-500 rounded-md outline-none focus:outline-none">
+        <div class="breadcrumb_filter">
+            <div class="breadcrumb_filter__container" *ngFor="let item of dataFilter">
+                <span>{{item.title}}</span>
+                <select>
                     <option value="">{{message}}</option>
                     <option *ngFor="let itemFil of item.nodes" [value]="itemFil.id">
                         {{itemFil.title}}
@@ -18,11 +20,12 @@
             </div>
         </div>
     </div>
-    <div class="contentPage__content">
-        <div class="contentPage__content__left">
+
+    <div class="contentPage__content contNews">
+        <div class="contentPage__content contNews__left">
             <router-outlet></router-outlet>
         </div>
-        <div class="contentPage__content__right">
+        <div class="contentPage__content contNews__right">
             <app-menu [type]="'news'" [data]="dataMenu"></app-menu>
         </div>
     </div>

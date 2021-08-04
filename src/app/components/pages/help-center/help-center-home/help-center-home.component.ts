@@ -7,7 +7,7 @@ import { Subscription } from "rxjs";
 @Component({
   selector: 'app-help-center-home',
   templateUrl: './help-center-home.component.html',
-  styleUrls: ['./help-center-home.component.scss']
+  styleUrls: ['../../pages.component.scss'],
 })
 export class HelpCenterHomeComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();

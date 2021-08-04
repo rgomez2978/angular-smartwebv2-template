@@ -7,7 +7,7 @@ import { ApiJsonService, ReduxService } from '@services/index';
 @Component({
   selector: 'app-help-center',
   templateUrl: './help-center.component.html',
-  styleUrls: ['./help-center.component.scss']
+  styleUrls: ['../pages.component.scss'],
 })
 export class HelpCenterComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();

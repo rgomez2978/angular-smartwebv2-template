@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/store/app.reducers";
 import { Subscription } from "rxjs";
+import { DOCUMENT } from '@angular/common';
+import { PageScrollService } from 'ngx-page-scroll-core';
 
 @Component({
   selector: 'app-content',
@@ -10,7 +12,6 @@ import { Subscription } from "rxjs";
 })
 export class ContentComponent implements OnInit {
   private _subscription: Subscription = new Subscription();
-
   @Input() data: any;
   @Input() type!: string;
   dataSearch: any = [];
@@ -22,6 +23,8 @@ export class ContentComponent implements OnInit {
   tableSizes = [3, 6, 9, 12];
   message!: string;
   language!: string;
+  currentSection: string = 'section0';
+
 
 
   config = {
@@ -33,7 +36,9 @@ export class ContentComponent implements OnInit {
 
 
   constructor(
-    private _store: Store<AppState>
+    private _store: Store<AppState>,
+    private pageScrollService: PageScrollService,
+    @Inject(DOCUMENT) private document: any
   ) { }
 
 
@@ -69,6 +74,38 @@ export class ContentComponent implements OnInit {
         this.language = state.language;
       })
     );
+  }
+
+
+
+  /**
+   * -------------------------------------------------------
+   * @summary onSectionChange
+   * @description obtiene el nombre del id o seccion seleccionada
+   * @param {string} sectionId nombre del id o seccion
+   * -------------------------------------------------------
+   */
+  onSectionChange(sectionId: string) {
+    this.currentSection = sectionId;
+  }
+
+
+  /**
+   * -------------------------------------------------------
+   * @summary scrollTo
+   * @description Realiza scroll a la seccion seleccionada
+   * @param {string} sectionId nombre del id o seccion
+   * -------------------------------------------------------
+   */
+  scrollTo(section: any) {
+    this.pageScrollService.scroll({
+      document: this.document,
+      scrollTarget: '#' + section,
+      duration: 400,
+      scrollOffset: 150,
+      verticalScrolling: true,
+      interruptible: false,
+    });
   }
 
 

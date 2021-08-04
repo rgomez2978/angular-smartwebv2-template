@@ -9,7 +9,6 @@ import { HomeComponent } from '@pages/home/home.component';
 import { ProductsComponent } from '@pages/products/products.component';
 import { PlanesComponent } from '@pages/planes/planes.component';
 import { ResourcesCenterComponent } from '@pages/resources-center/resources-center.component';
-import { FaqComponent } from '@pages/faq/faq.component';
 import { ContactusComponent } from '@pages/contactus/contactus.component';
 import { PrivacyPoliticsComponent } from '@pages/privacy-politics/privacy-politics.component';
 import { LegalTermsComponent } from '@pages/legal-terms/legal-terms.component';
@@ -26,7 +25,6 @@ import { NotFoundComponent } from '@pages/not-found/not-found.component';
     ProductsComponent,
     PlanesComponent,
     ResourcesCenterComponent,
-    FaqComponent,
     ContactusComponent,
     PrivacyPoliticsComponent,
     LegalTermsComponent,
@@ -46,7 +44,6 @@ import { NotFoundComponent } from '@pages/not-found/not-found.component';
     ProductsComponent,
     PlanesComponent,
     ResourcesCenterComponent,
-    FaqComponent,
     ContactusComponent,
     PrivacyPoliticsComponent,
     LegalTermsComponent,
