@@ -124,7 +124,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
         else {
           item.active = false
         }
-
       });
     }
   }

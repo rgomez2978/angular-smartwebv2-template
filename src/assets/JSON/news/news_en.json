@@ -17,31 +17,31 @@
       "order": 1,
       "active": false,
       "title": "Strategic planning",
-      "url": "cat1"
+      "url": "strategic-planning"
     }, {
       "id": 2,
       "order": 2,
       "active": false,
       "title": "Human development",
-      "url": "cat2"
+      "url": "human-development"
     }, {
       "id": 3,
       "order": 3,
       "active": false,
       "title": "Leadership",
-      "url": "cat3"
+      "url": "leadership"
     }, {
       "id": 4,
       "order": 4,
       "active": false,
       "title": "Organizational culture",
-      "url": "cat4"
+      "url": "organizational-culture"
     }, {
       "id": 5,
       "order": 5,
       "active": false,
       "title": "Finance",
-      "url": "cat5"
+      "url": "finance"
     }, {
       "id": 6,
       "order": 6,
@@ -67,12 +67,12 @@
   "news": [{
     "id": 1,
     "order": 1,
-    "catId": 1,
+    "category":"strategic-planning",
     "title": "5 tips to work on your strategic planning",
     "description": "Learn how to use our management tool that allows you to efficiently establish your next steps as an organization.",
     "date": "2021/05/05",
     "url_title": "Read more",
-    "url": "",
+    "url": "details/1",
     "media": [{
       "id": 1,
       "order": 1,
@@ -83,12 +83,12 @@
   }, {
     "id": 2,
     "order": 2,
-    "catId": 1,
+    "category":"strategic-planning",
     "title": "How to enhance your organizational culture?",
     "description": "It helps to take time to consider ways you can keep your team identified with your organization's mission. Find out how you can use our tools for that.",
     "date": "2021/10/20",
     "url_title": "Read more",
-    "url": "",
+    "url": "details/2",
     "media": [{
       "id": 1,
       "order": 1,
@@ -99,12 +99,12 @@
   }, {
     "id": 3,
     "order": 3,
-    "catId": 2,
+    "category": "human-development",
     "title": "Steps for effective change management",
     "description": "When it comes to planning a project, the work breakdown structure is one of the first things a project manager has to work on.",
     "date": "2021/11/02",
     "url_title": "Read more",
-    "url": "",
+    "url": "details/3",
     "media": [{
       "id": 1,
       "order": 1,
@@ -115,12 +115,12 @@
   }, {
     "id": 4,
     "order": 4,
-    "catId": 3,
+    "category": "leadership",
     "title": "How can I reuse the shapes with attached images?",
     "description": "Excepteur irure nisi exercitation qui culpa sint ea. Do non esse laborum elit. Aliquip anim dolor consectetur consectetur aute aute culpa adipisicing sit ullamco velit sit deserunt. Do commodo velit eu dolor dolore labore Lorem et quis anim velit reprehenderit non. Non eu veniam non pariatur labore nostrud est commodo culpa consectetur ut aute deserunt commodo.",
     "date": "2021/11/02",
     "url_title": "Read more",
-    "url": "",
+    "url": "details/4",
     "media": [{
       "id": 1,
       "order": 1,
@@ -131,12 +131,12 @@
   }, {
     "id": 5,
     "order": 5,
-    "catId": 4,
+    "category": "organizational-culture",
     "title": "Where can the images be attached?",
     "description": "Eu exercitation proident minim cillum anim culpa irure amet non consequat nostrud veniam. Nulla excepteur qui sunt laboris.Incididunt cupidatat est non proident esse cupidatat excepteur est aliqua commodo nulla sint in exercitation.",
     "date": "2021/11/02",
     "url_title": "Read more",
-    "url": "",
+    "url": "details/5",
     "media": [{
       "id": 1,
       "order": 1,

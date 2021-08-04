@@ -17,31 +17,31 @@
       "order": 1,
       "active": false,
       "title": "Planificación estrategica",
-      "url": "cat1"
+      "url": "strategic-planning"
     }, {
       "id": 2,
       "order": 2,
       "active": false,
       "title": "Desarrollo humano",
-      "url": "cat2"
+      "url": "human-development"
     }, {
       "id": 3,
       "order": 3,
       "active": false,
       "title": "Liderazgo",
-      "url": "cat3"
+      "url": "leadership"
     }, {
       "id": 4,
       "order": 4,
       "active": false,
       "title": "Cultura organizacional",
-      "url": "cat4"
+      "url": "organizational-culture"
     }, {
       "id": 5,
       "order": 5,
       "active": false,
       "title": "Finanzas",
-      "url": "cat5"
+      "url": "finance"
     }, {
       "id": 6,
       "order": 6,
@@ -67,7 +67,7 @@
   "news": [{
     "id": 1,
     "order": 1,
-    "catId": 1,
+    "category":"strategic-planning",
     "title": "5 tips para trabajar tu planificación estratégica",
     "description": "Conoce cómo utilizar nuestra herramienta de gestión que te permite establecer de forma eficiente tus próximos pasos como organización.",
     "date": "2021/05/05",
@@ -83,7 +83,7 @@
   }, {
     "id": 2,
     "order": 2,
-    "catId": 1,
+    "category":"strategic-planning",
     "title": "¿Cómo potenciar tu cultura organizacional?",
     "description": "Es útil dedicar tiempo a considerar formas en las que puedas mantener a tu equipo identificado con la misión de tu organización. Descubre cómo puedes utilizar nuestras herramientas para eso.",
     "date": "2021/10/20",
@@ -99,7 +99,7 @@
   }, {
     "id": 3,
     "order": 3,
-    "catId": 2,
+    "category": "human-development",
     "title": "Pasos para una gestión  de cambio efectiva",
     "description": "Cuando se trata de planificar un proyecto, la estructura de desglose del trabajo es una de las primeras cosas en las que tiene que trabajar un director de proyecto.",
     "date": "2021/11/02",
@@ -115,7 +115,7 @@
   }, {
     "id": 4,
     "order": 4,
-    "catId": 3,
+    "category": "leadership",
     "title": "¿Cómo puedo reutilizar las formas con imágenes adjuntas?",
     "description": "Excepteur irure nisi exercitation qui culpa sint ea. Do non esse laborum elit. Aliquip anim dolor consectetur consectetur aute aute culpa adipisicing sit ullamco velit sit deserunt. Do commodo velit eu dolor dolore labore Lorem et quis anim velit reprehenderit non. Non eu veniam non pariatur labore nostrud est commodo culpa consectetur ut aute deserunt commodo.",
     "date": "2021/11/02",
@@ -131,7 +131,7 @@
   }, {
     "id": 5,
     "order": 5,
-    "catId": 4,
+    "category": "organizational-culture",
     "title": "¿Dónde se pueden adjuntar las imágenes?",
     "description": "Eu exercitation proident minim cillum anim culpa irure amet non consequat nostrud veniam. Nulla excepteur qui sunt laboris.Incididunt cupidatat est non proident esse cupidatat excepteur est aliqua commodo nulla sint in exercitation.",
     "date": "2021/11/02",

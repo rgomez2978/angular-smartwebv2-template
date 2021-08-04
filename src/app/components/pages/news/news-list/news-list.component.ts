@@ -87,11 +87,11 @@ export class NewsListComponent implements OnInit, OnDestroy {
   * @summary getCategoryNews
   * @description Obtiene el product por el ID, y la posicion del arreglo
   * @param {any} array arraglo a buscar
-  * @param {number} id numero o id del producto a buscar
+  * @param {string} cat nombre de la categoria
   * -------------------------------------------------------
   */
-  getCategoryNews(array: any, id: number) {
-    return array.news.filter((opt: any) => opt.catId === id);
+  getCategoryNews(array: any, cat: string) {
+    return array.news.filter((opt: any) => opt.category === cat);
   }
 
 
@@ -110,8 +110,8 @@ export class NewsListComponent implements OnInit, OnDestroy {
       if (this.urlBreadcrumbs[3] === undefined) {
         this.dataNews = this.data.news;
       } else {
-        let idcat = this.urlBreadcrumbs[3].substr(3)
-        this.dataNews = this.getCategoryNews(array, Number(idcat));
+        let cat = this.urlBreadcrumbs[3]
+        this.dataNews = this.getCategoryNews(array, cat);
       }
       return this.data;
     }
