@@ -169,6 +169,8 @@
     "id": 1,
     "order": 1,
     "title": "Novedades",
+    "title_news":"Ver más entradas del blog",
+    "title_news_link":"/resources/news",
     "nodes": [{
         "id": 1,
         "order": 1,

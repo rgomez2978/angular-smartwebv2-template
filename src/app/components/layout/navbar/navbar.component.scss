@@ -25,7 +25,7 @@
                 > li {
                   @apply relative items-center h-full px-0 border-2 w-full rounded cursor-pointer;
                   span {
-                    @apply font-medium tracking-wide transition-colors duration-150 h-full flex items-center w-full px-3;
+                    @apply font-medium tracking-wide transition-colors duration-150 h-full flex items-center w-max px-3;
                   }
                   > .subItemNav {
                     @apply absolute inset-0 z-10 flex-col hidden pt-3 mt-10;

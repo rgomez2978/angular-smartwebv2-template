@@ -10,8 +10,8 @@
       "order": 1,
       "background": "",
       "video": "./assets/video/46864998_480958359846948_3732618213144601967_n.mp4",
-      "title": "Centro de Recursos",
-      "description": "Encuentra informacion valiosa para maximizar el uso de tus aplicaciones.",
+      "title": "Resource Center",
+      "description": "Find valuable information to maximize the use of your applications.",
       "links": [{}]
     }],
     "faqs": [{
@@ -22,42 +22,42 @@
           "id": 1,
           "order": 1,
           "active": false,
-          "question": "Sobre Smart",
+          "question": "About Smart",
           "answer": [{
               "id": 1,
               "order": 1,
-              "title": "¿Cuánto cuesta tener Smart?",
-              "description": "Actualmente, la suite es gratuita, por lo que aprovecha tu oportunidad de probarla y sacarle todo el provecho que puedas."
+              "title": "How much does it cost to have Smart?",
+              "description": "The suite is currently free, so take your chance to try it out and get the most out of it."
             },
             {
               "id": 2,
               "order": 2,
-              "title": "¿Cuántas aplicaciones componen Smart? ",
-              "description": "Tenemos dos aplicaciones: Contacto, que permite crear, gestionar y compartir contactos; y Organigrama, en donde puedes crear y gestionar la estructura organizativa de empresas. Nos encontramos desarrollando más aplicaciones de la suite. ¡Espéralas pronto!"
+              "title": "How many applications make up Smart?",
+              "description": "We have two applications: Contact, which allows you to create, manage and share contacts; and Organization chart, where you can create and manage the organizational structure of companies. We are developing more applications in the suite. Expect them soon!"
             },
             {
               "id": 3,
               "order": 3,
-              "title": "¿Cuántos usuarios de mi empresa pueden registrarse en Smart?",
-              "description": "La suite es totalmente gratuita y por los momentos no tenemos ninguna limitación. Tú pones el número, nosotros te apoyamos."
+              "title": "How many users of my company can register in Smart?",
+              "description": "The suite is totally free and at the moment we have no limitations. You put the number, we support you."
             },
             {
               "id": 4,
               "order": 4,
-              "title": "¿Smart ofrece soporte técnico? ",
-              "description": "¡Claro! En español y en inglés. Contáctanos y con gusto resolveremos cualquier duda o inconveniente."
+              "title": "Does Smart offer technical support?",
+              "description": "Of course! In Spanish and English. Contact us and we will gladly resolve any questions or problems.!"
             },
             {
               "id": 5,
               "order": 5,
-              "title": "¿La información cargada en una de las aplicaciones de Smart se comparte con las demás aplicaciones de la suite?",
-              "description": "¡Sí! ¿No es maravilloso? Esta es una de nuestras premisas y grandes ventajas. Solo debes cargar la información una vez y podrás utilizarla en toda la suite. Por ejemplo, los cargos que se crean en un Organigrama pueden estar ocupados por personas que están en tu lista de contactos. Y lo mejor de todo es que al modificar la información de uno de tus contactos no habrá necesidad de hacer esas modificaciones en la aplicación de Organigrama. Con esto, evitamos que cometas errores y te ahorramos tiempo. "
+              "title": "Is the information uploaded to one of the Smart applications shared with the other applications in the suite?",
+              "description": "Yes! Is not it wonderful? This is one of our premises and great advantages. You only have to upload the information once and you can use it throughout the suite. For example, positions that are created in an Organization Chart may be filled by people who are on your contact list. And the best of all is that when modifying the information of one of your contacts there will be no need to make those modifications in the Organization Chart application. With this, we prevent you from making mistakes and save you time."
             },
             {
               "id": 6,
               "order": 6,
-              "title": "¿Cómo sé que mi información está segura? ",
-              "description": "La seguridad de tu información es vital para nosotros. Por ello, solo tú y aquellos a los que tú explícitamente autorices tendrán acceso a tu información. Diariamente, nos aseguramos de resguardar en respaldos toda tu información, de esta forma podemos garantizar seguridad en nuestro sistema. Además, tenemos equipos con redundancia que permiten que tu información esté protegida ante los posibles fallos que puedan surgir por su uso continuado."
+              "title": "How do I know that my information is safe? ",
+              "description": "The security of your information is vital to us. Therefore, only you and those whom you explicitly authorize will have access to your information. On a daily basis, we make sure to back up all your information, in this way we can guarantee security in our system. In addition, we have redundant equipment that allows your information to be protected against possible failures that may arise from its continued use."
             }
           ]
         },
@@ -65,42 +65,42 @@
           "id": 2,
           "order": 2,
           "active": false,
-          "question": "Sobre Contacto",
+          "question": "About Contact",
           "answer": [{
               "id": 1,
               "order": 1,
-              "title": "¿Puedo usar la aplicación Contacto sin acceso a internet? ",
-              "description": "Sí, podrás acceder e incluso modificar la información. Se sincronizará al volver a tener conexión a internet."
+              "title": "Can I use the Contact application without internet access?",
+              "description": "Yes, you can access and even modify the information. It will be synchronized when you have an internet connection again."
             },
             {
               "id": 2,
               "order": 2,
-              "title": "¿Puedo compartir mi lista de contactos con otros usuarios?",
-              "description": "Sí, puedes otorgar permisos a otros usuarios para que puedan ver o editar tu información."
+              "title": "Can I share my contact list with other users?",
+              "description": "Yes, you can grant permissions to other users so that they can view or edit your information."
             },
             {
               "id": 3,
               "order": 3,
-              "title": "¿Todos los usuarios de la suite tendrán acceso a mi información? ",
-              "description": "No, la característica de compartir información en la aplicación funciona a través de solicitudes. Cuando alguien quiera acceder a tu información, te enviará una solicitud. Si la aceptas el usuario podrá ver tu información, de lo contrario no."
+              "title": "Will all suite users have access to my information?",
+              "description": "No, the information sharing feature in the app works through requests. When someone wants to access your information, they will send you a request. If you accept it, the user will be able to see your information, otherwise not."
             },
             {
               "id": 4,
               "order": 4,
-              "title": "¿Puedo personalizar la información que comparto?",
-              "description": "¡Claro! Tú tienes el control y puedes decidir cual información específicamente quieres compartir con cada usuario."
+              "title": "Can I personalize the information I share?",
+              "description": "Of course! You are in control and can decide which information you specifically want to share with each user."
             },
             {
               "id": 5,
               "order": 5,
-              "title": "¿Desde la aplicación puedo realizar llamadas o incluso acceder a las redes sociales de mis contactos?",
-              "description": "¡Por supuesto! Desde la versión móvil de nuestra app podrás realizar llamadas, enviar mensajes de texto, correos y acceder a las redes sociales de tus contactos, ya que está conectada con las demás aplicaciones de tu teléfono."
+              "title": "Can I make calls from the application or even access the social networks of my contacts?",
+              "description": "Of course! From the mobile version of our app you can make calls, send text messages, emails and access the social networks of your contacts, since it is connected with the other applications on your phone."
             },
             {
               "id": 6,
               "order": 6,
-              "title": "¿Puedo dejar que otros manejen mi listado de contactos?",
-              "description": "Sí, gracias a nuestro módulo de control de acceso podrás dar permisos a quien tú quieras para que haga ediciones o modificaciones a tu lista de contactos."
+              "title": "Can I let others manage my contact list?",
+              "description": "Yes, thanks to our access control module you can give permissions to whoever you want to make edits or modifications to your contact list."
             }
           ]
         },
@@ -108,42 +108,42 @@
           "id": 3,
           "order": 3,
           "active": false,
-          "question": "Sobre Organigrama",
+          "question": "About Organization Chart",
           "answer": [{
               "id": 1,
               "order": 1,
-              "title": "¿Puedo manejar múltiples proyectos de diferentes empresas al mismo tiempo? ",
-              "description": "¡Claro! Podrás crear múltiples proyectos, compartirlos y editarlos simultáneamente."
+              "title": "Can I handle multiple projects from different companies at the same time? ",
+              "description": "Of course! You can create multiple projects, share and edit them simultaneously."
             },
             {
               "id": 2,
               "order": 2,
-              "title": "¿Puedo asignar múltiples personas a un cargo?",
-              "description": "Sí. Buscamos simplificar la forma en la que una empresa organiza a su equipo, por ello a un cargo podrás agregarle múltiples personas."
+              "title": "Can I assign multiple people to a position?",
+              "description": "Yes. We seek to simplify the way in which a company organizes its team, so you can add multiple people to one position."
             },
             {
               "id": 3,
               "order": 3,
-              "title": "¿Ofrecen alguna solución para aquellos cargos que se generan de forma temporal?",
-              "description": "Organigrama permite generar cargos temporales, relaciones funcionales e incluso incluir auditores dentro de la organización."
+              "title": "Do you offer a solution for those charges that are generated temporarily?",
+              "description": "Organization chart allows you to generate temporary positions, functional relationships and even include auditors within the organization."
             },
             {
               "id": 4,
               "order": 4,
-              "title": "¿Los cargos que se crean en Organigrama son reutilizables?",
-              "description": "¡Por supuesto! Al crear un cargo, lo podrás utilizar en múltiples lienzos. Al hacer un cambio de ese cargo, se aplicará a todos los lienzos donde se encuentra agregado. ¿No es maravilloso? "
+              "title": "Are the positions that are created in Organization Chart reusable?",
+              "description": "Of course! By creating a charge, you can use it on multiple canvases. When making a change to that charge, it will be applied to all canvases where it is added. Is not it wonderful?"
             },
             {
               "id": 5,
               "order": 5,
-              "title": "¿Organigrama permite que dos personas trabajen sobre un mismo proyecto?",
-              "description": "Organigrama, al igual que toda la suite Smart, es colaborativo. Pueden trabajar múltiples personas sin ningún inconveniente."
+              "title": "Does the organization chart allow two people to work on the same project?",
+              "description": "Organization chart, like the entire Smart suite, is collaborative. Multiple people can work without any inconvenience."
             },
             {
               "id": 6,
               "order": 6,
-              "title": "¿Puedo generar reportes de los organigramas que creo? ",
-              "description": "En Organigrama podrás generar múltiples reportes como personas por cargo, resumen de estructura organizativa y muchos más."
+              "title": "Can I generate reports of the organization charts that I create? ",
+              "description": "In Organization chart you can generate multiple reports such as people by position, summary of organizational structure and many more."
             }
           ]
         }
@@ -154,21 +154,23 @@
       "order": 1,
       "background": "",
       "img": "",
-      "title": "Manuales de uso",
-      "description": "para conocer más sobre cada aplicación",
+      "title": "User manuals",
+      "description": "to learn more about each application",
       "links": [{
         "id": 1,
         "order": 1,
         "type": "btn",
         "url": "/resources/help",
-        "title": "Ingresa aquí",
+        "title": "Login here",
         "description": ""
       }]
     }],
     "news": [{
       "id": 1,
       "order": 1,
-      "title": "Novedades",
+      "title": "News",
+      "title_news":"See more blog posts",
+      "title_news_link":"/resources/news",
       "nodes": [{
           "id": 1,
           "order": 1,

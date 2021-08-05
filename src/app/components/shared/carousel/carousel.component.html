@@ -71,9 +71,8 @@
                 <i class="icofont-curved-right icofont-4x "></i>
             </button>
         </div>
-
         <div class="slick_container__news__others">
-            <a href="">Ver más entradas del blog </a>
+            <a [routerLink]="data[0]?.title_news_link">{{data[0]?.title_news}}</a>
         </div>
     </div>
 </div>
