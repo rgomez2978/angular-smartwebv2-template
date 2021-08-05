@@ -1,3 +1,4 @@
+<!-- MEDIA - IMG -->
 <div *ngIf="type === 'img'">
     <picture >
         <source type="image/webp" [attr.defaultImage]="data +'.webp'" [attr.lazyLoad]="data +'.webp'" />
@@ -5,6 +6,7 @@
     </picture>
 </div>
 
+<!-- MEDIA - VIDEO -->
 <div *ngIf="type === 'video-banner'">
     <video muted autoplay loop preload="auto">
         <source [src]="data | safedom: 'resourceUrl'" type="video/mp4" />

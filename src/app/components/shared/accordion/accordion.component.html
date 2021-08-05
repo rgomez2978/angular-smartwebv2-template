@@ -4,8 +4,7 @@
     <section class="containerFaq">
         <div class="containerFaq__content">
             <div class="content_sep">
-                <div *ngFor="let item of data[0]?.nodes"
-                    class="containerFaq__content__item"
+                <div *ngFor="let item of data[0]?.nodes" class="containerFaq__content__item"
                     [ngClass]="{'active': item.active}" (click)="activateItem(data[0]?.nodes, item.id)">
                     <button type="button" aria-label="Open item" title="Open item" [ngClass]="{'active': item.active}">
                         <p class="">{{item.question}}</p>
@@ -29,30 +28,89 @@
     </section>
 </div>
 
+
+<!-- ACOORDION - PLANS or PRICE -->
 <div *ngIf="type === 'price'">
-
-    <table>
-        <thead>
-            <th></th>
-            <th>Basico</th>
-            <th>Plus</th>
-            <th>premium</th>
-        </thead>
-        <tbody>
-            <tr>
-                <td></td>
-                <td>10$</td>
-                <td>30$</td>
-                <td>100$</td>
-            </tr>
-            <tr>
-                <td>item</td>
-                <td>true</td>
-                <td>true</td>
-                <td>true</td>
-            </tr>
-        </tbody>
-    </table>
-
-
+    <section class="containerPlans">
+        <div class="containerPlans__switch">
+            <div class="containerPlans__switch__content">
+                <div class="content_left">
+                    <span>Factura mensual</span>
+                </div>
+                <div class="content_center" [ngClass]="toggle ? 'active' : 'inactive'">
+                    <label for="toggle" [ngClass]="toggle ? 'active' : 'inactive'"></label>
+                    <input type="checkbox" id="toggle" name="toggle" (click)="togglePlan()" />
+                </div>
+                <div class="content_right">
+                    <span>Factura anual</span>
+                    <p>Ahorre hasta un x% anualmente</p>
+                </div>
+            </div>
+        </div>
+        <div class="containerPlans__content">
+            <div class="content_sep">
+                <div *ngFor="let item of data" class="containerPlans__content__item" [ngClass]="{'active': item.active}"
+                    (click)="activateItem(data, item.id)">
+                    <button type="button" aria-label="Open item" title="Open item" [ngClass]="{'active': item.active}">
+                        <p class="">{{item.title}}</p>
+                        <div class="flex items-center justify-center w-8 h-8 border rounded-full">
+                            <svg [ngClass]="{'transform rotate-180': item.active}" viewBox="0 0 24 24"
+                                class="w-3 text-gray-600 transition-transform duration-200">
+                                <polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-miterlimit="10" points="2,7 12,17 22,7" stroke-linejoin="round"></polyline>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="panel" [ngClass]="item.active ?'active':'inactive'">
+                        <table>
+                            <thead>
+                                <th class="full"></th>
+                                <th>Basico</th>
+                                <th>Plus</th>
+                                <th>Premium</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let itemOpt of item?.content; let i = index">
+                                    <!-- description -->
+                                    <td class="full">{{itemOpt.title}}</td>
+                                    <!-- planes, con textos - primera fila -->
+                                    <div *ngIf="itemOpt.nodes.length > 0 && i === 0" class="description">
+                                        <td *ngFor="let itemOptNodes of itemOpt?.nodes">
+                                            <div *ngIf="!toggle">
+                                                {{itemOptNodes.value}}{{itemOptNodes.nodes[0]?.month}}
+                                            </div>
+                                            <div *ngIf="toggle">
+                                                {{itemOptNodes.value}}{{itemOptNodes.nodes[0]?.year}}
+                                            </div>
+                                        </td>
+                                    </div>
+                                    <!-- planes, con iconos o viñetas -->
+                                    <div *ngIf="itemOpt.nodes.length > 0 && i > 0 ">
+                                        <div *ngIf="itemOpt.type === 'status'">
+                                            <td *ngFor="let itemOptNodes of itemOpt?.nodes">
+                                                <i *ngIf="itemOptNodes.active"
+                                                    class="icofont-check-circled icofont-1x"></i>
+                                                <i *ngIf="!itemOptNodes.active"
+                                                    class="icofont-close-line-circled icofont-1x"></i>
+                                            </td>
+                                        </div>
+                                        <div *ngIf="itemOpt.type === 'text'">
+                                            <td *ngFor="let itemOptNodes of itemOpt?.nodes">
+                                                <div *ngIf="!toggle">
+                                                    {{itemOptNodes.nodes[0]?.month}}
+                                                </div>
+                                                <div *ngIf="toggle">
+                                                    {{itemOptNodes.nodes[0]?.year}}
+                                                </div>
+                                            </td>
+                                        </div>
+                                    </div>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

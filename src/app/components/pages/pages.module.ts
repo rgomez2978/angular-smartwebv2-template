@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 // COMPONENTS
 import { HomeComponent } from '@pages/home/home.component';
 import { ProductsComponent } from '@pages/products/products.component';
-import { PlanesComponent } from '@pages/planes/planes.component';
+import { PlansComponent } from '@app/components/pages/plans/plans.component';
 import { ResourcesCenterComponent } from '@pages/resources-center/resources-center.component';
 import { ContactusComponent } from '@pages/contactus/contactus.component';
 import { PrivacyPoliticsComponent } from '@pages/privacy-politics/privacy-politics.component';
@@ -23,7 +23,7 @@ import { NotFoundComponent } from '@pages/not-found/not-found.component';
   declarations: [
     HomeComponent,
     ProductsComponent,
-    PlanesComponent,
+    PlansComponent,
     ResourcesCenterComponent,
     ContactusComponent,
     PrivacyPoliticsComponent,
@@ -42,7 +42,7 @@ import { NotFoundComponent } from '@pages/not-found/not-found.component';
   exports: [
     HomeComponent,
     ProductsComponent,
-    PlanesComponent,
+    PlansComponent,
     ResourcesCenterComponent,
     ContactusComponent,
     PrivacyPoliticsComponent,

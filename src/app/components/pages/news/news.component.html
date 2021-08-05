@@ -3,7 +3,6 @@
         <app-header [data]="dataHeader" [type]="'news'"></app-header>
     </header>
 
-
     <div class="contentPage__breadcrumbs">
         <div class="-mt-10">
             <app-breadcrumb [data]="" [type]="'page'"></app-breadcrumb>
@@ -26,7 +25,7 @@
             <router-outlet></router-outlet>
         </div>
         <div class="contentPage__content contNews__right">
-            <app-menu [type]="'news'" [data]="dataMenu"></app-menu>
+            <app-menu [type]="'lateral'" [data]="dataMenu"></app-menu>
         </div>
     </div>
 </section>

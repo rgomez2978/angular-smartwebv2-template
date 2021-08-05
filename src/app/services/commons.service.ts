@@ -52,6 +52,7 @@ export class CommonsService implements OnDestroy {
    * -------------------------------------------------------
    */
   public setURlView(event: any, urlRoute: any) {
+
     let arrayUrl1 = urlRoute.split('/');
     let arrayUrl2 = arrayUrl1[1].split('#');
     let urlActiveLevel1 = '';

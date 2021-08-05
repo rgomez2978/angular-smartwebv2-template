@@ -9,6 +9,7 @@ export class AccordionComponent implements OnInit {
   @Input() data: any;
   @Input() type!: string;
   isOpen!: boolean;
+  toggle: boolean = false;
 
 
   constructor() { }
@@ -35,6 +36,18 @@ export class AccordionComponent implements OnInit {
     });
   }
 
+
+  /**
+  * -------------------------------------------------------
+  * @summary getDataArray
+  * @description Obtiene el nombre del producto desde la url
+  *  y asigna posicion de arreglo del state en data
+  * @param {any} array arraglo a buscar
+  * -------------------------------------------------------
+  */
+  togglePlan() {
+    this.toggle = !this.toggle;
+  }
 
 
 }

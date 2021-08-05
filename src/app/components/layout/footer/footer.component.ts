@@ -15,7 +15,6 @@ export class FooterComponent implements OnInit {
   urlActiveLevel2!: string;
   urlBreadcrumbs!: any;
   fullBreadcrumbs: any = [];
-
   language!: string;
 
   constructor(
@@ -66,7 +65,7 @@ export class FooterComponent implements OnInit {
     let urlFinal = '';
     let page = this.urlActiveLevel1.split('/')[1];
     // console.log(`page`, page)
-    console.log(`url`, url)
+    // console.log(`url`, url)
     if (page === 'resources' && url.length >= 3) {
       if (url[3] === undefined) {
         urlFinal = url[2]

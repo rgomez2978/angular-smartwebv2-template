@@ -109,6 +109,7 @@ export class ContentComponent implements OnInit {
   }
 
 
+
   onPageChange(event: any) {
     // console.log(event);
     this.config.currentPage = event;

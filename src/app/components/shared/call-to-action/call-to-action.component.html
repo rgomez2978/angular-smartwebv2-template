@@ -23,7 +23,7 @@
                 <h1>{{item.title}}</h1>
                 <p>{{item.description}}</p>
             </div>
-            <div class="containerCTA__content__btn">
+            <div *ngIf="item.links.length > 0 " class="containerCTA__content__btn">
                 <button *ngFor="let itemBtn of item.links" [routerLink]="itemBtn.url"
                     class="focus:shadow-outline focus:outline-none">{{itemBtn.title}}</button>
             </div>

@@ -7,7 +7,7 @@ export interface ApiState {
     apiConLayout: ApiConnect;
     apiConHome: ApiConnect;
     apiConProducts: ApiConnect;
-    apiConPlanes: ApiConnect;
+    apiConPlans: ApiConnect;
     apiConResources: ApiConnect;
     apiConInfo: ApiConnect;
     apiConPolicies: ApiConnect;
@@ -23,7 +23,7 @@ export interface ApiState {
     arrayLayout: ApiSetArray;
     arrayHome: ApiSetArray;
     arrayProducts: ApiSetArray;
-    arrayPlanes: ApiSetArray;
+    arrayPlans: ApiSetArray;
     arrayResources: ApiSetArray;
     arrayInfo: ApiSetArray;
     arrayPolicies: ApiSetArray;
@@ -42,7 +42,7 @@ export const apiState: ApiState = {
     apiConLayout: { apiCon: false, apiLang: 'es' },
     apiConHome: { apiCon: false, apiLang: 'es' },
     apiConProducts: { apiCon: false, apiLang: 'es' },
-    apiConPlanes: { apiCon: false, apiLang: 'es' },
+    apiConPlans: { apiCon: false, apiLang: 'es' },
     apiConResources: { apiCon: false, apiLang: 'es' },
     apiConInfo: { apiCon: false, apiLang: 'es' },
     apiConPolicies: { apiCon: false, apiLang: 'es' },
@@ -58,7 +58,7 @@ export const apiState: ApiState = {
     arrayLayout: { apiLang: 'es', apiArray: [] },
     arrayHome: { apiLang: 'es', apiArray: [] },
     arrayProducts: { apiLang: 'es', apiArray: [] },
-    arrayPlanes: { apiLang: 'es', apiArray: [] },
+    arrayPlans: { apiLang: 'es', apiArray: [] },
     arrayResources: { apiLang: 'es', apiArray: [] },
     arrayInfo: { apiLang: 'es', apiArray: [] },
     arrayPolicies: { apiLang: 'es', apiArray: [] },
@@ -78,7 +78,7 @@ const _apiReducer = createReducer(apiState,
     on(ownActions.setAPIConnectLayout, (state, { apiConLayout }) => ({ ...state, apiConLayout: { ...apiConLayout }, })),
     on(ownActions.setAPIConnectHome, (state, { apiConHome }) => ({ ...state, apiConHome: { ...apiConHome } })),
     on(ownActions.setAPIConnectProducts, (state, { apiConProducts }) => ({ ...state, apiConProducts: { ...apiConProducts } })),
-    on(ownActions.setAPIConnectPlanes, (state, { apiConPlanes }) => ({ ...state, apiConPlanes: { ...apiConPlanes } })),
+    on(ownActions.setAPIConnectPlans, (state, { apiConPlans }) => ({ ...state, apiConPlans: { ...apiConPlans } })),
     on(ownActions.setAPIConnectResources, (state, { apiConResources }) => ({ ...state, apiConResources: { ...apiConResources } })),
     on(ownActions.setAPIConnectInfo, (state, { apiConInfo }) => ({ ...state, apiConInfo: { ...apiConInfo } })),
     on(ownActions.setAPIConnectPolicies, (state, { apiConPolicies }) => ({ ...state, apiConPolicies: { ...apiConPolicies } })),
@@ -94,7 +94,7 @@ const _apiReducer = createReducer(apiState,
     on(ownActions.setArrayLayout, (state, { arrayLayout }) => ({ ...state, arrayLayout: { ...arrayLayout } })),
     on(ownActions.setArrayHome, (state, { arrayHome }) => ({ ...state, arrayHome: { ...arrayHome } })),
     on(ownActions.setArrayProducts, (state, { arrayProducts }) => ({ ...state, arrayProducts: { ...arrayProducts } })),
-    on(ownActions.setArrayPlanes, (state, { arrayPlanes }) => ({ ...state, arrayPlanes: { ...arrayPlanes } })),
+    on(ownActions.setArrayPlans, (state, { arrayPlans }) => ({ ...state, arrayPlans: { ...arrayPlans } })),
     on(ownActions.setArrayResources, (state, { arrayResources }) => ({ ...state, arrayResources: { ...arrayResources } })),
     on(ownActions.setArrayInfo, (state, { arrayInfo }) => ({ ...state, arrayInfo: { ...arrayInfo } })),
     on(ownActions.setArrayPolicies, (state, { arrayPolicies }) => ({ ...state, arrayPolicies: { ...arrayPolicies } })),

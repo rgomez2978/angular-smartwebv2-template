@@ -59,9 +59,9 @@
         "type": "link",
         "icon": "",
         "active": false,
-        "title": "Precios",
+        "title": "Planes",
         "fragment": "",
-        "url": "/planes",
+        "url": "/plans",
         "nodes": []
       },
       {

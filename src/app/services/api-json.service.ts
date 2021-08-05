@@ -21,9 +21,9 @@ export class ApiJsonService implements OnInit, OnDestroy {
   apiConProducts!: boolean;
   apiConProductsLang!: string;
   arrayProducts: any = [];
-  apiConPlanes!: boolean;
-  apiConPlanesLang!: string;
-  arrayPlanes: any = [];
+  apiConPlans!: boolean;
+  apiConPlansLang!: string;
+  arrayPlans: any = [];
   apiConResources!: boolean;
   apiConResourcesLang!: string;
   arrayResources: any = [];
@@ -110,8 +110,8 @@ export class ApiJsonService implements OnInit, OnDestroy {
         this.apiConHomeLang = state.apiConHome.apiLang;
         this.apiConProducts = state.apiConProducts.apiCon;
         this.apiConProductsLang = state.apiConProducts.apiLang;
-        this.apiConPlanes = state.apiConPlanes.apiCon;
-        this.apiConPlanesLang = state.apiConPlanes.apiLang;
+        this.apiConPlans = state.apiConPlans.apiCon;
+        this.apiConPlansLang = state.apiConPlans.apiLang;
         this.apiConResources = state.apiConResources.apiCon;
         this.apiConResourcesLang = state.apiConResources.apiLang;
         this.apiConInfo = state.apiConInfo.apiCon;
@@ -187,8 +187,8 @@ export class ApiJsonService implements OnInit, OnDestroy {
           this._reduxService.setAPIConnect(page, false, lang);
         }
         break;
-      case 'planes':
-        if (lang === this.apiConPlanesLang && this.apiConPlanes) {
+      case 'plans':
+        if (lang === this.apiConPlansLang && this.apiConPlans) {
           this._reduxService.setAPIConnect('layout', true, lang);
           this._reduxService.setAPIConnect(page, true, lang);
         } else {

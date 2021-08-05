@@ -4,10 +4,10 @@
     "order": 1,
     "logo": "assets/img/logo2",
     "logo2": "assets/img/logo",
-    "btn": "Ingresar",
+    "btn": "Login",
     "btn_link": "http://smart.alphagrupo.com/login",
     "icon_back": "<i class=\"icofont-arrow-left\"></i>",
-    "title_back": "Atras",
+    "title_back": "BAck",
     "options": [{
         "id": 1,
         "order": 1,
@@ -27,7 +27,7 @@
         "type": "",
         "icon": "",
         "active": false,
-        "title": "Productos",
+        "title": "Products",
         "fragment": "",
         "url": "",
         "nodes": [{
@@ -59,9 +59,9 @@
         "type": "link",
         "icon": "",
         "active": false,
-        "title": "Precios",
+        "title": "Plans",
         "fragment": "",
-        "url": "/planes",
+        "url": "/plans",
         "nodes": []
       },
       {
@@ -71,7 +71,7 @@
         "type": "link",
         "icon": "",
         "active": false,
-        "title": "Recursos",
+        "title": "Resources",
         "fragment": "",
         "url": "/resources",
         "nodes": [{
@@ -91,7 +91,7 @@
         "level": 2,
             "icon": "",
             "active": false,
-            "title": "Manuales de uso",
+            "title": "User manuals",
             "fragment": "",
             "url": "/resources/help"
           },
@@ -115,7 +115,7 @@
         "type": "link",
         "icon": "",
         "active": false,
-        "title": "Contactanos",
+        "title": "Contact us",
         "fragment": "",
         "url": "/contacts",
         "nodes": []
@@ -175,15 +175,15 @@
       "id": 1,
       "order": 1,
       "icon": "<i class=\"icofont-ui-user\"></i>",
-      "title": "Iniciar sesión",
+      "title": "Log in",
       "active": false,
       "buttons": [{
-        "title": "Iniciar sesión",
-        "title2": "Registrarse"
+        "title": "Log in",
+        "title2": "Register"
       }],
       "login": [{
         "icon": "<i class=\"icofont-sign-in\"></i>",
-        "title": "Iniciar sesión"
+        "title": "Log in"
       }],
       "logged": [{
         "avatar": "assets/img/avatar/avatar7",
@@ -193,7 +193,7 @@
       }],
       "logout": [{
         "icon": "<i class=\"icofont-sign-out\"></i>",
-        "title": "Cerrar sesión"
+        "title": "Sign off"
       }]
     }]
   }],
@@ -203,7 +203,7 @@
     "logo": "assets/img/logo2",
     "description": "<p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. </p> <p> Eaque ipsa quae ab illo inventore veritatis et <strong>uasi</strong> architecto beatae vitae dicta sunt explicabo. </p>",
     "url": "/",
-    "float": "Subir",
+    "float": "Up",
     "socials": [{
         "id": 1,
         "order": 1,
@@ -243,7 +243,7 @@
         "level": 2,
         "icon": "",
         "active": false,
-        "title": "Productos",
+        "title": "Products",
         "fragment": "",
         "url": "/products",
         "nodes": [{
@@ -274,7 +274,7 @@
         "level": 2,
         "icon": "",
         "active": false,
-        "title": "Acerca de Smart",
+        "title": "About Smart",
         "fragment": "",
         "url": "",
         "nodes": [{
@@ -283,7 +283,7 @@
             "level": 2,
             "icon": "",
             "active": false,
-            "title": "Nosotros",
+            "title": "About us",
             "fragment": "aboutus",
             "url": "/aboutus"
           },
@@ -293,7 +293,7 @@
             "level": 2,
             "icon": "",
             "active": false,
-            "title": "¿Por qué Smart?",
+            "title": "Why Smart?",
             "fragment": "whysmart",
             "url": "/whysmart"
           }
@@ -305,7 +305,7 @@
         "level": 2,
         "icon": "",
         "active": false,
-        "title": "Recursos",
+        "title": "Resources",
         "fragment": "",
         "url": "",
         "nodes": [{
@@ -323,7 +323,7 @@
             "level": 2,
             "icon": "",
             "active": false,
-            "title": "Manuales de uso",
+            "title": "User manuals",
             "fragment": "help",
             "url": "/help"
           },
@@ -345,7 +345,7 @@
         "level": 2,
         "icon": "",
         "active": false,
-        "title": "Contáctanos",
+        "title": "Contact us",
         "fragment": "",
         "url": "",
         "nodes": []
@@ -355,37 +355,37 @@
       "id": 1,
       "order": 1,
       "icon": "",
-      "description": "© 2021 SmartSuiteTools. Todos los derechos reservados.",
+      "description": "© 2021 SmartSuiteTools. All rights reserved.",
       "lang": [{
           "id": 1,
           "order": 1,
-          "title": "Ingles",
+          "title": "English",
           "lang": "en"
         },
         {
           "id": 2,
           "order": 2,
-          "title": "Español",
+          "title": "Spanish",
           "lang": "es"
         }
       ],
       "options": [{
           "id": 1,
           "order": 1,
-          "title": "Políticas de privacidad",
+          "title": "Privacy policies",
           "fragment": "",
           "url": "/privacy-policies"
         },
         {
           "id": 2,
           "order": 2,
-          "title": "Términos Legales",
+          "title": "Legal terms",
           "fragment": "",
           "url": "/legal-terms"
         }, {
           "id": 1,
           "order": 1,
-          "title": "Mapa del Sitio",
+          "title": "Site Map",
           "fragment": "",
           "url": "/site-map"
         }

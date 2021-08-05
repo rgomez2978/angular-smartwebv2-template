@@ -28,8 +28,6 @@
     </div>
 </div>
 
-
-
 <!-- MENU SESSION LOGGED - 1 -->
 <div *ngIf="type === 'logged1' ">
     <div class="menu_session_container" (click)="toggleMenuSession()">
@@ -112,8 +110,6 @@
     </div>
 </div>
 
-
-
 <!-- MENU SESSION LOGIN - 2 -->
 <!-- <div *ngIf="type === 'login2' ">
     <button (click)="setLogin(true)" aria-label="Open Menu Session" title="Open Menu Session"
@@ -127,8 +123,8 @@
 </div> -->
 
 
-<!-- Menu de Opciones - News -->
-<div *ngIf="type === 'news'">
+<!-- Menu de Opciones - lateral -->
+<div *ngIf="type === 'lateral'">
     <div class="menu_news" *ngFor="let item of data; let i = index">
         <h1>{{item.title}}</h1>
         <div class="menu_news__items">

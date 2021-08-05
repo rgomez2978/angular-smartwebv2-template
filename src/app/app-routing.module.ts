@@ -6,7 +6,7 @@ import { Routes, RouterModule, ExtraOptions, PreloadAllModules } from "@angular/
 // PAGES
 import { HomeComponent } from '@pages/home/home.component';
 import { ProductsComponent } from '@pages/products/products.component';
-import { PlanesComponent } from '@pages/planes/planes.component';
+import { PlansComponent } from '@app/components/pages/plans/plans.component';
 import { ResourcesCenterComponent } from '@pages/resources-center/resources-center.component';
 import { ContactusComponent } from '@pages/contactus/contactus.component';
 import { LegalTermsComponent } from '@pages/legal-terms/legal-terms.component';
@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "home", component: HomeComponent },
   { path: "products/:id", component: ProductsComponent },
-  { path: "planes", component: PlanesComponent },
+  { path: "plans", component: PlansComponent },
   { path: "resources", component: ResourcesCenterComponent },
   {
     path: 'resources/help',

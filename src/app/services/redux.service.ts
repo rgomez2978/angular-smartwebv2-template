@@ -68,8 +68,8 @@ export class ReduxService {
       case 'products':
         this._store.dispatch(ownActions.setAPIConnectProducts({ apiConProducts: { apiCon: conn, apiLang: lang } }));
         break;
-      case 'planes':
-        this._store.dispatch(ownActions.setAPIConnectPlanes({ apiConPlanes: { apiCon: conn, apiLang: lang } }));
+      case 'plans':
+        this._store.dispatch(ownActions.setAPIConnectPlans({ apiConPlans: { apiCon: conn, apiLang: lang } }));
         break;
       case 'resources':
         this._store.dispatch(ownActions.setAPIConnectResources({ apiConResources: { apiCon: conn, apiLang: lang } }));
@@ -129,8 +129,8 @@ export class ReduxService {
       case 'products':
         this._store.dispatch(ownActions.setArrayProducts({ arrayProducts: { apiLang: lang, apiArray: array } }));
         break;
-      case 'planes':
-        this._store.dispatch(ownActions.setArrayPlanes({ arrayPlanes: { apiLang: lang, apiArray: array } }));
+      case 'plans':
+        this._store.dispatch(ownActions.setArrayPlans({ arrayPlans: { apiLang: lang, apiArray: array } }));
         break;
       case 'resources':
         this._store.dispatch(ownActions.setArrayResources({ arrayResources: { apiLang: lang, apiArray: array } }));

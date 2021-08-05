@@ -6,7 +6,7 @@ import { ApiSetArray } from '../models/apiSetArray.models';
 export const setAPIConnectLayout = createAction("[API] Set API Connect Layout", props<{ apiConLayout: ApiConnect }>());
 export const setAPIConnectHome = createAction("[API] Set API Connect Home", props<{ apiConHome: ApiConnect }>());
 export const setAPIConnectProducts = createAction("[API] Set API Connect Products", props<{ apiConProducts: ApiConnect }>());
-export const setAPIConnectPlanes = createAction("[API] Set API Connect Planes", props<{ apiConPlanes: ApiConnect }>());
+export const setAPIConnectPlans = createAction("[API] Set API Connect Plans", props<{ apiConPlans: ApiConnect }>());
 export const setAPIConnectResources = createAction("[API] Set API Connect Resources", props<{ apiConResources: ApiConnect }>());
 export const setAPIConnectInfo = createAction("[API] Set API Connect Info", props<{ apiConInfo: ApiConnect }>());
 export const setAPIConnectPolicies = createAction("[API] Set API Connect Policies", props<{ apiConPolicies: ApiConnect }>());
@@ -27,7 +27,7 @@ export const setAPIConnectNewsS = createAction("[API] Set API Connect News - Sea
 export const setArrayLayout = createAction("[API ARRAY] Set Array Layout", props<{ arrayLayout: ApiSetArray }>());
 export const setArrayHome = createAction("[API ARRAY] Set Array Home", props<{ arrayHome: ApiSetArray }>());
 export const setArrayProducts = createAction("[API ARRAY] Set Array Products", props<{ arrayProducts: ApiSetArray }>());
-export const setArrayPlanes = createAction("[API ARRAY] Set Array Planes", props<{ arrayPlanes: ApiSetArray }>());
+export const setArrayPlans = createAction("[API ARRAY] Set Array Plans", props<{ arrayPlans: ApiSetArray }>());
 export const setArrayResources = createAction("[API ARRAY] Set Array Resources", props<{ arrayResources: ApiSetArray }>());
 // export const setArrayNews = createAction("[API ARRAY] Set Array News", props<{ arrayNews: ApiSetArray, arrayNewsD: ApiSetArray, arrayNewsS: ApiSetArray }>());
 export const setArrayInfo = createAction("[API ARRAY] Set Array Info", props<{ arrayInfo: ApiSetArray }>());
