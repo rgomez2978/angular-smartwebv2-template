@@ -50,7 +50,7 @@
         <div class="containerPlans__content">
             <div class="content_sep">
                 <div *ngFor="let item of data[0]?.nodes" class="containerPlans__content__item" [ngClass]="{'active': item.active}"
-                    (click)="activateItem(data, item.id)">
+                    (click)="activateItem(data[0]?.nodes, item.id)">
                     <button type="button" aria-label="Open item" title="Open item" [ngClass]="{'active': item.active}">
                         <p class="">{{item.title}}</p>
                         <div class="flex items-center justify-center w-8 h-8 border rounded-full">
