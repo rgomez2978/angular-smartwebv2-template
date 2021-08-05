@@ -14,283 +14,289 @@
     "links": []
   }],
   "products": [{
-    "id": 1,
-    "order": 1,
-    "active": true,
-    "title": "SmartConnect",
-    "content": [{
-      "title": "",
-      "type": "currency",
-      "nodes": [{
-        "active": false,
+    "title_month":"Factura mensual",
+    "description_month":"",
+    "title_year":"Factura anual",
+    "description_year":"Ahorre hasta un x% anualmente",
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "active": true,
+      "title": "SmartConnect",
+      "content": [{
+        "title": "",
         "type": "currency",
-        "value": "$",
         "nodes": [{
-          "month": 0,
-          "year": 100
+          "active": false,
+          "type": "currency",
+          "value": "$",
+          "nodes": [{
+            "month": 0,
+            "year": 100
+          }]
+        }, {
+          "active": false,
+          "type": "currency",
+          "value": "$ ",
+          "nodes": [{
+            "month": "A partir de $*/mes por usuario",
+            "year": "A partir de $*/año por usuario"
+          }]
+        }, {
+          "active": false,
+          "type": "currency",
+          "value": "$ ",
+          "nodes": [{
+            "month": "A partir de $*/mes por usuario",
+            "year": "A partir de $*/año por usuario"
+          }]
         }]
       }, {
-        "active": false,
+        "title": "Sincronización en tiempo real",
+        "type": "status",
+        "nodes": [{
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }, {
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }, {
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }]
+      }, {
+        "title": "Control de acceso",
+        "type": "status",
+        "nodes": [{
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }, {
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }, {
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }]
+      }, {
+        "title": "Sugerencias y solicitudes",
+        "type": "status",
+        "nodes": [{
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }, {
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }, {
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }]
+      }, {
+        "title": "Conexión con redes sociales",
+        "type": "status",
+        "nodes": [{
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }, {
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }, {
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }]
+      }, {
+        "title": "Roles",
+        "type": "text",
+        "nodes": [{
+          "active": true,
+          "type": "text",
+          "value": "",
+          "nodes": [{
+            "month": "5 Roles",
+            "year": "30 Roles"
+          }]
+        }, {
+          "active": true,
+          "type": "text",
+          "value": "",
+          "nodes": [{
+            "month": "10 Roles",
+            "year": "100 Roles"
+          }]
+        }, {
+          "active": true,
+          "type": "text",
+          "value": "",
+          "nodes": [{
+            "month": "Roles ilimitados",
+            "year": "Roles ilimitados"
+          }]
+        }]
+      }]
+    }, {
+      "id": 2,
+      "order": 2,
+      "active": false,
+      "title": "SmartChart",
+      "content": [{
+        "title": "",
         "type": "currency",
-        "value": "$ ",
         "nodes": [{
-          "month": "A partir de $*/mes por usuario",
-          "year": "A partir de $*/año por usuario"
+          "active": false,
+          "type": "currency",
+          "value": "$",
+          "nodes": [{
+            "month": 0,
+            "year": 100
+          }]
+        }, {
+          "active": false,
+          "type": "currency",
+          "value": "$ ",
+          "nodes": [{
+            "month": "A partir de $*/mes por usuario",
+            "year": "A partir de $*/año por usuario"
+          }]
+        }, {
+          "active": false,
+          "type": "currency",
+          "value": "$ ",
+          "nodes": [{
+            "month": "A partir de $*/mes por usuario",
+            "year": "A partir de $*/año por usuario"
+          }]
         }]
       }, {
-        "active": false,
-        "type": "currency",
-        "value": "$ ",
+        "title": "Sincronización en tiempo real",
+        "type": "status",
         "nodes": [{
-          "month": "A partir de $*/mes por usuario",
-          "year": "A partir de $*/año por usuario"
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }, {
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }, {
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
         }]
-      }]
-    }, {
-      "title": "Sincronización en tiempo real",
-      "type": "status",
-      "nodes": [{
-        "active": true,
-        "type": "status",
-        "value": "$",
-        "nodes": []
       }, {
-        "active": true,
+        "title": "Control de acceso",
         "type": "status",
-        "value": "$",
-        "nodes": []
+        "nodes": [{
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }, {
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }, {
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }]
       }, {
-        "active": true,
+        "title": "Sugerencias y solicitudes",
         "type": "status",
-        "value": "$",
-        "nodes": []
-      }]
-    }, {
-      "title": "Control de acceso",
-      "type": "status",
-      "nodes": [{
-        "active": true,
-        "type": "status",
-        "value": "$",
-        "nodes": []
+        "nodes": [{
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }, {
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }, {
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }]
       }, {
-        "active": true,
+        "title": "Conexión con redes sociales",
         "type": "status",
-        "value": "$",
-        "nodes": []
+        "nodes": [{
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }, {
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }, {
+          "active": true,
+          "type": "status",
+          "value": "$",
+          "nodes": []
+        }]
       }, {
-        "active": true,
-        "type": "status",
-        "value": "$",
-        "nodes": []
-      }]
-    }, {
-      "title": "Sugerencias y solicitudes",
-      "type": "status",
-      "nodes": [{
-        "active": true,
-        "type": "status",
-        "value": "$",
-        "nodes": []
-      }, {
-        "active": true,
-        "type": "status",
-        "value": "$",
-        "nodes": []
-      }, {
-        "active": true,
-        "type": "status",
-        "value": "$",
-        "nodes": []
-      }]
-    }, {
-      "title": "Conexión con redes sociales",
-      "type": "status",
-      "nodes": [{
-        "active": true,
-        "type": "status",
-        "value": "$",
-        "nodes": []
-      }, {
-        "active": true,
-        "type": "status",
-        "value": "$",
-        "nodes": []
-      }, {
-        "active": true,
-        "type": "status",
-        "value": "$",
-        "nodes": []
-      }]
-    }, {
-      "title": "Roles",
-      "type": "text",
-      "nodes": [{
-        "active": true,
+        "title": "Roles",
         "type": "text",
-        "value": "",
         "nodes": [{
-          "month": "5 Roles",
-          "year": "30 Roles"
-        }]
-      }, {
-        "active": true,
-        "type": "text",
-        "value": "",
-        "nodes": [{
-          "month": "10 Roles",
-          "year": "100 Roles"
-        }]
-      }, {
-        "active": true,
-        "type": "text",
-        "value": "",
-        "nodes": [{
-          "month": "Roles ilimitados",
-          "year": "Roles ilimitados"
-        }]
-      }]
-    }]
-  },{
-    "id": 2,
-    "order": 2,
-    "active": false,
-    "title": "SmartChart",
-    "content": [{
-      "title": "",
-      "type": "currency",
-      "nodes": [{
-        "active": false,
-        "type": "currency",
-        "value": "$",
-        "nodes": [{
-          "month": 0,
-          "year": 100
-        }]
-      }, {
-        "active": false,
-        "type": "currency",
-        "value": "$ ",
-        "nodes": [{
-          "month": "A partir de $*/mes por usuario",
-          "year": "A partir de $*/año por usuario"
-        }]
-      }, {
-        "active": false,
-        "type": "currency",
-        "value": "$ ",
-        "nodes": [{
-          "month": "A partir de $*/mes por usuario",
-          "year": "A partir de $*/año por usuario"
-        }]
-      }]
-    }, {
-      "title": "Sincronización en tiempo real",
-      "type": "status",
-      "nodes": [{
-        "active": true,
-        "type": "status",
-        "value": "$",
-        "nodes": []
-      }, {
-        "active": true,
-        "type": "status",
-        "value": "$",
-        "nodes": []
-      }, {
-        "active": true,
-        "type": "status",
-        "value": "$",
-        "nodes": []
-      }]
-    }, {
-      "title": "Control de acceso",
-      "type": "status",
-      "nodes": [{
-        "active": true,
-        "type": "status",
-        "value": "$",
-        "nodes": []
-      }, {
-        "active": true,
-        "type": "status",
-        "value": "$",
-        "nodes": []
-      }, {
-        "active": true,
-        "type": "status",
-        "value": "$",
-        "nodes": []
-      }]
-    }, {
-      "title": "Sugerencias y solicitudes",
-      "type": "status",
-      "nodes": [{
-        "active": true,
-        "type": "status",
-        "value": "$",
-        "nodes": []
-      }, {
-        "active": true,
-        "type": "status",
-        "value": "$",
-        "nodes": []
-      }, {
-        "active": true,
-        "type": "status",
-        "value": "$",
-        "nodes": []
-      }]
-    }, {
-      "title": "Conexión con redes sociales",
-      "type": "status",
-      "nodes": [{
-        "active": true,
-        "type": "status",
-        "value": "$",
-        "nodes": []
-      }, {
-        "active": true,
-        "type": "status",
-        "value": "$",
-        "nodes": []
-      }, {
-        "active": true,
-        "type": "status",
-        "value": "$",
-        "nodes": []
-      }]
-    }, {
-      "title": "Roles",
-      "type": "text",
-      "nodes": [{
-        "active": true,
-        "type": "text",
-        "value": "",
-        "nodes": [{
-          "month": "5 Roles",
-          "year": "30 Roles"
-        }]
-      }, {
-        "active": true,
-        "type": "text",
-        "value": "",
-        "nodes": [{
-          "month": "10 Roles",
-          "year": "100 Roles"
-        }]
-      }, {
-        "active": true,
-        "type": "text",
-        "value": "",
-        "nodes": [{
-          "month": "Roles ilimitados",
-          "year": "Roles ilimitados"
+          "active": true,
+          "type": "text",
+          "value": "",
+          "nodes": [{
+            "month": "5 Roles",
+            "year": "30 Roles"
+          }]
+        }, {
+          "active": true,
+          "type": "text",
+          "value": "",
+          "nodes": [{
+            "month": "10 Roles",
+            "year": "100 Roles"
+          }]
+        }, {
+          "active": true,
+          "type": "text",
+          "value": "",
+          "nodes": [{
+            "month": "Roles ilimitados",
+            "year": "Roles ilimitados"
+          }]
         }]
       }]
     }]
   }],
-  "cta":[{
+  "cta": [{
     "id": 1,
     "order": 1,
     "background": "",
@@ -299,7 +305,7 @@
     "description": "Contáctanos para ofrecerte la solución que más se adapte a tus necesidades.",
     "links": []
   }],
-  "form":[{
+  "form": [{
 
   }]
 }

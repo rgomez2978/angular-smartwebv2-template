@@ -35,21 +35,21 @@
         <div class="containerPlans__switch">
             <div class="containerPlans__switch__content">
                 <div class="content_left">
-                    <span>Factura mensual</span>
+                    <span>{{data[0]?.title_month}}</span>
                 </div>
                 <div class="content_center" [ngClass]="toggle ? 'active' : 'inactive'">
                     <label for="toggle" [ngClass]="toggle ? 'active' : 'inactive'"></label>
                     <input type="checkbox" id="toggle" name="toggle" (click)="togglePlan()" />
                 </div>
                 <div class="content_right">
-                    <span>Factura anual</span>
-                    <p>Ahorre hasta un x% anualmente</p>
+                    <span>{{data[0]?.title_year}}</span>
+                    <p>{{data[0]?.description_year}}</p>
                 </div>
             </div>
         </div>
         <div class="containerPlans__content">
             <div class="content_sep">
-                <div *ngFor="let item of data" class="containerPlans__content__item" [ngClass]="{'active': item.active}"
+                <div *ngFor="let item of data[0]?.nodes" class="containerPlans__content__item" [ngClass]="{'active': item.active}"
                     (click)="activateItem(data, item.id)">
                     <button type="button" aria-label="Open item" title="Open item" [ngClass]="{'active': item.active}">
                         <p class="">{{item.title}}</p>
