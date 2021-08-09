@@ -9,9 +9,6 @@ export interface ApiState {
     apiConProducts: ApiConnect;
     apiConPlans: ApiConnect;
     apiConResources: ApiConnect;
-    apiConInfo: ApiConnect;
-    apiConPolicies: ApiConnect;
-    apiConSites: ApiConnect;
     apiConHelp: ApiConnect;
     apiConHelpF: ApiConnect;
     apiConHelpD: ApiConnect;
@@ -19,15 +16,17 @@ export interface ApiState {
     apiConNews: ApiConnect;
     apiConNewsD: ApiConnect;
     apiConNewsS: ApiConnect;
+    apiConAbout: ApiConnect;
+    apiConWhy: ApiConnect;
+    apiConLegal: ApiConnect;
+    apiConPolicies: ApiConnect;
+    apiConSites: ApiConnect;
 
     arrayLayout: ApiSetArray;
     arrayHome: ApiSetArray;
     arrayProducts: ApiSetArray;
     arrayPlans: ApiSetArray;
     arrayResources: ApiSetArray;
-    arrayInfo: ApiSetArray;
-    arrayPolicies: ApiSetArray;
-    arraySites: ApiSetArray;
     arrayHelp: ApiSetArray;
     arrayHelpF: ApiSetArray;
     arrayHelpD: ApiSetArray;
@@ -35,7 +34,11 @@ export interface ApiState {
     arrayNews: ApiSetArray;
     arrayNewsD: ApiSetArray;
     arrayNewsS: ApiSetArray;
-    // newsCategory: string;
+    arrayAbout: ApiSetArray;
+    arrayWhy: ApiSetArray;
+    arrayLegal: ApiSetArray;
+    arrayPolicies: ApiSetArray;
+    arraySites: ApiSetArray;
 }
 
 export const apiState: ApiState = {
@@ -44,9 +47,6 @@ export const apiState: ApiState = {
     apiConProducts: { apiCon: false, apiLang: 'es' },
     apiConPlans: { apiCon: false, apiLang: 'es' },
     apiConResources: { apiCon: false, apiLang: 'es' },
-    apiConInfo: { apiCon: false, apiLang: 'es' },
-    apiConPolicies: { apiCon: false, apiLang: 'es' },
-    apiConSites: { apiCon: false, apiLang: 'es' },
     apiConHelp: { apiCon: false, apiLang: 'es' },
     apiConHelpF: { apiCon: false, apiLang: 'es' },
     apiConHelpD: { apiCon: false, apiLang: 'es' },
@@ -54,15 +54,17 @@ export const apiState: ApiState = {
     apiConNews: { apiCon: false, apiLang: 'es' },
     apiConNewsD: { apiCon: false, apiLang: 'es' },
     apiConNewsS: { apiCon: false, apiLang: 'es' },
+    apiConAbout: { apiCon: false, apiLang: 'es' },
+    apiConWhy: { apiCon: false, apiLang: 'es' },
+    apiConLegal: { apiCon: false, apiLang: 'es' },
+    apiConPolicies: { apiCon: false, apiLang: 'es' },
+    apiConSites: { apiCon: false, apiLang: 'es' },
 
     arrayLayout: { apiLang: 'es', apiArray: [] },
     arrayHome: { apiLang: 'es', apiArray: [] },
     arrayProducts: { apiLang: 'es', apiArray: [] },
     arrayPlans: { apiLang: 'es', apiArray: [] },
     arrayResources: { apiLang: 'es', apiArray: [] },
-    arrayInfo: { apiLang: 'es', apiArray: [] },
-    arrayPolicies: { apiLang: 'es', apiArray: [] },
-    arraySites: { apiLang: 'es', apiArray: [] },
     arrayHelp: { apiLang: 'es', apiArray: [] },
     arrayHelpF: { apiLang: 'es', apiArray: [] },
     arrayHelpD: { apiLang: 'es', apiArray: [] },
@@ -70,8 +72,11 @@ export const apiState: ApiState = {
     arrayNews: { apiLang: 'es', apiArray: [] },
     arrayNewsD: { apiLang: 'es', apiArray: [] },
     arrayNewsS: { apiLang: 'es', apiArray: [] },
-    // newsCategory: '0'
-
+    arrayAbout: { apiLang: 'es', apiArray: [] },
+    arrayWhy: { apiLang: 'es', apiArray: [] },
+    arrayLegal: { apiLang: 'es', apiArray: [] },
+    arrayPolicies: { apiLang: 'es', apiArray: [] },
+    arraySites: { apiLang: 'es', apiArray: [] },
 };
 
 const _apiReducer = createReducer(apiState,
@@ -80,9 +85,6 @@ const _apiReducer = createReducer(apiState,
     on(ownActions.setAPIConnectProducts, (state, { apiConProducts }) => ({ ...state, apiConProducts: { ...apiConProducts } })),
     on(ownActions.setAPIConnectPlans, (state, { apiConPlans }) => ({ ...state, apiConPlans: { ...apiConPlans } })),
     on(ownActions.setAPIConnectResources, (state, { apiConResources }) => ({ ...state, apiConResources: { ...apiConResources } })),
-    on(ownActions.setAPIConnectInfo, (state, { apiConInfo }) => ({ ...state, apiConInfo: { ...apiConInfo } })),
-    on(ownActions.setAPIConnectPolicies, (state, { apiConPolicies }) => ({ ...state, apiConPolicies: { ...apiConPolicies } })),
-    on(ownActions.setAPIConnectSites, (state, { apiConSites }) => ({ ...state, apiConSites: { ...apiConSites } })),
     on(ownActions.setAPIConnectHelp, (state, { apiConHelp }) => ({ ...state, apiConHelp: { ...apiConHelp } })),
     on(ownActions.setAPIConnectHelpF, (state, { apiConHelpF }) => ({ ...state, apiConHelpF: { ...apiConHelpF } })),
     on(ownActions.setAPIConnectHelpD, (state, { apiConHelpD }) => ({ ...state, apiConHelpD: { ...apiConHelpD } })),
@@ -90,15 +92,17 @@ const _apiReducer = createReducer(apiState,
     on(ownActions.setAPIConnectNews, (state, { apiConNews }) => ({ ...state, apiConNews: { ...apiConNews } })),
     on(ownActions.setAPIConnectNewsD, (state, { apiConNewsD }) => ({ ...state, apiConNewsD: { ...apiConNewsD } })),
     on(ownActions.setAPIConnectNewsS, (state, { apiConNewsS }) => ({ ...state, apiConNewsS: { ...apiConNewsS } })),
+    on(ownActions.setAPIConnectAbout, (state, { apiConAbout }) => ({ ...state, apiConAbout: { ...apiConAbout } })),
+    on(ownActions.setAPIConnectWhy, (state, { apiConWhy }) => ({ ...state, apiConWhy: { ...apiConWhy } })),
+    on(ownActions.setAPIConnectLegal, (state, { apiConLegal }) => ({ ...state, apiConLegal: { ...apiConLegal } })),
+    on(ownActions.setAPIConnectPolicies, (state, { apiConPolicies }) => ({ ...state, apiConPolicies: { ...apiConPolicies } })),
+    on(ownActions.setAPIConnectSites, (state, { apiConSites }) => ({ ...state, apiConSites: { ...apiConSites } })),
 
     on(ownActions.setArrayLayout, (state, { arrayLayout }) => ({ ...state, arrayLayout: { ...arrayLayout } })),
     on(ownActions.setArrayHome, (state, { arrayHome }) => ({ ...state, arrayHome: { ...arrayHome } })),
     on(ownActions.setArrayProducts, (state, { arrayProducts }) => ({ ...state, arrayProducts: { ...arrayProducts } })),
     on(ownActions.setArrayPlans, (state, { arrayPlans }) => ({ ...state, arrayPlans: { ...arrayPlans } })),
     on(ownActions.setArrayResources, (state, { arrayResources }) => ({ ...state, arrayResources: { ...arrayResources } })),
-    on(ownActions.setArrayInfo, (state, { arrayInfo }) => ({ ...state, arrayInfo: { ...arrayInfo } })),
-    on(ownActions.setArrayPolicies, (state, { arrayPolicies }) => ({ ...state, arrayPolicies: { ...arrayPolicies } })),
-    on(ownActions.setArraySites, (state, { arraySites }) => ({ ...state, arraySites: { ...arraySites } })),
     on(ownActions.setArrayHelp, (state, { arrayHelp }) => ({ ...state, arrayHelp: { ...arrayHelp } })),
     on(ownActions.setArrayHelpF, (state, { arrayHelpF }) => ({ ...state, arrayHelpF: { ...arrayHelpF } })),
     on(ownActions.setArrayHelpD, (state, { arrayHelpD }) => ({ ...state, arrayHelpD: { ...arrayHelpD } })),
@@ -106,7 +110,11 @@ const _apiReducer = createReducer(apiState,
     on(ownActions.setArrayNews, (state, { arrayNews }) => ({ ...state, arrayNews: { ...arrayNews } })),
     on(ownActions.setArrayNewsD, (state, { arrayNewsD }) => ({ ...state, arrayNewsD: { ...arrayNewsD } })),
     on(ownActions.setArrayNewsS, (state, { arrayNewsS }) => ({ ...state, arrayNewsS: { ...arrayNewsS } })),
-    // on(ownActions.setNewsCategory, (state, { newsCategory }) => ({ ...state, newsCategory })),
+    on(ownActions.setArrayAbout, (state, { arrayAbout }) => ({ ...state, arrayAbout: { ...arrayAbout } })),
+    on(ownActions.setArrayWhy, (state, { arrayWhy }) => ({ ...state, arrayWhy: { ...arrayWhy } })),
+    on(ownActions.setArrayLegal, (state, { arrayLegal }) => ({ ...state, arrayLegal: { ...arrayLegal } })),
+    on(ownActions.setArrayPolicies, (state, { arrayPolicies }) => ({ ...state, arrayPolicies: { ...arrayPolicies } })),
+    on(ownActions.setArraySites, (state, { arraySites }) => ({ ...state, arraySites: { ...arraySites } })),
 
 );
 

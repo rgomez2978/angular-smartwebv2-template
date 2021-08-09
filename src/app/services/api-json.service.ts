@@ -27,16 +27,6 @@ export class ApiJsonService implements OnInit, OnDestroy {
   apiConResources!: boolean;
   apiConResourcesLang!: string;
   arrayResources: any = [];
-  apiConInfo!: boolean;
-  apiConInfoLang!: string;
-  arrayInfo: any = [];
-  apiConPolicies!: boolean;
-  apiConPoliciesLang!: string;
-  arrayPolicies: any = [];
-  apiConSites!: boolean;
-  apiConSitesLang!: string;
-  arraySites: any = [];
-
   apiConHelp!: boolean;
   apiConHelpLang!: string;
   arrayHelp: any = [];
@@ -49,7 +39,6 @@ export class ApiJsonService implements OnInit, OnDestroy {
   apiConHelpS!: boolean;
   apiConHelpSLang!: string;
   arrayHelpS: any = [];
-
   apiConNews!: boolean;
   apiConNewsLang!: string;
   arrayNews: any = [];
@@ -59,6 +48,21 @@ export class ApiJsonService implements OnInit, OnDestroy {
   apiConNewsS!: boolean;
   apiConNewsSLang!: string;
   arrayNewsS: any = [];
+  apiConAbout!: boolean;
+  apiConAboutLang!: string;
+  arrayAbout: any = [];
+  apiConWhy!: boolean;
+  apiConWhyLang!: string;
+  arrayWhy: any = [];
+  apiConLegal!: boolean;
+  apiConLegalLang!: string;
+  arrayLegal: any = [];
+  apiConPolicies!: boolean;
+  apiConPoliciesLang!: string;
+  arrayPolicies: any = [];
+  apiConSites!: boolean;
+  apiConSitesLang!: string;
+  arraySites: any = [];
 
   constructor(
     private _http: HttpClient,
@@ -114,13 +118,6 @@ export class ApiJsonService implements OnInit, OnDestroy {
         this.apiConPlansLang = state.apiConPlans.apiLang;
         this.apiConResources = state.apiConResources.apiCon;
         this.apiConResourcesLang = state.apiConResources.apiLang;
-        this.apiConInfo = state.apiConInfo.apiCon;
-        this.apiConInfoLang = state.apiConInfo.apiLang;
-        this.apiConPolicies = state.apiConPolicies.apiCon;
-        this.apiConPoliciesLang = state.apiConPolicies.apiLang;
-        this.apiConSites = state.apiConSites.apiCon;
-        this.apiConSitesLang = state.apiConSites.apiLang;
-
         this.apiConHelp = state.apiConHelp.apiCon;
         this.apiConHelpLang = state.apiConHelp.apiLang;
         this.apiConHelpF = state.apiConHelpF.apiCon;
@@ -129,15 +126,22 @@ export class ApiJsonService implements OnInit, OnDestroy {
         this.apiConHelpDLang = state.apiConHelpD.apiLang;
         this.apiConHelpS = state.apiConHelpS.apiCon;
         this.apiConHelpSLang = state.apiConHelpS.apiLang;
-
         this.apiConNews = state.apiConNews.apiCon;
         this.apiConNewsLang = state.apiConNews.apiLang;
         this.apiConNewsD = state.apiConNewsD.apiCon;
         this.apiConNewsDLang = state.apiConNewsD.apiLang;
         this.apiConNewsS = state.apiConNewsS.apiCon;
         this.apiConNewsSLang = state.apiConNewsS.apiLang;
-
-
+        this.apiConAbout = state.apiConAbout.apiCon;
+        this.apiConAboutLang = state.apiConAbout.apiLang;
+        this.apiConWhy = state.apiConWhy.apiCon;
+        this.apiConWhyLang = state.apiConWhy.apiLang;
+        this.apiConLegal = state.apiConLegal.apiCon;
+        this.apiConLegalLang = state.apiConLegal.apiLang;
+        this.apiConPolicies = state.apiConPolicies.apiCon;
+        this.apiConPoliciesLang = state.apiConPolicies.apiLang;
+        this.apiConSites = state.apiConSites.apiCon;
+        this.apiConSitesLang = state.apiConSites.apiLang;
       })
     );
   }
@@ -205,33 +209,6 @@ export class ApiJsonService implements OnInit, OnDestroy {
           this._reduxService.setAPIConnect(page, false, lang);
         }
         break;
-      case 'info':
-        if (lang === this.apiConInfoLang && this.apiConInfo) {
-          this._reduxService.setAPIConnect('layout', true, lang);
-          this._reduxService.setAPIConnect(page, true, lang);
-        } else {
-          this._reduxService.setAPIConnect('layout', false, lang);
-          this._reduxService.setAPIConnect(page, false, lang);
-        }
-        break;
-      case 'policies':
-        if (lang === this.apiConPoliciesLang && this.apiConPolicies) {
-          this._reduxService.setAPIConnect('layout', true, lang);
-          this._reduxService.setAPIConnect(page, true, lang);
-        } else {
-          this._reduxService.setAPIConnect('layout', false, lang);
-          this._reduxService.setAPIConnect(page, false, lang);
-        }
-        break;
-      case 'sites':
-        if (lang === this.apiConSitesLang && this.apiConSites) {
-          this._reduxService.setAPIConnect('layout', true, lang);
-          this._reduxService.setAPIConnect(page, true, lang);
-        } else {
-          this._reduxService.setAPIConnect('layout', false, lang);
-          this._reduxService.setAPIConnect(page, false, lang);
-        }
-        break;
       case 'help':
         if (lang === this.apiConHelpLang && this.apiConHelp) {
           this._reduxService.setAPIConnect('layout', true, lang);
@@ -291,6 +268,51 @@ export class ApiJsonService implements OnInit, OnDestroy {
         } else {
           this._reduxService.setAPIConnect('layout', false, lang);
           this._reduxService.setAPIConnect('news', false, lang);
+          this._reduxService.setAPIConnect(page, false, lang);
+        }
+        break;
+      case 'aboutus':
+        if (lang === this.apiConAboutLang && this.apiConAbout) {
+          this._reduxService.setAPIConnect('layout', true, lang);
+          this._reduxService.setAPIConnect(page, true, lang);
+        } else {
+          this._reduxService.setAPIConnect('layout', false, lang);
+          this._reduxService.setAPIConnect(page, false, lang);
+        }
+        break;
+      case 'whysmart':
+        if (lang === this.apiConWhyLang && this.apiConWhy) {
+          this._reduxService.setAPIConnect('layout', true, lang);
+          this._reduxService.setAPIConnect(page, true, lang);
+        } else {
+          this._reduxService.setAPIConnect('layout', false, lang);
+          this._reduxService.setAPIConnect(page, false, lang);
+        }
+        break;
+      case 'legal':
+        if (lang === this.apiConLegalLang && this.apiConLegal) {
+          this._reduxService.setAPIConnect('layout', true, lang);
+          this._reduxService.setAPIConnect(page, true, lang);
+        } else {
+          this._reduxService.setAPIConnect('layout', false, lang);
+          this._reduxService.setAPIConnect(page, false, lang);
+        }
+        break;
+      case 'policies':
+        if (lang === this.apiConPoliciesLang && this.apiConPolicies) {
+          this._reduxService.setAPIConnect('layout', true, lang);
+          this._reduxService.setAPIConnect(page, true, lang);
+        } else {
+          this._reduxService.setAPIConnect('layout', false, lang);
+          this._reduxService.setAPIConnect(page, false, lang);
+        }
+        break;
+      case 'sites':
+        if (lang === this.apiConSitesLang && this.apiConSites) {
+          this._reduxService.setAPIConnect('layout', true, lang);
+          this._reduxService.setAPIConnect(page, true, lang);
+        } else {
+          this._reduxService.setAPIConnect('layout', false, lang);
           this._reduxService.setAPIConnect(page, false, lang);
         }
         break;

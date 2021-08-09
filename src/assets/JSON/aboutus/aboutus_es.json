@@ -1,116 +1,125 @@
 {
-    "browser": [{
-      "id": 1,
-      "order": 1,
-      "title": "Recursos",
-      "description": ""
-    }],
-    "header": [{
-      "id": 1,
-      "order": 1,
-      "background": "",
-      "video": "",
-      "title": "Acerca de nosotros",
-      "description": "Queremos lograr que las empresas cuenten con una visión global para aumentar su potencial de tomar decisiones inteligentes.",
-      "links": [{}]
-    }],
-    "purpose": [{
-      "id": 1,
-      "order": 1,
-      "title": "Nuestro próposito",
-      "description": "Integrar distintas perspectivas en sistemas que ofrecen soluciones completas para facilitar la gestión de las organizaciones en entornos dinámicos."
-    }],
-    "values": [{
-      "id": 1,
-      "order": 1,
-      "title": "Nuestros valores",
-      "description": "Representan una guía indispensable a la hora de tomar decisiones y establecer estrategias a través del tiempo. Nos recuerdan diariamente cómo actuar para avanzar hacia nuestro propósito.",
-      "nodes": [{
-          "id": 1,
-          "order": 1,
-          "url": "",
-          "title": "Confianza",
-          "description": "Confiamos en nuestra capacidad para desarrollarnos, alcanzar altos niveles de excelencia y, en equipo, llegar más lejos. Desde ahí, construimos nuestras relaciones comerciales y profesionales.",
-          "media": [{
-            "id": 1,
-            "order": 1,
-            "type": "img",
-            "url": ""
-          }]
-        },
-        {
-          "id": 2,
-          "order": 2,
-          "title": "Oportunidad",
-          "description": "Reconociendo un mundo cambiante, con actitud positiva identificamos las oportunidades detrás de los obstáculos, sobre todo en los momentos difíciles, y nos comprometemos a superar las expectativas de nuestros clientes.",
-          "media": [{
-            "id": 1,
-            "order": 1,
-            "type": "img",
-            "url": ""
-          }]
-        },
-        {
-          "id": 3,
-          "order": 3,
-          "title": "Proactividad",
-          "description": "Generamos ideas innovadoras para nuestros clientes y los ayudamos a hacerlas realidad. Seleccionamos aquellas que aportan mayor valor, tomamos la iniciativa y asumimos la responsabilidad de hacer que las cosas sucedan.",
-          "media": [{
-            "id": 1,
-            "order": 1,
-            "type": "img",
-            "url": ""
-          }]
-        },
-        {
-          "id": 4,
-          "order": 4,
-          "title": "Excelencia",
-          "description": "Estamos comprometidos con ir siempre un paso más allá y superar nuestro nivel de calidad previo en cada actividad que desarrollamos. Nuestro compromiso es superar las expectativas de nuestros clientes.",
-          "media": [{
-            "id": 1,
-            "order": 1,
-            "type": "img",
-            "url": ""
-          }]
-        },
-        {
-          "id": 5,
-          "order": 5,
-          "title": "Perseverancia",
-          "description": "Avanzamos firmemente hacia el logro de nuestros objetivos y buscamos diferentes caminos hasta lograrlos. Nos proponemos acompañar a nuestros clientes para juntos alcanzar resultados excepcionales.",
-          "media": [{
-            "id": 1,
-            "order": 1,
-            "type": "img",
-            "url": ""
-          }]
-        }
-      ]
-    }],
-    "commercial": [{
-      "id": 1,
-      "order": 1,
-      "background": "",
-      "video": "",
-      "title": "Acerca de nosotros",
-      "description": "Queremos lograr que las empresas cuenten con una visión global para aumentar su potencial de tomar decisiones inteligentes.",
-      "links": [{}]
-    }],
-    "cta": [{
-      "id": 1,
-      "order": 1,
-      "background": "",
-      "img": "",
-      "title": "¿Por qué Smart?",
-      "description": "Conoce sobre los beneficios de usar las aplicaciones de Smart en:",
-      "links": [{
+  "browser": [{
+    "id": 1,
+    "order": 1,
+    "title": "Acerca de Nosotros",
+    "description": ""
+  }],
+  "header": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "video": "",
+    "title": "Acerca de nosotros",
+    "description": "Queremos lograr que las empresas cuenten con una visión global para aumentar su potencial de tomar decisiones inteligentes.",
+    "links": [{}]
+  }],
+  "purpose": [{
+    "id": 1,
+    "order": 1,
+    "title": "Nuestro próposito",
+    "description": "Integrar distintas perspectivas en sistemas que ofrecen soluciones completas para facilitar la gestión de las organizaciones en entornos dinámicos."
+  }],
+  "values": [{
+    "id": 1,
+    "order": 1,
+    "title": "Nuestros valores",
+    "description": "Representan una guía indispensable a la hora de tomar decisiones y establecer estrategias a través del tiempo. Nos recuerdan diariamente cómo actuar para avanzar hacia nuestro propósito.",
+    "nodes": [{
         "id": 1,
         "order": 1,
-        "type": "btn",
-        "url": "",
-        "title": "!Ingresa aquí¡",
-        "description": ""
-      }]
+        "position": "left",
+        "title_head": "",
+        "title": "Confianza",
+        "description": "Confiamos en nuestra capacidad para desarrollarnos, alcanzar altos niveles de excelencia y, en equipo, llegar más lejos. Desde ahí, construimos nuestras relaciones comerciales y profesionales.",
+        "media": [{
+          "id": 1,
+          "order": 1,
+          "type": "img",
+          "url": "https://via.placeholder.com/400x300"
+        }]
+      },
+      {
+        "id": 2,
+        "order": 2,
+        "position": "right",
+        "title_head": "",
+        "title": "Oportunidad",
+        "description": "Reconociendo un mundo cambiante, con actitud positiva identificamos las oportunidades detrás de los obstáculos, sobre todo en los momentos difíciles, y nos comprometemos a superar las expectativas de nuestros clientes.",
+        "media": [{
+          "id": 1,
+          "order": 1,
+          "type": "img",
+          "url": "https://via.placeholder.com/400x300"
+        }]
+      },
+      {
+        "id": 3,
+        "order": 3,
+        "position": "left",
+        "title_head": "",
+        "title": "Proactividad",
+        "description": "Generamos ideas innovadoras para nuestros clientes y los ayudamos a hacerlas realidad. Seleccionamos aquellas que aportan mayor valor, tomamos la iniciativa y asumimos la responsabilidad de hacer que las cosas sucedan.",
+        "media": [{
+          "id": 1,
+          "order": 1,
+          "type": "img",
+          "url": "https://via.placeholder.com/400x300"
+        }]
+      },
+      {
+        "id": 4,
+        "order": 4,
+        "position": "right",
+        "title_head": "",
+        "title": "Excelencia",
+        "description": "Estamos comprometidos con ir siempre un paso más allá y superar nuestro nivel de calidad previo en cada actividad que desarrollamos. Nuestro compromiso es superar las expectativas de nuestros clientes.",
+        "media": [{
+          "id": 1,
+          "order": 1,
+          "type": "img",
+          "url": "https://via.placeholder.com/400x300"
+        }]
+      },
+      {
+        "id": 5,
+        "order": 5,
+        "position": "left",
+        "title_head": "",
+        "title": "Perseverancia",
+        "description": "Avanzamos firmemente hacia el logro de nuestros objetivos y buscamos diferentes caminos hasta lograrlos. Nos proponemos acompañar a nuestros clientes para juntos alcanzar resultados excepcionales.",
+        "media": [{
+          "id": 1,
+          "order": 1,
+          "type": "img",
+          "url": "https://via.placeholder.com/400x300"
+        }]
+      }
+    ]
+  }],
+  "commercial": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "video": "./assets/video/video_banner.mp4",
+    "title": "Acerca de nosotros",
+    "description": "Queremos lograr que las empresas cuenten con una visión global para aumentar su potencial de tomar decisiones inteligentes.",
+    "links": [{}]
+  }],
+  "cta": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "img": "",
+    "title": "¿Por qué Smart?",
+    "description": "Conoce sobre los beneficios de usar las aplicaciones de Smart en:",
+    "links": [{
+      "id": 1,
+      "order": 1,
+      "type": "btn",
+      "title": "!Ingresa aquí¡",
+      "url": "/whysmart",
+      "description": ""
     }]
-  }
+  }]
+}

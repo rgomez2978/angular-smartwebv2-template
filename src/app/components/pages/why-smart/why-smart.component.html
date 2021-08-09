@@ -1,1 +1,12 @@
-<p>why-smart works!</p>
+<section class="animate__animated animate__fadeIn contentPage">
+    <header class="contentPage__header">
+        <app-header [data]="dataHeader" [type]="'fixed'"></app-header>
+    </header>
+    <br>
+    <app-content [data]="dataBenefits" [type]="'benefits_about'"></app-content>
+    <!-- <app-call-to-action [data]="dataCommercial" [type]="'video'"></app-call-to-action> -->
+    <br>
+    <app-call-to-action [data]="dataCta" [type]="'normal'"></app-call-to-action>
+    <br>
+    <br>
+</section>

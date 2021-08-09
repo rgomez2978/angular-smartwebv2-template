@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '@redux/app.reducers';
 import { Subscription } from 'rxjs';
@@ -10,15 +10,18 @@ declare let $: any;
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
   private _subscription: Subscription = new Subscription();
   @Input() data: any;
   @Input() type!: string;
   videoSource!: string;
   title!: string;
-  showBtnVideo!: boolean;
+  showBtnVideo: boolean = true;
   urlBreadcrumbs!: any;
   fullData: any = [];
+
+  elmentR!: any;
+
 
   constructor(
     private _apiJSONService: ApiJsonService,
@@ -50,7 +53,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   setSubscriptions() {
     this._subscription.add(
       this._store.select('ui').subscribe((state) => {
-        this.showBtnVideo = state.show_btnvideo;
         this.urlBreadcrumbs = state.urlBreadcrumbs;
       })
     );
@@ -79,8 +81,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
 
-
-
   /**
    * -------------------------------------------------------
    * @summary loadJquery
@@ -104,6 +104,25 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     });
   }
+
+
+  getRefHtml(event: any) {
+    // console.log(`event`, event)
+    this.elmentR = event;
+  }
+
+
+  playVideo() {
+    console.log(`this.showBtnVideo`, this.showBtnVideo)
+    this.showBtnVideo = !this.showBtnVideo;
+    let event = this.elmentR;
+    if (!this.showBtnVideo) {
+      event.play();
+    } else {
+      event.pause();
+    }
+  }
+
 
 
   /**

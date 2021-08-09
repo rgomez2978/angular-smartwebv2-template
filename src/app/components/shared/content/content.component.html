@@ -1,8 +1,11 @@
 <!-- CONTENT - PRODUCTS - BENEFITS -->
 <div *ngIf="type === 'benefits'">
+    <div *ngIf="data[0]?.title !== ''" >
+        <app-title [title]="data[0]?.title" [description]="data[0]?.description"></app-title>
+    </div>
     <section class="containerBenefits ">
         <div class="containerBenefits__content">
-            <div *ngFor="let item of data ">
+            <div *ngFor="let item of data[0]?.nodes">
                 <div class="itemBenefit" [ngClass]="item.position === 'left' ? 'left' : 'right'">
                     <div class="itemBenefit__img" *ngFor="let itemMedia of item.media">
                         <app-media [data]="itemMedia.url" [type]="'img'" [format]="'png'"></app-media>
@@ -18,6 +21,31 @@
         </div>
     </section>
 </div>
+
+
+<div *ngIf="type === 'benefits_about'">
+    <div *ngIf="data[0]?.title !== ''" >
+        <app-title [title]="data[0]?.title" [description]="data[0]?.description"></app-title>
+    </div>
+    <section class="containerBenefitsAbout ">
+        <div class="containerBenefitsAbout__content">
+            <div *ngFor="let item of data[0]?.nodes">
+                <div class="itemBenefit" [ngClass]="item.position === 'left' ? 'left' : 'right'">
+                    <div class="itemBenefit__img" *ngFor="let itemMedia of item.media">
+                        <app-media [data]="itemMedia.url" [type]="'img'" [format]="'png'"></app-media>
+                    </div>
+                    <div class="itemBenefit__cont">
+                        <span>{{item.title_head}}</span>
+                        <h2>{{item.title}}</h2>
+                        <p>{{item.description}}</p>
+                    </div>
+                </div>
+                <hr class="w-3/5 h-1 mx-auto bg-gray-100 mt-14 ">
+            </div>
+        </div>
+    </section>
+</div>
+
 
 <!-- CONTENT - HELP - CARDS -->
 <div *ngIf="type === 'help_cards'">

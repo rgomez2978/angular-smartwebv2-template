@@ -47,9 +47,6 @@ export class ReduxService {
   }
 
 
-
-
-
   /**
    * -------------------------------------------------------
    * @summary setAPIConnect
@@ -74,15 +71,6 @@ export class ReduxService {
       case 'resources':
         this._store.dispatch(ownActions.setAPIConnectResources({ apiConResources: { apiCon: conn, apiLang: lang } }));
         break;
-      case 'info':
-        this._store.dispatch(ownActions.setAPIConnectInfo({ apiConInfo: { apiCon: conn, apiLang: lang } }));
-        break;
-      case 'policies':
-        this._store.dispatch(ownActions.setAPIConnectPolicies({ apiConPolicies: { apiCon: conn, apiLang: lang } }));
-        break;
-      case 'sites':
-        this._store.dispatch(ownActions.setAPIConnectSites({ apiConSites: { apiCon: conn, apiLang: lang } }));
-        break;
       case 'help':
         this._store.dispatch(ownActions.setAPIConnectHelp({ apiConHelp: { apiCon: conn, apiLang: lang } }));
         break;
@@ -100,6 +88,21 @@ export class ReduxService {
         break;
       case 'news_details':
         this._store.dispatch(ownActions.setAPIConnectNewsD({ apiConNewsD: { apiCon: conn, apiLang: lang } }));
+        break;
+      case 'aboutus':
+        this._store.dispatch(ownActions.setAPIConnectAbout({ apiConAbout: { apiCon: conn, apiLang: lang } }));
+        break;
+      case 'whysmart':
+        this._store.dispatch(ownActions.setAPIConnectWhy({ apiConWhy: { apiCon: conn, apiLang: lang } }));
+        break;
+      case 'legal':
+        this._store.dispatch(ownActions.setAPIConnectLegal({ apiConLegal: { apiCon: conn, apiLang: lang } }));
+        break;
+      case 'policies':
+        this._store.dispatch(ownActions.setAPIConnectPolicies({ apiConPolicies: { apiCon: conn, apiLang: lang } }));
+        break;
+      case 'sites':
+        this._store.dispatch(ownActions.setAPIConnectSites({ apiConSites: { apiCon: conn, apiLang: lang } }));
         break;
       default:
         this._store.dispatch(ownActions.setAPIConnectLayout({ apiConLayout: { apiCon: conn, apiLang: lang } }));
@@ -135,15 +138,6 @@ export class ReduxService {
       case 'resources':
         this._store.dispatch(ownActions.setArrayResources({ arrayResources: { apiLang: lang, apiArray: array } }));
         break;
-      case 'info':
-        this._store.dispatch(ownActions.setArrayInfo({ arrayInfo: { apiLang: lang, apiArray: array } }));
-        break;
-      case 'policies':
-        this._store.dispatch(ownActions.setArrayPolicies({ arrayPolicies: { apiLang: lang, apiArray: array } }));
-        break;
-      case 'sites':
-        this._store.dispatch(ownActions.setArraySites({ arraySites: { apiLang: lang, apiArray: array } }));
-        break;
       case 'help':
         this._store.dispatch(ownActions.setArrayHelp({ arrayHelp: { apiLang: lang, apiArray: array } }));
         break;
@@ -162,23 +156,26 @@ export class ReduxService {
       case 'news_details':
         this._store.dispatch(ownActions.setArrayNewsD({ arrayNewsD: { apiLang: lang, apiArray: array } }));
         break;
+      case 'aboutus':
+        this._store.dispatch(ownActions.setArrayAbout({ arrayAbout: { apiLang: lang, apiArray: array } }));
+        break;
+      case 'whysmart':
+        this._store.dispatch(ownActions.setArrayWhy({ arrayWhy: { apiLang: lang, apiArray: array } }));
+        break;
+      case 'legal':
+        this._store.dispatch(ownActions.setArrayLegal({ arrayLegal: { apiLang: lang, apiArray: array } }));
+        break;
+      case 'policies':
+        this._store.dispatch(ownActions.setArrayPolicies({ arrayPolicies: { apiLang: lang, apiArray: array } }));
+        break;
+      case 'sites':
+        this._store.dispatch(ownActions.setArraySites({ arraySites: { apiLang: lang, apiArray: array } }));
+        break;
       default:
         this._store.dispatch(ownActions.setArrayLayout({ arrayLayout: { apiLang: lang, apiArray: array } }));
         break;
     }
   }
-
-  /**
-   * -------------------------------------------------------
-   * @summary setNewsCategory
-   * @description Asigna el id de la categoria de noticas seleccionada
-   * @param {string} id id de la categoria
-   * -------------------------------------------------------
-   */
-  // setNewsCategory(id: string) {
-  //   this._store.dispatch(ownActions.setNewsCategory({ newsCategory: id }));
-  // }
-
 
   /**
    * -------------------------------------------------------

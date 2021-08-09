@@ -32,7 +32,7 @@
       "order": 1,
       "position": "left",
       "title": "Preguntas frecuentes sobre el uso de imágenes adjuntas",
-      "description": "<p>Gracias a nuestros fundadores, entre los que se encuentra Suministros Industriales Delta, hemos dejado huella positiva en m&aacute;s de 230 adolescentes con el programa Robles del Futuro, y tocado las vidas de m&aacute;s 45 mil personas en Caracas, Guarenas, Valencia, Puerto Ordaz y Margarita a trav&eacute;s de las Iniciativas Alpha del Bien Com&uacute;n.</p> <p>M&aacute;s que gusto por lo alcanzado sentimos&nbsp;GRATITUD&nbsp;por multiplicar oportunidades y ayudar a otros para que logren sus metas.</p> <p><strong>&iexcl;Sigamos adelante!</strong></p>",
+      "description": "<app-header [data]=\"dataHeader\" [type]=\"'fixed-video'\"></app-header>",
       "media": [{
         "id": 1,
         "order": 1,

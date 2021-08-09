@@ -30,3 +30,19 @@
         </div>
     </section>
 </div>
+
+
+<!-- CALL TO ACTION - VIDEO -->
+<div *ngIf="type === 'video'" class="containerCTA__video">
+    <div class="containerCTA__video__cont" *ngFor="let item of data">
+        <app-media [data]="item.video" [type]="'video_player'" class="videoTag"></app-media>
+        <div class="videoCont">
+            <h1>{{item.title}}</h1>
+            <div *ngIf="!showBtnVideo" class="videoBtn">
+                <a *ngFor="let itemLink of item.links">
+                    <h4>{{itemLink.title}}</h4>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

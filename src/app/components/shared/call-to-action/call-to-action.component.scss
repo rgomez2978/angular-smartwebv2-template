@@ -42,3 +42,36 @@
 
   }
 }
+
+
+.containerCTA__video {
+  @apply flex flex-row items-center justify-center w-full;
+
+
+  &__cont {
+    @apply relative z-30 flex flex-row items-center justify-start w-full h-auto;
+
+    .videoTag {
+      @apply flex-row w-auto h-40;
+    }
+    .videoCont {
+      @apply absolute z-10 flex flex-col items-start justify-center w-auto px-10 mt-10 md:mt-0 cursor-default h-40;
+
+      > h1 {
+        @apply w-full pb-5 font-semibold leading-tight tracking-normal text-center text-white sm:text-2xl md:pb-7 md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-5xl;
+      }
+      .videoBtn {
+        @apply flex w-full pl-7 py-1;
+        a {
+          @apply flex w-max items-center text-white border-2 p-2 border-transparent rounded-md  hover:border-white;
+          span {
+            @apply text-2xl md:text-2xl lg:text-3xl;
+          }
+          h4 {
+            @apply pl-2 font-light sm:text-xl md:text-2xl lg:text-2xl;
+          }
+        }
+      }
+    }
+  }
+}

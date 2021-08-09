@@ -1,31 +1,38 @@
 section {
-    @apply flex flex-col items-start justify-center py-8 bg-white;
-    .title__content {
-      @apply flex flex-row items-center justify-center w-full -mb-1 text-xl font-normal uppercase sm:mb-1 md:mb-1 lg:mb-2 sm:text-xl md:text-2xl lg:text-3xl xl:text-3xl;
-      &__label {
-        @apply flex flex-col w-auto;
-        span {
-          @apply flex w-auto text-gray-400;
-          &.label2{
-              @apply w-auto text-gray-300;
+  @apply flex flex-col items-start justify-center py-8 bg-white;
+  .title__content {
+    @apply flex flex-row items-center justify-center w-full -mb-1 text-xl font-normal uppercase sm:mb-1 md:mb-1 lg:mb-2 sm:text-xl md:text-2xl lg:text-3xl xl:text-3xl;
+    &__label {
+      @apply flex flex-col w-auto;
+      span {
+        @apply flex w-auto text-gray-400;
+        &.label2 {
+          @apply w-auto text-gray-300;
+        }
+      }
+      .cont_bullet {
+        @apply flex flex-row items-center w-full px-0;
+
+        &__line {
+          @apply flex w-full h-2 border-b-4 border-gray-400;
+          &.label2 {
+            @apply border-gray-300;
           }
         }
-        .cont_bullet {
-          @apply flex flex-row items-center w-full px-0;
-
-          &__line {
-            @apply flex w-full h-2 border-b-4 border-gray-400;
-            &.label2{
-              @apply border-gray-300;
-            }
-          }
-          &__bullet {
-            @apply flex w-5 h-4 mt-1 transform scale-50 bg-gray-400 rounded-full;
-            &.label2{
-              @apply bg-gray-300;
-            }
+        &__bullet {
+          @apply flex w-5 h-4 mt-1 transform scale-50 bg-gray-400 rounded-full;
+          &.label2 {
+            @apply bg-gray-300;
           }
         }
       }
     }
   }
+
+  .description__content {
+    @apply flex w-full px-4 md:px-10 py-3;
+    > p {
+      @apply text-lg text-gray-600 md:text-2xl items-center justify-center text-center;
+    }
+  }
+}

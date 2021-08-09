@@ -18,8 +18,8 @@
     "media": [{
       "id": 1,
       "order": 1,
-      "type": "img",
-      "url": "assets/img/productos/contacto.png"
+      "type": "video",
+      "url": "./assets/video/uk-brand-campaign.mp4"
     }],
     "links": [{
       "id": 1,
@@ -58,7 +58,11 @@
     ]
   }],
   "specifications": [{
-    "detail": [{
+    "id": 1,
+    "order": 1,
+    "title": "",
+    "description": "",
+    "nodes": [{
         "id": 1,
         "order": 1,
         "position": "left",
@@ -244,8 +248,8 @@
     "media": [{
       "id": 1,
       "order": 1,
-      "type": "img",
-      "url": "assets/img/productos/contacto.png"
+      "type": "video",
+      "url": "./assets/video/uk-brand-campaign.mp4"
     }],
     "buttons": [{
       "id": 1,
@@ -274,10 +278,13 @@
         "description": "App Store"
       }
     ]
-
   }],
   "specifications": [{
-    "detail": [{
+    "id": 1,
+    "order": 1,
+    "title": "",
+    "description": "",
+    "nodes": [{
         "id": 1,
         "order": 1,
         "position": "left",

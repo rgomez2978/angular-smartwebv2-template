@@ -1,6 +1,6 @@
 <!-- MEDIA - IMG -->
 <div *ngIf="type === 'img'">
-    <picture >
+    <picture>
         <source type="image/webp" [attr.defaultImage]="data +'.webp'" [attr.lazyLoad]="data +'.webp'" />
         <img [defaultImage]="data +'.'+format" [lazyLoad]="data +'.'+format" />
     </picture>
@@ -9,6 +9,14 @@
 <!-- MEDIA - VIDEO -->
 <div *ngIf="type === 'video-banner'">
     <video muted autoplay loop preload="auto">
+        <source [src]="data | safedom: 'resourceUrl'" type="video/mp4" />
+    </video>
+</div>
+
+
+<!-- MEDIA - VIDEO - COMPONENT-->
+<div *ngIf="type === 'video_player'">
+    <video  preload="auto" controls #videoPlayer >
         <source [src]="data | safedom: 'resourceUrl'" type="video/mp4" />
     </video>
 </div>

@@ -47,17 +47,16 @@
                 </div>
             </div>
             <div class="container__video">
-                <div class="container__video_cont">
-                    <img src="https://images.pexels.com/photos/927022/pexels-photo-927022.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260"
-                        alt="" />
-                    <a href="/" aria-label="Play Video"
-                        class="absolute inset-0 flex items-center justify-center w-full h-full transition-colors duration-300 bg-gray-900 bg-opacity-50 group hover:bg-opacity-25">
-                        <div
-                            class="flex items-center justify-center transition duration-300 transform shadow-2xl group-hover:scale-110">
-                            <i
-                                class="text-white transition-transform duration-150 icofont-play-alt-3 icofont-4x opacity-80 hover:opacity-100"></i>
+                <div class="container__video_cont" *ngFor="let itemVideo of item.media">
+                    <app-media [data]="itemVideo.url" [type]="'video_player'" class="videoTag"
+                        (getRefHtml)="getRefHtml($event)"></app-media>
+                    <div class="absolute flex bg-gray-900 felx inset-1/2 -ml-7">
+                        <div (click)="playVideo()"
+                            class="flex items-center justify-center transition duration-300 transform shadow-2xl cursor-pointer group-hover:scale-110">
+                            <i [ngClass]="showBtnVideo?'opacity-80 icofont-play-alt-3':'opacity-0 icofont-pause'"
+                                class="text-white transition-transform duration-150 cursor-pointer icofont-4x hover:opacity-100"></i>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>
