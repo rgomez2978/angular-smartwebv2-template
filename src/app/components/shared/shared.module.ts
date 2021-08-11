@@ -17,9 +17,6 @@ import { AccordionComponent } from '@components/accordion/accordion.component';
 import { ContentComponent } from '@components/content/content.component';
 import { TitleComponent } from '@components/title/title.component';
 import { CallToActionComponent } from '@components/call-to-action/call-to-action.component';
-import { TabComponent } from '@components/tab/tab.component';
-import { PriceComponent } from '@components/price/price.component';
-import { ServiceComponent } from '@components/service/service.component';
 import { MenuComponent } from '@components/menu/menu.component';
 import { FormComponent } from '@components/form/form.component';
 import { BreadcrumbComponent } from '@components/breadcrumb/breadcrumb.component';
@@ -44,9 +41,6 @@ import { FormErrorComponent } from './form-error/form-error.component';
     ContentComponent,
     TitleComponent,
     CallToActionComponent,
-    TabComponent,
-    PriceComponent,
-    ServiceComponent,
     MenuComponent,
     FormComponent,
     BreadcrumbComponent,
@@ -75,9 +69,6 @@ import { FormErrorComponent } from './form-error/form-error.component';
     ContentComponent,
     TitleComponent,
     CallToActionComponent,
-    TabComponent,
-    PriceComponent,
-    ServiceComponent,
     MenuComponent,
     FormComponent,
     BreadcrumbComponent,

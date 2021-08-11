@@ -77,8 +77,8 @@
         "nodes": [{
             "id": 1,
             "order": 1,
-        "type": "link",
-        "level": 2,
+            "type": "link",
+            "level": 2,
             "icon": "",
             "active": false,
             "title": "FAQ",
@@ -87,8 +87,8 @@
           }, {
             "id": 2,
             "order": 2,
-        "type": "link",
-        "level": 2,
+            "type": "link",
+            "level": 2,
             "icon": "",
             "active": false,
             "title": "Manuales de uso",
@@ -98,8 +98,8 @@
           {
             "id": 3,
             "order": 3,
-        "type": "link",
-        "level": 2,
+            "type": "link",
+            "level": 2,
             "icon": "",
             "active": false,
             "title": "Blog",
@@ -390,6 +390,25 @@
           "url": "/site-map"
         }
       ]
+    }]
+  }],
+  "notfound": [{
+    "id": 1,
+    "order": 1,
+    "title": "Página no encontrada",
+    "description": "¡UPS! La página que busca no existe. Puede que se haya movido o eliminado.",
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "title": "Inicio",
+      "url": "/home",
+      "className":"btn_normal"
+    },{
+      "id": 2,
+      "order": 2,
+      "title": "Contáctanos",
+      "url": "/contacts",
+      "className":"btn_bold"
     }]
   }]
 }

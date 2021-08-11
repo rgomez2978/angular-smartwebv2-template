@@ -1,6 +1,7 @@
 import { createAction, props } from "@ngrx/store";
 
 export const toggleMenuMobile = createAction("[UI] Toggle Menu Mobile");
+export const setNotFound = createAction("[UI] Set Not Found", props<{ notfound: boolean }>());
 export const setShowBtnVideo = createAction("[UI] Set Boton Video", props<{ show_btnvideo: boolean }>());
 export const setShowBgMenu = createAction("[UI] Set BAckground Menu horizontal", props<{ showBgMenu: boolean }>());
 export const setUrl = createAction("[UI] Set Url", props<{ urlActive1: string, urlActive2: string }>());

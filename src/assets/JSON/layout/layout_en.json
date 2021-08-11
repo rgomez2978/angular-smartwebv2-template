@@ -77,8 +77,8 @@
         "nodes": [{
             "id": 1,
             "order": 1,
-        "type": "link",
-        "level": 2,
+            "type": "link",
+            "level": 2,
             "icon": "",
             "active": false,
             "title": "FAQ",
@@ -87,8 +87,8 @@
           }, {
             "id": 2,
             "order": 2,
-        "type": "link",
-        "level": 2,
+            "type": "link",
+            "level": 2,
             "icon": "",
             "active": false,
             "title": "User manuals",
@@ -98,8 +98,8 @@
           {
             "id": 3,
             "order": 3,
-        "type": "link",
-        "level": 2,
+            "type": "link",
+            "level": 2,
             "icon": "",
             "active": false,
             "title": "Blog",
@@ -390,6 +390,25 @@
           "url": "/site-map"
         }
       ]
+    }]
+  }],
+  "notfound": [{
+    "id": 1,
+    "order": 1,
+    "title": "Page not found",
+    "description": "UPS! The page you are looking for does not exist. It may have been moved or deleted.",
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "title": "Home",
+      "url": "/home",
+      "className":"btn_normal"
+    }, {
+      "id": 2,
+      "order": 2,
+      "title": "Contacts us",
+      "url": "/contacts",
+      "className":"btn_bold"
     }]
   }]
 }

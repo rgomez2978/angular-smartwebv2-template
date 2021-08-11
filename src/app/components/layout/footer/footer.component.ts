@@ -16,6 +16,7 @@ export class FooterComponent implements OnInit {
   urlBreadcrumbs!: any;
   fullBreadcrumbs: any = [];
   language!: string;
+  notfound!: boolean
 
   constructor(
     private _reduxService: ReduxService,
@@ -44,6 +45,7 @@ export class FooterComponent implements OnInit {
   setSubscriptions() {
     this._subscription.add(
       this._store.select('ui').subscribe((state) => {
+        this.notfound = state.notfound;
         this.urlActiveLevel1 = state.urlActive1;
         this.urlActiveLevel2 = state.urlActive2;
         this.urlBreadcrumbs = state.urlBreadcrumbs;
@@ -64,8 +66,6 @@ export class FooterComponent implements OnInit {
     let url = this.urlBreadcrumbs;
     let urlFinal = '';
     let page = this.urlActiveLevel1.split('/')[1];
-    // console.log(`page`, page)
-    // console.log(`url`, url)
     if (page === 'resources' && url.length >= 3) {
       if (url[3] === undefined) {
         urlFinal = url[2]
@@ -88,7 +88,8 @@ export class FooterComponent implements OnInit {
       }
       this._apiJsonService.setTranslate(value, urlFinal);
     } else {
-      this._apiJsonService.setTranslate(value, page);
+      this.notfound ? urlFinal = 'layout' : urlFinal = page;
+      this._apiJsonService.setTranslate(value, urlFinal);
     }
   }
 

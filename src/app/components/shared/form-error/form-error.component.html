@@ -2,7 +2,6 @@
 <small *ngIf="invalidValue(form, data.fcname) && getLength(form, data.fcname) == 0" class="text-sm font-semibold text-red-500 opacity-70">
     {{data.errorRequired}}
 </small>
-<!-- End Mensaje de error - requeridos -->
 
 <!-- Start Mensaje de error - minLength y maxLength -->
 <small
@@ -10,25 +9,21 @@
     class="text-sm font-semibold text-red-500 opacity-70">
     {{data.errorMinMax}}
 </small>
-<!-- End Mensaje de error - minLength y maxLength -->
 
 <!-- Start Mensaje de error - email -->
 <small *ngIf="(invalidValue(form, data.fcname) && getLength(form, data.fcname) > 0) && (data.type === 'email' ) "
     class="text-sm font-semibold text-red-500 opacity-70">
     {{data.errorValid}}
 </small>
-<!-- End Mensaje de error - email -->
 
 <!-- Start Mensaje de error - Phone -->
 <small *ngIf="(invalidValue(form, data.fcname) && getLength(form, data.fcname) > 0) && (data.type === 'phone' ) "
     class="text-sm font-semibold text-red-500 opacity-70">
     {{data.errorValid}}
 </small>
-<!-- End Mensaje de error - Phone -->
 
 <!-- Start Mensaje de error - Username -->
 <small *ngIf="(invalidValue(form, data.fcname) && getLength(form, data.fcname) > 0) && ( data.type === 'username' ) "
     class="text-sm font-semibold text-red-500 opacity-70">
     {{data.errorValid}}
 </small>
-<!-- End Mensaje de error - Username -->

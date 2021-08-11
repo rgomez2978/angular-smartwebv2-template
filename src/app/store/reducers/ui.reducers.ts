@@ -8,6 +8,7 @@ export interface UiState {
     show_menu_app: boolean;
     show_menu_session: boolean;
     show_btnvideo: boolean;
+    notfound: boolean;
     showBgMenu: boolean;
     login: boolean;
     loading: boolean;
@@ -25,6 +26,7 @@ export const uiState: UiState = {
     show_menu_app: false,
     show_menu_session: false,
     show_btnvideo: false,
+    notfound: false,
     showBgMenu: false,
     login: false,
     loading: false,
@@ -40,6 +42,8 @@ const _uiReducer = createReducer(
     on(ownActions.toggleMenuApps, (state, { show_menu_session }) => ({ ...state, show_menu_app: !state.show_menu_app, show_menu_session })),
     //  Cambia el estado del Menu de Sessions y asigna el de menu apps
     on(ownActions.toggleMenuSession, (state, { show_menu_app }) => ({ ...state, show_menu_app, show_menu_session: !state.show_menu_session })),
+    //  Asigna el estado del notfound
+    on(ownActions.setNotFound, (state, { notfound }) => ({ ...state, notfound, })),
     //  Asigna el estado del boton del video popup
     on(ownActions.setShowBtnVideo, (state, { show_btnvideo }) => ({ ...state, show_btnvideo, })),
     //  Asigna el estado del background del menu horizontal

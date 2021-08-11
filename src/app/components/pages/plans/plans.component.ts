@@ -38,7 +38,6 @@ export class PlansComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this._titleService.setTitle('Smart Suite Tools');
     this.setSubscriptions();
-
   }
 
 

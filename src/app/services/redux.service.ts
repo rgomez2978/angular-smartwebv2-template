@@ -194,6 +194,17 @@ export class ReduxService {
     this._store.dispatch(ownActions.setShowBtnVideo({ show_btnvideo: value }));
   }
 
+  /**
+   * -------------------------------------------------------
+   * @summary setNotFound
+   * @description Cambia el valor del la pagina notfound
+   * @param {boolean} value valor del boton
+   * -------------------------------------------------------
+   */
+  setNotFound(value: boolean) {
+    this._store.dispatch(ownActions.setNotFound({ notfound: value }));
+  }
+
 
   /**
    * -------------------------------------------------------

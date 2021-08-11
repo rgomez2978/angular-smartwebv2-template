@@ -330,6 +330,13 @@ export class ApiJsonService implements OnInit, OnDestroy {
           this._reduxService.setAPIConnect(page, false, lang);
         }
         break;
+      case 'layout':
+        if (lang === this.apiConLayoutLang && this.apiConLayout) {
+          this._reduxService.setAPIConnect(page, true, lang);
+        } else {
+          this._reduxService.setAPIConnect('layout', false, lang);
+        }
+        break;
       default:
         break
     }

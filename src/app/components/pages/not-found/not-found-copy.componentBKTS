@@ -1,0 +1,76 @@
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Store } from "@ngrx/store";
+import { AppState } from "src/app/store/app.reducers";
+import { Subscription } from "rxjs";
+
+@Component({
+  selector: 'app-not-found',
+  templateUrl: './not-found.component.html',
+  styleUrls: ['./not-found.component.scss']
+})
+export class NotFoundComponent implements OnInit, OnDestroy {
+  private _subscription: Subscription = new Subscription();
+  language!: string;
+  title!: string;
+  subtitle!: string;
+  btn1!: string;
+  btn2!: string;
+
+  constructor(
+    private _titleService: Title,
+    private _store: Store<AppState>
+  ) { }
+
+
+  /**
+   * -------------------------------------------------------
+   * @summary ngOnInit
+   * @description  Inicializa funciones al cargar el
+   * -------------------------------------------------------
+   */
+  ngOnInit(): void {
+    this._titleService.setTitle('Smart Suite Tools');
+    this.setSubscriptions();
+    setTimeout(() => {
+      if (this.language === 'es') {
+        this.title = 'Página no encontrada';
+        this.subtitle = '¡UPS! La página que busca no existe. Puede que se haya movido o eliminado.';
+        this.btn1 = 'Inicio';
+        this.btn2 = 'Contáctanos';
+      } else {
+        this.title = 'Page not found';
+        this.subtitle = 'UPS! The page you are looking for does not exist. It may have been moved or deleted.';
+        this.btn1 = 'Home';
+        this.btn2 = 'Contacts us';
+      }
+    }, 50);
+  }
+
+
+  /**
+   * -------------------------------------------------------
+   * @summary setSubscriptions
+   * @description Traer el valor del state del estado del translated de redux
+   * -------------------------------------------------------
+   */
+  setSubscriptions() {
+    this._subscription.add(
+      this._store.select('ui').subscribe((state) => {
+        this.language = state.language;
+      })
+    );
+  }
+
+  /**
+   * -------------------------------------------------------
+   * @summary ngOnDestroy
+   * @description  Destruye conexiones abiertas
+   * -------------------------------------------------------
+   */
+  ngOnDestroy() {
+    this._subscription.unsubscribe();
+  }
+
+
+}

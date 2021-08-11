@@ -1,4 +1,4 @@
-<!-- CONTENT - PRODUCTS - BENEFITS -->
+<!-- CONTENT - BENEFITS -->
 <div *ngIf="type === 'benefits'">
     <div *ngIf="data[0]?.title !== ''" >
         <app-title [title]="data[0]?.title" [description]="data[0]?.description"></app-title>
@@ -23,6 +23,7 @@
 </div>
 
 
+<!-- CONTENT - BENEFITS - ABOUT-->
 <div *ngIf="type === 'benefits_about'">
     <div *ngIf="data[0]?.title !== ''" >
         <app-title [title]="data[0]?.title" [description]="data[0]?.description"></app-title>
