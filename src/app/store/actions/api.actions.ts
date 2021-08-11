@@ -20,6 +20,7 @@ export const setAPIConnectWhy = createAction("[API] Set API Connect Why", props<
 export const setAPIConnectLegal = createAction("[API] Set API Connect Legal", props<{ apiConLegal: ApiConnect }>());
 export const setAPIConnectPolicies = createAction("[API] Set API Connect Policies", props<{ apiConPolicies: ApiConnect }>());
 export const setAPIConnectSites = createAction("[API] Set API Connect Sites", props<{ apiConSites: ApiConnect }>());
+export const setAPIConnectContacts = createAction("[API] Set API Connect Contacts", props<{ apiConContacts: ApiConnect }>());
 
 
 // ARRAYS
@@ -40,3 +41,4 @@ export const setArrayWhy = createAction("[API ARRAY] Set Array Why", props<{ arr
 export const setArrayLegal = createAction("[API ARRAY] Set Array Legal", props<{ arrayLegal: ApiSetArray }>());
 export const setArrayPolicies = createAction("[API ARRAY] Set Array Policies", props<{ arrayPolicies: ApiSetArray }>());
 export const setArraySites = createAction("[API ARRAY] Set Array Sites", props<{ arraySites: ApiSetArray }>());
+export const setArrayContacts = createAction("[API ARRAY] Set Array Contacts", props<{ arrayContacts: ApiSetArray }>());

@@ -21,6 +21,7 @@ export interface ApiState {
     apiConLegal: ApiConnect;
     apiConPolicies: ApiConnect;
     apiConSites: ApiConnect;
+    apiConContacts: ApiConnect;
 
     arrayLayout: ApiSetArray;
     arrayHome: ApiSetArray;
@@ -39,6 +40,7 @@ export interface ApiState {
     arrayLegal: ApiSetArray;
     arrayPolicies: ApiSetArray;
     arraySites: ApiSetArray;
+    arrayContacts: ApiSetArray;
 }
 
 export const apiState: ApiState = {
@@ -59,6 +61,7 @@ export const apiState: ApiState = {
     apiConLegal: { apiCon: false, apiLang: 'es' },
     apiConPolicies: { apiCon: false, apiLang: 'es' },
     apiConSites: { apiCon: false, apiLang: 'es' },
+    apiConContacts: { apiCon: false, apiLang: 'es' },
 
     arrayLayout: { apiLang: 'es', apiArray: [] },
     arrayHome: { apiLang: 'es', apiArray: [] },
@@ -77,6 +80,7 @@ export const apiState: ApiState = {
     arrayLegal: { apiLang: 'es', apiArray: [] },
     arrayPolicies: { apiLang: 'es', apiArray: [] },
     arraySites: { apiLang: 'es', apiArray: [] },
+    arrayContacts: { apiLang: 'es', apiArray: [] },
 };
 
 const _apiReducer = createReducer(apiState,
@@ -97,6 +101,7 @@ const _apiReducer = createReducer(apiState,
     on(ownActions.setAPIConnectLegal, (state, { apiConLegal }) => ({ ...state, apiConLegal: { ...apiConLegal } })),
     on(ownActions.setAPIConnectPolicies, (state, { apiConPolicies }) => ({ ...state, apiConPolicies: { ...apiConPolicies } })),
     on(ownActions.setAPIConnectSites, (state, { apiConSites }) => ({ ...state, apiConSites: { ...apiConSites } })),
+    on(ownActions.setAPIConnectContacts, (state, { apiConContacts }) => ({ ...state, apiConContacts: { ...apiConContacts } })),
 
     on(ownActions.setArrayLayout, (state, { arrayLayout }) => ({ ...state, arrayLayout: { ...arrayLayout } })),
     on(ownActions.setArrayHome, (state, { arrayHome }) => ({ ...state, arrayHome: { ...arrayHome } })),
@@ -115,6 +120,7 @@ const _apiReducer = createReducer(apiState,
     on(ownActions.setArrayLegal, (state, { arrayLegal }) => ({ ...state, arrayLegal: { ...arrayLegal } })),
     on(ownActions.setArrayPolicies, (state, { arrayPolicies }) => ({ ...state, arrayPolicies: { ...arrayPolicies } })),
     on(ownActions.setArraySites, (state, { arraySites }) => ({ ...state, arraySites: { ...arraySites } })),
+    on(ownActions.setArrayContacts, (state, { arrayContacts }) => ({ ...state, arrayContacts: { ...arrayContacts } })),
 
 );
 

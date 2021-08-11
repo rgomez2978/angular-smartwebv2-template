@@ -33,6 +33,7 @@ import { ScrollContentDirective } from '@directives/scroll-content.directive';
 // PIPES
 import { NoimagePipe } from '@pipes/noimage.pipe';
 import { SafedomPipe } from '@pipes/safedom.pipe';
+import { FormErrorComponent } from './form-error/form-error.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { SafedomPipe } from '@pipes/safedom.pipe';
     FormValidateDirective,
     SafedomPipe,
     NoimagePipe,
-    ScrollContentDirective
+    ScrollContentDirective,
+    FormErrorComponent
   ],
   imports: [
     RouterModule,

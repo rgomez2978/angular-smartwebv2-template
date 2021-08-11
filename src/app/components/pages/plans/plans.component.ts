@@ -15,6 +15,7 @@ export class PlansComponent implements OnInit, OnDestroy {
   dataHeader: any = [];
   dataProducts: any = [];
   dataCta: any = [];
+  dataContacts: any = [];
   type: any;
   language!: string;
   apiConPlans!: boolean;
@@ -105,6 +106,7 @@ export class PlansComponent implements OnInit, OnDestroy {
       this.dataHeader = this.data.header;
       this.dataProducts = this.data.products;
       this.dataCta = this.data.cta;
+      this.dataContacts = this.data.form;
       return this.data;
     }
   }

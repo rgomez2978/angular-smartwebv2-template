@@ -13,24 +13,32 @@
     "description": "",
     "links": [{}],
     "form": [{
-      "name": "frmSendSearch",
-      "objects": [{
-        "id": 1,
-        "order": 1,
-        "type": "text",
-        "field_name": "txt_search",
-        "fc_name": "fcn_search",
-        "label": "Buscar"
-      }],
-      "buttons": [{
-        "id": 1,
-        "order": 1,
-        "type": "btn",
-        "icon": "",
-        "url": "",
-        "title": "Buscar"
+      "id": 1,
+      "order": 1,
+      "img": "",
+      "title": "",
+      "description": "",
+      "form": [{
+        "name": "frmSendSearch",
+        "objects": [{
+          "id": 1,
+          "order": 1,
+          "type": "text",
+          "field_name": "txt_search",
+          "fc_name": "fcn_search",
+          "label": "Buscar"
+        }],
+        "buttons": [{
+          "id": 1,
+          "order": 1,
+          "type": "btn",
+          "icon": "",
+          "url": "",
+          "title": "Buscar"
+        }]
       }]
     }]
+
   }],
   "products": [{
     "id": 1,

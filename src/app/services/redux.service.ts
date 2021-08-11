@@ -104,6 +104,9 @@ export class ReduxService {
       case 'sites':
         this._store.dispatch(ownActions.setAPIConnectSites({ apiConSites: { apiCon: conn, apiLang: lang } }));
         break;
+      case 'contacts':
+        this._store.dispatch(ownActions.setAPIConnectContacts({ apiConContacts: { apiCon: conn, apiLang: lang } }));
+        break;
       default:
         this._store.dispatch(ownActions.setAPIConnectLayout({ apiConLayout: { apiCon: conn, apiLang: lang } }));
         break
@@ -170,6 +173,9 @@ export class ReduxService {
         break;
       case 'sites':
         this._store.dispatch(ownActions.setArraySites({ arraySites: { apiLang: lang, apiArray: array } }));
+        break;
+      case 'contacts':
+        this._store.dispatch(ownActions.setArrayContacts({ arrayContacts: { apiLang: lang, apiArray: array } }));
         break;
       default:
         this._store.dispatch(ownActions.setArrayLayout({ arrayLayout: { apiLang: lang, apiArray: array } }));

@@ -15,6 +15,7 @@ export class AboutusComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();
   data: any = [];
   dataHeader: any = [];
+  dataPurpose: any = [];
   dataValues: any = [];
   dataCta: any = [];
   dataCommercial: any = [];
@@ -107,6 +108,7 @@ export class AboutusComponent implements OnInit, OnDestroy {
       this.data = array;
       this.dataHeader = this.data.header;
       this.dataValues = this.data.values;
+      this.dataPurpose = this.data.purpose;
       this.dataCommercial = this.data.commercial;
       this.dataCta = this.data.cta;
       return this.data;

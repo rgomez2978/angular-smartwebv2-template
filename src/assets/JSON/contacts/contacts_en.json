@@ -1,0 +1,119 @@
+{
+  "browser": [{
+    "id": 1,
+    "order": 1,
+    "title": "Contact us",
+    "description": ""
+  }],
+  "header": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "img": "",
+    "title": "Contact us!",
+    "description": "Contact us to offer you the solution that best suits your needs."
+  }],
+  "form": [{
+    "id": 1,
+    "order": 1,
+    "img": "https://via.placeholder.com/400x300",
+    "title": "",
+    "description": "Complete the form and one of </br> our experts will assist you",
+    "form": [{
+      "name": "frmSendContacts",
+      "objects": [{
+          "id": 1,
+          "order": 1,
+          "type": "text",
+          "field_name": "txt_name",
+          "label": "Full name",
+          "properties": [{
+            "type": "text",
+            "inputType": "text",
+            "field_name": "txt_name",
+            "fcname": "fcn_txt_name",
+            "directive": "apponlytexts",
+            "minLength": 3,
+            "maxLength": 45,
+            "required": true,
+            "label": "Full name",
+            "errorRequired": "Please enter a name. ",
+            "errorValid": "You must enter only text characters.",
+            "errorMinMax": "You must enter a minimum of 3 and a maximum of 25 characters."
+          }]
+        },
+        {
+          "id": 2,
+          "order": 2,
+          "type": "email",
+          "field_name": "txt_email",
+          "label": "Email",
+          "properties": [{
+            "type": "email",
+            "inputType": "email",
+            "field_name": "txt_email",
+            "fcname": "fcn_txt_email",
+            "directive": "apponlyemails",
+            "minLength": null,
+            "maxLength": null,
+            "required": true,
+            "label": "Email",
+            "errorRequired": "Please enter an email in the correct format (example@example.com)",
+            "errorValid": "Please enter an email in the correct format (example@example.com)",
+            "errorMinMax": ""
+          }]
+        },
+        {
+          "id": 3,
+          "order": 3,
+          "type": "text",
+          "field_name": "txt_phone",
+          "label": "Phone number",
+          "properties": [{
+            "type": "phone",
+            "inputType": "text",
+            "field_name": "txt_phone",
+            "fcname": "fcn_txt_phone",
+            "directive": "apponlyphones",
+            "minLength": null,
+            "maxLength": null,
+            "required": true,
+            "label": "Phone number",
+            "errorRequired": "Please enter a phone number in the correct format.",
+            "errorValid": "Please enter a phone number in the correct format.",
+            "errorMinMax": "You must enter a minimum of 2 and a maximum of 23 characters."
+          }]
+        },
+        {
+          "id": 4,
+          "order": 4,
+          "type": "textarea",
+          "field_name": "txt_message",
+          "label": "Enter your message here",
+          "properties": [{
+            "type": "textarea",
+            "inputType": "textarea",
+            "field_name": "txt_message",
+            "fcname": "fcn_txt_message",
+            "directive": "apponlyalphanumerics",
+            "minLength": 5,
+            "maxLength": 250,
+            "required": true,
+            "label": "Enter your message here",
+            "errorRequired": "Please enter a message",
+            "errorValid": "",
+            "errorMinMax": "You must enter a minimum of 5 and a maximum of 250 characters."
+          }]
+        }
+      ],
+      "buttons": [{
+        "id": 1,
+        "order": 1,
+        "type": "btn",
+        "url": "",
+        "title": "Send",
+        "description": ""
+      }]
+    }]
+  }]
+}

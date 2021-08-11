@@ -63,6 +63,9 @@ export class ApiJsonService implements OnInit, OnDestroy {
   apiConSites!: boolean;
   apiConSitesLang!: string;
   arraySites: any = [];
+  apiConContacts!: boolean;
+  apiConContactsLang!: string;
+  arrayContacts: any = [];
 
   constructor(
     private _http: HttpClient,
@@ -142,6 +145,8 @@ export class ApiJsonService implements OnInit, OnDestroy {
         this.apiConPoliciesLang = state.apiConPolicies.apiLang;
         this.apiConSites = state.apiConSites.apiCon;
         this.apiConSitesLang = state.apiConSites.apiLang;
+        this.apiConContacts = state.apiConContacts.apiCon;
+        this.apiConContactsLang = state.apiConContacts.apiLang;
       })
     );
   }
@@ -309,6 +314,15 @@ export class ApiJsonService implements OnInit, OnDestroy {
         break;
       case 'sites':
         if (lang === this.apiConSitesLang && this.apiConSites) {
+          this._reduxService.setAPIConnect('layout', true, lang);
+          this._reduxService.setAPIConnect(page, true, lang);
+        } else {
+          this._reduxService.setAPIConnect('layout', false, lang);
+          this._reduxService.setAPIConnect(page, false, lang);
+        }
+        break;
+      case 'contacts':
+        if (lang === this.apiConContactsLang && this.apiConContacts) {
           this._reduxService.setAPIConnect('layout', true, lang);
           this._reduxService.setAPIConnect(page, true, lang);
         } else {

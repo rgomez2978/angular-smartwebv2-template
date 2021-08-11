@@ -1,8 +1,8 @@
-<!-- FORM - HEADER - SEARCH -->
+<!-- FOMR - HEADER - SEARCH -->
 <div *ngIf="type === 'header'">
-    <form id="searchForm" #searchForm="ngForm" autocomplete="off" [formGroup]="frmSend"
-        (ngSubmit)="sendForm(frmSend,'search_help')" method="post">
-        <div *ngFor="let itemObj of data.form[0]?.objects">
+    <form id="searchForm" #searchForm="ngForm" autocomplete="off" [formGroup]="frmSearchSend"
+        (ngSubmit)="searchFormSubmit(frmSearchSend)" method="post">
+        <div *ngFor="let itemObj of data[0]?.objects">
             <div class="relative w-full text-gray-600">
                 <input [id]="itemObj.field_name" [name]="itemObj.field_name" type="text" [placeholder]="itemObj.label"
                     [formControlName]="itemObj.fc_name"
@@ -15,7 +15,8 @@
     </form>
 </div>
 
-<!-- FORM - CONTACTS -->
+
+<!-- FOMR - HEADER - SEARCH -->
 <div *ngIf="type === 'contacts'">
     <div *ngFor="let item of data">
         <div class="containerContacts">
@@ -24,12 +25,12 @@
                 <p [innerHtml]="item.description | safedom:'html' "></p>
             </div>
             <div *ngFor="let itemForm of item.form" class="containerContacts__form">
-                <div class="full">
+                <div *ngIf="loadForm && infoObjects && dataObjects.length > 0" class="full">
                     <form id="contactForm" #contactForm="ngForm" autocomplete="off" [formGroup]="frmSend"
-                        (ngSubmit)="sendForm(frmSend, 'contacts')" method="post">
+                        (ngSubmit)="sendForm(contactForm, 'contact')" method="post">
                         <div class="containerContacts__form__cont">
-                            <div *ngFor="let itemFrmObject of itemForm.objects" class="cont_objects">
-                                <div *ngFor="let itemFrmObjNode of itemFrmObject.properties; let i = index">
+                            <div *ngFor="let itemFrmObject of itemForm.objects" >
+                                <div *ngFor="let itemFrmObjNode of itemFrmObject.properties; let i = index" class="cont_objects">
                                     <div
                                         *ngIf="(infoObjects && dataObjects.length > 0) && (itemFrmObjNode.type === 'text' || itemFrmObjNode.type === 'email' || itemFrmObjNode.type === 'password' || itemFrmObjNode.type === 'phone')">
                                         <input #myObject [id]="itemFrmObjNode.field_name"
@@ -39,7 +40,6 @@
                                             [class.is-invalid]="invalidValue(itemFrmObjNode.fcname)"
                                             [maxlength]="itemFrmObjNode.maxLength"
                                             [minlength]="itemFrmObjNode.minLength" appsetdirective>
-                                        <app-form-error [form]="frmSend" [data]="itemFrmObjNode"></app-form-error>
                                     </div>
                                     <div
                                         *ngIf="(infoObjects && dataObjects.length > 0) && (itemFrmObjNode.type === 'textarea')">
@@ -50,20 +50,19 @@
                                             [class.is-invalid]="invalidValue(itemFrmObjNode.fcname)"
                                             [maxlength]="itemFrmObjNode.maxLength"
                                             [minlength]="itemFrmObjNode.minLength" appsetdirective></textarea>
-                                        <!-- <app-forms-error [form]="frmSend" [data]="itemFrmObjNode"></app-forms-error> -->
                                     </div>
                                 </div>
                             </div>
-                            <div *ngIf="submitted" class="cont_message">
-                                <div class="cont_message__success"
-                                    [ngClass]="messageSendingType?'cont_message__success':'cont_message__error'">
-                                    <span>{{messageSending}}</span>
-
+                            <div *ngIf="submitted" class="col-lg-12 col-md-12" style="margin-bottom: 10px">
+                                <div class="messageSuccess"
+                                    [ngClass]="messageSendingType?'messageSuccess':'messageError'">
+                                    <span class="msj">{{messageSending}}</span>
                                 </div>
                             </div>
-                            <div class="cont_btn">
+                            <div class="col-lg-12 col-md-12">
                                 <div *ngFor="let itemBtn of itemForm.buttons">
-                                    <button *ngIf="itemBtn.type === 'btn'" type="submit">{{itemBtn.title}}</button>
+                                    <button *ngIf="itemBtn.type === 'btn'" class="btn btn-primary"
+                                        type="submit">{{itemBtn.title}}</button>
                                 </div>
                             </div>
                         </div>

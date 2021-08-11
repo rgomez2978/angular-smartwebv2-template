@@ -19,9 +19,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
   showBtnVideo: boolean = true;
   urlBreadcrumbs!: any;
   fullData: any = [];
-
   elmentR!: any;
-
 
   constructor(
     private _apiJSONService: ApiJsonService,
@@ -37,9 +35,6 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
    * -------------------------------------------------------
    */
   ngOnInit(): void {
-    this.videoSource = './assets/video/46864998_480958359846948_3732618213144601967_n.mp4';
-    // this.videoSource = 'https://www.youtube.com/watch?v=nlXqp3FVrq8';
-    // this.videoSource = './assets/video/uk-brand-campaign.mp4';
     this.setSubscriptions();
   }
 
@@ -106,14 +101,24 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
 
+  /**
+   * -------------------------------------------------------
+   * @summary getRefHtml
+   * @description trae la capa elemento del DOM desde el componente hijo -  app-media con el output
+   * @param {any} event elemento html traido
+   * -------------------------------------------------------
+   */
   getRefHtml(event: any) {
-    // console.log(`event`, event)
     this.elmentR = event;
   }
 
-
+  /**
+   * -------------------------------------------------------
+   * @summary playVideo
+   * @description DA play o pausa al video dependiendo del boto visdible
+   * -------------------------------------------------------
+   */
   playVideo() {
-    console.log(`this.showBtnVideo`, this.showBtnVideo)
     this.showBtnVideo = !this.showBtnVideo;
     let event = this.elmentR;
     if (!this.showBtnVideo) {
@@ -122,7 +127,6 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
       event.pause();
     }
   }
-
 
 
   /**

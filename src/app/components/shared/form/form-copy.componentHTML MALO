@@ -1,7 +1,7 @@
 <!-- FORM - HEADER - SEARCH -->
 <div *ngIf="type === 'header'">
     <form id="searchForm" #searchForm="ngForm" autocomplete="off" [formGroup]="frmSend"
-        (ngSubmit)="sendForm(frmSend,'search_help')" method="post">
+        (ngSubmit)="searchFormSubmit(frmSend)" method="post">
         <div *ngFor="let itemObj of data.form[0]?.objects">
             <div class="relative w-full text-gray-600">
                 <input [id]="itemObj.field_name" [name]="itemObj.field_name" type="text" [placeholder]="itemObj.label"
@@ -15,6 +15,7 @@
     </form>
 </div>
 
+
 <!-- FORM - CONTACTS -->
 <div *ngIf="type === 'contacts'">
     <div *ngFor="let item of data">
@@ -26,9 +27,10 @@
             <div *ngFor="let itemForm of item.form" class="containerContacts__form">
                 <div class="full">
                     <form id="contactForm" #contactForm="ngForm" autocomplete="off" [formGroup]="frmSend"
-                        (ngSubmit)="sendForm(frmSend, 'contacts')" method="post">
+                        (ngSubmit)="sendForm()" method="post">
                         <div class="containerContacts__form__cont">
-                            <div *ngFor="let itemFrmObject of itemForm.objects" class="cont_objects">
+                            <div *ngFor="let itemFrmObject of itemForm.objects">
+                                <!-- {{itemFrmObject | json}} -->
                                 <div *ngFor="let itemFrmObjNode of itemFrmObject.properties; let i = index">
                                     <div
                                         *ngIf="(infoObjects && dataObjects.length > 0) && (itemFrmObjNode.type === 'text' || itemFrmObjNode.type === 'email' || itemFrmObjNode.type === 'password' || itemFrmObjNode.type === 'phone')">
@@ -39,7 +41,7 @@
                                             [class.is-invalid]="invalidValue(itemFrmObjNode.fcname)"
                                             [maxlength]="itemFrmObjNode.maxLength"
                                             [minlength]="itemFrmObjNode.minLength" appsetdirective>
-                                        <app-form-error [form]="frmSend" [data]="itemFrmObjNode"></app-form-error>
+                                        <!-- <app-forms-error [form]="frmSend" [data]="itemFrmObjNode"></app-forms-error> -->
                                     </div>
                                     <div
                                         *ngIf="(infoObjects && dataObjects.length > 0) && (itemFrmObjNode.type === 'textarea')">
@@ -52,18 +54,6 @@
                                             [minlength]="itemFrmObjNode.minLength" appsetdirective></textarea>
                                         <!-- <app-forms-error [form]="frmSend" [data]="itemFrmObjNode"></app-forms-error> -->
                                     </div>
-                                </div>
-                            </div>
-                            <div *ngIf="submitted" class="cont_message">
-                                <div class="cont_message__success"
-                                    [ngClass]="messageSendingType?'cont_message__success':'cont_message__error'">
-                                    <span>{{messageSending}}</span>
-
-                                </div>
-                            </div>
-                            <div class="cont_btn">
-                                <div *ngFor="let itemBtn of itemForm.buttons">
-                                    <button *ngIf="itemBtn.type === 'btn'" type="submit">{{itemBtn.title}}</button>
                                 </div>
                             </div>
                         </div>

@@ -1,0 +1,61 @@
+.containerContacts {
+  @apply flex flex-row items-start justify-center px-32 py-7 h-auto space-x-10 ;
+
+  &__detail {
+    @apply flex flex-col items-center justify-start w-2/5  pt-3;
+    > p {
+      @apply mt-5 text-xl md:text-xl text-gray-500 font-normal text-center;
+    }
+  }
+
+  &__form {
+    @apply flex flex-col items-center justify-start w-3/5;
+
+    .full {
+      @apply w-full;
+    }
+
+    &__cont {
+      @apply w-full;
+
+      .cont_objects {
+        @apply py-2 w-full;
+
+        input,
+        textarea {
+          @apply w-full px-3 py-2 placeholder-gray-300 bg-white border-2 border-gray-400 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300;
+
+          &::placeholder {
+            @apply text-gray-400;
+          }
+        }
+      }
+
+      .cont_message {
+        @apply w-full h-auto flex flex-row mb-5;
+
+        &__success {
+          @apply w-full py-5 px-3 bg-green-100 flex items-center justify-center flex-wrap rounded-md border-2 border-green-200;
+          > span {
+            @apply text-green-700 text-base;
+          }
+        }
+
+        &__error {
+          @apply w-full py-5 px-3 bg-red-100 flex items-center justify-center flex-wrap rounded-md border-2 border-red-200;
+          > span {
+            @apply text-red-700 text-base;
+          }
+        }
+      }
+
+      .cont_btn {
+        @apply w-full h-auto flex flex-row mb-5 items-center justify-center mt-5;
+
+        button {
+          @apply inline-flex items-center justify-center h-auto px-10 py-2 font-medium tracking-wide text-white transition duration-200 bg-gray-400 rounded shadow-md w-max hover:bg-gray-700;
+        }
+      }
+    }
+  }
+}

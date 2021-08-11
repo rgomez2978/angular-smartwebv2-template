@@ -87,7 +87,7 @@
                     <p>{{item.description}}</p>
                 </div>
                 <div *ngFor="let itemform of item.form" class="main_container__cont__form">
-                    <app-form [type]="'header'" [data]="item.form" class="main_container__cont__form__container">
+                    <app-form [type]="'header'" [data]="itemform" class="main_container__cont__form__container">
                     </app-form>
                 </div>
             </div>
