@@ -1,281 +1,261 @@
 {
-    "browser": [{
-      "id": 1,
-      "order": 1,
-      "title": "Recursos",
-      "description": ""
-    }],
-    "header": [{
-      "id": 1,
-      "order": 1,
-      "background": "",
-      "video": "./assets/video/46864998_480958359846948_3732618213144601967_n.mp4",
-      "title": "Resource Center",
-      "description": "Find valuable information to maximize the use of your applications.",
-      "links": [{}]
-    }],
-    "faqs": [{
-      "id": 1,
-      "order": 1,
-      "title": "frequent questions",
-      "nodes": [{
-          "id": 1,
-          "order": 1,
-          "active": false,
-          "question": "About Smart",
-          "answer": [{
-              "id": 1,
-              "order": 1,
-              "title": "How much does it cost to have Smart?",
-              "description": "The suite is currently free, so take your chance to try it out and get the most out of it."
-            },
-            {
-              "id": 2,
-              "order": 2,
-              "title": "How many applications make up Smart?",
-              "description": "We have two applications: Contact, which allows you to create, manage and share contacts; and Organization chart, where you can create and manage the organizational structure of companies. We are developing more applications in the suite. Expect them soon!"
-            },
-            {
-              "id": 3,
-              "order": 3,
-              "title": "How many users of my company can register in Smart?",
-              "description": "The suite is totally free and at the moment we have no limitations. You put the number, we support you."
-            },
-            {
-              "id": 4,
-              "order": 4,
-              "title": "Does Smart offer technical support?",
-              "description": "Of course! In Spanish and English. Contact us and we will gladly resolve any questions or problems.!"
-            },
-            {
-              "id": 5,
-              "order": 5,
-              "title": "Is the information uploaded to one of the Smart applications shared with the other applications in the suite?",
-              "description": "Yes! Is not it wonderful? This is one of our premises and great advantages. You only have to upload the information once and you can use it throughout the suite. For example, positions that are created in an Organization Chart may be filled by people who are on your contact list. And the best of all is that when modifying the information of one of your contacts there will be no need to make those modifications in the Organization Chart application. With this, we prevent you from making mistakes and save you time."
-            },
-            {
-              "id": 6,
-              "order": 6,
-              "title": "How do I know that my information is safe? ",
-              "description": "The security of your information is vital to us. Therefore, only you and those whom you explicitly authorize will have access to your information. On a daily basis, we make sure to back up all your information, in this way we can guarantee security in our system. In addition, we have redundant equipment that allows your information to be protected against possible failures that may arise from its continued use."
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "order": 2,
-          "active": false,
-          "question": "About Contact",
-          "answer": [{
-              "id": 1,
-              "order": 1,
-              "title": "Can I use the Contact application without internet access?",
-              "description": "Yes, you can access and even modify the information. It will be synchronized when you have an internet connection again."
-            },
-            {
-              "id": 2,
-              "order": 2,
-              "title": "Can I share my contact list with other users?",
-              "description": "Yes, you can grant permissions to other users so that they can view or edit your information."
-            },
-            {
-              "id": 3,
-              "order": 3,
-              "title": "Will all suite users have access to my information?",
-              "description": "No, the information sharing feature in the app works through requests. When someone wants to access your information, they will send you a request. If you accept it, the user will be able to see your information, otherwise not."
-            },
-            {
-              "id": 4,
-              "order": 4,
-              "title": "Can I personalize the information I share?",
-              "description": "Of course! You are in control and can decide which information you specifically want to share with each user."
-            },
-            {
-              "id": 5,
-              "order": 5,
-              "title": "Can I make calls from the application or even access the social networks of my contacts?",
-              "description": "Of course! From the mobile version of our app you can make calls, send text messages, emails and access the social networks of your contacts, since it is connected with the other applications on your phone."
-            },
-            {
-              "id": 6,
-              "order": 6,
-              "title": "Can I let others manage my contact list?",
-              "description": "Yes, thanks to our access control module you can give permissions to whoever you want to make edits or modifications to your contact list."
-            }
-          ]
-        },
-        {
-          "id": 3,
-          "order": 3,
-          "active": false,
-          "question": "About Organization Chart",
-          "answer": [{
-              "id": 1,
-              "order": 1,
-              "title": "Can I handle multiple projects from different companies at the same time? ",
-              "description": "Of course! You can create multiple projects, share and edit them simultaneously."
-            },
-            {
-              "id": 2,
-              "order": 2,
-              "title": "Can I assign multiple people to a position?",
-              "description": "Yes. We seek to simplify the way in which a company organizes its team, so you can add multiple people to one position."
-            },
-            {
-              "id": 3,
-              "order": 3,
-              "title": "Do you offer a solution for those charges that are generated temporarily?",
-              "description": "Organization chart allows you to generate temporary positions, functional relationships and even include auditors within the organization."
-            },
-            {
-              "id": 4,
-              "order": 4,
-              "title": "Are the positions that are created in Organization Chart reusable?",
-              "description": "Of course! By creating a charge, you can use it on multiple canvases. When making a change to that charge, it will be applied to all canvases where it is added. Is not it wonderful?"
-            },
-            {
-              "id": 5,
-              "order": 5,
-              "title": "Does the organization chart allow two people to work on the same project?",
-              "description": "Organization chart, like the entire Smart suite, is collaborative. Multiple people can work without any inconvenience."
-            },
-            {
-              "id": 6,
-              "order": 6,
-              "title": "Can I generate reports of the organization charts that I create? ",
-              "description": "In Organization chart you can generate multiple reports such as people by position, summary of organizational structure and many more."
-            }
-          ]
-        }
-      ]
-    }],
-    "manuals": [{
-      "id": 1,
-      "order": 1,
-      "background": "",
-      "img": "",
-      "title": "User manuals",
-      "description": "to learn more about each application",
-      "links": [{
+  "browser": [{
+    "id": 1,
+    "order": 1,
+    "title": "Recursos",
+    "description": ""
+  }],
+  "header": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "video": "./assets/video/46864998_480958359846948_3732618213144601967_n.mp4",
+    "title": "Resource Center",
+    "description": "Find valuable information to maximize the use of your applications.",
+    "links": [{}]
+  }],
+  "faqs": [{
+    "id": 1,
+    "order": 1,
+    "title": "frequent questions",
+    "nodes": [{
         "id": 1,
         "order": 1,
-        "type": "btn",
-        "url": "/resources/help",
-        "title": "Login here",
-        "description": ""
-      }]
-    }],
-    "news": [{
+        "active": false,
+        "question": "About Smart",
+        "answer": [{
+            "id": 1,
+            "order": 1,
+            "title": "How much does it cost to have Smart?",
+            "description": "The suite is currently free, so take your chance to try it out and get the most out of it."
+          },
+          {
+            "id": 2,
+            "order": 2,
+            "title": "How many applications make up Smart?",
+            "description": "We have two applications: Contact, which allows you to create, manage and share contacts; and Organization chart, where you can create and manage the organizational structure of companies. We are developing more applications in the suite. Expect them soon!"
+          },
+          {
+            "id": 3,
+            "order": 3,
+            "title": "How many users of my company can register in Smart?",
+            "description": "The suite is totally free and at the moment we have no limitations. You put the number, we support you."
+          },
+          {
+            "id": 4,
+            "order": 4,
+            "title": "Does Smart offer technical support?",
+            "description": "Of course! In Spanish and English. Contact us and we will gladly resolve any questions or problems.!"
+          },
+          {
+            "id": 5,
+            "order": 5,
+            "title": "Is the information uploaded to one of the Smart applications shared with the other applications in the suite?",
+            "description": "Yes! Is not it wonderful? This is one of our premises and great advantages. You only have to upload the information once and you can use it throughout the suite. For example, positions that are created in an Organization Chart may be filled by people who are on your contact list. And the best of all is that when modifying the information of one of your contacts there will be no need to make those modifications in the Organization Chart application. With this, we prevent you from making mistakes and save you time."
+          },
+          {
+            "id": 6,
+            "order": 6,
+            "title": "How do I know that my information is safe? ",
+            "description": "The security of your information is vital to us. Therefore, only you and those whom you explicitly authorize will have access to your information. On a daily basis, we make sure to back up all your information, in this way we can guarantee security in our system. In addition, we have redundant equipment that allows your information to be protected against possible failures that may arise from its continued use."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "order": 2,
+        "active": false,
+        "question": "About Contact",
+        "answer": [{
+            "id": 1,
+            "order": 1,
+            "title": "Can I use the Contact application without internet access?",
+            "description": "Yes, you can access and even modify the information. It will be synchronized when you have an internet connection again."
+          },
+          {
+            "id": 2,
+            "order": 2,
+            "title": "Can I share my contact list with other users?",
+            "description": "Yes, you can grant permissions to other users so that they can view or edit your information."
+          },
+          {
+            "id": 3,
+            "order": 3,
+            "title": "Will all suite users have access to my information?",
+            "description": "No, the information sharing feature in the app works through requests. When someone wants to access your information, they will send you a request. If you accept it, the user will be able to see your information, otherwise not."
+          },
+          {
+            "id": 4,
+            "order": 4,
+            "title": "Can I personalize the information I share?",
+            "description": "Of course! You are in control and can decide which information you specifically want to share with each user."
+          },
+          {
+            "id": 5,
+            "order": 5,
+            "title": "Can I make calls from the application or even access the social networks of my contacts?",
+            "description": "Of course! From the mobile version of our app you can make calls, send text messages, emails and access the social networks of your contacts, since it is connected with the other applications on your phone."
+          },
+          {
+            "id": 6,
+            "order": 6,
+            "title": "Can I let others manage my contact list?",
+            "description": "Yes, thanks to our access control module you can give permissions to whoever you want to make edits or modifications to your contact list."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "order": 3,
+        "active": false,
+        "question": "About Organization Chart",
+        "answer": [{
+            "id": 1,
+            "order": 1,
+            "title": "Can I handle multiple projects from different companies at the same time? ",
+            "description": "Of course! You can create multiple projects, share and edit them simultaneously."
+          },
+          {
+            "id": 2,
+            "order": 2,
+            "title": "Can I assign multiple people to a position?",
+            "description": "Yes. We seek to simplify the way in which a company organizes its team, so you can add multiple people to one position."
+          },
+          {
+            "id": 3,
+            "order": 3,
+            "title": "Do you offer a solution for those charges that are generated temporarily?",
+            "description": "Organization chart allows you to generate temporary positions, functional relationships and even include auditors within the organization."
+          },
+          {
+            "id": 4,
+            "order": 4,
+            "title": "Are the positions that are created in Organization Chart reusable?",
+            "description": "Of course! By creating a charge, you can use it on multiple canvases. When making a change to that charge, it will be applied to all canvases where it is added. Is not it wonderful?"
+          },
+          {
+            "id": 5,
+            "order": 5,
+            "title": "Does the organization chart allow two people to work on the same project?",
+            "description": "Organization chart, like the entire Smart suite, is collaborative. Multiple people can work without any inconvenience."
+          },
+          {
+            "id": 6,
+            "order": 6,
+            "title": "Can I generate reports of the organization charts that I create? ",
+            "description": "In Organization chart you can generate multiple reports such as people by position, summary of organizational structure and many more."
+          }
+        ]
+      }
+    ]
+  }],
+  "manuals": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "img": "",
+    "title": "User manuals",
+    "description": "to learn more about each application",
+    "links": [{
       "id": 1,
       "order": 1,
-      "title": "News",
-      "title_news":"See more blog posts",
-      "title_news_link":"/resources/news",
-      "nodes": [{
-          "id": 1,
-          "order": 1,
-          "date": "25/06/2021",
-          "icon": "",
-          "image": "https://via.placeholder.com/400x300",
-          "title": "Shooting Stars",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore doloribus, sint non saepe nostrum enim quis earum necessitatibus commodi. Dicta tempora similique laboriosam modi enim ex minus eius aspernatur dignissimos.",
-          "url": "",
-          "views": 10,
-          "comments": 30,
-          "categories": [{
-            "id": 1,
-            "order": 1,
-            "title": "Category1"
-          }, {
-            "id": 1,
-            "order": 1,
-            "title": "Category1"
-          }]
-        },
-        {
-          "id": 2,
-          "order": 2,
-          "date": "25/06/2021",
-          "icon": "",
-          "image": "https://via.placeholder.com/400x300",
-          "title": "Shooting Stars",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore doloribus, sint non saepe nostrum enim quis earum necessitatibus commodi. Dicta tempora similique laboriosam modi enim ex minus eius aspernatur dignissimos.",
-          "url": "",
-          "views": 10,
-          "comments": 30,
-          "categories": [{
-            "id": 1,
-            "order": 1,
-            "title": "Category1"
-          }, {
-            "id": 1,
-            "order": 1,
-            "title": "Category1"
-          }]
-        },
-        {
-          "id": 3,
-          "order": 3,
-          "date": "25/06/2021",
-          "icon": "",
-          "image": "https://via.placeholder.com/400x300",
-          "title": "Shooting Stars",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore doloribus, sint non saepe nostrum enim quis earum necessitatibus commodi. Dicta tempora similique laboriosam modi enim ex minus eius aspernatur dignissimos.",
-          "url": "",
-          "views": 10,
-          "comments": 30,
-          "categories": [{
-            "id": 1,
-            "order": 1,
-            "title": "Category1"
-          }, {
-            "id": 1,
-            "order": 1,
-            "title": "Category1"
-          }]
-        },
-        {
-          "id": 4,
-          "order": 4,
-          "date": "25/06/2021",
-          "icon": "",
-          "image": "https://via.placeholder.com/400x300",
-          "title": "Shooting Stars",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore doloribus, sint non saepe nostrum enim quis earum necessitatibus commodi. Dicta tempora similique laboriosam modi enim ex minus eius aspernatur dignissimos.",
-          "url": "",
-          "views": 10,
-          "comments": 30,
-          "categories": [{
-            "id": 1,
-            "order": 1,
-            "title": "Category1"
-          }, {
-            "id": 1,
-            "order": 1,
-            "title": "Category1"
-          }]
-        },
-        {
-          "id": 5,
-          "order": 5,
-          "date": "25/06/2021",
-          "icon": "",
-          "image": "https://via.placeholder.com/400x300",
-          "title": "Shooting Stars",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore doloribus, sint non saepe nostrum enim quis earum necessitatibus commodi. Dicta tempora similique laboriosam modi enim ex minus eius aspernatur dignissimos.",
-          "url": "",
-          "views": 10,
-          "comments": 30,
-          "categories": [{
-            "id": 1,
-            "order": 1,
-            "title": "Category1"
-          }, {
-            "id": 1,
-            "order": 1,
-            "title": "Category1"
-          }]
-        }
-      ]
+      "type": "btn",
+      "url": "/resources/help",
+      "title": "Login here",
+      "description": ""
     }]
-  }
+  }],
+  "news": [{
+    "id": 1,
+    "order": 1,
+    "title": "Our news",
+    "title_news": "See more blog posts",
+    "title_news_link": "/resources/news",
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "date": "2021/05/05",
+      "icon": "",
+      "image": "https://via.placeholder.com/300x200",
+      "title": "5 tips to work on your strategic planning",
+      "description": "Learn how to use our management tool that allows you to efficiently establish your next steps as an organization.",
+      "url": "/resources/news/details/1",
+      "views": 10,
+      "comments": 30,
+      "categories": [{
+        "id": 1,
+        "order": 1,
+        "title": "Strategic planning",
+        "url": "/resources/news/strategic-planning"
+      }]
+    }, {
+      "id": 2,
+      "order": 2,
+      "date": "2021/10/20",
+      "icon": "",
+      "image": "https://via.placeholder.com/300x200",
+      "title": "How to enhance your organizational culture?",
+      "description": "It helps to take time to consider ways you can keep your team identified with your organization's mission. Find out how you can use our tools for that.",
+      "url": "/resources/news/details/2",
+      "views": 5,
+      "comments": 2,
+      "categories": [{
+        "id": 1,
+        "order": 1,
+        "title": "Strategic planning",
+        "url": "/resources/news/strategic-planning"
+      }]
+    }, {
+      "id": 3,
+      "order": 3,
+      "date": "2020/10/20",
+      "icon": "",
+      "image": "https://via.placeholder.com/300x200",
+      "title": "Steps for effective change management",
+      "description": "When it comes to planning a project, the work breakdown structure is one of the first things a project manager has to work on.",
+      "url": "/resources/news/details/3",
+      "views": 5,
+      "comments": 2,
+      "categories": [{
+        "id": 1,
+        "order": 1,
+        "title": "Human development",
+        "url": "/resources/news/human-development"
+      }]
+    }, {
+      "id": 4,
+      "order": 4,
+      "date": "2021/11/02",
+      "icon": "",
+      "image": "https://via.placeholder.com/300x200",
+      "title": "How can I reuse the shapes with attached images?",
+      "description": "Excepteur irure nisi exercitation qui culpa sint ea. Do non esse laborum elit. Aliquip anim dolor consectetur consectetur aute aute culpa adipisicing sit ullamco velit sit deserunt. Do commodo velit eu dolor dolore labore Lorem et quis anim velit reprehenderit non. Non eu veniam non pariatur labore nostrud est commodo culpa consectetur ut aute deserunt commodo.",
+      "url": "/resources/news/details/4",
+      "views": 5,
+      "comments": 10,
+      "categories": [{
+        "id": 1,
+        "order": 1,
+        "title": "Leadership",
+        "url": "/resources/news/leadership"
+      }]
+    }, {
+      "id": 5,
+      "order": 5,
+      "date": "2021/09/02",
+      "icon": "",
+      "image": "https://via.placeholder.com/300x200",
+      "title": "Where can the images be attached?",
+      "description": "Eu exercitation proident minim cillum anim culpa irure amet non consequat nostrud veniam. Nulla excepteur qui sunt laboris.Incididunt cupidatat est non proident esse cupidatat excepteur est aliqua commodo nulla sint in exercitation.",
+      "url": "/resources/news/details/5",
+      "views": 45,
+      "comments": 5,
+      "categories": [{
+        "id": 1,
+        "order": 1,
+        "title": "Organizational culture",
+        "url": "/resources/news/organizational-culture"
+      }]
+    }]
+  }]
+}

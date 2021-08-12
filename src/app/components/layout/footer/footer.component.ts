@@ -66,12 +66,20 @@ export class FooterComponent implements OnInit {
     let url = this.urlBreadcrumbs;
     let urlFinal = '';
     let page = this.urlActiveLevel1.split('/')[1];
+    // console.log(`page`, url, page)
     if (page === 'resources' && url.length >= 3) {
       if (url[3] === undefined) {
         urlFinal = url[2]
       } else {
         if (url[2] === 'news') {
           urlFinal = 'news';
+          switch (url[3]) {
+            case 'details':
+              urlFinal = 'news_details';
+              break;
+            default:
+              break;
+          }
         } else {
           switch (url[3]) {
             case 'search':

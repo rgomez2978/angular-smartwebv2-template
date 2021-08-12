@@ -1,1 +1,10 @@
-<p>site-map works!</p>
+<section class="animate__animated animate__fadeIn contentPage">
+    <header class="contentPage__header">
+        <app-header [data]="dataHeader" [type]="'fixed'"></app-header>
+    </header>
+
+    <div class="mt-10 contentPage__content">
+        <app-content [data]="dataPages" [type]="'sitemap'"></app-content>
+    </div>
+    <br>
+</section>

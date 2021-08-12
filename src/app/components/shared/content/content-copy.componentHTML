@@ -275,19 +275,33 @@
 </div>
 
 
+
 <!-- CONTENT - SITE MAP  -->
 <div *ngIf="type === 'sitemap'">
+    <!-- {{data | json}} -->
     <div class="containerSiteMap">
         <div *ngFor="let item of data" class="containerSiteMap__cont">
-            <div class="level1_items" [routerLink]="item.url" [ngClass]="{'cursor-pointer': item.url !== ''}">
+
+            <div *ngIf="item.url === ''" class="level1_items">
                 <span [innerHtml]="item.icon | safedom: 'html'"></span>
-                <h1>{{item.title}}</h1>
-                <p>{{item.description}}</p>
+                <div class="level1_items__title">
+                    <h1>{{item.title}}</h1>
+                    <p>{{item.description}}</p>
+                </div>
             </div>
+
+            <div *ngIf="item.url !== ''"  [routerLink]="item.url"  routerLinkActive="active" [ngClass]="{'cursor-pointer': item.url !== ''}" class="level1_items">
+                <span [innerHtml]="item.icon | safedom: 'html'"></span>
+                <div class="level1_items__title">
+                    <h1>{{item.title}}</h1>
+                    <p>{{item.description}}</p>
+                </div>
+            </div>
+
             <div class="level2_items" *ngFor="let itemNode of item.nodes">
-                <div class="level2_items__cont" [routerLink]="itemNode.url">
+                <div class="level2_items__cont">
                     <span>&nbsp;</span>
-                    <p >{{itemNode.title}}</p>
+                    <p [routerLink]="itemNode.url">{{itemNode.title}}</p>
                 </div>
             </div>
         </div>

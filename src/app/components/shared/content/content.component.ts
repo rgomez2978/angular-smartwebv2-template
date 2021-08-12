@@ -25,8 +25,6 @@ export class ContentComponent implements OnInit {
   language!: string;
   currentSection: string = 'section0';
 
-
-
   config = {
     id: 'custom',
     itemsPerPage: 2,
@@ -51,11 +49,13 @@ export class ContentComponent implements OnInit {
   ngOnInit(): void {
     this.setSubscriptions();
     setTimeout(() => {
-      this.dataSearch = this.data[0]?.results;
-      if (this.language === 'es') {
-        this.message = 'No existen noticias asociadas para esta categoria, por favor seleccione otra categoria.'
-      } else {
-        this.message = 'There are no associated news for this category, please select another category.'
+      if (this.type === 'news_home') {
+        this.dataSearch = this.data[0]?.results;
+        if (this.language === 'es') {
+          this.message = 'No existen noticias asociadas para esta categoria, por favor seleccione otra categoria.'
+        } else {
+          this.message = 'There are no associated news for this category, please select another category.'
+        }
       }
     }, 100);
   }

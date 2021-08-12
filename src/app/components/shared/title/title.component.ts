@@ -55,7 +55,7 @@ export class TitleComponent implements OnInit, DoCheck {
         this.wordscant = 2;
       }
       this.activeCicle = true;
-    }, 100);
+    }, 50);
   }
 
 

@@ -431,34 +431,36 @@
   @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 grid-rows-3 gap-y-16 gap-x-10 grid-flow-row;
 
   &__cont {
-    @apply w-auto h-auto;
+    @apply w-auto h-auto ;
 
     .level1_items {
-      @apply border-2 border-gray-400 bg-gray-200 rounded-xl p-3 flex items-center justify-center flex-col mb-3;
+      @apply border-2 border-gray-400 bg-gray-200 rounded-xl p-3 flex items-center justify-start flex-row mb-3 px-5;
 
       > span {
-        @apply font-normal text-5xl text-gray-400 mb-3;
+        @apply font-normal text-5xl text-gray-400 mr-4;
       }
 
-      > h1 {
-        @apply font-bold text-xl text-gray-400 uppercase;
+
+      &__title{
+        @apply flex flex-col items-start justify-start;
+        > h1 {
+          @apply font-bold text-xl text-gray-400 uppercase;
+        }
+        > p {
+          @apply font-light text-lg text-gray-400 mb-2 uppercase text-left;
+        }
       }
 
-      > p {
-        @apply font-light text-lg text-gray-400 mb-2 uppercase text-center;
-      }
     }
-
-
     .level2_items {
-      @apply  bg-gray-100 rounded-xl flex flex-col items-start justify-center mb-3;
+      @apply bg-gray-100 rounded-xl flex flex-col items-start justify-center mb-3;
 
-      &:hover{
+      &:hover {
         @apply bg-gray-200 transition duration-200 cursor-pointer;
       }
 
       &__cont {
-        @apply flex flex-row items-center justify-start w-full px-3 rounded-xl border-2 border-gray-300 ;
+        @apply flex flex-row items-center justify-start w-full px-3 rounded-xl border-2 border-gray-300;
 
         &:hover {
           > span {
