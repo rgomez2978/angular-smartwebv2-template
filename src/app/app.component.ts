@@ -5,6 +5,7 @@ import { Store } from "@ngrx/store";
 import { AppState } from "src/app/store/app.reducers";
 import { Subscription } from "rxjs";
 import { ApiJsonService, ReduxService, CommonsService } from '@services/index';
+declare let $: any;
 
 @Component({
   selector: 'app-root',
@@ -50,7 +51,12 @@ export class AppComponent implements OnInit, OnDestroy {
     this._titleService.setTitle('Smart Suite Tools');
     this._commonsService.setLoading();
     this.setSubscriptions();
+    this.loadJquery();
   }
+
+
+
+
 
   /**
    * -------------------------------------------------------
@@ -130,6 +136,41 @@ export class AppComponent implements OnInit, OnDestroy {
   closeAllSubMenu() {
     this._reduxService.closeAllSubMenu();
   }
+
+
+  /**
+ * -------------------------------------------------------
+ * @summary loadJquery
+ * @description Carga funcionalidades en jquery
+ * -------------------------------------------------------
+ */
+  loadJquery() {
+    $(document).ready(function () {
+
+      $.event.special.touchstart = {
+        setup: function (_: any, ns: any, handle: any) {
+          this.addEventListener("touchstart", handle, { passive: !ns.includes("noPreventDefault") });
+        }
+      };
+      $.event.special.touchmove = {
+        setup: function (_: any, ns: any, handle: any) {
+          this.addEventListener("touchmove", handle, { passive: !ns.includes("noPreventDefault") });
+        }
+      };
+      $.event.special.wheel = {
+        setup: function (_: any, ns: any, handle: any) {
+          this.addEventListener("wheel", handle, { passive: true });
+        }
+      };
+      $.event.special.mousewheel = {
+        setup: function (_: any, ns: any, handle: any) {
+          this.addEventListener("mousewheel", handle, { passive: true });
+        }
+      };
+
+    });
+  }
+
 
   /**
    * -------------------------------------------------------

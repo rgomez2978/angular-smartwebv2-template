@@ -75,13 +75,11 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
   * -------------------------------------------------------
   */
   convertUrl(url: any, lang: string) {
-    // console.log(`url`, lang, url, this.type)
 
     this.fullBreadcrumbs = [];
     for (let key in url) {
       if (this.type === 'page') {
         if (key !== undefined || key !== '') {
-          // console.log(`url[key]`, url[key]);
           switch (url[key]) {
             case '':
               break;
@@ -104,29 +102,12 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
               this.addItemBreadcrumbs(this.title, '');
               break;
             case 'details':
-              // console.log(`this.dataHelpD`, this.dataHelpD)
-              // this.title = this.dataHelpD.features[0]?.product;
-              // this.addItemBreadcrumbs(this.title, '');
-              // this.title = this.dataHelpD.features[0]?.title;
-              // this.addItemBreadcrumbs(this.title, '');
               break;
             case 'news':
               lang === 'en' ? this.title = 'Blog' : this.title = 'Noticias';
               this.addItemBreadcrumbs(this.title, '/resources/news');
               break;
-
-
             default:
-              // console.log(`object`, this.dataHelpF.features[0]?.product)
-              // this.title = this.dataHelpF.features[0]?.product;
-              // this.addItemBreadcrumbs(this.title, '');
-              // this.title = this.dataHelpF.features[0]?.title;
-              // this.addItemBreadcrumbs(this.title, '');
-              // console.log(`this.dataHelpF.features`, this.dataHelpF.features[0]?.title)
-              // let productById = this.dataHelpF.features.find((prod: any) => prod.id === parseInt(url[4]));
-              // let featureProductById = productById.nodes.find((feaProd: any) => feaProd.id === parseInt(url[5]));
-              // this.addItemBreadcrumbs(productById.title, '');
-              // this.addItemBreadcrumbs(featureProductById.title, '');
               break;
           }
         }
@@ -134,7 +115,6 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
         this.fullBreadcrumbs = this.data
       }
     }
-    // console.log(`this.fullBreadcrumbs`, this.fullBreadcrumbs)
   }
 
   /**

@@ -110,7 +110,6 @@ export class ApiJsonService implements OnInit, OnDestroy {
     );
     this._subscription.add(
       this._store.select('api').subscribe((state) => {
-        // console.log(`API SERVICE state`, state)
         this.apiConLayout = state.apiConLayout.apiCon;
         this.apiConLayoutLang = state.apiConLayout.apiLang;
         this.apiConHome = state.apiConHome.apiCon;
@@ -171,9 +170,6 @@ export class ApiJsonService implements OnInit, OnDestroy {
    * -------------------------------------------------------
    */
   setTranslate(lang: string, page: string) {
-    // console.log('');
-    // console.log(`setTranslate`, lang, page)
-
     this.setSubscriptions();
     this._reduxService.setTranslate(lang);
     this._reduxService.SetLoading(true);
@@ -353,14 +349,11 @@ export class ApiJsonService implements OnInit, OnDestroy {
    * -------------------------------------------------------
    */
   getJSON(lang: string, page: string, conApi: boolean) {
-    // console.log(`getJSON =>`, lang, page, conApi)
     lang === 'en' ? this.url = `assets/JSON/${page}/${page}_en.json` : this.url = `assets/JSON/${page}/${page}_es.json`;
     this._reduxService.setAPIConnect(page, conApi, lang);
     this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
     return this.conexReturn;
   }
-
-
 
 
 

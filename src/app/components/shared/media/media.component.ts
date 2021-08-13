@@ -20,7 +20,6 @@ export class MediaComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     setTimeout(() => {
       if (this.videoPlayer !== undefined) {
-        // console.log(`this.videoPlayer.nativeElement`, this.videoPlayer.nativeElement)
         this.getRefHtml.emit(this.videoPlayer.nativeElement);
       }
     }, 100);

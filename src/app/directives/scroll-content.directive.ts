@@ -1,6 +1,4 @@
 import { Directive, Input, EventEmitter, Output, ElementRef, HostListener } from '@angular/core';
-import { ReduxService } from '@services/index';
-
 @Directive({
   selector: '[appScrollContent]'
 })
@@ -11,8 +9,7 @@ export class ScrollContentDirective {
   private currentSection!: string;
 
   constructor(
-    private _el: ElementRef,
-    private _reduxService: ReduxService,
+    private _el: ElementRef
   ) { }
 
   /**

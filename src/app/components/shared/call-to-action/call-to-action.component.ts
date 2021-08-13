@@ -73,7 +73,6 @@ export class CallToActionComponent implements OnInit, AfterViewInit {
    */
   loadJquery() {
     $(document).ready(function () {
-      // console.log('CARGA DE MAGNIFIC');
       // Carga de popup de banner de video - magnificPopup
       $('.popup-youtube').magnificPopup({
         disableOn: 120,

@@ -41,7 +41,6 @@ export class FormErrorComponent implements OnInit {
    * -------------------------------------------------------
    */
   invalidValue(fgroup: FormGroup, fcname: string) {
-    // console.log(`fgroup`, fgroup)
     return fgroup.get(fcname)?.invalid && fgroup.get(fcname)?.touched;
   }
 

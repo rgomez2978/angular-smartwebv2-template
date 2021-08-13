@@ -7,7 +7,7 @@ export interface AppState {
 
 }
 
-export const appReduces: ActionReducerMap<AppState> = {
+export const appReducers: ActionReducerMap<AppState> = {
     ui: reducers.uiReducer,
     api: reducers.apiReducer,
 };

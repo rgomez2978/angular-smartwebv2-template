@@ -29,7 +29,6 @@ export class MenuComponent implements OnInit, OnDestroy {
    */
   ngOnInit(): void {
     this.setSubscriptions();
-    // console.log('this.showMenuApps :>> ', this.showMenuApps);
   }
 
 

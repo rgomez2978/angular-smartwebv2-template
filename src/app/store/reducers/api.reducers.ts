@@ -84,43 +84,114 @@ export const apiState: ApiState = {
 };
 
 const _apiReducer = createReducer(apiState,
-    on(ownActions.setAPIConnectLayout, (state, { apiConLayout }) => ({ ...state, apiConLayout: { ...apiConLayout }, })),
-    on(ownActions.setAPIConnectHome, (state, { apiConHome }) => ({ ...state, apiConHome: { ...apiConHome } })),
-    on(ownActions.setAPIConnectProducts, (state, { apiConProducts }) => ({ ...state, apiConProducts: { ...apiConProducts } })),
-    on(ownActions.setAPIConnectPlans, (state, { apiConPlans }) => ({ ...state, apiConPlans: { ...apiConPlans } })),
-    on(ownActions.setAPIConnectResources, (state, { apiConResources }) => ({ ...state, apiConResources: { ...apiConResources } })),
-    on(ownActions.setAPIConnectHelp, (state, { apiConHelp }) => ({ ...state, apiConHelp: { ...apiConHelp } })),
-    on(ownActions.setAPIConnectHelpF, (state, { apiConHelpF }) => ({ ...state, apiConHelpF: { ...apiConHelpF } })),
-    on(ownActions.setAPIConnectHelpD, (state, { apiConHelpD }) => ({ ...state, apiConHelpD: { ...apiConHelpD } })),
-    on(ownActions.setAPIConnectHelpS, (state, { apiConHelpS }) => ({ ...state, apiConHelpS: { ...apiConHelpS } })),
-    on(ownActions.setAPIConnectNews, (state, { apiConNews }) => ({ ...state, apiConNews: { ...apiConNews } })),
-    on(ownActions.setAPIConnectNewsD, (state, { apiConNewsD }) => ({ ...state, apiConNewsD: { ...apiConNewsD } })),
-    on(ownActions.setAPIConnectNewsS, (state, { apiConNewsS }) => ({ ...state, apiConNewsS: { ...apiConNewsS } })),
-    on(ownActions.setAPIConnectAbout, (state, { apiConAbout }) => ({ ...state, apiConAbout: { ...apiConAbout } })),
-    on(ownActions.setAPIConnectWhy, (state, { apiConWhy }) => ({ ...state, apiConWhy: { ...apiConWhy } })),
-    on(ownActions.setAPIConnectLegal, (state, { apiConLegal }) => ({ ...state, apiConLegal: { ...apiConLegal } })),
-    on(ownActions.setAPIConnectPolicies, (state, { apiConPolicies }) => ({ ...state, apiConPolicies: { ...apiConPolicies } })),
-    on(ownActions.setAPIConnectSites, (state, { apiConSites }) => ({ ...state, apiConSites: { ...apiConSites } })),
-    on(ownActions.setAPIConnectContacts, (state, { apiConContacts }) => ({ ...state, apiConContacts: { ...apiConContacts } })),
-
-    on(ownActions.setArrayLayout, (state, { arrayLayout }) => ({ ...state, arrayLayout: { ...arrayLayout } })),
-    on(ownActions.setArrayHome, (state, { arrayHome }) => ({ ...state, arrayHome: { ...arrayHome } })),
-    on(ownActions.setArrayProducts, (state, { arrayProducts }) => ({ ...state, arrayProducts: { ...arrayProducts } })),
-    on(ownActions.setArrayPlans, (state, { arrayPlans }) => ({ ...state, arrayPlans: { ...arrayPlans } })),
-    on(ownActions.setArrayResources, (state, { arrayResources }) => ({ ...state, arrayResources: { ...arrayResources } })),
-    on(ownActions.setArrayHelp, (state, { arrayHelp }) => ({ ...state, arrayHelp: { ...arrayHelp } })),
-    on(ownActions.setArrayHelpF, (state, { arrayHelpF }) => ({ ...state, arrayHelpF: { ...arrayHelpF } })),
-    on(ownActions.setArrayHelpD, (state, { arrayHelpD }) => ({ ...state, arrayHelpD: { ...arrayHelpD } })),
-    on(ownActions.setArrayHelpS, (state, { arrayHelpS }) => ({ ...state, arrayHelpS: { ...arrayHelpS } })),
-    on(ownActions.setArrayNews, (state, { arrayNews }) => ({ ...state, arrayNews: { ...arrayNews } })),
-    on(ownActions.setArrayNewsD, (state, { arrayNewsD }) => ({ ...state, arrayNewsD: { ...arrayNewsD } })),
-    on(ownActions.setArrayNewsS, (state, { arrayNewsS }) => ({ ...state, arrayNewsS: { ...arrayNewsS } })),
-    on(ownActions.setArrayAbout, (state, { arrayAbout }) => ({ ...state, arrayAbout: { ...arrayAbout } })),
-    on(ownActions.setArrayWhy, (state, { arrayWhy }) => ({ ...state, arrayWhy: { ...arrayWhy } })),
-    on(ownActions.setArrayLegal, (state, { arrayLegal }) => ({ ...state, arrayLegal: { ...arrayLegal } })),
-    on(ownActions.setArrayPolicies, (state, { arrayPolicies }) => ({ ...state, arrayPolicies: { ...arrayPolicies } })),
-    on(ownActions.setArraySites, (state, { arraySites }) => ({ ...state, arraySites: { ...arraySites } })),
-    on(ownActions.setArrayContacts, (state, { arrayContacts }) => ({ ...state, arrayContacts: { ...arrayContacts } })),
+    on(ownActions.setAPIConnectLayout, (state, { apiConLayout }) => ({
+        ...state, apiConLayout: { ...apiConLayout },
+    })),
+    on(ownActions.setAPIConnectHome, (state, { apiConHome }) => ({
+        ...state, apiConHome: { ...apiConHome }
+    })),
+    on(ownActions.setAPIConnectProducts, (state, { apiConProducts }) => ({
+        ...state, apiConProducts: { ...apiConProducts }
+    })),
+    on(ownActions.setAPIConnectPlans, (state, { apiConPlans }) => ({
+        ...state, apiConPlans: { ...apiConPlans }
+    })),
+    on(ownActions.setAPIConnectResources, (state, { apiConResources }) => ({
+        ...state, apiConResources: { ...apiConResources }
+    })),
+    on(ownActions.setAPIConnectHelp, (state, { apiConHelp }) => ({
+        ...state, apiConHelp: { ...apiConHelp }
+    })),
+    on(ownActions.setAPIConnectHelpF, (state, { apiConHelpF }) => ({
+        ...state, apiConHelpF: { ...apiConHelpF }
+    })),
+    on(ownActions.setAPIConnectHelpD, (state, { apiConHelpD }) => ({
+        ...state, apiConHelpD: { ...apiConHelpD }
+    })),
+    on(ownActions.setAPIConnectHelpS, (state, { apiConHelpS }) => ({
+        ...state, apiConHelpS: { ...apiConHelpS }
+    })),
+    on(ownActions.setAPIConnectNews, (state, { apiConNews }) => ({
+        ...state, apiConNews: { ...apiConNews }
+    })),
+    on(ownActions.setAPIConnectNewsD, (state, { apiConNewsD }) => ({
+        ...state, apiConNewsD: { ...apiConNewsD }
+    })),
+    on(ownActions.setAPIConnectNewsS, (state, { apiConNewsS }) => ({
+        ...state, apiConNewsS: { ...apiConNewsS }
+    })),
+    on(ownActions.setAPIConnectAbout, (state, { apiConAbout }) => ({
+        ...state, apiConAbout: { ...apiConAbout }
+    })),
+    on(ownActions.setAPIConnectWhy, (state, { apiConWhy }) => ({
+        ...state, apiConWhy: { ...apiConWhy }
+    })),
+    on(ownActions.setAPIConnectLegal, (state, { apiConLegal }) => ({
+        ...state, apiConLegal: { ...apiConLegal }
+    })),
+    on(ownActions.setAPIConnectPolicies, (state, { apiConPolicies }) => ({
+        ...state, apiConPolicies: { ...apiConPolicies }
+    })),
+    on(ownActions.setAPIConnectSites, (state, { apiConSites }) => ({
+        ...state, apiConSites: { ...apiConSites }
+    })),
+    on(ownActions.setAPIConnectContacts, (state, { apiConContacts }) => ({
+        ...state, apiConContacts: { ...apiConContacts }
+    })),
+    on(ownActions.setArrayLayout, (state, { arrayLayout }) => ({
+        ...state, arrayLayout: { ...arrayLayout }
+    })),
+    on(ownActions.setArrayHome, (state, { arrayHome }) => ({
+        ...state, arrayHome: { ...arrayHome }
+    })),
+    on(ownActions.setArrayProducts, (state, { arrayProducts }) => ({
+        ...state, arrayProducts: { ...arrayProducts }
+    })),
+    on(ownActions.setArrayPlans, (state, { arrayPlans }) => ({
+        ...state, arrayPlans: { ...arrayPlans }
+    })),
+    on(ownActions.setArrayResources, (state, { arrayResources }) => ({
+        ...state, arrayResources: { ...arrayResources }
+    })),
+    on(ownActions.setArrayHelp, (state, { arrayHelp }) => ({
+        ...state, arrayHelp: { ...arrayHelp }
+    })),
+    on(ownActions.setArrayHelpF, (state, { arrayHelpF }) => ({
+        ...state, arrayHelpF: { ...arrayHelpF }
+    })),
+    on(ownActions.setArrayHelpD, (state, { arrayHelpD }) => ({
+        ...state, arrayHelpD: { ...arrayHelpD }
+    })),
+    on(ownActions.setArrayHelpS, (state, { arrayHelpS }) => ({
+        ...state, arrayHelpS: { ...arrayHelpS }
+    })),
+    on(ownActions.setArrayNews, (state, { arrayNews }) => ({
+        ...state, arrayNews: { ...arrayNews }
+    })),
+    on(ownActions.setArrayNewsD, (state, { arrayNewsD }) => ({
+        ...state, arrayNewsD: { ...arrayNewsD }
+    })),
+    on(ownActions.setArrayNewsS, (state, { arrayNewsS }) => ({
+        ...state, arrayNewsS: { ...arrayNewsS }
+    })),
+    on(ownActions.setArrayAbout, (state, { arrayAbout }) => ({
+        ...state, arrayAbout: { ...arrayAbout }
+    })),
+    on(ownActions.setArrayWhy, (state, { arrayWhy }) => ({
+        ...state, arrayWhy: { ...arrayWhy }
+    })),
+    on(ownActions.setArrayLegal, (state, { arrayLegal }) => ({
+        ...state, arrayLegal: { ...arrayLegal }
+    })),
+    on(ownActions.setArrayPolicies, (state, { arrayPolicies }) => ({
+        ...state, arrayPolicies: { ...arrayPolicies }
+    })),
+    on(ownActions.setArraySites, (state, { arraySites }) => ({
+        ...state, arraySites: { ...arraySites }
+    })),
+    on(ownActions.setArrayContacts, (state, { arrayContacts }) => ({
+        ...state, arrayContacts: { ...arrayContacts }
+    })),
 
 );
 

@@ -17,11 +17,11 @@ import { AboutusComponent } from '@pages/aboutus/aboutus.component';
 import { WhySmartComponent } from '@pages/why-smart/why-smart.component';
 import { NotFoundComponent } from '@pages/not-found/not-found.component';
 
-const routerOptions: ExtraOptions = {
-  scrollPositionRestoration: "enabled",
-  anchorScrolling: "enabled",
-  scrollOffset: [0, 64],
-};
+// const routerOptions: ExtraOptions = {
+//   scrollPositionRestoration: "enabled",
+//   anchorScrolling: "enabled",
+//   scrollOffset: [0, 64],
+// };
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -48,7 +48,7 @@ const routes: Routes = [
   { path: "**", component: NotFoundComponent },
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes, routerOptions), BrowserModule],
+  imports: [RouterModule.forRoot(routes), BrowserModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

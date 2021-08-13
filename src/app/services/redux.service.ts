@@ -42,7 +42,6 @@ export class ReduxService {
    * -------------------------------------------------------
    */
   setUrlBreadcrumbs(url1: string) {
-    // console.log('url1 :>> ', url1);
     this._store.dispatch(ownActions.setUrlBreadcrumbs({ urlBreadcrumbs: url1 }));
   }
 
@@ -57,7 +56,6 @@ export class ReduxService {
    * -------------------------------------------------------
    */
   setAPIConnect(page: string, conn: boolean, lang: string) {
-    // console.log(`page`, page, conn, lang)
     switch (page) {
       case 'home':
         this._store.dispatch(ownActions.setAPIConnectHome({ apiConHome: { apiCon: conn, apiLang: lang } }));
@@ -127,7 +125,6 @@ export class ReduxService {
    * -------------------------------------------------------
    */
   setArray(page: string, array: any, lang: string) {
-    // console.log('setArray :>> ', page, array, lang);
     switch (page) {
       case 'home':
         this._store.dispatch(ownActions.setArrayHome({ arrayHome: { apiLang: lang, apiArray: array } }));

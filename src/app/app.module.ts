@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
 // FULL - REDUX
 import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
-import { appReduces } from "@redux/app.reducers";
+import { appReducers } from "@redux/app.reducers";
 
 // ENVIRONMENTS
 import { environment } from "@environments/environment.prod";
@@ -35,8 +35,9 @@ import { environment } from "@environments/environment.prod";
     LayoutModule,
     SharedModule,
     PagesModule,
-    StoreModule.forRoot(appReduces, {
+    StoreModule.forRoot(appReducers, {
       runtimeChecks: {
+        // Permite cambiar el estado o mutacion del estado no recomendable para casos de api en produccion
         strictStateImmutability: false,
         strictActionImmutability: false,
       },

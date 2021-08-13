@@ -1,6 +1,6 @@
 <section class="contNav">
     <div class="contNav__web" [ngClass]="isShowBgMenu ? 'bg-white shadow-md':'bg-transparent '">
-        <nav *ngFor="let item of data">
+        <nav *ngFor="let item of menuArray">
             <div (click)="closeAllSubMenu()" class="logoNav">
                 <a href="/" aria-label="Company" title="Company">
                     <div *ngIf="isShowBgMenu">

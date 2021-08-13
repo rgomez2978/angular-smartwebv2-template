@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, OnDestroy, Input, HostListener, AfterViewInit } from "@angular/core";
+import { Component, Inject, OnInit, OnDestroy, Input, HostListener } from "@angular/core";
 import { DOCUMENT } from '@angular/common';
 import { Location, LocationStrategy, PathLocationStrategy, } from "@angular/common";
 import { Store } from "@ngrx/store";
@@ -19,7 +19,7 @@ import { ReduxService } from '@services/index';
   ],
 })
 
-export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
+export class NavbarComponent implements OnInit, OnDestroy {
   private _subscription: Subscription = new Subscription();
   @Input() data: any;
   isLogin: boolean = false;
@@ -35,7 +35,6 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
   apiConLayoutES!: boolean;
   apiConLayoutEN!: boolean;
   submenuMobileArray: any = [];
-  menuArray: any = [];
 
 
   // Usado para que la funcion
@@ -95,20 +94,18 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
         this.urlActiveLevel1 = state.urlActive1;
         this.urlActiveLevel2 = state.urlActive2;
         this.isLogin = state.login;
-
+      })
+    );
+    this._subscription.add(
+      this._store.select('api').subscribe((state) => {
+        setTimeout(() => {
+          if (this.data[0] || this.data[0] != undefined) {
+            this.activeMenuOnLoad(this.data[0].options, this.urlActiveLevel1)
+          }
+        }, 100);
       })
     );
   }
-
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      if (this.data[0] || this.data[0] != undefined) {
-        this.menuArray = this.data;
-        this.activeMenuOnLoad(this.menuArray[0].options, this.urlActiveLevel1)
-      }
-    }, 100);
-  }
-
 
   /**
    * -------------------------------------------------------|

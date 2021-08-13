@@ -69,7 +69,6 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
    */
   ngAfterViewInit(): void {
     setTimeout(() => {
-      // console.log(`this.data`, this.data)
       this.infoObjects = true;
       this.dataObjects = this.data[0]?.form[0]?.objects;
       let typeForm = this.data[0]?.form[0]?.name;
@@ -159,9 +158,6 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
           sendContactsGroup.addControl(control.fcname, this._fb.control("", []));
           this.setValidator(sendContactsGroup, control.fcname, control);
           this.frmSend = sendContactsGroup;
-
-          // console.log(`this.frmSend`, this.frmSend.controls)
-
         });
       });
     }
@@ -180,7 +176,6 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
    * -------------------------------------------------------
    */
   setValidator(fgroup: FormGroup, fcname: string, object: any) {
-    // console.log(`fgroup, fcname, object`, fgroup, fcname, object)
     const otherValidators = [];
     // formControlName - Required
     if (object.required) {
@@ -370,7 +365,6 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
             this.isLoading = false; // Status del proceso finalizado
             fgroup.enable(); // Se habilita el formulario para el envio
             fgroup.reset(); // Se limpian todos los campos
-            // console.log(`response`, response)
           },
           (error) => {
             this.setMessage(
