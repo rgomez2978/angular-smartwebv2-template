@@ -1,0 +1,15 @@
+# Uninstall current version angular
+npm uninstall -g angular-cli
+npm uninstall -g @angular-cli
+npm cache verify
+npm cache clean --force
+
+# Install angular version 12
+npm install -g @angular-devkit/build-angular@12.2.13 --force
+npm install -g @angular/cli@12
+npm install -g npm@7.16.0
+ng add ngx-build-plus
+npm install --legacy-peer-deps
+
+# Create version node file local
+node -v > .nvmrc

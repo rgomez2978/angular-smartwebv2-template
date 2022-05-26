@@ -5,7 +5,7 @@
     "logo": "assets/img/logo2",
     "logo2": "assets/img/logo",
     "btn": "Login",
-    "btn_link": "http://smart.alphagrupo.com/login",
+    "btn_link": "",
     "icon_back": "<i class=\"icofont-arrow-left\"></i>",
     "title_back": "BAck",
     "options": [{
@@ -210,7 +210,7 @@
         "level": 1,
         "icon": "<i class=\"icofont-facebook\"></i>",
         "title": "facebook",
-        "url": "https://www.facebook.com/smartsuitetools/"
+        "url": ""
       },
       {
         "id": 2,
@@ -218,7 +218,7 @@
         "level": 1,
         "icon": "<i class=\"icofont-twitter\"></i>",
         "title": "twitter",
-        "url": "https://twitter.com/SuiteTools"
+        "url": ""
       },
       {
         "id": 3,
@@ -226,7 +226,7 @@
         "level": 1,
         "icon": "<i class=\"icofont-instagram\"></i>",
         "title": "instagram",
-        "url": "https://www.instagram.com/smartsuitetools/"
+        "url": ""
       },
       {
         "id": 4,
@@ -234,7 +234,7 @@
         "level": 1,
         "icon": "<i class=\"icofont-linkedin\"></i>",
         "title": "linkedin",
-        "url": "https://www.linkedin.com/in/smartsuitetools/"
+        "url": ""
       }
     ],
     "options": [{
@@ -355,7 +355,7 @@
       "id": 1,
       "order": 1,
       "icon": "",
-      "description": "© 2021 SmartSuiteTools. All rights reserved.",
+      "description": "© 2021. All rights reserved.",
       "lang": [{
           "id": 1,
           "order": 1,

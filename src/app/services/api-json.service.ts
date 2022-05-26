@@ -354,7 +354,7 @@ export class ApiJsonService implements OnInit, OnDestroy {
     this.conexReturn = this._http.get<any>(this.url, this.httpOptions);
     return this.conexReturn;
   }
-
+//
 
 
 
