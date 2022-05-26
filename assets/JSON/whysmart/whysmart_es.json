@@ -1,0 +1,124 @@
+{
+  "browser": [{
+    "id": 1,
+    "order": 1,
+    "title": "Por qué Smart",
+    "description": ""
+  }],
+  "header": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "video": "",
+    "title": "¿Por qué Smart?",
+    "description": " Conoce los beneficios de integrar nuestras tres soluciones: SmartConnect, SmartChart y SmartWork ¡Pruébalas ya!",
+    "links": [{}]
+  }],
+  "benefits": [{
+    "id": 1,
+    "order": 1,
+    "title": "",
+    "description": "",
+    "nodes": [{
+        "id": 1,
+        "order": 1,
+        "position": "right",
+        "title_head": "",
+        "title": "Información consolidada",
+        "description": "Gestiona desde un solo lugar la información de contacto de tus colaboradores así como la estructura y perfiles de cargo de tu empresa.",
+        "media": [{
+          "id": 1,
+          "order": 1,
+          "type": "img",
+          "url": "https://via.placeholder.com/400x300"
+        }]
+      },
+      {
+        "id": 2,
+        "order": 2,
+        "position": "left",
+        "title_head": "",
+        "title": "Facilidad de uso",
+        "description": "Aplicaciones intuitivas que facilitan la implementación en tu organización, con versiones web y móvil. ¡Perfectas también para uso personal!",
+        "media": [{
+          "id": 1,
+          "order": 1,
+          "type": "img",
+          "url": "https://via.placeholder.com/400x300"
+        }]
+      },
+      {
+        "id": 3,
+        "order": 3,
+        "position": "right",
+        "title_head": "",
+        "title": "Seguridad y privacidad",
+        "description": "A través de nuestro sistema de roles y sesiones, asigna permisos y garantiza el uso seguro de la información al compartir lo que desees.",
+        "media": [{
+          "id": 1,
+          "order": 1,
+          "type": "img",
+          "url": "https://via.placeholder.com/400x300"
+        }]
+      },
+      {
+        "id": 4,
+        "order": 4,
+        "position": "left",
+        "title_head": "",
+        "title": "Actualización inmediata",
+        "description": "Nuestras aplicaciones permiten que cualquier modificación realizada pueda ser consultada en tiempo real por todos los usuarios que compartan dicha información.",
+        "media": [{
+          "id": 1,
+          "order": 1,
+          "type": "img",
+          "url": "https://via.placeholder.com/400x300"
+        }]
+      },
+      {
+        "id": 5,
+        "order": 5,
+        "position": "right",
+        "title_head": "",
+        "title": "Inversión inteligente",
+        "description": "Disfruta todos beneficios de aplicaciones eficientes e innovadoras por un costo accesible ¡Pruébalas hoy mismo!",
+        "media": [{
+          "id": 1,
+          "order": 1,
+          "type": "img",
+          "url": "https://via.placeholder.com/400x300"
+        }]
+      },
+      {
+        "id": 6,
+        "order": 6,
+        "position": "left",
+        "title_head": "",
+        "title": "Entorno colaborativo",
+        "description": "Trabaja junto con tus compañeros de equipo al mismo tiempo. Olvida los viejos tiempos donde buscabas quién tiene la última versión actualizada.",
+        "media": [{
+          "id": 1,
+          "order": 1,
+          "type": "img",
+          "url": "https://via.placeholder.com/400x300"
+        }]
+      }
+    ]
+  }],
+  "cta": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "img": "",
+    "title": "¡Regístrate en Smart ahora!",
+    "description": "Conoce más sobre nuestra empresa y nuestra forma de hacer las cosas en:",
+    "links": [{
+      "id": 1,
+      "order": 1,
+      "type": "btn",
+      "title": "!Ingresa aquí¡",
+      "description": "",
+      "url": ""
+    }]
+  }]
+}

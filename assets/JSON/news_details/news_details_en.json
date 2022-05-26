@@ -1,0 +1,15 @@
+{
+    "browser": [{
+      "id": 1,
+      "order": 1,
+      "title": "Resources - News",
+      "description": ""
+    }],
+    "content": [{
+      "id": 1,
+      "order": 1,
+      "date": "2021/05/05",
+      "title": "5 tips to work on your strategic planning",
+      "description": "<p> It is essential that this process begins with an objective and realistic analysis of the current scenario of the company but always with an ambitious view towards the future, presenting challenges and growth and seeking to fulfill the mission for which it was created the company and in turn advance on the path towards the established vision. </p> <p style=\"text-align:center\"> <img alt=\"sadasdasdasdasdasdasd\" src=\"https://via.placeholder.com/300x200 \"style=\" height:200px; width:300px \"/> </p> <p style=\" text-align:center\">&nbsp; </p> <ol> <li> Involve your team through brainstorming sessions. </li> <li> Try not to limit yourself to established models or templates. </li> <li> Use simple and clear language in setting your goals. </li> <li> Think “outside the box” and dare to innovate. </li> <li> Make sure your staff is clear about the company's mission and vision </li> <li> test </li> </ol> <p style=\"text-align:center\">&nbsp;</p>"
+    }]
+  }

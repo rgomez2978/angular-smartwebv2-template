@@ -1,0 +1,189 @@
+{
+  "browser": [{
+    "id": 1,
+    "order": 1,
+    "title": "Inicio",
+    "description": ""
+  }],
+  "header": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "video": "./assets/video/video_banner.mp4",
+    "title": "Systems that offer complete solutions that facilitate your management of organizations in dynamic environments",
+    "description": "",
+    "links": [{
+      "id": 1,
+      "order": 1,
+      "type": "link",
+      "icon": "<i class=\"icofont-play-alt-3\"></i>",
+      "url": "./assets/video/video_banner.mp4",
+      "title": "Watch video",
+      "description": ""
+    }]
+  }],
+  "clients": [{
+    "id": 1,
+    "order": 1,
+    "title": "Our Clients",
+    "words": 2,
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "icon": "",
+      "image": "https://via.placeholder.com/400x173",
+      "title": "",
+      "description": "",
+      "url": ""
+    }, {
+      "id": 2,
+      "order": 2,
+      "icon": "",
+      "image": "https://via.placeholder.com/400x173",
+      "title": "",
+      "description": "",
+      "url": ""
+    }, {
+      "id": 3,
+      "order": 3,
+      "icon": "",
+      "image": "https://via.placeholder.com/400x173",
+      "title": "",
+      "description": "",
+      "url": ""
+    }, {
+      "id": 4,
+      "order": 4,
+      "icon": "",
+      "image": "https://via.placeholder.com/400x173",
+      "title": "",
+      "description": "",
+      "url": ""
+    }, {
+      "id": 5,
+      "order": 5,
+      "icon": "",
+      "image": "https://via.placeholder.com/400x173",
+      "title": "",
+      "description": "",
+      "url": ""
+    }, {
+      "id": 6,
+      "order": 6,
+      "icon": "",
+      "image": "https://via.placeholder.com/400x173",
+      "title": "",
+      "description": "",
+      "url": ""
+    }, {
+      "id": 7,
+      "order": 7,
+      "icon": "",
+      "image": "https://via.placeholder.com/400x173",
+      "title": "",
+      "description": "",
+      "url": ""
+    }, {
+      "id": 8,
+      "order": 8,
+      "icon": "",
+      "image": "https://via.placeholder.com/400x173",
+      "title": "",
+      "description": "",
+      "url": ""
+    }]
+  }],
+  "news": [{
+    "id": 1,
+    "order": 1,
+    "title": "Our news",
+    "title_news": "See more blog posts",
+    "title_news_link": "/resources/news",
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "date": "2021/05/05",
+      "icon": "",
+      "image": "https://via.placeholder.com/300x200",
+      "title": "5 tips to work on your strategic planning",
+      "description": "Learn how to use our management tool that allows you to efficiently establish your next steps as an organization.",
+      "url": "/resources/news/details/1",
+      "views": 10,
+      "comments": 30,
+      "categories": [{
+        "id": 1,
+        "order": 1,
+        "title": "Strategic planning",
+        "url": "/resources/news/strategic-planning"
+      }]
+    }, {
+      "id": 2,
+      "order": 2,
+      "date": "2021/10/20",
+      "icon": "",
+      "image": "https://via.placeholder.com/300x200",
+      "title": "How to enhance your organizational culture?",
+      "description": "It helps to take time to consider ways you can keep your team identified with your organization's mission. Find out how you can use our tools for that.",
+      "url": "/resources/news/details/2",
+      "views": 5,
+      "comments": 2,
+      "categories": [{
+        "id": 1,
+        "order": 1,
+        "title": "Strategic planning",
+        "url": "/resources/news/strategic-planning"
+      }]
+    }, {
+      "id": 3,
+      "order": 3,
+      "date": "2020/10/20",
+      "icon": "",
+      "image": "https://via.placeholder.com/300x200",
+      "title": "Steps for effective change management",
+      "description": "When it comes to planning a project, the work breakdown structure is one of the first things a project manager has to work on.",
+      "url": "/resources/news/details/3",
+      "views": 5,
+      "comments": 2,
+      "categories": [{
+        "id": 1,
+        "order": 1,
+        "title": "Human development",
+        "url": "/resources/news/human-development"
+      }]
+    }, {
+      "id": 4,
+      "order": 4,
+      "date": "2021/11/02",
+      "icon": "",
+      "image": "https://via.placeholder.com/300x200",
+      "title": "How can I reuse the shapes with attached images?",
+      "description": "Excepteur irure nisi exercitation qui culpa sint ea. Do non esse laborum elit. Aliquip anim dolor consectetur consectetur aute aute culpa adipisicing sit ullamco velit sit deserunt. Do commodo velit eu dolor dolore labore Lorem et quis anim velit reprehenderit non. Non eu veniam non pariatur labore nostrud est commodo culpa consectetur ut aute deserunt commodo.",
+      "url": "/resources/news/details/4",
+      "views": 5,
+      "comments": 10,
+      "categories": [{
+        "id": 1,
+        "order": 1,
+        "title": "Leadership",
+        "url": "/resources/news/leadership"
+      }]
+    }, {
+      "id": 5,
+      "order": 5,
+      "date": "2021/09/02",
+      "icon": "",
+      "image": "https://via.placeholder.com/300x200",
+      "title": "Where can the images be attached?",
+      "description": "Eu exercitation proident minim cillum anim culpa irure amet non consequat nostrud veniam. Nulla excepteur qui sunt laboris.Incididunt cupidatat est non proident esse cupidatat excepteur est aliqua commodo nulla sint in exercitation.",
+      "url": "/resources/news/details/5",
+      "views": 45,
+      "comments": 5,
+      "categories": [{
+        "id": 1,
+        "order": 1,
+        "title": "Organizational culture",
+        "url": "/resources/news/organizational-culture"
+      }]
+    }]
+  }]
+}

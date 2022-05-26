@@ -1,0 +1,261 @@
+{
+  "browser": [{
+    "id": 1,
+    "order": 1,
+    "title": "Recursos",
+    "description": ""
+  }],
+  "header": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "video": "./assets/video/46864998_480958359846948_3732618213144601967_n.mp4",
+    "title": "Centro de Recursos",
+    "description": "Encuentra informacion valiosa para maximizar el uso de tus aplicaciones.",
+    "links": [{}]
+  }],
+  "faqs": [{
+    "id": 1,
+    "order": 1,
+    "title": "Preguntas frecuentes",
+    "nodes": [{
+        "id": 1,
+        "order": 1,
+        "active": false,
+        "question": "Sobre Smart",
+        "answer": [{
+            "id": 1,
+            "order": 1,
+            "title": "¿Cuánto cuesta tener Smart?",
+            "description": "Actualmente, la suite es gratuita, por lo que aprovecha tu oportunidad de probarla y sacarle todo el provecho que puedas."
+          },
+          {
+            "id": 2,
+            "order": 2,
+            "title": "¿Cuántas aplicaciones componen Smart? ",
+            "description": "Tenemos dos aplicaciones: Contacto, que permite crear, gestionar y compartir contactos; y Organigrama, en donde puedes crear y gestionar la estructura organizativa de empresas. Nos encontramos desarrollando más aplicaciones de la suite. ¡Espéralas pronto!"
+          },
+          {
+            "id": 3,
+            "order": 3,
+            "title": "¿Cuántos usuarios de mi empresa pueden registrarse en Smart?",
+            "description": "La suite es totalmente gratuita y por los momentos no tenemos ninguna limitación. Tú pones el número, nosotros te apoyamos."
+          },
+          {
+            "id": 4,
+            "order": 4,
+            "title": "¿Smart ofrece soporte técnico? ",
+            "description": "¡Claro! En español y en inglés. Contáctanos y con gusto resolveremos cualquier duda o inconveniente."
+          },
+          {
+            "id": 5,
+            "order": 5,
+            "title": "¿La información cargada en una de las aplicaciones de Smart se comparte con las demás aplicaciones de la suite?",
+            "description": "¡Sí! ¿No es maravilloso? Esta es una de nuestras premisas y grandes ventajas. Solo debes cargar la información una vez y podrás utilizarla en toda la suite. Por ejemplo, los cargos que se crean en un Organigrama pueden estar ocupados por personas que están en tu lista de contactos. Y lo mejor de todo es que al modificar la información de uno de tus contactos no habrá necesidad de hacer esas modificaciones en la aplicación de Organigrama. Con esto, evitamos que cometas errores y te ahorramos tiempo. "
+          },
+          {
+            "id": 6,
+            "order": 6,
+            "title": "¿Cómo sé que mi información está segura? ",
+            "description": "La seguridad de tu información es vital para nosotros. Por ello, solo tú y aquellos a los que tú explícitamente autorices tendrán acceso a tu información. Diariamente, nos aseguramos de resguardar en respaldos toda tu información, de esta forma podemos garantizar seguridad en nuestro sistema. Además, tenemos equipos con redundancia que permiten que tu información esté protegida ante los posibles fallos que puedan surgir por su uso continuado."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "order": 2,
+        "active": false,
+        "question": "Sobre Contacto",
+        "answer": [{
+            "id": 1,
+            "order": 1,
+            "title": "¿Puedo usar la aplicación Contacto sin acceso a internet? ",
+            "description": "Sí, podrás acceder e incluso modificar la información. Se sincronizará al volver a tener conexión a internet."
+          },
+          {
+            "id": 2,
+            "order": 2,
+            "title": "¿Puedo compartir mi lista de contactos con otros usuarios?",
+            "description": "Sí, puedes otorgar permisos a otros usuarios para que puedan ver o editar tu información."
+          },
+          {
+            "id": 3,
+            "order": 3,
+            "title": "¿Todos los usuarios de la suite tendrán acceso a mi información? ",
+            "description": "No, la característica de compartir información en la aplicación funciona a través de solicitudes. Cuando alguien quiera acceder a tu información, te enviará una solicitud. Si la aceptas el usuario podrá ver tu información, de lo contrario no."
+          },
+          {
+            "id": 4,
+            "order": 4,
+            "title": "¿Puedo personalizar la información que comparto?",
+            "description": "¡Claro! Tú tienes el control y puedes decidir cual información específicamente quieres compartir con cada usuario."
+          },
+          {
+            "id": 5,
+            "order": 5,
+            "title": "¿Desde la aplicación puedo realizar llamadas o incluso acceder a las redes sociales de mis contactos?",
+            "description": "¡Por supuesto! Desde la versión móvil de nuestra app podrás realizar llamadas, enviar mensajes de texto, correos y acceder a las redes sociales de tus contactos, ya que está conectada con las demás aplicaciones de tu teléfono."
+          },
+          {
+            "id": 6,
+            "order": 6,
+            "title": "¿Puedo dejar que otros manejen mi listado de contactos?",
+            "description": "Sí, gracias a nuestro módulo de control de acceso podrás dar permisos a quien tú quieras para que haga ediciones o modificaciones a tu lista de contactos."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "order": 3,
+        "active": false,
+        "question": "Sobre Organigrama",
+        "answer": [{
+            "id": 1,
+            "order": 1,
+            "title": "¿Puedo manejar múltiples proyectos de diferentes empresas al mismo tiempo? ",
+            "description": "¡Claro! Podrás crear múltiples proyectos, compartirlos y editarlos simultáneamente."
+          },
+          {
+            "id": 2,
+            "order": 2,
+            "title": "¿Puedo asignar múltiples personas a un cargo?",
+            "description": "Sí. Buscamos simplificar la forma en la que una empresa organiza a su equipo, por ello a un cargo podrás agregarle múltiples personas."
+          },
+          {
+            "id": 3,
+            "order": 3,
+            "title": "¿Ofrecen alguna solución para aquellos cargos que se generan de forma temporal?",
+            "description": "Organigrama permite generar cargos temporales, relaciones funcionales e incluso incluir auditores dentro de la organización."
+          },
+          {
+            "id": 4,
+            "order": 4,
+            "title": "¿Los cargos que se crean en Organigrama son reutilizables?",
+            "description": "¡Por supuesto! Al crear un cargo, lo podrás utilizar en múltiples lienzos. Al hacer un cambio de ese cargo, se aplicará a todos los lienzos donde se encuentra agregado. ¿No es maravilloso? "
+          },
+          {
+            "id": 5,
+            "order": 5,
+            "title": "¿Organigrama permite que dos personas trabajen sobre un mismo proyecto?",
+            "description": "Organigrama, al igual que toda la suite Smart, es colaborativo. Pueden trabajar múltiples personas sin ningún inconveniente."
+          },
+          {
+            "id": 6,
+            "order": 6,
+            "title": "¿Puedo generar reportes de los organigramas que creo? ",
+            "description": "En Organigrama podrás generar múltiples reportes como personas por cargo, resumen de estructura organizativa y muchos más."
+          }
+        ]
+      }
+    ]
+  }],
+  "manuals": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "img": "",
+    "title": "Manuales de uso",
+    "description": "para conocer más sobre cada aplicación",
+    "links": [{
+      "id": 1,
+      "order": 1,
+      "type": "btn",
+      "url": "/resources/help",
+      "title": "Ingresa aquí",
+      "description": ""
+    }]
+  }],
+  "news": [{
+    "id": 1,
+    "order": 1,
+    "title": "Nuestras novedades",
+    "title_news": "Ver más entradas del blog",
+    "title_news_link": "/resources/news",
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "date": "2021/05/05",
+      "icon": "",
+      "image": "https://via.placeholder.com/300x200",
+      "title": "5 tips para trabajar tu planificación estratégica",
+      "description": "Conoce cómo utilizar nuestra herramienta de gestión que te permite establecer de forma eficiente tus próximos pasos como organización.",
+      "url": "/resources/news/details/1",
+      "views": 10,
+      "comments": 30,
+      "categories": [{
+        "id": 1,
+        "order": 1,
+        "title": "Planificación estrategica",
+        "url": "/resources/news/strategic-planning"
+      }]
+    }, {
+      "id": 2,
+      "order": 2,
+      "date": "2021/10/20",
+      "icon": "",
+      "image": "https://via.placeholder.com/300x200",
+      "title": "¿Cómo potenciar tu cultura organizacional?",
+      "description": "Es útil dedicar tiempo a considerar formas en las que puedas mantener a tu equipo identificado con la misión de tu organización. Descubre cómo puedes utilizar nuestras herramientas para eso.",
+      "url": "/resources/news/details/2",
+      "views": 5,
+      "comments": 2,
+      "categories": [{
+        "id": 1,
+        "order": 1,
+        "title": "Planificación estrategica",
+        "url": "/resources/news/strategic-planning"
+      }]
+    }, {
+      "id": 3,
+      "order": 3,
+      "date": "2020/10/20",
+      "icon": "",
+      "image": "https://via.placeholder.com/300x200",
+      "title": "Pasos para una gestión  de cambio efectiva",
+      "description": "Cuando se trata de planificar un proyecto, la estructura de desglose del trabajo es una de las primeras cosas en las que tiene que trabajar un director de proyecto.",
+      "url": "/resources/news/details/3",
+      "views": 5,
+      "comments": 2,
+      "categories": [{
+        "id": 1,
+        "order": 1,
+        "title": "Desarrollo humano",
+        "url": "/resources/news/human-development"
+      }]
+    }, {
+      "id": 4,
+      "order": 4,
+      "date": "2021/11/02",
+      "icon": "",
+      "image": "https://via.placeholder.com/300x200",
+      "title": "¿Cómo puedo reutilizar las formas con imágenes adjuntas?",
+      "description": "Excepteur irure nisi exercitation qui culpa sint ea. Do non esse laborum elit. Aliquip anim dolor consectetur consectetur aute aute culpa adipisicing sit ullamco velit sit deserunt. Do commodo velit eu dolor dolore labore Lorem et quis anim velit reprehenderit non. Non eu veniam non pariatur labore nostrud est commodo culpa consectetur ut aute deserunt commodo.",
+      "url": "/resources/news/details/4",
+      "views": 5,
+      "comments": 10,
+      "categories": [{
+        "id": 1,
+        "order": 1,
+        "title": "Liderazgo",
+        "url": "/resources/news/leadership"
+      }]
+    }, {
+      "id": 5,
+      "order": 5,
+      "date": "2021/09/02",
+      "icon": "",
+      "image": "https://via.placeholder.com/300x200",
+      "title": "¿Dónde se pueden adjuntar las imágenes?",
+      "description": "Eu exercitation proident minim cillum anim culpa irure amet non consequat nostrud veniam. Nulla excepteur qui sunt laboris.Incididunt cupidatat est non proident esse cupidatat excepteur est aliqua commodo nulla sint in exercitation.",
+      "url": "/resources/news/details/5",
+      "views": 45,
+      "comments": 5,
+      "categories": [{
+        "id": 1,
+        "order": 1,
+        "title": "Cultura organizacional",
+        "url": "/resources/news/organizational-culture"
+      }]
+    }]
+  }]
+}
