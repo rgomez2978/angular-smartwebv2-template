@@ -1,0 +1,79 @@
+{
+  "browser": [{
+    "id": 1,
+    "order": 1,
+    "title": "Recursos - Manuales de uso",
+    "description": ""
+  }],
+  "features": [{
+    "id": 1,
+    "order": 1,
+    "url": "",
+    "product": "SmartConnect",
+    "title": "Características avanzadas",
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "url": "",
+      "title": "Adjuntar imágenes",
+      "nodes": [{
+        "id": 1,
+        "order": 1,
+        "url": "/resources/help/details/1",
+        "title": "link 1 - 1"
+      }, {
+        "id": 2,
+        "order": 2,
+        "url": "/resources/help/details/1/",
+        "title": "link 1 - 2"
+      }, {
+        "id": 3,
+        "order": 3,
+        "url": "/resources/help/details/1/",
+        "title": "link 1 - 3"
+      }]
+    }, {
+      "id": 2,
+      "order": 2,
+      "url": "",
+      "title": "Datos y automatización",
+      "nodes": [{
+        "id": 1,
+        "order": 1,
+        "url": "/resources/help/details/1",
+        "title": "link 2 - 1"
+      }, {
+        "id": 2,
+        "order": 2,
+        "url": "/resources/help/details/1",
+        "title": "link 2 - 2"
+      }, {
+        "id": 3,
+        "order": 3,
+        "url": "/resources/help/details/1",
+        "title": "link 2 - 3"
+      }]
+    }, {
+      "id": 3,
+      "order": 3,
+      "url": "",
+      "title": "Bibliotecas de formas",
+      "nodes": [{
+        "id": 1,
+        "order": 1,
+        "url": "/resources/help/details/1",
+        "title": "link 3 - 1"
+      }, {
+        "id": 2,
+        "order": 2,
+        "url": "/resources/help/details/1",
+        "title": "link 3 - 2"
+      }, {
+        "id": 3,
+        "order": 3,
+        "url": "/resources/help/details/1",
+        "title": "link 3 - 3"
+      }]
+    }]
+  }]
+}

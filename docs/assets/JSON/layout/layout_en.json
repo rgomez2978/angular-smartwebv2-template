@@ -1,0 +1,414 @@
+{
+  "navbar": [{
+    "id": 1,
+    "order": 1,
+    "logo": "assets/img/logo2",
+    "logo2": "assets/img/logo",
+    "btn": "Login",
+    "btn_link": "",
+    "icon_back": "<i class=\"icofont-arrow-left\"></i>",
+    "title_back": "BAck",
+    "options": [{
+        "id": 1,
+        "order": 1,
+        "level": 1,
+        "type": "link",
+        "icon": "",
+        "active": false,
+        "title": "Home",
+        "fragment": "",
+        "url": "/home",
+        "nodes": []
+      },
+      {
+        "id": 2,
+        "order": 2,
+        "level": 2,
+        "type": "",
+        "icon": "",
+        "active": false,
+        "title": "Products",
+        "fragment": "",
+        "url": "",
+        "nodes": [{
+            "id": 1,
+            "order": 1,
+            "level": 2,
+            "icon": "",
+            "active": false,
+            "title": "SmartConnect",
+            "fragment": "",
+            "url": "/products/1"
+          },
+          {
+            "id": 2,
+            "order": 2,
+            "level": 2,
+            "icon": "",
+            "active": false,
+            "title": "SmartChart",
+            "fragment": "",
+            "url": "/products/2"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "order": 3,
+        "level": 1,
+        "type": "link",
+        "icon": "",
+        "active": false,
+        "title": "Plans",
+        "fragment": "",
+        "url": "/plans",
+        "nodes": []
+      },
+      {
+        "id": 4,
+        "order": 4,
+        "level": 2,
+        "type": "link",
+        "icon": "",
+        "active": false,
+        "title": "Resources",
+        "fragment": "",
+        "url": "/resources",
+        "nodes": [{
+            "id": 1,
+            "order": 1,
+            "type": "link",
+            "level": 2,
+            "icon": "",
+            "active": false,
+            "title": "FAQ",
+            "fragment": "scrollfaqs",
+            "url": "/resources"
+          }, {
+            "id": 2,
+            "order": 2,
+            "type": "link",
+            "level": 2,
+            "icon": "",
+            "active": false,
+            "title": "User manuals",
+            "fragment": "",
+            "url": "/resources/help"
+          },
+          {
+            "id": 3,
+            "order": 3,
+            "type": "link",
+            "level": 2,
+            "icon": "",
+            "active": false,
+            "title": "Blog",
+            "fragment": "",
+            "url": "/resources/news"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "order": 5,
+        "level": 1,
+        "type": "link",
+        "icon": "",
+        "active": false,
+        "title": "Contact us",
+        "fragment": "",
+        "url": "/contacts",
+        "nodes": []
+      }
+    ],
+    "apps": [{
+      "id": 1,
+      "order": 1,
+      "icon": "<i class=\"icofont-brand-microsoft\"></i>",
+      "items": [{
+          "id": 1,
+          "order": 1,
+          "level": 1,
+          "type": "link",
+          "icon": "<i class=\"icofont-users-social\"></i>",
+          "active": false,
+          "title": "SmartAccount",
+          "fragment": "",
+          "url": "/"
+        },
+        {
+          "id": 2,
+          "order": 2,
+          "level": 1,
+          "type": "link",
+          "icon": "<i class=\"icofont-contacts\"></i>",
+          "active": false,
+          "title": "SmartConnect",
+          "fragment": "",
+          "url": "/"
+        },
+        {
+          "id": 3,
+          "order": 3,
+          "level": 1,
+          "type": "link",
+          "icon": "<i class=\"icofont-chart-flow\"></i>",
+          "active": false,
+          "title": "SmartChart",
+          "fragment": "",
+          "url": "/"
+        },
+        {
+          "id": 4,
+          "order": 4,
+          "level": 1,
+          "type": "link",
+          "icon": "<i class=\"icofont-layout\"></i>",
+          "active": false,
+          "title": "SmartWork",
+          "fragment": "",
+          "url": "/"
+        }
+      ]
+    }],
+    "session": [{
+      "id": 1,
+      "order": 1,
+      "icon": "<i class=\"icofont-ui-user\"></i>",
+      "title": "Log in",
+      "active": false,
+      "buttons": [{
+        "title": "Log in",
+        "title2": "Register"
+      }],
+      "login": [{
+        "icon": "<i class=\"icofont-sign-in\"></i>",
+        "title": "Log in"
+      }],
+      "logged": [{
+        "avatar": "assets/img/avatar/avatar7",
+        "title": "Ronald Gomez",
+        "email": "rgomez@hidrocaven.com",
+        "active": true
+      }],
+      "logout": [{
+        "icon": "<i class=\"icofont-sign-out\"></i>",
+        "title": "Sign off"
+      }]
+    }]
+  }],
+  "footer": [{
+    "id": 1,
+    "order": 1,
+    "logo": "assets/img/logo2",
+    "description": "<p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. </p> <p> Eaque ipsa quae ab illo inventore veritatis et <strong>uasi</strong> architecto beatae vitae dicta sunt explicabo. </p>",
+    "url": "/",
+    "float": "Up",
+    "socials": [{
+        "id": 1,
+        "order": 1,
+        "level": 1,
+        "icon": "<i class=\"icofont-facebook\"></i>",
+        "title": "facebook",
+        "url": ""
+      },
+      {
+        "id": 2,
+        "order": 2,
+        "level": 1,
+        "icon": "<i class=\"icofont-twitter\"></i>",
+        "title": "twitter",
+        "url": ""
+      },
+      {
+        "id": 3,
+        "order": 3,
+        "level": 1,
+        "icon": "<i class=\"icofont-instagram\"></i>",
+        "title": "instagram",
+        "url": ""
+      },
+      {
+        "id": 4,
+        "order": 4,
+        "level": 1,
+        "icon": "<i class=\"icofont-linkedin\"></i>",
+        "title": "linkedin",
+        "url": ""
+      }
+    ],
+    "options": [{
+        "id": 1,
+        "order": 1,
+        "level": 2,
+        "icon": "",
+        "active": false,
+        "title": "Products",
+        "fragment": "",
+        "url": "/products",
+        "nodes": [{
+            "id": 1,
+            "order": 1,
+            "level": 2,
+            "icon": "",
+            "active": false,
+            "title": "SmartConnect",
+            "fragment": "",
+            "url": "/products/1"
+          },
+          {
+            "id": 2,
+            "order": 2,
+            "level": 2,
+            "icon": "",
+            "active": false,
+            "title": "SmartChart",
+            "fragment": "",
+            "url": "/products/2"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "order": 2,
+        "level": 2,
+        "icon": "",
+        "active": false,
+        "title": "About Smart",
+        "fragment": "",
+        "url": "",
+        "nodes": [{
+            "id": 1,
+            "order": 1,
+            "level": 2,
+            "icon": "",
+            "active": false,
+            "title": "About us",
+            "fragment": "aboutus",
+            "url": "/aboutus"
+          },
+          {
+            "id": 2,
+            "order": 2,
+            "level": 2,
+            "icon": "",
+            "active": false,
+            "title": "Why Smart?",
+            "fragment": "whysmart",
+            "url": "/whysmart"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "order": 3,
+        "level": 2,
+        "icon": "",
+        "active": false,
+        "title": "Resources",
+        "fragment": "",
+        "url": "",
+        "nodes": [{
+            "id": 1,
+            "order": 1,
+            "level": 2,
+            "icon": "",
+            "active": false,
+            "title": "FAQ",
+            "fragment": "faq",
+            "url": "/resources"
+          }, {
+            "id": 2,
+            "order": 2,
+            "level": 2,
+            "icon": "",
+            "active": false,
+            "title": "User manuals",
+            "fragment": "help",
+            "url": "/help"
+          },
+          {
+            "id": 3,
+            "order": 3,
+            "level": 2,
+            "icon": "",
+            "active": false,
+            "title": "Blog",
+            "fragment": "news",
+            "url": "/news"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "order": 3,
+        "level": 2,
+        "icon": "",
+        "active": false,
+        "title": "Contact us",
+        "fragment": "",
+        "url": "",
+        "nodes": []
+      }
+    ],
+    "copyright": [{
+      "id": 1,
+      "order": 1,
+      "icon": "",
+      "description": "© 2021. All rights reserved.",
+      "lang": [{
+          "id": 1,
+          "order": 1,
+          "title": "English",
+          "lang": "en"
+        },
+        {
+          "id": 2,
+          "order": 2,
+          "title": "Spanish",
+          "lang": "es"
+        }
+      ],
+      "options": [{
+          "id": 1,
+          "order": 1,
+          "title": "Privacy policies",
+          "fragment": "",
+          "url": "/privacy-policies"
+        },
+        {
+          "id": 2,
+          "order": 2,
+          "title": "Legal terms",
+          "fragment": "",
+          "url": "/legal-terms"
+        }, {
+          "id": 1,
+          "order": 1,
+          "title": "Site Map",
+          "fragment": "",
+          "url": "/site-map"
+        }
+      ]
+    }]
+  }],
+  "notfound": [{
+    "id": 1,
+    "order": 1,
+    "title": "Page not found",
+    "description": "UPS! The page you are looking for does not exist. It may have been moved or deleted.",
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "title": "Home",
+      "url": "/home",
+      "className":"btn_normal"
+    }, {
+      "id": 2,
+      "order": 2,
+      "title": "Contacts us",
+      "url": "/contacts",
+      "className":"btn_bold"
+    }]
+  }]
+}

@@ -1,0 +1,144 @@
+{
+  "id": 1,
+  "order": 1,
+  "browser": [{
+    "id": 1,
+    "order": 1,
+    "title": "Mapa del sitio",
+    "description": ""
+  }],
+  "header": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "title": "Mapa del sitio",
+    "description": ""
+  }],
+  "pages": [{
+    "id": 1,
+    "order": 1,
+    "icon": "<i class=\"icofont-home\"></i>",
+    "title": "Inicio",
+    "description": "Pagina de principal",
+    "url": "/home",
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "title": "Nuestros clientes",
+      "url": ""
+    }, {
+      "id": 2,
+      "order": 2,
+      "title": "Nuestros Productos",
+      "url": ""
+    }, {
+      "id": 3,
+      "order": 3,
+      "title": "Nuestras novedades",
+      "url": ""
+    }]
+  }, {
+    "id": 2,
+    "order": 2,
+    "icon": "<i class=\"icofont-brand-microsoft\"></i>",
+    "title": "Productos",
+    "description": "Listado de productos",
+    "url": "/products/1",
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "title": "SmartConnect",
+      "url": "/products/1"
+    }, {
+      "id": 2,
+      "order": 2,
+      "title": "SmartChart",
+      "url": "/products/2"
+    }, {
+      "id": 3,
+      "order": 3,
+      "title": "Testimonios",
+      "url": ""
+    }]
+  }, {
+    "id": 3,
+    "order": 3,
+    "icon": "<i class=\"icofont-pay\"></i>",
+    "title": "Planes y precios",
+    "description": "Nuestros planes",
+    "url": "/plans",
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "title": "Alternativas de pago",
+      "url": "/plans"
+    }]
+  }, {
+    "id": 4,
+    "order": 4,
+    "icon": "<i class=\"icofont-archive\"></i>",
+    "title": "Recursos",
+    "description": "Informacion en general",
+    "url": "/resources",
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "title": "Preguntas frecuentas",
+      "url": "/resources"
+    }, {
+      "id": 2,
+      "order": 2,
+      "title": "Manuales de uso",
+      "url": "/resources/help"
+    }, {
+      "id": 3,
+      "order": 3,
+      "title": "Blog",
+      "url": "/resources/news"
+    }]
+  },{
+    "id": 5,
+    "order": 5,
+    "icon": "<i class=\"icofont-id\"></i>",
+    "title": "Acerca de Smart",
+    "description": "Infromacion de interés",
+    "url": "/aboutus",
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "title": "Nosotros",
+      "url": "/aboutus"
+    }, {
+      "id": 2,
+      "order": 2,
+      "title": "¿Por qué Smart?",
+      "url": "/whysmart"
+    }]
+  }, {
+    "id": 6,
+    "order": 6,
+    "icon": "<i class=\"icofont-book-alt\"></i>",
+    "title": "Privacidad",
+    "description": "Politicas y terminos legales",
+    "url": "/privacy-policies",
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "title": "Políticas de privacidad",
+      "url": "/privacy-policies"
+    }, {
+      "id": 2,
+      "order": 2,
+      "title": "Términos legales",
+      "url": "/legal-terms"
+    }]
+  }, {
+    "id": 7,
+    "order": 7,
+    "icon": "<i class=\"icofont-email\"></i>",
+    "title": "Contáctanos",
+    "description": "Ponte en contacto",
+    "url": "/contacts",
+    "nodes": []
+  }]
+}

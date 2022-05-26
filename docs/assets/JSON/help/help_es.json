@@ -1,0 +1,152 @@
+{
+  "browser": [{
+    "id": 1,
+    "order": 1,
+    "title": "Recursos - Manuales de uso",
+    "description": ""
+  }],
+  "header": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "title": "¿Cómo podemos ayudarte?",
+    "description": "",
+    "links": [{}],
+    "form": [{
+      "id": 1,
+      "order": 1,
+      "img": "",
+      "title": "",
+      "description": "",
+      "form": [{
+        "name": "frmSendSearch",
+        "objects": [{
+          "id": 1,
+          "order": 1,
+          "type": "text",
+          "field_name": "txt_search",
+          "fc_name": "fcn_search",
+          "label": "Buscar"
+        }],
+        "buttons": [{
+          "id": 1,
+          "order": 1,
+          "type": "btn",
+          "icon": "",
+          "url": "",
+          "title": "Buscar"
+        }]
+      }]
+    }]
+  }],
+  "products": [{
+    "id": 1,
+    "order": 1,
+    "img": "",
+    "title": "SmartConnect",
+    "description": "",
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "url": "/resources/help/feature/1",
+      "title": "Características avanzadas"
+    }, {
+      "id": 2,
+      "order": 2,
+      "url": "/resources/help/feature/1",
+      "title": "Funciones integradas"
+    }, {
+      "id": 3,
+      "order": 3,
+      "url": "/resources/help/feature/1",
+      "title": "Tips"
+    }]
+  }, {
+    "id": 2,
+    "order": 2,
+    "img": "",
+    "title": "SmartChart",
+    "description": "",
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "url": "/resources/help/feature/2",
+      "title": "Características avanzadas"
+    }, {
+      "id": 2,
+      "order": 2,
+      "url": "/resources/help/feature/2",
+      "title": "Funciones integradas"
+    }, {
+      "id": 3,
+      "order": 3,
+      "url": "/resources/help/feature/2",
+      "title": "Tips"
+    }]
+  }, {
+    "id": 3,
+    "order": 3,
+    "img": "",
+    "title": "SmartWork",
+    "description": "",
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "url": "/resources/help/feature/3",
+      "title": "Características avanzadas"
+    }, {
+      "id": 2,
+      "order": 2,
+      "url": "/resources/help/feature/3",
+      "title": "Funciones integradas"
+    }, {
+      "id": 3,
+      "order": 3,
+      "url": "/resources/help/feature/3",
+      "title": "Tips"
+    }]
+  }, {
+    "id": 4,
+    "order": 4,
+    "img": "",
+    "title": "SmartSuite",
+    "description": "",
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "url": "/resources/help/feature/4",
+      "title": "Características avanzadas"
+    }, {
+      "id": 2,
+      "order": 2,
+      "url": "/resources/help/feature/4",
+      "title": "Funciones integradas"
+    }, {
+      "id": 3,
+      "order": 3,
+      "url": "/resources/help/feature/4",
+      "title": "Tips"
+    }]
+  }],
+  "cta": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "img": "",
+    "title": "¿Encontraste lo que buscabas?",
+    "description": "También puedes leer",
+    "links": [{
+      "id": 1,
+      "order": 1,
+      "type": "btn",
+      "url": "http://smart.alphagrupo.com/register",
+      "title": "Preguntas frecuentes"
+    }, {
+      "id": 2,
+      "order": 2,
+      "type": "btn",
+      "url": "http://smart.alphagrupo.com/register",
+      "title": "Nuestro Blog"
+    }]
+  }]
+}

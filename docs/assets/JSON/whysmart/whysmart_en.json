@@ -1,0 +1,124 @@
+{
+  "browser": [{
+    "id": 1,
+    "order": 1,
+    "title": "Why Smart?",
+    "description": ""
+  }],
+  "header": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "video": "",
+    "title": "Why Smart?",
+    "description": " Learn about the benefits of integrating our three solutions: SmartConnect, SmartChart and SmartWork. Try them now!",
+    "links": [{}]
+  }],
+  "benefits": [{
+    "id": 1,
+    "order": 1,
+    "title": "",
+    "description": "",
+    "nodes": [{
+        "id": 1,
+        "order": 1,
+        "position": "left",
+        "title_head": "",
+        "title": "Consolidated information",
+        "description": "Manage from one place the contact information of your collaborators as well as the structure and job profiles of your company.",
+        "media": [{
+          "id": 1,
+          "order": 1,
+          "type": "img",
+          "url": "https://via.placeholder.com/400x300"
+        }]
+      },
+      {
+        "id": 2,
+        "order": 2,
+        "position": "right",
+        "title_head": "",
+        "title": "Easy to use",
+        "description": "Intuitive applications that facilitate implementation in your organization, with web and mobile versions. Also perfect for personal use!",
+        "media": [{
+          "id": 1,
+          "order": 1,
+          "type": "img",
+          "url": "https://via.placeholder.com/400x300"
+        }]
+      },
+      {
+        "id": 3,
+        "order": 3,
+        "position": "left",
+        "title_head": "",
+        "title": "Security and privacy",
+        "description": "Through our role and session system, assign permissions and guarantee the safe use of information by sharing what you want.",
+        "media": [{
+          "id": 1,
+          "order": 1,
+          "type": "img",
+          "url": "https://via.placeholder.com/400x300"
+        }]
+      },
+      {
+        "id": 4,
+        "order": 4,
+        "position": "right",
+        "title_head": "",
+        "title": "Immediate update",
+        "description": "Our applications allow any modification made to be consulted in real time by all users who share such information.",
+        "media": [{
+          "id": 1,
+          "order": 1,
+          "type": "img",
+          "url": "https://via.placeholder.com/400x300"
+        }]
+      },
+      {
+        "id": 5,
+        "order": 5,
+        "position": "left",
+        "title_head": "",
+        "title": "Smart investment",
+        "description": "Enjoy all the benefits of efficient and innovative applications at an affordable cost. Try them today!",
+        "media": [{
+          "id": 1,
+          "order": 1,
+          "type": "img",
+          "url": "https://via.placeholder.com/400x300"
+        }]
+      },
+      {
+        "id": 6,
+        "order": 6,
+        "position": "right",
+        "title_head": "",
+        "title": "Collaborative environment",
+        "description": "Work together with your teammates at the same time. Forget the old days where you were looking for who has the latest updated version.",
+        "media": [{
+          "id": 1,
+          "order": 1,
+          "type": "img",
+          "url": "https://via.placeholder.com/400x300"
+        }]
+      }
+    ]
+  }],
+  "cta": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "img": "",
+    "title": "Sign up for Smart now!",
+    "description": "Learn more about our company and our way of doing things at:",
+    "links": [{
+      "id": 1,
+      "order": 1,
+      "type": "btn",
+      "title": "Enter here!",
+      "description": "",
+      "url": ""
+    }]
+  }]
+}

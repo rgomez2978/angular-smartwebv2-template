@@ -1,0 +1,169 @@
+{
+  "browser": [{
+    "id": 1,
+    "order": 1,
+    "title": "Resources - Blog",
+    "description": ""
+  }],
+  "header": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "title": "Blog",
+    "description": "",
+    "links": [{}],
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "active": false,
+      "title": "Strategic planning",
+      "url": "strategic-planning"
+    }, {
+      "id": 2,
+      "order": 2,
+      "active": false,
+      "title": "Human development",
+      "url": "human-development"
+    }, {
+      "id": 3,
+      "order": 3,
+      "active": false,
+      "title": "Leadership",
+      "url": "leadership"
+    }, {
+      "id": 4,
+      "order": 4,
+      "active": false,
+      "title": "Organizational culture",
+      "url": "organizational-culture"
+    }, {
+      "id": 5,
+      "order": 5,
+      "active": false,
+      "title": "Finance",
+      "url": "finance"
+    }, {
+      "id": 6,
+      "order": 6,
+      "active": false,
+      "title": "All",
+      "url": "/resources/news"
+    }]
+  }],
+  "filter": [{
+    "title": "Sort by:",
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "url": "",
+      "title": "More popular"
+    }, {
+      "id": 2,
+      "order": 2,
+      "url": "",
+      "title": "Publication date"
+    }]
+  }],
+  "news": [{
+    "id": 1,
+    "order": 1,
+    "category":"strategic-planning",
+    "title": "5 tips to work on your strategic planning",
+    "description": "Learn how to use our management tool that allows you to efficiently establish your next steps as an organization.",
+    "date": "2021/05/05",
+    "url_title": "Read more",
+    "url": "details/1",
+    "media": [{
+      "id": 1,
+      "order": 1,
+      "type": "img",
+      "url": "https://via.placeholder.com/300x200",
+      "file": "https://via.placeholder.com/300x200"
+    }]
+  }, {
+    "id": 2,
+    "order": 2,
+    "category":"strategic-planning",
+    "title": "How to enhance your organizational culture?",
+    "description": "It helps to take time to consider ways you can keep your team identified with your organization's mission. Find out how you can use our tools for that.",
+    "date": "2021/10/20",
+    "url_title": "Read more",
+    "url": "details/2",
+    "media": [{
+      "id": 1,
+      "order": 1,
+      "type": "img",
+      "url": "https://via.placeholder.com/300x200",
+      "file": "https://via.placeholder.com/300x200"
+    }]
+  }, {
+    "id": 3,
+    "order": 3,
+    "category": "human-development",
+    "title": "Steps for effective change management",
+    "description": "When it comes to planning a project, the work breakdown structure is one of the first things a project manager has to work on.",
+    "date": "2021/11/02",
+    "url_title": "Read more",
+    "url": "details/3",
+    "media": [{
+      "id": 1,
+      "order": 1,
+      "type": "img",
+      "url": "https://via.placeholder.com/300x200",
+      "file": "https://via.placeholder.com/300x200"
+    }]
+  }, {
+    "id": 4,
+    "order": 4,
+    "category": "leadership",
+    "title": "How can I reuse the shapes with attached images?",
+    "description": "Excepteur irure nisi exercitation qui culpa sint ea. Do non esse laborum elit. Aliquip anim dolor consectetur consectetur aute aute culpa adipisicing sit ullamco velit sit deserunt. Do commodo velit eu dolor dolore labore Lorem et quis anim velit reprehenderit non. Non eu veniam non pariatur labore nostrud est commodo culpa consectetur ut aute deserunt commodo.",
+    "date": "2021/11/02",
+    "url_title": "Read more",
+    "url": "details/4",
+    "media": [{
+      "id": 1,
+      "order": 1,
+      "type": "img",
+      "url": "https://via.placeholder.com/300x200",
+      "file": "https://via.placeholder.com/300x200"
+    }]
+  }, {
+    "id": 5,
+    "order": 5,
+    "category": "organizational-culture",
+    "title": "Where can the images be attached?",
+    "description": "Eu exercitation proident minim cillum anim culpa irure amet non consequat nostrud veniam. Nulla excepteur qui sunt laboris.Incididunt cupidatat est non proident esse cupidatat excepteur est aliqua commodo nulla sint in exercitation.",
+    "date": "2021/11/02",
+    "url_title": "Read more",
+    "url": "details/5",
+    "media": [{
+      "id": 1,
+      "order": 1,
+      "type": "img",
+      "url": "https://via.placeholder.com/300x200",
+      "file": "https://via.placeholder.com/300x200"
+    }]
+  }],
+  "menu": [{
+    "id": 1,
+    "order": 1,
+    "title": "Popular",
+    "nodes": [{
+      "id": 1,
+      "order": 1,
+      "title": "Strategic planning",
+      "url": ""
+    }, {
+      "id": 2,
+      "order": 2,
+      "title": "Organizational culture",
+      "url": ""
+    }, {
+      "id": 3,
+      "order": 3,
+      "title": "Customer satisfaction",
+      "url": ""
+    }]
+  }]
+}

@@ -1,0 +1,125 @@
+{
+  "browser": [{
+    "id": 1,
+    "order": 1,
+    "title": "About us",
+    "description": ""
+  }],
+  "header": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "video": "",
+    "title": "About us",
+    "description": "We want to give companies a global vision to increase their potential to make smart decisions.",
+    "links": [{}]
+  }],
+  "purpose": [{
+    "id": 1,
+    "order": 1,
+    "title": "Our purpose",
+    "description": "Integrate different perspectives into systems that offer complete solutions to facilitate the management of organizations in dynamic environments."
+  }],
+  "values": [{
+    "id": 1,
+    "order": 1,
+    "title": "Our values",
+    "description": "They represent an indispensable guide when making decisions and establishing strategies over time. They remind us daily of how to act to advance our purpose.",
+    "nodes": [{
+        "id": 1,
+        "order": 1,
+        "position": "left",
+        "title_head": "",
+        "title": "Confidence",
+        "description": "We trust in our ability to develop ourselves, achieve high levels of excellence and, as a team, go further. From there, we build our business and professional relationships.",
+        "media": [{
+          "id": 1,
+          "order": 1,
+          "type": "img",
+          "url": "https://via.placeholder.com/400x300"
+        }]
+      },
+      {
+        "id": 2,
+        "order": 2,
+        "position": "right",
+        "title_head": "",
+        "title": "Opportunity",
+        "description": "Recognizing a changing world, with a positive attitude we identify the opportunities behind the obstacles, especially in difficult times, and we commit ourselves to exceed the expectations of our clients.",
+        "media": [{
+          "id": 1,
+          "order": 1,
+          "type": "img",
+          "url": "https://via.placeholder.com/400x300"
+        }]
+      },
+      {
+        "id": 3,
+        "order": 3,
+        "position": "left",
+        "title_head": "",
+        "title": "Proactivity",
+        "description": "We generate innovative ideas for our clients and help them make them come true. We select those that add the most value, we take the initiative and take responsibility for making things happen.",
+        "media": [{
+          "id": 1,
+          "order": 1,
+          "type": "img",
+          "url": "https://via.placeholder.com/400x300"
+        }]
+      },
+      {
+        "id": 4,
+        "order": 4,
+        "position": "right",
+        "title_head": "",
+        "title": "Excellence",
+        "description": "We are committed to always going one step further and exceeding our previous level of quality in each activity we carry out. Our commitment is to exceed the expectations of our clients.",
+        "media": [{
+          "id": 1,
+          "order": 1,
+          "type": "img",
+          "url": "https://via.placeholder.com/400x300"
+        }]
+      },
+      {
+        "id": 5,
+        "order": 5,
+        "position": "left",
+        "title_head": "",
+        "title": "Perseverance",
+        "description": "We move steadily towards the achievement of our objectives and we seek different paths to achieve them. We intend to accompany our clients to achieve exceptional results together.",
+        "media": [{
+          "id": 1,
+          "order": 1,
+          "type": "img",
+          "url": "https://via.placeholder.com/400x300"
+        }]
+      }
+    ]
+  }],
+  "commercial": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "video": "",
+    "title": "About us",
+    "description": "We want to give companies a global vision to increase their potential to make smart decisions.",
+    "links": [{}]
+  }],
+  "cta": [{
+    "id": 1,
+    "order": 1,
+    "background": "",
+    "img": "",
+    "title": "Why Smart?",
+    "description": "Learn about the benefits of using Smart applications at:",
+    "links": [{
+      "id": 1,
+      "order": 1,
+      "type": "btn",
+      "title": "Enter here!",
+      "url": "/whysmart",
+      "description": ""
+    }]
+  }]
+}
